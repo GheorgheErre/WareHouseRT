@@ -11,6 +11,13 @@ public class SSD {
 	private String name;
 	private String capacity;
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getName() {
 		return name;
 	}
