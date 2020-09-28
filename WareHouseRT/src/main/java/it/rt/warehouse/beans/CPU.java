@@ -1,7 +1,13 @@
 package it.rt.warehouse.beans;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "cpu")
 public class CPU {
 
+	@Id
+	private int id;
 	private String name;
 	private int core;
 	private int threads;

@@ -1,7 +1,13 @@
 package it.rt.warehouse.beans;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "ram")
 public class RAM {
 
+	@Id
+	private int id;
 	private String name;
 	private String capacity;
 	private String frequencies;

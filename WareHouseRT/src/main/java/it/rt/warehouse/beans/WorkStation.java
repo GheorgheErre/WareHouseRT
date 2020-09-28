@@ -1,7 +1,9 @@
 package it.rt.warehouse.beans;
 
+
 public abstract class WorkStation {
 	
+
 	private CPU cpu;
 	private GPU gpu;
 	private RAM ram;
