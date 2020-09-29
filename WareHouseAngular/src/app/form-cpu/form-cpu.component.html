@@ -1,23 +1,29 @@
 <div class="container">
 	<div class="row">
 		<div class="col-auto">
-			<form (ngSubmit)="onsubmit()">
-				<div>
-					<label>name</label>
-					<input (ngModel)="cpu.name"></div>
-				<div class="form-group">
-					<label>core</label>
-					<input (ngModel)="cpu.core"></div>
-				<div class="form-group">
-					<label>threads</label>
-					<input (ngModel)="cpu.threads"></div>
-				<div class="form-group">
-					<label>baseClock</label>
-					<input (ngModel)="cpu.baseClock"></div>
-				<div class="form-group">
-					<label>maxBoostClock</label>
-					<input (ngModel)="cpu.maxBoostClock"></div>
-				<input type="submit">
+			<form (ngSubmit)="onsubmit()" id="formCPU">
+
+				<div class="form-group" id="CPUgroup">
+					<label>Name:</label>
+					<input (ngModel)="cpu.name" class="form-control">
+				</div>
+				<div class="form-group" id="CPUgroup">
+					<label>Core:</label>
+					<input (ngModel)="cpu.core" class="form-control"  >
+				</div>
+				<div class="form-group" id="CPUgroup">
+					<label>Threads:</label>
+					<input (ngModel)="cpu.threads" class="form-control" >
+				</div>
+				<div class="form-group" id="CPUgroup">
+					<label>Base-clock:</label>
+					<input (ngModel)="cpu.baseClock" class="form-control" >
+				</div>
+				<div class="form-group" id="CPUgroup">
+					<label>Max boost-clock:</label>
+					<input (ngModel)="cpu.maxBoostClock" class="form-control">
+				</div>
+				<button class="btn btn-primary">Invia Richiesta</button>
 			</form>
 		</div>
 	</div>
