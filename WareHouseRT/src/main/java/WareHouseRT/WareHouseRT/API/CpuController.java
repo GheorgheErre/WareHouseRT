@@ -3,6 +3,7 @@ package WareHouseRT.WareHouseRT.API;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +19,7 @@ public class CpuController {
 	private CpuService service;
 
 	@PostMapping("/saveCpu")
-	public void save(CPU cpu) {
+	public void save(@RequestBody CPU cpu) {
 		service.save(cpu);
 	}
 

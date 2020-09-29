@@ -12,7 +12,11 @@ public class CpuService {
 	@Autowired
 	private CpuRepository repo;
 	
+	@Autowired
+	private SequenceGeneratorService sequenceService;
+	
 	public void save(CPU cpu) {
+		cpu.setId(sequenceService.getNextSequence(CPU.SEQUENCE_NAME));
 		repo.save(cpu);
 	} 
 	
