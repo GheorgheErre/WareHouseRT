@@ -1,7 +1,7 @@
 export class Gpu {
-    private id: number;
-	private name: String ;
-	private memory: String ;
-	private baseClock: String ;
-	private maxBoostClock: String ;
+     id: number;
+	 name: String ;
+	 memory: String ;
+	 baseClock: String ;
+	 maxBoostClock: String ;
 }

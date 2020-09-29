@@ -1,5 +1,5 @@
 export class Ssd {
-    private id: number;
-	private name: String ;
-	private capacity: String;
+     id: number;
+	 name: String ;
+	 capacity: String;
 }

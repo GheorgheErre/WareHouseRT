@@ -1,7 +1,7 @@
 export class Ram {
 
-    private id: number;
-	private name: String ;
-	private capacity: String ;
-	private frequencies: String ;
+     id: number;
+	 name: String ;
+	 capacity: String ;
+	 frequencies: String ;
 }
