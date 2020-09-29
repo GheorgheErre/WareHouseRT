@@ -17,7 +17,7 @@ export class FormCPUComponent implements OnInit {
 
   onsubmit(): void {
 
-    this.cpuService.save(this.cpu).subscribe(result => console.log(result.id));
+    this.cpuService.save(this.cpu).subscribe(result => console.log("andata bene"));
   }
 
   ngOnInit(): void {
