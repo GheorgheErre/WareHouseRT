@@ -8,13 +8,13 @@ import { Cpu } from '../pcObjects/cpu/cpu';
 })
 export class CpuService {
 
-  private saveUrl : string;
+  private saveUrl: string;
 
   constructor(private http: HttpClient) {
     this.saveUrl = 'http://localhost:8080/api/saveCpu';
-   }
+  }
 
-   public save(cpu: Cpu){
-      return this.http.post<Cpu>(this.saveUrl, cpu);
-   }
+  public save(cpu: Cpu) {
+    return this.http.post<Cpu>(this.saveUrl, cpu);
+  }
 }
