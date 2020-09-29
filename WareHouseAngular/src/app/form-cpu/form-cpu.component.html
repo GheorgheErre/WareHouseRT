@@ -1,18 +1,24 @@
-<form (ngSubmit)="onsubmit()">
-	<div >
-	<label>name</label>
-	<input (ngModel)="cpu.name"></div>
-	<div class="form-group">
-	<label>core</label>
-	<input (ngModel)="cpu.core"></div>
-	<div class="form-group">
-	<label>threads</label>
-	<input (ngModel)="cpu.threads"></div>
-	<div class="form-group">
-	<label>baseClock</label>
-	<input (ngModel)="cpu.baseClock"></div>
-	<div class="form-group">
-	<label>maxBoostClock</label>
-	<input (ngModel)="cpu.maxBoostClock"></div>
-	<input type="submit">
-</form>
+<div class="container">
+	<div class="row">
+		<div class="col-auto">
+			<form (ngSubmit)="onsubmit()">
+				<div>
+					<label>name</label>
+					<input (ngModel)="cpu.name"></div>
+				<div class="form-group">
+					<label>core</label>
+					<input (ngModel)="cpu.core"></div>
+				<div class="form-group">
+					<label>threads</label>
+					<input (ngModel)="cpu.threads"></div>
+				<div class="form-group">
+					<label>baseClock</label>
+					<input (ngModel)="cpu.baseClock"></div>
+				<div class="form-group">
+					<label>maxBoostClock</label>
+					<input (ngModel)="cpu.maxBoostClock"></div>
+				<input type="submit">
+			</form>
+		</div>
+	</div>
+</div>
