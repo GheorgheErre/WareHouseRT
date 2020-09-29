@@ -21,8 +21,5 @@ public class RamController {
 	public void save(RAM ram) {
 		service.save(ram);
 	}
-	@RequestMapping("/ciaoRam")
-	public String save() {
-		return "ciao ram";
-	}
+
 }
