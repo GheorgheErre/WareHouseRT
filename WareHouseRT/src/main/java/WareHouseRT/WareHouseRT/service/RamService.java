@@ -1,5 +1,7 @@
 package WareHouseRT.WareHouseRT.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import WareHouseRT.WareHouseRT.beans.RAM;
@@ -17,6 +19,11 @@ public class RamService {
 	public void save(RAM ram) {
 		ram.setId(sequenceService.getNextSequence(RAM.SEQUENCE_NAME));
 		repo.save(ram);
+	}
+
+	public List<RAM> findAll() {
+		
+		return repo.findAll();
 	}
 	
 }

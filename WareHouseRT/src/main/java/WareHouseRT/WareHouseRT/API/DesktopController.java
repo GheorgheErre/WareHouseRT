@@ -1,12 +1,16 @@
 package WareHouseRT.WareHouseRT.API;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import WareHouseRT.WareHouseRT.beans.CPU;
 import WareHouseRT.WareHouseRT.beans.Desktop;
 import WareHouseRT.WareHouseRT.service.DesktopService;
 
@@ -22,4 +26,10 @@ public class DesktopController {
 	public void save(@RequestBody Desktop desktop) {
 		service.save(desktop);
 	}
+	
+	@GetMapping("/findAllDesktop")
+	public List<Desktop> findAll() {
+		return service.findAll();
+	}
+
 }

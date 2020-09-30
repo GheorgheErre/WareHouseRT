@@ -1,11 +1,15 @@
 package WareHouseRT.WareHouseRT.API;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 
 import WareHouseRT.WareHouseRT.beans.Laptop;
 import WareHouseRT.WareHouseRT.service.LaptopService;
@@ -22,4 +26,10 @@ public class LaptopController {
 	public void save(@RequestBody Laptop  laptop) {
 		service.save(laptop);
 	}
+	
+	@GetMapping("/findAllLaptop")
+	public List<Laptop> findAll() {
+		return service.findAll();
+	}
+
 }
