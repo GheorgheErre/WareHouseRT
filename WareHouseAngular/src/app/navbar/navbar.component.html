@@ -1,21 +1,34 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="#">Vedi magazzino</a>
-      <a mat-list-item href="#">Aggiungi articolo</a>
-      <a mat-list-item href="#">Cancella articolo</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar>
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <a class="navbar-brand" href="#"><img class="imageLogo" src="assets\img\__erretechnologygroup.png" alt=""></a>
-    </mat-toolbar>
-    <!-- Add Content Here -->
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<div class="container-fluid">
+
+  <nav id="sidebar">
+    <div class="col">
+      <div class="custom-menu">
+        <!-- bottone menu-->
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+          <i class="fa fa-bars"></i>
+        </button>
+      </div>
+
+      <div id="contenutoSidebar">
+        <h1><a href="index.html" class="menu">Menu</a></h1>
+
+        <ul class="list-unstyled" id="listaMenu">
+
+          <li>
+            <a href="#">Inserisci un nuovo articolo</a>
+          </li>
+          <li>
+            <a href="#">Cancella un articolo</a>
+          </li>
+          <li>
+            <a href="#">Visualizza intero magazzino</a>
+          </li>
+
+        </ul>
+        <div class="footer">
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</div>
