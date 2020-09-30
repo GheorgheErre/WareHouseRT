@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavbarComponent } from './navbar/navbar.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -28,7 +28,7 @@ import { FormCPUComponent } from './form/form-cpu/form-cpu.component';
   declarations: [
     AppComponent,
     HomePageComponent,
-    NavbarComponent,
+    SidebarComponent,
     FormCPUComponent,
     CpuListComponent,
     GpuListComponent,
