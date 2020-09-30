@@ -1,12 +1,14 @@
 package WareHouseRT.WareHouseRT.beans;
 
+import java.util.List;
+
 public abstract class WorkStation {
 
 	private CPU cpu;
-	private GPU gpu;
-	private RAM ram;
-	private HDD hdd;
-	private SSD ssd;
+	private List<GPU> gpu;
+	private List<RAM> ram;
+	private List<HDD> hdd;
+	private List<SSD> ssd;
 	private MotherBoard motherBoard;
 	private PowerSupplie powerSupplies;
 
@@ -18,35 +20,35 @@ public abstract class WorkStation {
 		this.cpu = cpu;
 	}
 
-	public GPU getGpu() {
+	public List<GPU> getGpu() {
 		return gpu;
 	}
 
-	public void setGpu(GPU gpu) {
+	public void setGpu(List<GPU> gpu) {
 		this.gpu = gpu;
 	}
 
-	public HDD getHdd() {
-		return hdd;
-	}
-
-	public void setHdd(HDD hdd) {
-		this.hdd = hdd;
-	}
-
-	public RAM getRam() {
+	public List<RAM> getRam() {
 		return ram;
 	}
 
-	public void setRam(RAM ram) {
+	public void setRam(List<RAM> ram) {
 		this.ram = ram;
 	}
 
-	public SSD getSsd() {
+	public List<HDD> getHdd() {
+		return hdd;
+	}
+
+	public void setHdd(List<HDD> hdd) {
+		this.hdd = hdd;
+	}
+
+	public List<SSD> getSsd() {
 		return ssd;
 	}
 
-	public void setSsd(SSD ssd) {
+	public void setSsd(List<SSD> ssd) {
 		this.ssd = ssd;
 	}
 
