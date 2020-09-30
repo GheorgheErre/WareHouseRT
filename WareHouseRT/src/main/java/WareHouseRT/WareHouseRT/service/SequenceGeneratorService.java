@@ -1,6 +1,5 @@
 package WareHouseRT.WareHouseRT.service;
 
-import java.util.Objects;
 import static org.springframework.data.mongodb.core.FindAndModifyOptions.options;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
@@ -14,24 +13,14 @@ import WareHouseRT.WareHouseRT.beans.DatabaseSequence;
 
 @Service
 public class SequenceGeneratorService {
-	
-	@Autowired 
+
+	@Autowired
 	private MongoOperations mongo;
 
-    public long getNextSequence(String seqName)
-    {
-        DatabaseSequence counter = mongo.findAndModify(
-            query(where("_id").is(seqName)),
-            new Update().inc("seq",1),
-            options().returnNew(true).upsert(true),
-            DatabaseSequence.class);
-        return counter.getSeq();
-    }
+	public long getNextSequence(String seqName) {
+		DatabaseSequence counter = mongo.findAndModify(query(where("_id").is(seqName)), new Update().inc("seq", 1),
+				options().returnNew(true).upsert(true), DatabaseSequence.class);
+		return counter.getSeq();
+	}
 
-//	public long generateSequence(String seqName) {
-//	    DatabaseSequence counter = MongoOperations.findAndModify(query(where("_id").is(seqName)),
-//	      new Update().inc("seq",1), options().returnNew(true).upsert(true),
-//	      DatabaseSequence.class);
-//	    return !Objects.isNull(counter) ? counter.getSeq() : 1;
-//	}
 }

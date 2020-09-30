@@ -11,7 +11,11 @@ public class DesktopService {
 	@Autowired
 	private DesktopRepository repo;
 	
+	@Autowired
+	private SequenceGeneratorService sequenceService;
+	
 	public void save(Desktop desktop) {
+		desktop.setId(sequenceService.getNextSequence(Desktop.SEQUENCE_NAME));
 		repo.save(desktop);
 	}
 	
