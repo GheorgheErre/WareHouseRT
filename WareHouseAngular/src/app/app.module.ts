@@ -22,6 +22,7 @@ import { MotherBoardListComponent } from './show-list-article/mother-board-list/
 import { PowerSupplieListComponent } from './show-list-article/power-supplie-list/power-supplie-list.component';
 import { RamListComponent } from './show-list-article/ram-list/ram-list.component';
 import { SsdListComponent } from './show-list-article/ssd-list/ssd-list.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SsdListComponent } from './show-list-article/ssd-list/ssd-list.componen
     MotherBoardListComponent,
     PowerSupplieListComponent,
     RamListComponent,
-    SsdListComponent
+    SsdListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

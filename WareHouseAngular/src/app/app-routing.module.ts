@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { CpuListComponent } from './show-list-article/cpu-list/cpu-list.component';
+import { LoginComponent } from "./login/login.component";
 
-const routes: Routes = [ {path:"", component: HomePageComponent}, {path:"cpulist", component: CpuListComponent}] ;
+const routes: Routes = [ {path:"", component: HomePageComponent}, {path:"cpulist", component: CpuListComponent}, {path:"login", component: LoginComponent}] ;
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
