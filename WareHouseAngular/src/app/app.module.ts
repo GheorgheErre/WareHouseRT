@@ -12,7 +12,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { FormCPUComponent } from './form-cpu/form-cpu.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CpuListComponent } from './show-list-article/cpu-list/cpu-list.component';
@@ -23,6 +22,7 @@ import { PowerSupplieListComponent } from './show-list-article/power-supplie-lis
 import { RamListComponent } from './show-list-article/ram-list/ram-list.component';
 import { SsdListComponent } from './show-list-article/ssd-list/ssd-list.component';
 import { LoginComponent } from './login/login.component';
+import { FormCPUComponent } from './form/form-cpu/form-cpu.component';
 
 @NgModule({
   declarations: [
