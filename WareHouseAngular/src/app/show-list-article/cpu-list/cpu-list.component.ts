@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CpuService } from 'src/app/service/cpu.service';
+import { CpuService } from 'src/app/service/service-cpu/cpu.service';
 import { Cpu } from 'src/app/pcObjects/cpu/cpu';
 
 @Component({
