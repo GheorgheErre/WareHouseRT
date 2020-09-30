@@ -1,0 +1,27 @@
+<div class="col-md-6">
+	<h2> User Details</h2>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th class="hidden">Id</th>
+				<th>Name</th>
+				<th>core</th>
+				<th>threads</th>
+				<th>baseClock</th>
+				<th>maxBoostClock</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let cpu of listCpu">
+				<td class="hidden"></td>
+			<td>{{cpu.name}}</td>
+				<td>{{cpu.core}}</td>
+				<td>{{cpu.threads}}</td>
+				<td>{{cpu.baseClock}}</td>
+				<td>{{cpu.maxBoostClock}}</td>
+				
+			</tr>
+		</tbody>
+	</table>
+</div>

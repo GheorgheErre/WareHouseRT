@@ -15,13 +15,27 @@ import { MatListModule } from '@angular/material/list';
 import { FormCPUComponent } from './form-cpu/form-cpu.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CpuListComponent } from './show-list-article/cpu-list/cpu-list.component';
+import { GpuListComponent } from './show-list-article/gpu-list/gpu-list.component';
+import { HddListComponent } from './show-list-article/hdd-list/hdd-list.component';
+import { MotherBoardListComponent } from './show-list-article/mother-board-list/mother-board-list.component';
+import { PowerSupplieListComponent } from './show-list-article/power-supplie-list/power-supplie-list.component';
+import { RamListComponent } from './show-list-article/ram-list/ram-list.component';
+import { SsdListComponent } from './show-list-article/ssd-list/ssd-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     NavbarComponent,
-    FormCPUComponent
+    FormCPUComponent,
+    CpuListComponent,
+    GpuListComponent,
+    HddListComponent,
+    MotherBoardListComponent,
+    PowerSupplieListComponent,
+    RamListComponent,
+    SsdListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,9 @@
 export class Cpu {
 
-	name: String;
-	core: number;
-	threads: number;
-	baseClock: String;
-	maxBoostClock: String;
+name: string;
+core: number;
+threads: number;
+baseClock: string;
+maxBoostClock: string;
 
 }
