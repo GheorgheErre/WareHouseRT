@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import WareHouseRT.WareHouseRT.beans.CPU;
 
 @Repository
-public interface CpuRepository  extends MongoRepository<CPU, Integer>{
+public interface CpuRepository  extends MongoRepository<CPU, Long>{
 
 }

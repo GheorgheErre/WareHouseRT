@@ -1,0 +1,23 @@
+package WareHouseRT.WareHouseRT.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import WareHouseRT.WareHouseRT.beans.User;
+import WareHouseRT.WareHouseRT.repository.UserRepository;
+
+@Service
+public class UserService {
+	
+	@Autowired
+	private UserRepository repo;
+	
+	@Autowired
+	private SequenceGeneratorService sequenceService;
+	
+	public void save(User user) {
+		user.setId(sequenceService.getNextSequence(User.SEQUENCE_NAME));
+		repo.save(user);
+	} 
+	
+}
