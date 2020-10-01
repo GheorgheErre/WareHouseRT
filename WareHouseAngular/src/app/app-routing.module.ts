@@ -4,7 +4,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { CpuListComponent } from './show-list-article/cpu-list/cpu-list.component';
 import { LoginComponent } from "./login/login.component";
 
-const routes: Routes = [ {path:"", component: HomePageComponent}, {path:"cpulist", component: CpuListComponent}, {path:"login", component: LoginComponent}] ;
+const routes: Routes = [ {path:"home", component: HomePageComponent}, {path:"cpulist", component: CpuListComponent}, {path:"", component: LoginComponent}] ;
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

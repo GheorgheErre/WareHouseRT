@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -12,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CpuListComponent } from './show-list-article/cpu-list/cpu-list.component';
 import { GpuListComponent } from './show-list-article/gpu-list/gpu-list.component';
@@ -23,6 +23,7 @@ import { RamListComponent } from './show-list-article/ram-list/ram-list.componen
 import { SsdListComponent } from './show-list-article/ssd-list/ssd-list.component';
 import { LoginComponent } from './login/login.component';
 import { FormCPUComponent } from './form/form-cpu/form-cpu.component';
+import { HttpInterceptorService } from './service/http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,11 @@ import { FormCPUComponent } from './form/form-cpu/form-cpu.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
