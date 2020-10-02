@@ -1,5 +1,10 @@
 package WareHouseRT.WareHouseRT.beans;
 
+/**
+ * 
+ * Class that rapresents the articles that can be added in the Warehouse. Contains generic datas shared among every article
+ *  
+ *  */
 public abstract class Article {
 	private String users;
 	private String brand;
