@@ -15,9 +15,17 @@ public class UserService {
 	@Autowired
 	private SequenceGeneratorService sequenceService;
 	
-	public void save(User user) {
+	public User save(User user) {
 		user.setId(sequenceService.getNextSequence(User.SEQUENCE_NAME));
-		repo.save(user);
+		 return repo.save(user);
 	} 
+	
+	public User getUserByUsername(String username) {
+		return repo.findByUsername(username);
+	}
+	
+	public User getUserByUsernameAndPassword(String username, String password) {
+		return repo.findByUsernameAndPassword(username, password);
+	}
 	
 }

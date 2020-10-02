@@ -5,5 +5,6 @@ import WareHouseRT.WareHouseRT.beans.User;
 
 public interface UserRepository extends MongoRepository<User, Long> {
 
-	User findByUsername(String username);
+	public User findByUsername(String username);
+	public User findByUsernameAndPassword(String username, String password);
 }

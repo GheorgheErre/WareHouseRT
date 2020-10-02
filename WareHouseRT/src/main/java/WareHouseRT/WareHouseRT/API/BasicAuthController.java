@@ -12,7 +12,7 @@ import WareHouseRT.WareHouseRT.beans.Authentication;
 @RequestMapping("/api")
 public class BasicAuthController {
 	
-	@GetMapping(path = "/basicauth")
+	@RequestMapping("/basicauth")
 	public Authentication helloWorldBean() {
 		return new Authentication("You are authenticated");
 	}
