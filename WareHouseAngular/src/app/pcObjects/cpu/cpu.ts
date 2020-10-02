@@ -1,9 +1,10 @@
-export class Cpu {
+import { Component } from '../component/component';
 
-name: string;
-core: number;
-threads: number;
-baseClock: string;
-maxBoostClock: string;
+export class Cpu extends Component {
+
+    core: number;
+    threads: number;
+    baseClock: string;
+    maxBoostClock: string;
 
 }
