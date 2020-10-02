@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "gpu")
-public class GPU extends Article{
+public class GPU extends Component{
 	
 	@Transient
 	public static final String SEQUENCE_NAME = "gpu_sequence";
