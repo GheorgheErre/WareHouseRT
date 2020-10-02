@@ -1,4 +1,5 @@
-import { Workstation } from "../workStation/workstation";
+import { Computer } from '../computer/computer';
 
-export class Desktop extends Workstation{
+export class Desktop extends Computer{
+    id: number
 }
