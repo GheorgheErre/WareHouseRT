@@ -1,8 +1,8 @@
 <div class="container-fluid justify-content-center">
     <div class="row justify-content-md-center mt-4">
         <div class="col-auto p-2 border rounded">
-            <form role="form" (ngSubmit)="loginUser()" #loginform="ngForm">
-                <h1 class="text-center">Login</h1>
+            <form role="form" (ngSubmit)="registerUser()" #registerform="ngForm">
+                <h1 class="text-center">Registration</h1>
                 <small class="text-danger">{{msg}}</small>
                 <div class="form-group">
                     <label>Username</label>
@@ -13,8 +13,7 @@
                     <input type="password" class="form-control" placeholder="Inserisci Password" name="password" [(ngModel)]="user.password">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-            </form>      
-            <small class="float-right" [routerLink]="['/registration']">New user? Register here</small>
+            </form>
         </div>
     </div>
 </div>

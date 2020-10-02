@@ -19,7 +19,7 @@ export class AuthenticationService {
 
   authenticationService(username: String, password: String) {
     return this.http.get(`http://localhost:8080/api/basicauth`,
-      { headers: { authorization: this.createBasicAuthToken(username, password), "Access-Control-Allow-Origin": "*", } }).pipe(map((res) => {
+      { headers: { authorization: this.createBasicAuthToken(username, password), "Access-Control-Allow-Origin": "*" } }).pipe(map((res) => {
         this.username = username;
         this.password = password;
         this.registerSuccessfulLogin(username, password);

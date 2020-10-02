@@ -24,6 +24,8 @@ import { SsdListComponent } from './show-list-article/ssd-list/ssd-list.componen
 import { LoginComponent } from './login/login.component';
 import { FormCPUComponent } from './form/form-cpu/form-cpu.component';
 import { HttpInterceptorService } from './service/http-interceptor.service';
+import { RegistrationComponent } from './registration/registration.component';
+import { LoginsuccessComponent } from './loginsuccess/loginsuccess.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { HttpInterceptorService } from './service/http-interceptor.service';
     PowerSupplieListComponent,
     RamListComponent,
     SsdListComponent,
-    LoginComponent
+    LoginComponent,
+    RegistrationComponent,
+    LoginsuccessComponent
   ],
   imports: [
     BrowserModule,
