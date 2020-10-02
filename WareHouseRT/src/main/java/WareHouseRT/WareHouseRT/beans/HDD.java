@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "hdd")
-public class HDD {
+public class HDD extends Article{
 
 	@Transient
 	public static final String SEQUENCE_NAME = "hdd_sequence";
