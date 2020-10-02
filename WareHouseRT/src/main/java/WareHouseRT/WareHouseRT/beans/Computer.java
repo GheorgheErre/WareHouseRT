@@ -2,7 +2,7 @@ package WareHouseRT.WareHouseRT.beans;
 
 import java.util.List;
 
-public abstract class WorkStation {
+public abstract class Computer extends Article{
 
 	private CPU cpu;
 	private List<GPU> gpu;

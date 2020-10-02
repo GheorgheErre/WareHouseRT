@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "desktop")
-public class Desktop extends WorkStation{
+public class Desktop extends Computer{
 
 	@Transient
 	public static final String SEQUENCE_NAME = "desktop_sequence";
