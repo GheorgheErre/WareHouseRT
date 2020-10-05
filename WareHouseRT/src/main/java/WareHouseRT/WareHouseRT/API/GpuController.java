@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import WareHouseRT.WareHouseRT.beans.CPU;
 import WareHouseRT.WareHouseRT.beans.GPU;
 import WareHouseRT.WareHouseRT.service.GpuService;
 
