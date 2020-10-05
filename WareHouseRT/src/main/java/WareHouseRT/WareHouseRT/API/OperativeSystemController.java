@@ -9,23 +9,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import WareHouseRT.WareHouseRT.beans.Cable;
-import WareHouseRT.WareHouseRT.service.CableService;
+import WareHouseRT.WareHouseRT.beans.OperativeSystem;
+import WareHouseRT.WareHouseRT.service.OperativeSystemService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api")
-public class CableController {
+public class OperativeSystemController {
 	
-	private CableService service;
-	
-	@PostMapping("/saveCable")
-	public void save(@RequestBody Cable cable) {
-		service.save(cable);
+	private OperativeSystemService service;
+
+	@PostMapping("/saveOperativeSystem")
+	public void save(@RequestBody OperativeSystem operativeSystem) {
+		service.save(operativeSystem);
 	}
-	
-	@GetMapping("/findAllCable")
-	public List<Cable> findAll() {
+
+	@GetMapping("/findAllOperativeSystem")
+	public List<OperativeSystem> findAll() {
 		return service.findAll();
 	}
 

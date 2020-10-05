@@ -9,23 +9,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import WareHouseRT.WareHouseRT.beans.Cable;
-import WareHouseRT.WareHouseRT.service.CableService;
+import WareHouseRT.WareHouseRT.beans.Cellphone;
+import WareHouseRT.WareHouseRT.service.CellphoneService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api")
-public class CableController {
-	
-	private CableService service;
-	
-	@PostMapping("/saveCable")
-	public void save(@RequestBody Cable cable) {
-		service.save(cable);
+public class CellphoneController {
+
+	private CellphoneService service;
+
+	@PostMapping("/saveCellphone")
+	public void save(@RequestBody Cellphone cellphone) {
+		service.save(cellphone);
 	}
-	
-	@GetMapping("/findAllCable")
-	public List<Cable> findAll() {
+
+	@GetMapping("/findAllCellphone")
+	public List<Cellphone> findAll() {
 		return service.findAll();
 	}
 
