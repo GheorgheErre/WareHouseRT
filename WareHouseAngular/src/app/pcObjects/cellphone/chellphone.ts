@@ -1,6 +1,6 @@
 import { Article } from '../article/article';
 
-export class Chellphone extends Article{
+export class Cellphone extends Article{
     imeiCode: String;
 	operator: String;
 	phoneNumber: String;
