@@ -19,7 +19,7 @@ export class CellphoneService {
   }
 
   public save(cellphone: Cellphone) {
-    return this.http.post<Cellphone>(this.saveUrl, Cellphone);
+    return this.http.post<Cellphone>(this.saveUrl, cellphone);
   }
 
   public findAll(): Observable<Cellphone[]> {

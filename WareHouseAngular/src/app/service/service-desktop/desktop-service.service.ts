@@ -1,30 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { DockingStation } from '../../pcObjects/dockingStation/docking-station';
+import { Desktop } from '../../pcObjects/desktop/desktop';
 import { Observable } from 'rxjs/internal/Observable';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class DockingStationService {
+export class DesktopService {
 
   private saveUrl: string;
   private getListUrl: string;
 
   constructor(private http: HttpClient) {
-    this.saveUrl = 'http://localhost:8080/api/saveDockingStation';
-    this.getListUrl = 'http://localhost:8080/api/findAllDockingStation';
+    this.saveUrl = 'http://localhost:8080/api/saveDesktop';
+    this.getListUrl = 'http://localhost:8080/api/findAllDesktop';
 
   }
 
-  public save(desktop: DockingStation) {
-    return this.http.post<DockingStation>(this.saveUrl, desktop);
+  public save(desktop: Desktop) {
+    return this.http.post<Desktop>(this.saveUrl, desktop);
   }
 
-  public findAll(): Observable<DockingStation[]> {
+  public findAll(): Observable<Desktop[]> {
 
-    return this.http.get<DockingStation[]>(this.getListUrl);
+    return this.http.get<Desktop[]>(this.getListUrl);
 
   }
 
