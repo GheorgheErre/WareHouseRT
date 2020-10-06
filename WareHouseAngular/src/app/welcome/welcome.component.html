@@ -1,0 +1,78 @@
+<header id="header">
+    <div class="container" id="container">
+        <div class="row h-100">
+
+            <div class="col-12">
+                <!--Navbar-->
+                <nav class="navbar">
+                    <div id="mySidenav" class="sidenav">
+                        <div class="row justify-content-end">
+                            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i
+                                    class="fas fa-times"></i></a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Page Intro -->
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-2">
+                        <a href=""><img src="logo erre_pittogramma_Tavola disegno 1.png" alt="" id="logo"></a>
+                    </div>
+                    <div class="col-xl-10 col-lg-10 col-md-auto col-sm-auto">
+                        <h1 id="line-1"><strong>WELCOME TO ERRE TECHNOLOGY WAREHOUSE</strong></h1>
+                        <h5 id="line-2"><strong> YOU DESIRE. WE DESIGN.</strong></h5>
+                        <hr class="trans--grow hr">
+                        <button class="btn btn-start-grow" id="btn-start" onclick="mediaQuery()">START NOW</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+
+    </div>
+</main>
+
+<script>
+
+    var i = window.matchMedia("(min-width: 1200px)")
+    var x = window.matchMedia("(min-width: 992px) and (max-width: 1199.98px)")
+    var y = window.matchMedia("(min-width: 768px) and (max-width: 991.98px)")
+    var f = window.matchMedia("(min-width: 576px) and (max-width: 767.98px)")
+
+    function mediaQuery() {
+        if (i.matches) { // If media query matches
+            openNav("100%")
+        } else if (x.matches) {
+            openNav("100%")
+        } else if (y.matches) {
+            openNav("100%")
+        } else if (f.matches) {
+            openNav("100%")
+        }
+    }
+
+    function openNav(sidenavHeight) {
+        document.getElementById("mySidenav").style.height = sidenavHeight;
+        document.getElementById("mySidenav").style.opacity = "1";
+        document.getElementById("mySidenav").style.transition = "1s";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.height = "0";
+        document.getElementById("mySidenav").style.transition = "1s";
+        document.getElementById("mySidenav").style.opacity = "0.1";
+    }
+    jQuery(document).ready(function ($) {
+        setTimeout(function () {
+            $('.trans--grow').addClass('grow');
+        }, 275);
+    });
+
+</script>

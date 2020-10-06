@@ -2,10 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Injectable, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomePageComponent } from './home-page/home-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -26,12 +24,11 @@ import { FormCPUComponent } from './form/form-cpu/form-cpu.component';
 import { HttpInterceptorService } from './service/http-interceptor.service';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginsuccessComponent } from './loginsuccess/loginsuccess.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent,
-    SidebarComponent,
     FormCPUComponent,
     CpuListComponent,
     GpuListComponent,
@@ -42,7 +39,8 @@ import { LoginsuccessComponent } from './loginsuccess/loginsuccess.component';
     SsdListComponent,
     LoginComponent,
     RegistrationComponent,
-    LoginsuccessComponent
+    LoginsuccessComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,101 @@
+html,
+body,
+#header {
+    height: 100%;
+}
+
+#header {
+    font-family: "Oswald", sans-serif;
+    background-image: url("/WareHouseRT/WareHouseAngular/src/assets/img/ufficio.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    transition: 0.6s;
+}
+#container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/*logo dentro all'header */
+#logo {
+    height: 150px;
+}
+
+/*scritte dentro al header*/
+#line-1 {
+    letter-spacing: 8px;
+    color: black;
+}
+
+#line-2 {
+    letter-spacing: 3px;
+    color: black;
+}
+
+/* HR line welcome */
+.hr {
+    margin-left: 0; /* fa partire l'hr da sinistra verso destra*/
+    padding: 2px 0;
+    background-color: black;
+    border: none;
+}
+.trans--grow {
+    -webkit-transition: width 1s ease-out; /* For Safari 3.1 to 6.0 */
+    transition: width 1s ease-out;
+    width: 0%;
+}
+.grow {
+    width: 95%;
+}
+
+/* Bottone start */
+#btn-start {
+    background-color: transparent;
+    color: black;
+    width: 150px;
+    border-radius: 50px;
+    border: 2px solid black;
+}
+#btn-start:hover {
+    background-color: black;
+    color: white;
+    transition: 0.7s;
+}
+
+/* Sidebar */
+.sidenav {
+    background-color: #fefeff;
+    left: 0;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    z-index: 1;
+    position: fixed;
+    overflow-x: hidden;
+    transition: 0.6s;
+}
+.sidenav a {
+    color: black;
+    letter-spacing: 3px;
+    font-size: 40px;
+    transition: 0.6s;
+}
+.sidenav a:hover {
+    color: grey;
+}
+#logo-sidebar {
+    margin-top: 50px;
+    height: 100px;
+    margin-bottom: 50px;
+}
+#sidebar-hr {
+    border: 1px solid black;
+    width: 90%;
+}
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
