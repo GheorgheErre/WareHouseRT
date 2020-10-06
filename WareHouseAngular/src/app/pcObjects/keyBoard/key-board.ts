@@ -1,4 +1,4 @@
 import { Article } from '../article/article';
 
-export class KeyBoard extends Article{
+export class Keyboard extends Article{
 }

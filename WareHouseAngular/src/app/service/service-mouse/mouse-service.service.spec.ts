@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MotherBoardService } from './mother-board.service';
+import { MouseServiceService } from './mouse-service.service';
 
-describe('MotherBoardService', () => {
-  let service: MotherBoardService;
+describe('MouseServiceService', () => {
+  let service: MouseServiceService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(MotherBoardService);
+    service = TestBed.inject(MouseServiceService);
   });
 
   it('should be created', () => {

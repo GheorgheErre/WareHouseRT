@@ -1,6 +1,6 @@
 import { Article } from '../article/article';
 
-export class GraficTablet extends Article{
+export class GraphicTablet extends Article{
 
     height: number;
     width: number;
