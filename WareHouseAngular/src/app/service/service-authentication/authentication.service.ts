@@ -15,13 +15,7 @@ export class AuthenticationService {
   }
 
   authenticate(username, password) {
-    return this.http.post<any>(`http://localhost:8080/api/authenticate`,{username, password}).pipe(
-      map( userData => {
-        sessionStorage.setItem('username', username);
-        let tokenStr = 'Bearer' + userData.token;
-        sessionStorage.setItem('toke', tokenStr);
-        return userData;
-      }));
+    return this.http.post<any>(`http://localhost:8080/api/authenticate`,{username, password});
   }
 
 
