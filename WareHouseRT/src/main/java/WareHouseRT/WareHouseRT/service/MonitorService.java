@@ -3,11 +3,13 @@ package WareHouseRT.WareHouseRT.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import WareHouseRT.WareHouseRT.beans.CPU;
 import WareHouseRT.WareHouseRT.beans.Monitor;
 import WareHouseRT.WareHouseRT.repository.MonitorRepository;
 
+@Service
 public class MonitorService {
 	
 	@Autowired
@@ -17,7 +19,7 @@ public class MonitorService {
 	private SequenceGeneratorService sequenceService;
 	
 	public void save(Monitor monitor) {
-		monitor.setId(sequenceService.getNextSequence(CPU.SEQUENCE_NAME));
+		monitor.setId(sequenceService.getNextSequence(Monitor.SEQUENCE_NAME));
 		repo.save(monitor);
 		
 	}

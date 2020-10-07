@@ -20,12 +20,12 @@ public class GenericArticleController {
 	@Autowired
 	private GenericArticleService service;
 
-	@PostMapping("/saveCpu")
+	@PostMapping("/saveGenericArticle")
 	public void save(@RequestBody GenericArticle genericArticle) {
 		service.save(genericArticle);
 	}
 	
-	@GetMapping("/findAllCpu")
+	@GetMapping("/findAllGenericArticle")
 	public List<GenericArticle> findAll() {
 		return service.findAll();
 	}

@@ -3,11 +3,12 @@ package WareHouseRT.WareHouseRT.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import WareHouseRT.WareHouseRT.beans.CPU;
 import WareHouseRT.WareHouseRT.beans.Cable;
 import WareHouseRT.WareHouseRT.repository.CableRepository;
 
+@Service
 public class CableService {
 	
 	@Autowired
@@ -17,7 +18,7 @@ public class CableService {
 	private SequenceGeneratorService sequenceService;
 
 	public void save(Cable cable) {
-		cable.setId(sequenceService.getNextSequence(CPU.SEQUENCE_NAME));
+		cable.setId(sequenceService.getNextSequence(Cable.SEQUENCE_NAME));
 		repo.save(cable);
 		
 	}

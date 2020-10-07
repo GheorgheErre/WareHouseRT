@@ -3,11 +3,12 @@ package WareHouseRT.WareHouseRT.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import WareHouseRT.WareHouseRT.beans.CPU;
 import WareHouseRT.WareHouseRT.beans.Mouse;
 import WareHouseRT.WareHouseRT.repository.MouseRepository;
-
+@Service
 public class MouseService {
 	
 	@Autowired
@@ -17,7 +18,7 @@ public class MouseService {
 	private SequenceGeneratorService sequenceService;
 	
 	public void save(Mouse mouse) {
-		mouse.setId(sequenceService.getNextSequence(CPU.SEQUENCE_NAME));
+		mouse.setId(sequenceService.getNextSequence(Mouse.SEQUENCE_NAME));
 		repo.save(mouse);
 		
 	}
