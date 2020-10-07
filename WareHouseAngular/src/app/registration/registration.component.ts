@@ -27,7 +27,7 @@ export class RegistrationComponent implements OnInit {
       },
       error =>{
         console.log("exception occurred");
-        this.msg = error.error;
+        this.msg = "Username già esistente";
       }
     )
   }

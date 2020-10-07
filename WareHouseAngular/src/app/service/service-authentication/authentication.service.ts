@@ -7,9 +7,6 @@ import { map, catchError } from 'rxjs/operators';
 })
 export class AuthenticationService {
 
-  // BASE_PATH: 'http://localhost:8080'
-  USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
-
   public username: String;
   public password: String;
 
@@ -17,37 +14,31 @@ export class AuthenticationService {
 
   }
 
-  authenticationService(username: String, password: String) {
-    return this.http.get(`http://localhost:8080/api/basicauth`,
-      { headers: { authorization: this.createBasicAuthToken(username, password), "Access-Control-Allow-Origin": "*" } }).pipe(map((res) => {
-        this.username = username;
-        this.password = password;
-        this.registerSuccessfulLogin(username, password);
+  authenticate(username, password) {
+    return this.http.post<any>(`http://localhost:8080/api/authenticate`,{username, password}).pipe(
+      map( userData => {
+        sessionStorage.setItem('username', username);
+        let tokenStr = 'Bearer' + userData.token;
+        sessionStorage.setItem('toke', tokenStr);
+        return userData;
       }));
   }
 
-  createBasicAuthToken(username: String, password: String) {
-    return 'Basic ' + window.btoa(username + ":" + password)
-  }
-
-  registerSuccessfulLogin(username, password) {
-    sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, username)
-  }
 
   logout() {
-    sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
+    sessionStorage.removeItem('username');
     this.username = null;
     this.password = null;
   }
 
   isUserLoggedIn() {
-    let user = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
+    let user = sessionStorage.getItem('username');
     if (user === null) return false
     return true
   }
 
   getLoggedInUserName() {
-    let user = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
+    let user = sessionStorage.getItem('username')
     if (user === null) return ''
     return user
   }
