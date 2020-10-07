@@ -1,0 +1,5 @@
+ng add @ng-bootstrap/ng-bootstrap
+npm install jquery -- save
+npm i @fortawesome/angular-fontawesome
+npm install @fortawesome/fontawesome-svg-core
+npm install @fortawesome/free-solid-svg-icons
