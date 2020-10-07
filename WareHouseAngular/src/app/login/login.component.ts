@@ -17,46 +17,27 @@ export class LoginComponent {
   faTimes = faTimes; /*icona che chiude la sidenav*/
   faGoogle = faGoogle;
   
-  /* username: string;
-   password : string;
-   errorMessage = 'Invalid Credentials';
-   successMessage: string;
-   invalidLogin = false;
-   loginSuccess = false;
-   */
-
   user = new User();
   msg = '';
+  isLoggedIn = false;
+  isLoginFailed = false;
 
-  constructor(private service: RegistrationService,
-    private route: ActivatedRoute,
-    private router: Router,
-    private authenticationService: AuthenticationService) { }
+ constructor(
+   private route: ActivatedRoute,
+   private router: Router,
+   private authenticationService: AuthenticationService) {   }
 
-  /*handleLogin() {
-     this.authenticationService.authenticationService(this.username, this.password).subscribe(result=> {
-       this.invalidLogin = false;
-       this.loginSuccess = true;
-       this.successMessage = 'Login Successful.';
-       this.router.navigate(['/home']);
-     }, () => {
-       this.invalidLogin = true;
-       this.loginSuccess = false;
-     });      
-   }*/
-
- /* loginUser() {
-    this.service.loginUserFromRemote(this.user).subscribe(
-      data => {
-        console.log("response recieved");
-        this.router.navigate(["/loginsuccess"])
-      },
-      error => {
-        console.log("exception occurred");
-        this.msg = "Bad credentials, please enter valid username and password";
-      }
-    )
-  }
-*/
+ loginUser(){
+   this.authenticationService.authenticate(this.user.username, this.user.password).subscribe(
+     data =>{ console.log("response recieved");
+     this.isLoginFailed = false;
+     this.isLoggedIn = true;
+     this.router.navigate(["/"])
+   },
+     error => {console.log("exception occurred");
+             this.msg = "Bad credentials, please enter valid username and password";
+ }
+   )
+}
 
 }
