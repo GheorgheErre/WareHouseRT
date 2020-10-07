@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { from } from 'rxjs';
 import { AuthenticationService } from '../service/service-authentication/authentication.service';
-import {NgForm} from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { RegistrationService } from '../service/service-registration/registration.service';
 import { User } from '../user';
-
+import { faTimes, } from '@fortawesome/free-solid-svg-icons';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'login',
@@ -13,44 +14,49 @@ import { User } from '../user';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
- /* username: string;
-  password : string;
-  errorMessage = 'Invalid Credentials';
-  successMessage: string;
-  invalidLogin = false;
-  loginSuccess = false;
-  */
+  faTimes = faTimes; /*icona che chiude la sidenav*/
+  faGoogle = faGoogle;
+  
+  /* username: string;
+   password : string;
+   errorMessage = 'Invalid Credentials';
+   successMessage: string;
+   invalidLogin = false;
+   loginSuccess = false;
+   */
 
-   user = new User();
-   msg = '';
+  user = new User();
+  msg = '';
 
-  constructor(private service : RegistrationService,
+  constructor(private service: RegistrationService,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService) {   }
+    private authenticationService: AuthenticationService) { }
 
- /*handleLogin() {
-    this.authenticationService.authenticationService(this.username, this.password).subscribe(result=> {
-      this.invalidLogin = false;
-      this.loginSuccess = true;
-      this.successMessage = 'Login Successful.';
-      this.router.navigate(['/home']);
-    }, () => {
-      this.invalidLogin = true;
-      this.loginSuccess = false;
-    });      
-  }*/
+  /*handleLogin() {
+     this.authenticationService.authenticationService(this.username, this.password).subscribe(result=> {
+       this.invalidLogin = false;
+       this.loginSuccess = true;
+       this.successMessage = 'Login Successful.';
+       this.router.navigate(['/home']);
+     }, () => {
+       this.invalidLogin = true;
+       this.loginSuccess = false;
+     });      
+   }*/
 
-  loginUser(){
+  loginUser() {
     this.service.loginUserFromRemote(this.user).subscribe(
-      data =>{ console.log("response recieved");
-      this.router.navigate(["/loginsuccess"])
-    },
-      error => {console.log("exception occurred");
-              this.msg = "Bad credentials, please enter valid username and password";
-  }
+      data => {
+        console.log("response recieved");
+        this.router.navigate(["/loginsuccess"])
+      },
+      error => {
+        console.log("exception occurred");
+        this.msg = "Bad credentials, please enter valid username and password";
+      }
     )
-}
+  }
 
 
 }

@@ -1,22 +1,75 @@
-<div class="container">
-    <div class="row">
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-auto">           
-            <form role="form" (ngSubmit)="loginUser()" #loginform="ngForm">
-                <h1>Login</h1>
-                <small class="text-danger">{{msg}}</small>
-                <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" class="form-control" placeholder="Inserisci Username" name="username"
-                        [(ngModel)]="user.username">
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" placeholder="Inserisci Password" name="password"
-                        [(ngModel)]="user.password">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-            <small class="float-right" [routerLink]="['/registration']">New user? Register here</small>
+<header id="header">
+    <div class="container">
+        <div class="row h-100">
+            <div class="col-12">
+                <a href="javascript:void(0)" id="close-btn" onclick="closeNav()">
+                    <fa-icon [icon]="faTimes"></fa-icon>
+                </a>
+            </div>
         </div>
     </div>
-</div>
+
+
+</header>
+
+<main id="main">
+    <div class="container" id="container-main">
+
+        <div class="form-container sign-in-container">
+            <form>
+                <h1>Sign in</h1>
+                <div class="social-container">
+                    <a href="#" class="social"> <fa-icon [icon]="faGoogle"></fa-icon></a>
+                </div>
+                <span>or use your email for registration</span>
+                <input type="email" placeholder="Email"/>
+                <input type="password" placeholder="Password"/>         
+                <button>Sign In</button>
+            </form>
+        </div>
+
+        <div class="form-container sign-up-container">
+            <form>
+                <h1>Create Account</h1>
+                <span>or use your email for registration</span>
+                <input type="text" placeholder="Name" />
+                <input type="email" placeholder="Email" />
+                <input type="password" placeholder="Password" />
+                <button>Sign Up</button>
+            </form>
+        </div>
+        
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Welcome!</h1>
+                    <p>Enter your personal details</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <form role="form" (ngSubmit)="loginUser()" #loginform="ngForm">
+                    <h1>Login</h1>
+                    <small class="text-danger">{{msg}}</small>
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" class="form-control" placeholder="Inserisci Username" name="username"
+                            [(ngModel)]="user.username">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" placeholder="Inserisci Password" name="password"
+                            [(ngModel)]="user.password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <small class="float-right" [routerLink]="['/registration']">New user? Register here</small>
+                -->
+</main>
