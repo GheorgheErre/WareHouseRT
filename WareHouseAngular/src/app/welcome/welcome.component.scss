@@ -4,9 +4,9 @@ body,
     height: 100%;
 }
 
-#header {
+#header{
     font-family: "Oswald", sans-serif;
-    background-image: url("/WareHouseRT/WareHouseAngular/src/assets/img/ufficio.jpg");
+    background-image: url("../welcome/img/ufficio.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -65,7 +65,7 @@ body,
 }
 
 /* Sidebar */
-.sidenav {
+#sidenav {
     background-color: #fefeff;
     left: 0;
     bottom: 0;
@@ -76,26 +76,14 @@ body,
     overflow-x: hidden;
     transition: 0.6s;
 }
-.sidenav a {
+#sidenav a {
     color: black;
     letter-spacing: 3px;
-    font-size: 40px;
     transition: 0.6s;
 }
-.sidenav a:hover {
-    color: grey;
+#close-btn{
+    
+    font-size: 25px;
+    
 }
-#logo-sidebar {
-    margin-top: 50px;
-    height: 100px;
-    margin-bottom: 50px;
-}
-#sidebar-hr {
-    border: 1px solid black;
-    width: 90%;
-}
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 10px;
-}
+

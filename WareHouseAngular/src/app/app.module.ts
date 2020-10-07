@@ -25,6 +25,7 @@ import { HttpInterceptorService } from './service/http-interceptor.service';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginsuccessComponent } from './loginsuccess/loginsuccess.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     MatIconModule,
     MatListModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

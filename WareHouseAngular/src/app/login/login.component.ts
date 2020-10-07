@@ -6,13 +6,13 @@ import {NgForm} from '@angular/forms';
 import { RegistrationService } from '../service/service-registration/registration.service';
 import { User } from '../user';
 
+
 @Component({
-  selector: 'app-login',
+  selector: 'login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-
  /* username: string;
   password : string;
   errorMessage = 'Invalid Credentials';
