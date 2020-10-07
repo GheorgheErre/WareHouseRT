@@ -1,9 +1,5 @@
-export class Article {
+import { Product } from '../product/product'
 
-    users: String
-    brand: String
-    model: String
-    serialNumber: String
-    location: String
-    userNumber: String
+export class Article extends Product{
+
 }
