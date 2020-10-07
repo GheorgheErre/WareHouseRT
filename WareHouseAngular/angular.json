@@ -34,8 +34,8 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "src/assets/js/js-welcome.js",
-              "src/assets/js/js-login.js"
+              "src/app/welcome/js/js-welcome.js",
+              "src/app/login/js/js-login.js"
             ]
           },
           "configurations": {

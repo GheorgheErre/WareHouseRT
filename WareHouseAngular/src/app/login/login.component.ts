@@ -45,7 +45,7 @@ export class LoginComponent {
      });      
    }*/
 
-  loginUser() {
+ /* loginUser() {
     this.service.loginUserFromRemote(this.user).subscribe(
       data => {
         console.log("response recieved");
@@ -57,6 +57,6 @@ export class LoginComponent {
       }
     )
   }
-
+*/
 
 }
