@@ -1,19 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Ram } from 'src/app/pcObjects/ram/ram';
+import { ServiceService } from '../service.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class RamService {
+export class RamService extends ServiceService{
 
-  private saveUrl: string;
-
-  constructor(private http: HttpClient) {
-    this.saveUrl = 'http://localhost:8080/api/saveRam';
+  
+  constructor(protected http: HttpClient) {
+    super(http);
+    super.saveUrl = 'http://localhost:8080/api/saveRam';
+    super.getListUrl = 'http://localhost:8080/api/findAllRam';
+    super.countUrl = 'http://localhost:8080/api/countRam';
    }
 
-   public save(ram: Ram) {
-    return this.http.post<Ram>(this.saveUrl, ram);
-  }
+ 
 }

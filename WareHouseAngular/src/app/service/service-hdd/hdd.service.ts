@@ -1,19 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Hdd } from 'src/app/pcObjects/hdd/hdd';
+import { ServiceService } from '../service.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HddService {
+export class HddService extends ServiceService{
 
-  private saveUrl: string;
 
-  constructor(private http: HttpClient) {
+
+  constructor(protected http: HttpClient) {
+    super(http);
     this.saveUrl = 'http://localhost:8080/api/saveHdd';
+    super.getListUrl = 'http://localhost:8080/api/findAllHdd';
+    super.countUrl = 'http://localhost:8080/api/countHdd';
    }
 
-   public save(hdd : Hdd) {
-    return this.http.post<Hdd>(this.saveUrl, hdd);
-  }
 }

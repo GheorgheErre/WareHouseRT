@@ -1,22 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { Cable } from 'src/app/pcObjects/cable/cable';
 import { CableService } from 'src/app/service/service-cable/cable.service';
+import { ProductList } from '../product-list/product-list';
 
 @Component({
   selector: 'app-cable-list',
   templateUrl: './cable-list.component.html',
   styleUrls: ['./cable-list.component.scss']
 })
-export class CableListComponent implements OnInit {
+export class CableListComponent extends ProductList implements OnInit {
 
-  listCable: Cable[];
 
-  constructor(private cableService: CableService) { }
+
+  constructor(private cableService: CableService) { 
+    super(cableService);
+  }
 
   ngOnInit(): void {
-    this.cableService.findAll().subscribe(list =>{
-      this.listCable=list;
-    })
+    this.findAllProduct();
+    
   }
 
 }

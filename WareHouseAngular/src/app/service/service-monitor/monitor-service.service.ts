@@ -1,30 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Monitor } from '../../pcObjects/monitor/monitor';
-import { Observable } from 'rxjs/internal/Observable';
+import { ServiceService } from '../service.service';
+
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class MonitorService {
+export class MonitorService extends ServiceService{
 
-  private saveUrl: string;
-  private getListUrl: string;
 
-  constructor(private http: HttpClient) {
-    this.saveUrl = 'http://localhost:8080/api/saveMonitor';
-    this.getListUrl = 'http://localhost:8080/api/findAllMonitor';
-
-  }
-
-  public save(monitor: Monitor) {
-    return this.http.post<Monitor>(this.saveUrl, monitor);
-  }
-
-  public findAll(): Observable<Monitor[]> {
-
-    return this.http.get<Monitor[]>(this.getListUrl);
+  constructor(protected http: HttpClient) {
+    super(http);
+    super.saveUrl = 'http://localhost:8080/api/saveMonitor';
+    super.getListUrl = 'http://localhost:8080/api/findAllMonitor';
+    super.countUrl = 'http://localhost:8080/api/countMonitor';
 
   }
 

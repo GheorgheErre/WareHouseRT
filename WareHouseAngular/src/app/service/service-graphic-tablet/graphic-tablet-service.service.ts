@@ -1,32 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { GraphicTablet } from '../../pcObjects/graficTablet/grafic-tablet';
-import { Observable } from 'rxjs/internal/Observable';
+import { ServiceService } from '../service.service';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class GraphicTabletService {
+export class GraphicTabletService  extends ServiceService{
 
-  private saveUrl: string;
-  private getListUrl: string;
 
-  constructor(private http: HttpClient) {
-    this.saveUrl = 'http://localhost:8080/api/saveGraphicTablet';
-    this.getListUrl = 'http://localhost:8080/api/findAllGraphicTablet';
-
-  }
-
-  public save(graphicTablet: GraphicTablet) {
-    return this.http.post<GraphicTablet>(this.saveUrl, graphicTablet);
-  }
-
-  public findAll(): Observable<GraphicTablet[]> {
-
-    return this.http.get<GraphicTablet[]>(this.getListUrl);
+  constructor(protected http: HttpClient) {
+    super(http);
+    super.saveUrl = 'http://localhost:8080/api/saveGraphicTablet';
+    super.getListUrl = 'http://localhost:8080/api/findAllGraphicTablet';
+    super.countUrl = 'http://localhost:8080/api/countGraphicTablet';
 
   }
 
-
+ 
 }

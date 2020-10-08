@@ -1,32 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { OperativeSystem } from '../../pcObjects/operativeSystem/operative-system';
-import { Observable } from 'rxjs/internal/Observable';
+import { ServiceService } from '../service.service';
+
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class OperativeSystemService {
+export class OperativeSystemService extends ServiceService{
 
-  private saveUrl: string;
-  private getListUrl: string;
 
-  constructor(private http: HttpClient) {
+  constructor(protected http: HttpClient) {
+    super(http);
     this.saveUrl = 'http://localhost:8080/api/saveOperativeSystem';
     this.getListUrl = 'http://localhost:8080/api/findAllOperativeSystem';
+    super.countUrl = 'http://localhost:8080/api/countOperativeSystem';
+
 
   }
 
-  public save(operativeSystem: OperativeSystem) {
-    return this.http.post<OperativeSystem>(this.saveUrl, operativeSystem);
-  }
-
-  public findAll(): Observable<OperativeSystem[]> {
-
-    return this.http.get<OperativeSystem[]>(this.getListUrl);
-
-  }
 
 
 }

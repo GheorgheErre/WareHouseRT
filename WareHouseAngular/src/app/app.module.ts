@@ -38,7 +38,6 @@ import { MouseListComponent } from './show-list-article/mouse-list/mouse-list.co
 import { OperativeSystemListComponent } from './show-list-article/operative-system-list/operative-system-list.component';
 import { SoftwareListComponent } from './show-list-article/software-list/software-list.component';
 import { TokenListComponent } from './show-list-article/token-list/token-list.component';
-import { ProductListComponent } from './show-list-article/product-list/product-list/product-list.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
@@ -71,7 +70,6 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     OperativeSystemListComponent,
     SoftwareListComponent,
     TokenListComponent,
-    ProductListComponent,
     SignInComponent,
     SignUpComponent
   ],

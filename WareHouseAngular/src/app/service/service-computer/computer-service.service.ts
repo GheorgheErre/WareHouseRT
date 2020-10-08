@@ -1,32 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Computer } from '../../pcObjects/computer/computer';
-import { Observable } from 'rxjs/internal/Observable';
+import { ServiceService } from '../service.service';
+
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class ComputerService {
+export class ComputerService extends ServiceService{
 
-  private saveUrl: string;
-  private getListUrl: string;
 
-  constructor(private http: HttpClient) {
-    this.saveUrl = 'http://localhost:8080/api/saveComputer';
-    this.getListUrl = 'http://localhost:8080/api/findAllComputer';
 
-  }
-
-  public save(computer: Computer) {
-    return this.http.post<Computer>(this.saveUrl, computer);
-  }
-
-  public findAll(): Observable<Computer[]> {
-
-    return this.http.get<Computer[]>(this.getListUrl);
+  constructor(protected http: HttpClient) {
+    super(http);
+    super.saveUrl = 'http://localhost:8080/api/saveComputer';
+    super.getListUrl = 'http://localhost:8080/api/findAllComputer';
+    super.countUrl = 'http://localhost:8080/api/countComputer';
 
   }
+
+ 
 
 
 }

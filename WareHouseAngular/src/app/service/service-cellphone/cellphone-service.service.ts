@@ -1,37 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Cellphone } from '../../pcObjects/cellphone/chellphone';
-import { Observable } from 'rxjs/internal/Observable';
+
+import { ServiceService } from '../service.service';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class CellphoneService {
+export class CellphoneService extends ServiceService{
 
-  private saveUrl: string;
-  private getListUrl: string;
-  private countUrl: string;
+
   
-  constructor(private http: HttpClient) {
-    this.saveUrl = 'http://localhost:8080/api/saveCellphone';
-    this.getListUrl = 'http://localhost:8080/api/findAllCellphone';
+  constructor(protected http: HttpClient) {
+    super(http);
+    super.saveUrl = 'http://localhost:8080/api/saveCellphone';
+    super.getListUrl = 'http://localhost:8080/api/findAllCellphone';
+    super.countUrl = 'http://localhost:8080/api/countCellphone';
 
   }
 
-  public save(cellphone: Cellphone) {
-    return this.http.post<Cellphone>(this.saveUrl, cellphone);
-  }
 
-  public findAll(): Observable<Cellphone[]> {
-
-    return this.http.get<Cellphone[]>(this.getListUrl);
-
-  }
-  public count(): Observable<Cellphone[]> {
-
-    return this.http.get<Cellphone[]>(this.countUrl);
-
-  }
 
 }

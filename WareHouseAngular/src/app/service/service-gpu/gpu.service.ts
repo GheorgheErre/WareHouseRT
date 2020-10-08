@@ -1,19 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Gpu } from 'src/app/pcObjects/gpu/gpu';
+
+import { ServiceService } from '../service.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GpuService {
+export class GpuService extends ServiceService{
 
-  private saveUrl: string;
+ 
 
-  constructor(private http: HttpClient) {
+  constructor(protected http: HttpClient) {
+    super(http);
     this.saveUrl = 'http://localhost:8080/api/saveGpu';
+    super.getListUrl = 'http://localhost:8080/api/findAllGpu';
+    super.countUrl = 'http://localhost:8080/api/countGpu';
   }
 
-  public save(gpu: Gpu) {
-    return this.http.post<Gpu>(this.saveUrl, gpu);
-  }
 }

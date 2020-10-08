@@ -1,19 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Powersupplie } from 'src/app/pcObjects/powerSupplie/powersupplie';
+import { ServiceService } from '../service.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PowerSupplieService {
+export class PowerSupplieService extends ServiceService{
 
-  private saveUrl: string;
 
-  constructor(private http: HttpClient) {
-    this.saveUrl = 'http://localhost:8080/api/savePowerSupplie';
+  
+
+  constructor(protected http: HttpClient) {
+    super(http);
+    super.saveUrl = 'http://localhost:8080/api/savePowerSupplie';
+    super.getListUrl = 'http://localhost:8080/api/findAllPowerSupplie';
+    super.countUrl = 'http://localhost:8080/api/countPowerSupplie';
   }
 
-  public save(powerSupplie: Powersupplie) {
-    return this.http.post<Powersupplie>(this.saveUrl, powerSupplie);
-  }
 }

@@ -1,32 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Desktop } from '../../pcObjects/desktop/desktop';
-import { Observable } from 'rxjs/internal/Observable';
+
+import { ServiceService } from '../service.service';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class DesktopService {
+export class DesktopService extends ServiceService{
 
-  private saveUrl: string;
-  private getListUrl: string;
 
-  constructor(private http: HttpClient) {
-    this.saveUrl = 'http://localhost:8080/api/saveDesktop';
-    this.getListUrl = 'http://localhost:8080/api/findAllDesktop';
 
-  }
-
-  public save(desktop: Desktop) {
-    return this.http.post<Desktop>(this.saveUrl, desktop);
-  }
-
-  public findAll(): Observable<Desktop[]> {
-
-    return this.http.get<Desktop[]>(this.getListUrl);
+  constructor(protected http: HttpClient) {
+    super(http);
+    super.saveUrl = 'http://localhost:8080/api/saveDesktop';
+    super.getListUrl = 'http://localhost:8080/api/findAllDesktop';
+    super.countUrl = 'http://localhost:8080/api/countDesktop';
 
   }
+
+  
 
 
 }

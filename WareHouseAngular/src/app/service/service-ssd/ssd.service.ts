@@ -1,19 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Ssd } from 'src/app/pcObjects/ssd/ssd';
+import { ServiceService } from '../service.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class SsdService {
+export class SsdService extends ServiceService{
 
-  private saveUrl: string;
 
-  constructor(private http: HttpClient) {
-    this.saveUrl = 'http://localhost:8080/api/saveSsd';
-   }
 
-   public save(ssd : Ssd) {
-    return this.http.post<Ssd>(this.saveUrl, ssd);
+  constructor(protected http: HttpClient) {
+    super(http);
+    super.saveUrl = 'http://localhost:8080/api/saveSsd';
+    super.getListUrl = 'http://localhost:8080/api/findAllSsd';
+    super.countUrl = 'http://localhost:8080/api/countSsd';
+
   }
+
 }

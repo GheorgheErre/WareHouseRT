@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Cellphone } from 'src/app/pcObjects/cellphone/chellphone';
 import { CellphoneService } from 'src/app/service/service-cellphone/cellphone-service.service';
+import { ProductList } from '../product-list/product-list';
 
 @Component({
   selector: 'app-cellphone-list',
   templateUrl: './cellphone-list.component.html',
   styleUrls: ['./cellphone-list.component.scss']
 })
-export class CellphoneListComponent implements OnInit {
+export class CellphoneListComponent extends ProductList implements OnInit {
 
-  listCellphone: Cellphone[];
 
-  constructor(private cellphoneService: CellphoneService) { }
+
+  constructor(private cellphoneService: CellphoneService) { 
+    super(cellphoneService);
+  }
 
   ngOnInit(): void {
-    this.cellphoneService.findAll().subscribe(list => {
-      this.listCellphone=list;
-  })
-
-}
+    this.findAllProduct();
+  }
 }
