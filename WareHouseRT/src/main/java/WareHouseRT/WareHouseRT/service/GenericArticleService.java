@@ -27,5 +27,11 @@ public class GenericArticleService {
 	public List<GenericArticle> findAll() {
 		return repo.findAll();
 	}
+	
+	public long count() {
+	
+		return repo.count();
+	}
+
 
 }

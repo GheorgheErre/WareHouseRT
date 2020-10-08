@@ -31,4 +31,9 @@ public class SsdController {
 		return service.findAll();
 	}
 
+	@GetMapping("/countSsd")
+	public long count() {
+		return service.count();
+	}
+
 }

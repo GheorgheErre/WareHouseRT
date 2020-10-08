@@ -27,5 +27,11 @@ public class DockingStationService {
 	public List<DockingStation> findAll() {
 		return repo.findAll();
 	}
+	
+	public long count() {
+	
+		return repo.count();
+	}
+
 
 }

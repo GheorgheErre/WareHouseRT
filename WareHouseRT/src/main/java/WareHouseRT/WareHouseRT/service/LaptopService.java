@@ -25,4 +25,8 @@ public class LaptopService {
 		return repo.findAll();
 	}
 	
+	public long count() {
+		
+		return repo.count();
+	}
 }

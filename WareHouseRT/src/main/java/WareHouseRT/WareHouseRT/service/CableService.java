@@ -26,6 +26,11 @@ public class CableService {
 	public List<Cable> findAll() {
 		return repo.findAll();
 	}
+	
+	public long count() {
+	
+		return repo.count();
+	}
 
 
 }

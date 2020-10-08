@@ -30,5 +30,8 @@ public class GpuController {
 		return service.findAll();
 	}
 
-
+	@GetMapping("/countGpu")
+	public long count() {
+		return service.count();
+	}
 }

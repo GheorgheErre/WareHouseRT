@@ -30,5 +30,11 @@ public class CableController {
 	public List<Cable> findAll() {
 		return service.findAll();
 	}
+	
+	@GetMapping("/countCable")
+	public long count() {
+		return service.count();
+	}
+
 
 }

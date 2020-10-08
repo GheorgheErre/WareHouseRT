@@ -30,4 +30,8 @@ public class RamController {
 		return service.findAll();
 	}
 
+	@GetMapping("/countRam")
+	public long count() {
+		return service.count();
+	}
 }

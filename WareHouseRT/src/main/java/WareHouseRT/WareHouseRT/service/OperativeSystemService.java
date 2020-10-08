@@ -28,4 +28,10 @@ public class OperativeSystemService {
 	public List<OperativeSystem> findAll() {
 		return repo.findAll();
 	}
+	
+	public long count() {
+		
+		return repo.count();
+	}
+
 }

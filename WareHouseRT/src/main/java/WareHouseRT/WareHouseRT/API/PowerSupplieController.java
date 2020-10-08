@@ -29,5 +29,10 @@ public class PowerSupplieController {
 		return service.findAll();
 	}
 
+	@GetMapping("/countPowerSupplie")
+	public long count() {
+		return service.count();
+	}
+
 	
 }

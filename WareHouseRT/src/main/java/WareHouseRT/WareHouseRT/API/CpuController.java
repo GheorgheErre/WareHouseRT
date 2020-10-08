@@ -33,4 +33,8 @@ public class CpuController {
 		return service.findAll();
 	}
 
+	@GetMapping("/countCpu")
+	public long count() {
+		return service.count();
+	}
 }

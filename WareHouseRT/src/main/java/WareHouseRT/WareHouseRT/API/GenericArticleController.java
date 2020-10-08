@@ -29,4 +29,8 @@ public class GenericArticleController {
 	public List<GenericArticle> findAll() {
 		return service.findAll();
 	}
+	@GetMapping("/countGenericArticle")
+	public long count() {
+		return service.count();
+	}
 }

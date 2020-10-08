@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import WareHouseRT.WareHouseRT.beans.Keyboard;
+import WareHouseRT.WareHouseRT.service.KeyboardService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api")
 public class KeyboardController {
 	@Autowired
-	private KeyboardController service;
+	private KeyboardService service;
 
 	@PostMapping("/saveKeyboard")
 	public void save(@RequestBody Keyboard keyboard) {
@@ -28,5 +29,11 @@ public class KeyboardController {
 	public List<Keyboard> findAll() {
 		return service.findAll();
 	}
+	
+	@GetMapping("/countKeyboard")
+	public long count() {
+		return service.count();
+	}
+
 
 }

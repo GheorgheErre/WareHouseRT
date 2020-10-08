@@ -27,4 +27,9 @@ public class MouseService {
 		return repo.findAll();
 	}
 
+	public long count() {
+		
+		return repo.count();
+	}
+
 }

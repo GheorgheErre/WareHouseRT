@@ -27,5 +27,9 @@ public class KeyboardService {
 	public List<Keyboard> findAll() {
 		return repo.findAll();
 	}
-
+	
+	public long count() {
+		
+		return repo.count();
+	}
 }

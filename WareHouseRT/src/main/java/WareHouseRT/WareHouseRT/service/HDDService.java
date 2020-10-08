@@ -27,4 +27,8 @@ public class HDDService{
 		return repo.findAll();
 	}
 	
+	public long count() {
+		
+		return repo.count();
+	}
 }

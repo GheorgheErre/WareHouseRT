@@ -24,4 +24,9 @@ public class GpuService {
 		return repo.findAll();
 	}
 	
+	public long count() {
+	
+		return repo.count();
+	}
+
 }

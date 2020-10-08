@@ -30,4 +30,10 @@ public class MonitorController {
 	public List<Monitor> findAll() {
 		return service.findAll();
 	}
+	
+	@GetMapping("/countMonitor")
+	public long count() {
+		return service.count();
+	}
+
 }

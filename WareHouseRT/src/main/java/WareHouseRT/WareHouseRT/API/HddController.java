@@ -25,9 +25,16 @@ public class HddController {
 	public void save(@RequestBody HDD hdd) {
 		service.save(hdd);
 	}
+	
 	@GetMapping("/findAllHdd")
 	public List<HDD> findAll() {
 		return service.findAll();
+	}
+	
+	
+	@GetMapping("/countHdd")
+	public long count() {
+		return service.count();
 	}
 
 }

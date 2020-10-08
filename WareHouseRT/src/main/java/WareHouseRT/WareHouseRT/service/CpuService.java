@@ -26,4 +26,9 @@ public class CpuService {
 		return repo.findAll();
 		
 	} 
+	public long count() {
+		
+		return repo.count();
+	}
+
 }

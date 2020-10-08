@@ -30,5 +30,8 @@ public class DesktopController {
 	public List<Desktop> findAll() {
 		return service.findAll();
 	}
-
+	@GetMapping("/countDesktop")
+	public long count() {
+		return service.count();
+	}
 }

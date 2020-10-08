@@ -31,5 +31,11 @@ public class LaptopController {
 	public List<Laptop> findAll() {
 		return service.findAll();
 	}
+	
+	@GetMapping("/countLaptop")
+	public long count() {
+		return service.count();
+	}
+
 
 }

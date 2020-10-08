@@ -29,5 +29,10 @@ public class DockingStationController {
 	public List<DockingStation> findAll() {
 		return service.findAll();
 	}
+	
+	@GetMapping("/countDockingStation")
+	public long count() {
+		return service.count();
+	}
 
 }

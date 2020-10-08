@@ -28,4 +28,9 @@ public class CellphoneService {
 		return repo.findAll();
 	}
 	
+	public long count() {
+		
+		return repo.count();
+	}
+	
 }

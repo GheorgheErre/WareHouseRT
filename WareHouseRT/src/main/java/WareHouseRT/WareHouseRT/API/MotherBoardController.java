@@ -29,4 +29,9 @@ public class MotherBoardController {
 		return service.findAll();
 	}
 
+	@GetMapping("/countMotherBoard")
+	public long count() {
+		return service.count();
+	}
+
 }

@@ -30,4 +30,8 @@ public class OperativeSystemController {
 		return service.findAll();
 	}
 
+	@GetMapping("/countOperativeSystem")
+	public long count() {
+		return service.count();
+	}
 }
