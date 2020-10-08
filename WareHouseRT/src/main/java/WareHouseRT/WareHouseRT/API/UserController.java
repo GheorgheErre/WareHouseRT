@@ -1,6 +1,7 @@
 package WareHouseRT.WareHouseRT.API;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import WareHouseRT.WareHouseRT.beans.AuthRequest;
+import WareHouseRT.WareHouseRT.beans.JwtResponse;
 import WareHouseRT.WareHouseRT.beans.User;
 import WareHouseRT.WareHouseRT.service.UserService;
 import WareHouseRT.WareHouseRT.util.JwtUtil;
@@ -45,24 +47,24 @@ public class UserController {
 		user.setEnabled(true);
 		return service.save(user);
 	}
-	
 
 	@PostMapping("/authenticate")
-	public String generateToken(@RequestBody AuthRequest authRequest) throws Exception {
+	public ResponseEntity<?> generateToken(@RequestBody AuthRequest authRequest) throws Exception {
 		try {
 			Authentication authentication = new UsernamePasswordAuthenticationToken(authRequest.getUsername(),
 					authRequest.getPassword());
-			
+
 			authenticationManager.authenticate(authentication);
 		} catch (Exception ex) {
 			throw new Exception("inavalid username/password");
 		}
-		return jwtUtil.generateToken(authRequest.getUsername());
+		String token = jwtUtil.generateToken(authRequest.getUsername());
+		return ResponseEntity.ok(new JwtResponse(token));
 	}
-	
+
 	@GetMapping("/prova")
 	public String provaAutenticazione() {
-		return "Prova autenticazione con token";
+		return "ci sei riuscito";
 	}
 
 }
