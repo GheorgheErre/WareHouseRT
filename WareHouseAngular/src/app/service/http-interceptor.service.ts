@@ -1,22 +1,29 @@
 import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { TokenStorageService } from './service-tokenStorage/token-storage.service';
+
+const TOKEN_HEADER_KEY = 'Authorization';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpInterceptorService implements HttpInterceptor {
 
-  constructor() { }
+  constructor(private tokenStorage: TokenStorageService) { }
 
-    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        if (sessionStorage.getItem('username') && sessionStorage.getIten('token')) {
+    intercept(req: HttpRequest<any>, next: HttpHandler) {
+      let token = this.tokenStorage.getToken();
+      let username = this.tokenStorage.getUser();
+        if (token && username) {
             req = req.clone({
-                setHeaders : {
-                    Authorization: sessionStorage.getItem('token')
-                }
+              setHeaders: {
+                Authorization: 'Bearer ' + token
+              }
             })
-                }
-            return next.handle(req);
+          }
+            return next.handle(req);              
     }
-}
+
+}   
+

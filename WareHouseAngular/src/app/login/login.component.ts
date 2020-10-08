@@ -30,18 +30,22 @@ export class LoginComponent {
 
  loginUser(){
    this.authenticationService.authenticate(this.user.username, this.user.password).subscribe(
-     data =>{ console.log("response recieved");
+     data => { console.log("data");
      this.tokenStorage.saveToken(data.token);
-     //this.tokenStorage.saveUser(data);
+     this.tokenStorage.saveUser(this.user.username);
      this.isLoginFailed = false;
      this.isLoggedIn = true;
-     this.router.navigate(["/"])
+     this.reloadPage();
    },
      error => {console.log("exception occurred");
              this.msg = "Bad credentials, please enter valid username and password";
              this.isLoginFailed = true;
  }
    )
+}
+
+reloadPage() {
+  window.location.reload();
 }
 
 }
