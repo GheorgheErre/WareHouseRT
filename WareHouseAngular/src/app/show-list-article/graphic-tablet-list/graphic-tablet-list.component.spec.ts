@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GraficTabletListComponent } from './grafic-tablet-list.component';
+import { GraphicTabletListComponent } from './graphic-tablet-list.component';
 
 describe('GraficTabletListComponent', () => {
-  let component: GraficTabletListComponent;
-  let fixture: ComponentFixture<GraficTabletListComponent>;
+  let component: GraphicTabletListComponent;
+  let fixture: ComponentFixture<GraphicTabletListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GraficTabletListComponent ]
+      declarations: [ GraphicTabletListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GraficTabletListComponent);
+    fixture = TestBed.createComponent(GraphicTabletListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

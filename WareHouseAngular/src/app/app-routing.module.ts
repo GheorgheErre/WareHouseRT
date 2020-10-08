@@ -11,7 +11,7 @@ import { CellphoneListComponent } from './show-list-article/cellphone-list/cellp
 import { DesktopListComponent } from './show-list-article/desktop-list/desktop-list.component';
 import { DockingStationListComponent } from './show-list-article/docking-station-list/docking-station-list.component';
 import { GpuListComponent } from './show-list-article/gpu-list/gpu-list.component';
-import { GraficTabletListComponent } from './show-list-article/grafic-tablet-list/grafic-tablet-list.component';
+import { GraphicTabletListComponent } from './show-list-article/graphic-tablet-list/graphic-tablet-list.component';
 import { HddListComponent } from './show-list-article/hdd-list/hdd-list.component';
 import { KeyboardListComponent } from './show-list-article/keyboard-list/keyboard-list.component';
 import { LaptopListComponent } from './show-list-article/laptop-list/laptop-list.component';
@@ -35,7 +35,7 @@ const routes: Routes = [
   {path:"desktoplist", component: DesktopListComponent},
   {path:"dockingStationlist", component: DockingStationListComponent},
   {path:"gpulist", component: GpuListComponent},
-  {path:"graficTabletlist", component: GraficTabletListComponent},
+  {path:"graficTabletlist", component: GraphicTabletListComponent},
   {path:"hddlist", component: HddListComponent},
   {path:"keyboardlist", component: KeyboardListComponent},
   {path:"laptoplist", component: LaptopListComponent},

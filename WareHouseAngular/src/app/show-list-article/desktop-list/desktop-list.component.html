@@ -1,1 +1,21 @@
-<p>desktop-list works!</p>
+<div class="col-md-6">
+	<h2> Desktop Details</h2>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th class="hidden">Id</th>
+				<th>Model</th>
+			
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let desktop of listProduct">
+				<td class="hidden"></td>
+			<td>{{desktop.model}}</td>
+			
+				
+			</tr>
+		</tbody>
+	</table>
+</div>

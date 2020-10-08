@@ -18,19 +18,19 @@ export abstract class ServiceService {
   
   }
 
-  public save(service: Product) {
-    return this.http.post<Product>(this.saveUrl, service);
+  public save(product: Product) {
+    return this.http.post<Product>(this.saveUrl, product);
   }
 
-  public findAll(): Observable<Product[]> {
+  public findAll(): Observable<any> {
 
-    return this.http.get<Product[]>(this.getListUrl);
+    return this.http.get(this.getListUrl);
 
   }
 
-  public count(): Observable<Product[]> {
+  public count(): Observable<any> {
 
-    return this.http.get<Product[]>(this.countUrl);
+    return this.http.get(this.countUrl);
 
   }
 

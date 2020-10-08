@@ -30,7 +30,7 @@ import { CableListComponent } from './show-list-article/cable-list/cable-list.co
 import { CellphoneListComponent } from './show-list-article/cellphone-list/cellphone-list.component';
 import { DesktopListComponent } from './show-list-article/desktop-list/desktop-list.component';
 import { DockingStationListComponent } from './show-list-article/docking-station-list/docking-station-list.component';
-import { GraficTabletListComponent } from './show-list-article/grafic-tablet-list/grafic-tablet-list.component';
+import { GraphicTabletListComponent } from './show-list-article/graphic-tablet-list/graphic-tablet-list.component';
 import { KeyboardListComponent } from './show-list-article/keyboard-list/keyboard-list.component';
 import { LaptopListComponent } from './show-list-article/laptop-list/laptop-list.component';
 import { MonitorListComponent } from './show-list-article/monitor-list/monitor-list.component';
@@ -62,7 +62,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     CellphoneListComponent,
     DesktopListComponent,
     DockingStationListComponent,
-    GraficTabletListComponent,
+    GraphicTabletListComponent,
     KeyboardListComponent,
     LaptopListComponent,
     MonitorListComponent,
