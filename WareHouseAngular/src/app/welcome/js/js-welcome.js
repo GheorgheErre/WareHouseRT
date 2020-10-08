@@ -16,8 +16,9 @@ function mediaQuery() {
     }
 }
 
-function openNav(loginHeight) {
-    document.getElementById("header-login").style.height = loginHeight;
+function openNav(containerHeight) {
+    
+    document.getElementById("header-login").style.height = containerHeight;
     document.getElementById("header-login").style.opacity = "1";
     document.getElementById("header-login").style.transition = "1s";
 }
