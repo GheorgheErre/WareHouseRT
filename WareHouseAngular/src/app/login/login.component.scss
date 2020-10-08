@@ -1,9 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@font-face {
+    font-family: Poppins;
+    src: url("./../../assets/fonts/Poppins-Light.ttf");
+}
 
+* {
+    font-family: "Poppins", sans-serif;
+}
 body,
 html {
-    font-family: "Oswald", sans-serif;
     height: 100%;
+}
+small {
+    margin-top: 10px;
 }
 
 form {
@@ -12,11 +20,38 @@ form {
     justify-content: center;
     flex-direction: column;
     text-align: center;
-
     padding: 20px;
 }
+#header-login {
+    position: fixed;
+    height: 0;
+    left: 0;
+    width: 100%;
+    bottom: -100px;
+    transition: 0.6s;
+}
+#container-login {
+    min-height: 500px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
 
-input {
+#col-sinistra {
+    background-color: white;
+}
+
+#col-destra {
+    background-color: #b1afaa;
+}
+
+/*LEFT LOGIN*/
+#h1-left {
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+#input-left {
     background: transparent;
     border: 2px solid black;
     border-radius: 50px;
@@ -24,61 +59,7 @@ input {
     margin: 8px 0;
     width: 100%;
 }
-h1 {
-    margin-bottom: 5px;
-}
-
-::placeholder {
-    color: black;
-    opacity: 1;
-}
-#main {
-    min-height: 100%;
-    display: flex;
-    align-items: center;
-}
-#container-main {
-    height: 100%;
-    min-height: 600px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    border-radius: 10px;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    background-color: white;
-}
-
-/*ICONA GOOGLE*/
-#social-logo {
-    margin: 10px;
-}
-
-#social-logo a {
-    border: 2px solid black;
-    border-radius: 50%;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    width: 40px;
-}
-#social {
-    color: black;
-}
-#social:hover {
-    background-color: black;
-    color: white;
-    transition: 0.7s;
-}
-
-#close-btn {
-
-  
-}
-button {
+#button-left {
     border-radius: 20px;
     border: 2px solid black;
     background-color: transparent;
@@ -87,8 +68,50 @@ button {
     text-transform: uppercase;
     transition: transform 80ms ease-in;
 }
-button:hover {
+#button-left:hover {
     background-color: black;
     color: white;
     transition: 0.7s;
+}
+#span-left {
+    margin-bottom: 20px;
+}
+
+/*RIGHT REGISTRATION*/
+#h1-right {
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    letter-spacing: 1px;
+    color: white;
+}
+#span-right {
+    margin-bottom: 20px;
+    color: white;
+}
+#input-right {
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 50px;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+}
+#button-right {
+    border-radius: 20px;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    padding: 5px 20px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+#button-right:hover {
+    background-color: black;
+    color: white;
+    transition: 0.7s;
+}
+
+::placeholder {
+    color: black;
+    opacity: 1;
 }

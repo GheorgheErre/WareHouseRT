@@ -39,6 +39,8 @@ import { OperativeSystemListComponent } from './show-list-article/operative-syst
 import { SoftwareListComponent } from './show-list-article/software-list/software-list.component';
 import { TokenListComponent } from './show-list-article/token-list/token-list.component';
 import { ProductListComponent } from './show-list-article/product-list/product-list/product-list.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,9 @@ import { ProductListComponent } from './show-list-article/product-list/product-l
     OperativeSystemListComponent,
     SoftwareListComponent,
     TokenListComponent,
-    ProductListComponent
+    ProductListComponent,
+    SignInComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

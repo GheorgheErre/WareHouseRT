@@ -16,16 +16,16 @@ function mediaQuery() {
     }
 }
 
-function openNav(sidenavHeight) {
-    document.getElementById("sidenav").style.height = sidenavHeight;
-    document.getElementById("sidenav").style.opacity = "1";
-    document.getElementById("sidenav").style.transition = "1s";
+function openNav(loginHeight) {
+    document.getElementById("header-login").style.height = loginHeight;
+    document.getElementById("header-login").style.opacity = "1";
+    document.getElementById("header-login").style.transition = "1s";
 }
 
 function closeNav() {
-    document.getElementById("sidenav").style.height = "0";
-    document.getElementById("sidenav").style.transition = "1s";
-    document.getElementById("sidenav").style.opacity = "0.1";
+    document.getElementById("header-login").style.height = "0";
+    document.getElementById("header-login").style.transition = "1s";
+    document.getElementById("header-login").style.opacity = "0.1";
 }
 jQuery(document).ready(function ($) {
     setTimeout(function () {
