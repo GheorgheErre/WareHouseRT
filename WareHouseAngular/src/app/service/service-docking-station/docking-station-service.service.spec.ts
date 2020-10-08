@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DockingStationServiceService } from './docking-station-service.service';
+import { DockingStationService } from './docking-station-service.service';
 
-describe('DockingStationServiceService', () => {
-  let service: DockingStationServiceService;
+describe('DockingStationService', () => {
+  let service: DockingStationService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DockingStationServiceService);
+    service = TestBed.inject(DockingStationService);
   });
 
   it('should be created', () => {

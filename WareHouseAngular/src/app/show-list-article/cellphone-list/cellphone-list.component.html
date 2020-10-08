@@ -1,1 +1,27 @@
-<p>cellphone-list works!</p>
+<div class="col-md-6">
+	<h2> Cellphone Details</h2>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th class="hidden">Id</th>
+				<th>imeiCode</th>
+				<th>operator</th>
+				<th>phoneNumber</th>
+				<th>rateTipology</th>
+			
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let cellphone of listCellphone">
+				<td class="hidden"></td>
+			<td>{{cellphone.imeiCode}}</td>
+				<td>{{cellphone.operator}}</td>
+				<td>{{cellphone.phoneNumber}}</td>
+				<td>{{cellphone.rateTipology}}</td>
+			
+				
+			</tr>
+		</tbody>
+	</table>
+</div>

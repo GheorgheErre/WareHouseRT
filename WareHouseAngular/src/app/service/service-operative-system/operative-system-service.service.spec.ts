@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { OperativeSystemServiceService } from './operative-system-service.service';
+import { OperativeSystemService } from './operative-system-service.service';
 
-describe('OperativeSystemServiceService', () => {
-  let service: OperativeSystemServiceService;
+describe('OperativeSystemService', () => {
+  let service: OperativeSystemService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(OperativeSystemServiceService);
+    service = TestBed.inject(OperativeSystemService);
   });
 
   it('should be created', () => {
