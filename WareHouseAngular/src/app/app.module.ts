@@ -38,6 +38,7 @@ import { MouseListComponent } from './show-list-article/mouse-list/mouse-list.co
 import { OperativeSystemListComponent } from './show-list-article/operative-system-list/operative-system-list.component';
 import { SoftwareListComponent } from './show-list-article/software-list/software-list.component';
 import { TokenListComponent } from './show-list-article/token-list/token-list.component';
+import { ProductListComponent } from './show-list-article/product-list/product-list/product-list.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { TokenListComponent } from './show-list-article/token-list/token-list.co
     MouseListComponent,
     OperativeSystemListComponent,
     SoftwareListComponent,
-    TokenListComponent
+    TokenListComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,

@@ -11,7 +11,8 @@ export class CellphoneService {
 
   private saveUrl: string;
   private getListUrl: string;
-
+  private countUrl: string;
+  
   constructor(private http: HttpClient) {
     this.saveUrl = 'http://localhost:8080/api/saveCellphone';
     this.getListUrl = 'http://localhost:8080/api/findAllCellphone';
@@ -27,6 +28,10 @@ export class CellphoneService {
     return this.http.get<Cellphone[]>(this.getListUrl);
 
   }
+  public count(): Observable<Cellphone[]> {
 
+    return this.http.get<Cellphone[]>(this.countUrl);
+
+  }
 
 }
