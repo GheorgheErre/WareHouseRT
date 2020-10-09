@@ -15,9 +15,10 @@ export class SignInComponent implements OnInit {
   faArrowRight = faArrowRight;
 
   user = new User();
-  msg = '';
+  errorMessage = '';
   isLoggedIn = false;
   isLoginFailed = false;
+  roles: string[] = [];
 
  constructor(
    private route: ActivatedRoute,
@@ -26,19 +27,24 @@ export class SignInComponent implements OnInit {
    private tokenStorage: TokenStorageService) {   }
 
    ngOnInit(): void {
+     if(this.tokenStorage.getToken()){
+       this.isLoggedIn = true;
+       this.roles = this.tokenStorage.getUser().roles;
+     }
   }
 
  loginUser(){
    this.authenticationService.authenticate(this.user.username, this.user.password).subscribe(
-     data => { console.log("data");
+     data => { 
      this.tokenStorage.saveToken(data.token);
-     this.tokenStorage.saveUser(this.user.username);
+     this.tokenStorage.saveUser(data);
      this.isLoginFailed = false;
      this.isLoggedIn = true;
+     this.roles = this.tokenStorage.getUser().roles;
      this.reloadPage();
    },
-     error => {console.log("exception occurred");
-             this.msg = "Bad credentials, please enter valid username and password";
+     err => {
+              this.errorMessage = err.error.message
              this.isLoginFailed = true;
  }
    )
