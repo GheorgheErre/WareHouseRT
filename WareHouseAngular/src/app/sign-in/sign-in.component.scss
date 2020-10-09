@@ -15,6 +15,9 @@ form {
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    padding: 100px 0;
+    border-radius: 0 10px 10px 0;
+    background-image: linear-gradient(to right, #72bbce, #8dc8d8, #a7d5e1);
 }
 
 #btn-signin {

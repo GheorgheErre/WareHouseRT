@@ -16,11 +16,11 @@ function mediaQuery() {
     }
 }
 
-function openNav(containerHeight) {
+function openNav(headerHeight) {
     
-    document.getElementById("header-login").style.height = containerHeight;
+    document.getElementById("header-login").style.width= headerHeight;
     document.getElementById("header-login").style.opacity = "1";
-    document.getElementById("header-login").style.transition = "1s";
+    document.getElementById("header-login").style.transition = "0.8s";
 }
 
 function closeNav() {
