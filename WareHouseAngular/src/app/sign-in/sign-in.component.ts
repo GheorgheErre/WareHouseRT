@@ -36,11 +36,12 @@ export class SignInComponent implements OnInit {
  loginUser(){
    this.authenticationService.authenticate(this.user.username, this.user.password).subscribe(
      data => { 
-     this.tokenStorage.saveToken(data.token);
+     this.tokenStorage.saveToken(data.accessToken);
      this.tokenStorage.saveUser(data);
      this.isLoginFailed = false;
      this.isLoggedIn = true;
      this.roles = this.tokenStorage.getUser().roles;
+     //this.router.navigate(['/cpulist']);
      this.reloadPage();
    },
      err => {

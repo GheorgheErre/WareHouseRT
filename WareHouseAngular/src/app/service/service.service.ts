@@ -24,13 +24,13 @@ export abstract class ServiceService {
 
   public findAll(): Observable<any> {
 
-    return this.http.get(this.getListUrl);
+    return this.http.get<Product[]>(this.getListUrl);
 
   }
 
   public count(): Observable<any> {
 
-    return this.http.get(this.countUrl);
+    return this.http.get<number>(this.countUrl);
 
   }
 
