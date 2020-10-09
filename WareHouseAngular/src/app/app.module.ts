@@ -57,6 +57,7 @@ import { RamCountComponent } from './count-article/ram-count/ram-count.component
 import { SoftwareCountComponent } from './count-article/software-count/software-count.component';
 import { SsdCountComponent } from './count-article/ssd-count/ssd-count.component';
 import { TokenCountComponent } from './count-article/token-count/token-count.component';
+import { ArticleCardComponent } from './count-article/article-card/article-card.component';
 
 
 @NgModule({
@@ -105,7 +106,8 @@ import { TokenCountComponent } from './count-article/token-count/token-count.com
     RamCountComponent,
     SoftwareCountComponent,
     SsdCountComponent,
-    TokenCountComponent
+    TokenCountComponent,
+    ArticleCardComponent
   ],
   imports: [
     BrowserModule,
