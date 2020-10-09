@@ -1,5 +1,8 @@
 package WareHouseRT.WareHouseRT.beans;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -19,6 +22,24 @@ public class User {
 	private boolean isAccountNonLocked;
 	private boolean isCredentialsNonExpired;
 	private boolean isEnabled;
+
+	private Set<Role> roles = new HashSet<>();
+	
+	 public User() {
+	  }
+
+	public User(String username, String password) {
+		this.username = username;
+		this.password = password;
+	}
+
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
 
 	public boolean isAccountNonExpired() {
 		return isAccountNonExpired;
