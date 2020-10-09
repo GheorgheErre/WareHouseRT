@@ -1,4 +1,3 @@
-import { OnInit } from '@angular/core';
 import { Product } from 'src/app/pcObjects/product/product';
 import { ServiceService } from 'src/app/service/service.service';
 

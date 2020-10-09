@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LaptopService } from 'src/app/service/service-laptop/laptop-service.service';
 import { ProductList } from '../product-list/product-list';
 
 @Component({

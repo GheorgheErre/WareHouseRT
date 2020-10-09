@@ -5,7 +5,7 @@ import { ServiceService } from '../service.service';
 @Injectable({
   providedIn: 'root'
 })
-export class LaptopServiceService  extends ServiceService{
+export class LaptopService  extends ServiceService{
 
    
   constructor(protected http: HttpClient){

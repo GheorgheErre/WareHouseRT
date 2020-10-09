@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenService } from 'src/app/service/service-token/token.service';
 import { ProductList } from '../product-list/product-list';
 
 @Component({
@@ -6,7 +7,7 @@ import { ProductList } from '../product-list/product-list';
   templateUrl: './token-list.component.html',
   styleUrls: ['./token-list.component.scss']
 })
-export class tokenListComponent extends ProductList implements OnInit {
+export class TokenListComponent extends ProductList implements OnInit {
 
   constructor(private tokenService:  TokenService) {
     super(tokenService); }
