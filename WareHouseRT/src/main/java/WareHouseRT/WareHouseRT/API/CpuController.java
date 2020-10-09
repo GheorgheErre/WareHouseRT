@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
-
 import WareHouseRT.WareHouseRT.beans.CPU;
 import WareHouseRT.WareHouseRT.service.CpuService;
 
@@ -28,14 +26,15 @@ public class CpuController {
 	public void save(@RequestBody CPU cpu) {
 		service.save(cpu);
 	}
-	
+
 	@GetMapping("/findAllCpu")
-	//@PreAuthorize("hasRole('ADMIN')")
+	 @PreAuthorize("hasRole('ADMIN')")
 	public List<CPU> findAll() {
 		return service.findAll();
 	}
 
 	@GetMapping("/countCpu")
+	@PreAuthorize("hasRole('ADMIN')")
 	public long count() {
 		return service.count();
 	}
