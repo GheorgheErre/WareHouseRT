@@ -23,7 +23,6 @@ import { LoginComponent } from './login/login.component';
 import { FormCPUComponent } from './form/form-cpu/form-cpu.component';
 import { HttpInterceptorService } from './service/http-interceptor.service';
 import { RegistrationComponent } from './registration/registration.component';
-import { LoginsuccessComponent } from './loginsuccess/loginsuccess.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CableListComponent } from './show-list-article/cable-list/cable-list.component';
@@ -40,6 +39,7 @@ import { SoftwareListComponent } from './show-list-article/software-list/softwar
 import { TokenListComponent } from './show-list-article/token-list/token-list.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -54,10 +54,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     SsdListComponent,
     LoginComponent,
     RegistrationComponent,
-    LoginsuccessComponent,
     WelcomeComponent,
     RegistrationComponent,
-    LoginsuccessComponent,
     CableListComponent,
     CellphoneListComponent,
     DesktopListComponent,
@@ -71,7 +69,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     SoftwareListComponent,
     TokenListComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
