@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from '../service/service-authentication/authentication.service';
 import { TokenStorageService } from '../service/service-tokenStorage/token-storage.service';
 import { User } from '../user';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'sign-in',
@@ -10,6 +11,8 @@ import { User } from '../user';
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
+
+  faArrowRight = faArrowRight;
 
   user = new User();
   msg = '';

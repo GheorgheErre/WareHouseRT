@@ -1,12 +1,21 @@
-<div class="col-6" id="col-sinistra">
-    <form (ngSubmit)="loginUser()" #loginform="ngForm">
-        <h1 id="h1-left">Sign in</h1>
-        <span id="span-left">Welcome back in Erre Technology WareHouse!</span>
-        <input id="input-left" type="text" placeholder="Username" name="username"
-            [(ngModel)]="user.username" />
-        <input id="input-left" type="password" placeholder="Password" name="password"
-            [(ngModel)]="user.password" />
-        <button id="button-left" type="submit">Sign In</button>
-        <small class="text-danger">{{msg}}</small>
-    </form>
-</div>
+<form (ngSubmit)="loginUser()" #loginform="ngForm">
+    <div class="form-group">
+    </div>
+    <div class="form-group">
+        <h1 id="h1-signin">Sign in</h1>
+    </div>
+    <div class="form-group">
+        <span id="span-signin">Hello, log in to your account!</span>
+    </div>
+    <div class="form-group">
+        <input id="input-signin" type="text" placeholder="Username" name="username" [(ngModel)]="user.username" />
+
+    </div>
+    <div class="form-group">
+        <input id="input-signin" type="password" placeholder="Password" name="password" [(ngModel)]="user.password" />
+    </div>
+    <div class="form-group mt-4">
+        <a href="" id="btn-signin"><strong>Sign in <fa-icon [icon]="faArrowRight" id="icn-freccia"></fa-icon></strong></a>
+    </div>
+    <small class="text-danger">{{msg}}</small>
+</form>

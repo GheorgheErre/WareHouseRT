@@ -1,54 +1,60 @@
-
-/*LEFT LOGIN*/
-#h1-left {
+@font-face {
+    font-family: Poppins;
+    src: url("./../../assets/fonts/Poppins-Light.ttf");
+}
+* {
     font-family: "Poppins", sans-serif;
-    font-size: 30px;
-    letter-spacing: 1px;
 }
-#input-left {
-    background: transparent;
-    border: 2px solid black;
-    border-radius: 50px;
-    padding: 12px 15px;
-    margin: 8px 0;
-    width: 100%;
+body,
+html {
+    height: 100%;
 }
-#button-left {
-    border-radius: 20px;
-    border: 2px solid black;
-    background-color: transparent;
-    color: black;
-    padding: 5px 20px;
-    text-transform: uppercase;
-    transition: transform 80ms ease-in;
-}
-#button-left:hover {
-    background-color: black;
-    color: white;
-    transition: 0.7s;
-}
-#span-left {
-    margin-bottom: 20px;
-}
-
-#col-sinistra {
-    background-color: white;
-}
-
-
-::placeholder {
-    color: black;
-    opacity: 1;
-}
-small {
-    margin-top: 10px;
-}
-
 form {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    padding: 20px;
+}
+#btn-signin {
+    text-decoration: none;
+    color: white;
+    padding: 10px 40px;
+    border: 2px solid white;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+#btn-signin:hover {
+    background-color: #004fff;
+    border-color: #004fff;
+    color: white;
+    transition: 0.5s;
+}
+#input-signin {
+    padding: 10px 50px;
+    border: 2px solid white;
+    border-radius: 20px;
+    background-color: transparent;
+}
+::placeholder {
+    color: white;
+    opacity: 1;
+}
+#h1-signin {
+    color: white;
+    font-size: 40px;
+    letter-spacing: 2px;
+    margin-bottom: 95px;
+}
+#span-signin {
+    color: white;
+    letter-spacing: 4px;
+}
+#icn-freccia {
+    margin-left: 5px;
+}
+#logo-login-signin{
+    height: 100px;
+    width: 300px;
+    margin-bottom: 10px;
 }

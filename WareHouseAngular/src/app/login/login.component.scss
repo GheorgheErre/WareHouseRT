@@ -36,13 +36,13 @@ form {
     padding: 100px 0;
     border-radius: 10px 0 0 10px;
     box-sizing: border-box;
-    background-image: linear-gradient(to right, #edf2fb, #e2eafc, #d7e3fc);
+    background-image: linear-gradient(to right, #f8f9fa, #f8f9fa, #e9ecef);
 }
 #col-choosed {
     padding: 100px 0;
     border-radius: 0 10px 10px 0;
     box-sizing: border-box;
-    background-image: linear-gradient(to right, #ccdbfd, #c1d3fe, #b6ccfe);
+    background-image: linear-gradient(to right, #72bbce, #8dc8d8, #a7d5e1);
 }
 #btn-choose-signin {
     text-decoration: none;
@@ -72,12 +72,11 @@ form {
     color: white;
     transition: 0.5s;
 }
-
-#logo-login {
-    height: 150px;
-}
 #hr-login {
     padding: 1px 0;
     background-color: black;
     border: none;
+}
+#logo-login{
+    height: 95px;
 }
