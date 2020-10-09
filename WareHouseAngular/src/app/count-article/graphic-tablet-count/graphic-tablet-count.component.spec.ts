@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GraphicTableCountComponent } from './graphic-table-count.component';
+import { GraphicTabletCountComponent } from './graphic-tablet-count.component';
 
-describe('GraphicTableCountComponent', () => {
-  let component: GraphicTableCountComponent;
-  let fixture: ComponentFixture<GraphicTableCountComponent>;
+describe('GraphicTabletCountComponent', () => {
+  let component: GraphicTabletCountComponent;
+  let fixture: ComponentFixture<GraphicTabletCountComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GraphicTableCountComponent ]
+      declarations: [ GraphicTabletCountComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GraphicTableCountComponent);
+    fixture = TestBed.createComponent(GraphicTabletCountComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

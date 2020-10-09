@@ -39,13 +39,13 @@ import { TokenListComponent } from './show-list-article/token-list/token-list.co
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LogoutComponent } from './logout/logout.component';
-import { CableCountComponent } from './count-article/cable-count/cable-count.component';
 import { CellphoneCountComponent } from './count-article/cellphone-count/cellphone-count.component';
+import { CableCountComponent } from './count-article/cable-count/cable-count.component';
 import { CpuCountComponent } from './count-article/cpu-count/cpu-count.component';
 import { DesktopCountComponent } from './count-article/desktop-count/desktop-count.component';
 import { DockingStationCountComponent } from './count-article/docking-station-count/docking-station-count.component';
 import { GpuCountComponent } from './count-article/gpu-count/gpu-count.component';
-import { GraphicTableCountComponent } from './count-article/graphic-table-count/graphic-table-count.component';
+import { GraphicTabletCountComponent } from './count-article/graphic-tablet-count/graphic-tablet-count.component';
 import { HddCountComponent } from './count-article/hdd-count/hdd-count.component';
 import { KeyboardCountComponent } from './count-article/keyboard-count/keyboard-count.component';
 import { LaptopCountComponent } from './count-article/laptop-count/laptop-count.component';
@@ -57,6 +57,7 @@ import { RamCountComponent } from './count-article/ram-count/ram-count.component
 import { SoftwareCountComponent } from './count-article/software-count/software-count.component';
 import { SsdCountComponent } from './count-article/ssd-count/ssd-count.component';
 import { TokenCountComponent } from './count-article/token-count/token-count.component';
+
 
 @NgModule({
   declarations: [
@@ -93,7 +94,7 @@ import { TokenCountComponent } from './count-article/token-count/token-count.com
     DesktopCountComponent,
     DockingStationCountComponent,
     GpuCountComponent,
-    GraphicTableCountComponent,
+    GraphicTabletCountComponent,
     HddCountComponent,
     KeyboardCountComponent,
     LaptopCountComponent,
