@@ -16,7 +16,7 @@ import { TokenStorageService } from '../service/service-tokenStorage/token-stora
 export class LoginComponent {
   faTimes = faTimes; /*icona che chiude la sidenav*/
   faGoogle = faGoogle;
-  
+  /*
   user = new User();
   msg = '';
   isLoggedIn = false;
@@ -47,5 +47,5 @@ export class LoginComponent {
 reloadPage() {
   window.location.reload();
 }
-
+*/
 }

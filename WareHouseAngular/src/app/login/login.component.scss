@@ -9,6 +9,13 @@ body,
 html {
     height: 100%;
 }
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+}
 
 #header-login {
     position: fixed;
@@ -20,11 +27,57 @@ html {
     transition: 1s;
     overflow-x: hidden;
     background: transparent;
-   
 }
 #container-login {
     background-color: transparent;
     height: 100%;
-    border-radius: 10px;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+#col-choose {
+    padding: 100px 0;
+    border-radius: 10px 0 0 10px;
+    box-sizing: border-box;
+    background-image: linear-gradient(to right, #edf2fb, #e2eafc, #d7e3fc);
+}
+#col-choosed {
+    padding: 100px 0;
+    border-radius: 0 10px 10px 0;
+    box-sizing: border-box;
+    background-image: linear-gradient(to right, #ccdbfd, #c1d3fe, #b6ccfe);
+}
+#btn-choose-signin {
+    text-decoration: none;
+    color: black;
+    padding: 10px 100px;
+    border: 2px solid black;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+#btn-choose-signin:hover {
+    background-color: #004fff;
+    border-color: #004fff;
+    color: white;
+    transition: 0.5s;
+}
+#btn-choose-signup {
+    text-decoration: none;
+    color: black;
+    padding: 10px 100px;
+    border: 2px solid black;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+#btn-choose-signup:hover {
+    background-color: #004fff;
+    border-color: #004fff;
+    color: white;
+    transition: 0.5s;
+}
+
+#logo-login {
+    height: 150px;
+}
+#hr-login {
+    padding: 1px 0;
+    background-color: black;
+    border: none;
 }
