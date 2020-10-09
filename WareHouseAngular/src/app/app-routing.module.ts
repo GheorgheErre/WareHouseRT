@@ -23,12 +23,13 @@ import { RamListComponent } from './show-list-article/ram-list/ram-list.componen
 import { SoftwareListComponent } from './show-list-article/software-list/software-list.component';
 import { SsdListComponent } from './show-list-article/ssd-list/ssd-list.component';
 import { TokenListComponent } from './show-list-article/token-list/token-list.component';
+import { AuthGaurdService } from './service/service-authGaurd/auth-gaurd.service';
 
 
 const routes: Routes = [ 
   {path:"", component: WelcomeComponent},
   {path:"cpulist", component: CpuListComponent},
-  {path:"loginsuccess", component: LoginsuccessComponent},
+  {path:"loginsuccess", component: LoginsuccessComponent, canActivate:[AuthGaurdService]},
   {path:"registration", component: RegistrationComponent},
   {path:"cablelist", component: CableListComponent},
   {path:"cellphonelist", component: CellphoneListComponent},

@@ -8,6 +8,9 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
+const TOKEN_KEY = 'auth-token';
+const USER_KEY = 'auth-user';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -29,19 +32,19 @@ export class AuthenticationService {
 
 
   logout() {
-    sessionStorage.removeItem('username');
+    sessionStorage.removeItem(USER_KEY);
     this.username = null;
     this.password = null;
   }
 
   isUserLoggedIn() {
-    let user = sessionStorage.getItem('username');
+    let user = sessionStorage.getItem(USER_KEY);
     if (user === null) return false
     return true
   }
 
   getLoggedInUserName() {
-    let user = sessionStorage.getItem('username')
+    let user = sessionStorage.getItem(USER_KEY)
     if (user === null) return ''
     return user
   }
