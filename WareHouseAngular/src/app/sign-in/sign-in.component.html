@@ -1,7 +1,5 @@
 <form (ngSubmit)="loginUser()" #loginform="ngForm">
     <div class="form-group">
-    </div>
-    <div class="form-group">
         <h1 id="h1-signin">Sign in</h1>
     </div>
     <div class="form-group">
@@ -15,7 +13,8 @@
         <input id="input-signin" type="password" placeholder="Password" name="password" [(ngModel)]="user.password" />
     </div>
     <div class="form-group mt-4">
-        <a href="" id="btn-signin"><strong>Sign in <fa-icon [icon]="faArrowRight" id="icn-freccia"></fa-icon></strong></a>
+        <button type="submit" id="btn-signin"><strong>Sign in <fa-icon [icon]="faArrowRight" id="icn-freccia"></fa-icon>
+            </strong></button>
     </div>
     <small class="text-danger">{{errorMessage}}</small>
 </form>

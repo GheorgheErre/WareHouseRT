@@ -16,12 +16,14 @@ form {
     flex-direction: column;
     text-align: center;
 }
+
 #btn-signin {
     text-decoration: none;
     color: white;
     padding: 10px 40px;
     border: 2px solid white;
     border-radius: 20px;
+    background-color: transparent;
     transition: 0.5s;
 }
 #btn-signin:hover {
@@ -44,7 +46,7 @@ form {
     color: white;
     font-size: 40px;
     letter-spacing: 2px;
-    margin-bottom: 95px;
+    margin-bottom: 90px;
 }
 #span-signin {
     color: white;
