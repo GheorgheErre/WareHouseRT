@@ -15,51 +15,37 @@ form {
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    padding: 100px 0;
-    border-radius: 0 10px 10px 0;
+    padding: 100px;
+    margin: 10px 0px;
+    border-radius: 20px;
     background-image: linear-gradient(to right, #72bbce, #8dc8d8, #a7d5e1);
 }
-
 #btn-signin {
     text-decoration: none;
-    color: white;
     padding: 10px 40px;
-    border: 2px solid white;
+    border: 2px solid black;
     border-radius: 20px;
     background-color: transparent;
     transition: 0.5s;
 }
 #btn-signin:hover {
-    background-color: #004fff;
-    border-color: #004fff;
-    color: white;
+    background-color: #81c7df;
+    border-color: #81c7df;
     transition: 0.5s;
 }
 #input-signin {
     padding: 10px 50px;
-    border: 2px solid white;
+    border: 2px solid black;
     border-radius: 20px;
     background-color: transparent;
 }
 ::placeholder {
-    color: white;
     opacity: 1;
 }
 #h1-signin {
-    color: white;
     font-size: 40px;
     letter-spacing: 2px;
-    margin-bottom: 90px;
 }
 #span-signin {
-    color: white;
     letter-spacing: 4px;
-}
-#icn-freccia {
-    margin-left: 5px;
-}
-#logo-login-signin{
-    height: 100px;
-    width: 300px;
-    margin-bottom: 10px;
 }

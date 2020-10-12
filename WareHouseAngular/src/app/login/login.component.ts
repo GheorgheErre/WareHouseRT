@@ -9,5 +9,6 @@ import { faTimes, } from '@fortawesome/free-solid-svg-icons';
 })
 export class LoginComponent {
   faTimes = faTimes; /*icona che chiude la sidenav*/
-  
+
 }
+

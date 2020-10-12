@@ -15,49 +15,41 @@ form {
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    padding: 100px 0;
-    border-radius: 0 10px 10px 0;
+    height: 100%;
+    padding: 100px;
+    margin: 10px 0px;
+    border-radius: 20px;
     background-image: linear-gradient(to right, #52b788, #74c69d, #95d5b2);
 }
 #btn-signup {
     text-decoration: none;
-    color: white;
     padding: 10px 40px;
-    border: 2px solid white;
+    border: 2px solid black;
     border-radius: 20px;
+    background: transparent;
     transition: 0.5s;
 }
 #btn-signup:hover {
-    background-color: #004fff;
-    border-color: #004fff;
-    color: white;
+    background-color: #57b98b;
+    border-color: #57b98b;
     transition: 0.5s;
 }
 #input-signup {
     padding: 10px 50px;
-    border: 2px solid white;
+    border: 2px solid black;
     border-radius: 20px;
     background-color: transparent;
 }
 ::placeholder {
-    color: white;
     opacity: 1;
 }
 #h1-signup {
-    color: white;
     font-size: 40px;
     letter-spacing: 2px;
-    margin-bottom: 95px;
 }
 #span-signup {
-    color: white;
     letter-spacing: 4px;
 }
 #icn-freccia {
     margin-left: 5px;
-}
-#logo-login-signup{
-    height: 100px;
-    width: 300px;
-    margin-bottom: 10px;
 }
