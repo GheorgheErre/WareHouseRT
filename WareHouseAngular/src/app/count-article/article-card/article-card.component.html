@@ -1,1 +1,5 @@
-<p>article-card works!</p>
+<div *ngFor="let card of cards">
+    <div>   
+        <ng-container *ngComponentOutlet="card"></ng-container>
+    </div>
+</div>

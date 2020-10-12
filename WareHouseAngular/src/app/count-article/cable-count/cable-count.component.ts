@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CableService } from 'src/app/service/service-cable/cable.service';
 import { ProductCount } from '../product-count';
 
@@ -9,10 +9,11 @@ import { ProductCount } from '../product-count';
 })
 export class CableCountComponent extends ProductCount implements OnInit {
 
+
+
   constructor(private cableService: CableService) {
     super(cableService);
-   }
-
+  }
   ngOnInit(): void {
     this.countProduct();
   }

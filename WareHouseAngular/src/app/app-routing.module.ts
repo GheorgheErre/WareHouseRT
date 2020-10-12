@@ -22,25 +22,7 @@ import { RamListComponent } from './show-list-article/ram-list/ram-list.componen
 import { SoftwareListComponent } from './show-list-article/software-list/software-list.component';
 import { SsdListComponent } from './show-list-article/ssd-list/ssd-list.component';
 import { TokenListComponent } from './show-list-article/token-list/token-list.component';
-import { AuthGaurdService } from './service/service-authGaurd/auth-gaurd.service';
-import { CableCountComponent } from './count-article/cable-count/cable-count.component';
-import { CellphoneCountComponent } from './count-article/cellphone-count/cellphone-count.component';
-import { CpuCountComponent } from './count-article/cpu-count/cpu-count.component';
-import { DesktopCountComponent } from './count-article/desktop-count/desktop-count.component';
-import { DockingStationCountComponent } from './count-article/docking-station-count/docking-station-count.component';
-import { GpuCountComponent } from './count-article/gpu-count/gpu-count.component';
-import { GraphicTabletCountComponent } from './count-article/graphic-tablet-count/graphic-tablet-count.component';
-import { TokenCountComponent } from './count-article/token-count/token-count.component';
-import { HddCountComponent } from './count-article/hdd-count/hdd-count.component';
-import { KeyboardCountComponent } from './count-article/keyboard-count/keyboard-count.component';
-import { LaptopCountComponent } from './count-article/laptop-count/laptop-count.component';
-import { MonitorCountComponent } from './count-article/monitor-count/monitor-count.component';
-import { MouseCountComponent } from './count-article/mouse-count/mouse-count.component';
-import { OperativeSystemCountComponent } from './count-article/operative-system-count/operative-system-count.component';
-import { PowerSupplieCountComponent } from './count-article/power-supplie-count/power-supplie-count.component';
-import { RamCountComponent } from './count-article/ram-count/ram-count.component';
-import { SoftwareCountComponent } from './count-article/software-count/software-count.component';
-import { SsdCountComponent } from './count-article/ssd-count/ssd-count.component';
+import { ArticleCardComponent } from './count-article/article-card/article-card.component';
 
 
 const routes: Routes = [ 
@@ -64,26 +46,7 @@ const routes: Routes = [
   {path:"softwarelist", component: SoftwareListComponent},
   {path:"ssdlist", component: SsdListComponent},
   {path:"tokenlist", component: TokenListComponent},
-  {path:"cableCount", component: CableCountComponent},
-  {path:"cellphoneCount", component: CellphoneCountComponent},
-  {path:"cpuCount", component: CpuCountComponent},
-  {path:"desktopCount", component: DesktopCountComponent},
-  {path:"dockingStationCount", component: DockingStationCountComponent},
-  {path:"gpuCount", component: GpuCountComponent},
-  {path:"graphicTableCount", component: GraphicTabletCountComponent},
-  {path:"hddTableCount", component: HddCountComponent},
-  {path:"keyboardTableCount", component: KeyboardCountComponent},
-  {path:"laptopTableCount", component: LaptopCountComponent},
-  {path:"monitorTableCount", component: MonitorCountComponent},
-  {path:"mouseTableCount", component: MouseCountComponent},
-  {path:"operativeSystemTableCount", component: OperativeSystemCountComponent},
-  {path:"powerSupplieTableCount", component: PowerSupplieCountComponent},
-  {path:"ramTableCount", component: RamCountComponent},
-  {path:"softwareTableCount", component: SoftwareCountComponent},
-  {path:"ssdTableCount", component: SsdCountComponent},
-  {path:"tokenTableCount", component: TokenCountComponent}
-
-
+  {path:"articleCount", component: ArticleCardComponent}
 ] ;
 
 @NgModule({
