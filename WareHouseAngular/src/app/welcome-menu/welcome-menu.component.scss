@@ -1,0 +1,115 @@
+@font-face {
+    font-family: Oswald;
+    src: url("./../../assets/fonts/Oswald-Regular.ttf");
+}
+* {
+    font-family: "Oswald", sans-serif;
+}
+body,
+html,
+#header {
+    height: 100%;
+}
+h4 {
+    letter-spacing: 4px;
+}
+p {
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+button{
+    border: 1px solid white;
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    width: 150px;
+    transition: 0.6s;
+}
+button:hover{
+    border: 1px solid #adb5bd;
+    background-color: #adb5bd;
+    color: white;
+    border-radius: 20px;
+    width: 100%;
+    transition: 0.6s;
+}
+#header {
+    background-image: url("../welcome-menu/img/ufficio.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    transition: 0.6s;
+}
+
+#container {
+    height: 100%;
+    display: flex;
+    flex-direction: rows;
+}
+
+/*COLONNA WAREHOUSE*/
+#colonna-warehouse {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+}
+#warehouse-img {
+    height: 200px;
+}
+
+#card-warehouse {
+    border: none;
+    background-color: transparent;
+}
+#card-body-warehouse{
+    background-color: white;
+}
+#card-footer-warehouse {
+    background-color: #dee2e6;
+}
+
+/*COLONNA WORKSTATION*/
+#colonna-workstation {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+}
+
+#card-workstation {
+    border: none;
+    background-color: transparent;
+}
+#workstation-img {
+    height: 200px;
+        
+    }
+#card-body-workstation{
+    background-color: white;
+}
+#card-footer-workstation {
+    background-color: #dee2e6;
+}
+
+
+/*COLONNA USERS*/
+#colonna-users {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+}
+
+#card-users {
+    border: none;
+    background-color: transparent;
+}
+#users-img {
+    height: 200px;
+        
+    }
+#card-body-users{
+    background-color: white;
+}
+#card-footer-users {
+    background-color: #dee2e6;
+}
+

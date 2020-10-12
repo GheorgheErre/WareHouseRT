@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faWarehouse } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-welcome-menu',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeMenuComponent implements OnInit {
 
+  faWarehouse = faWarehouse;
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }
