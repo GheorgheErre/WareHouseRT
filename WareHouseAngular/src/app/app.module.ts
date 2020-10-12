@@ -58,6 +58,7 @@ import { SsdCountComponent } from './count-article/ssd-count/ssd-count.component
 import { TokenCountComponent } from './count-article/token-count/token-count.component';
 import { ArticleCardComponent } from './count-article/article-card/article-card.component';
 import { WelcomeMenuComponent } from './welcome-menu/welcome-menu.component';
+import { WarehouseHomeComponent } from './warehouse-home/warehouse-home.component';
 
 
 @NgModule({
@@ -106,7 +107,8 @@ import { WelcomeMenuComponent } from './welcome-menu/welcome-menu.component';
     SsdCountComponent,
     TokenCountComponent,
     ArticleCardComponent,
-    WelcomeMenuComponent
+    WelcomeMenuComponent,
+    WarehouseHomeComponent
   ],
   imports: [
     BrowserModule,
