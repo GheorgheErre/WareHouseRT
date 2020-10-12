@@ -2,12 +2,14 @@ package WareHouseRT.WareHouseRT.beans;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /** 
  * 
  * Class that represents other articles that could be stored but they are not categorized as one of the other articles
  * 
  * */
+@Document(collection = "generic_article")
 public class GenericArticle extends Article{
 	
 	@Transient

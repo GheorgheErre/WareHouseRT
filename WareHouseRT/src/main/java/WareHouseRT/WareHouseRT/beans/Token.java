@@ -2,7 +2,9 @@ package WareHouseRT.WareHouseRT.beans;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "token")
 public class Token extends Article{
 
 

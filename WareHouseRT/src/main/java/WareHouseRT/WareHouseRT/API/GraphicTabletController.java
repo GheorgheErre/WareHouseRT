@@ -21,18 +21,18 @@ public class GraphicTabletController {
 	@Autowired
 	private GraphicTabletService service;
 
-	@PostMapping("/saveCpu")
+	@PostMapping("/saveGraphicTablet")
 	public void save(@RequestBody GraphicTablet graphicTablet) {
 		service.save(graphicTablet);
 	}
 
-	@GetMapping("/findAllCpu")
+	@GetMapping("/findAllGraphicTablet")
 	 @PreAuthorize("hasRole('ADMIN')")
 	public List<GraphicTablet> findAll() {
 		return service.findAll();
 	}
 
-	@GetMapping("/countCpu")
+	@GetMapping("/countGraphicTablet")
 	@PreAuthorize("hasRole('ADMIN')")
 	public long count() {
 		return service.count();

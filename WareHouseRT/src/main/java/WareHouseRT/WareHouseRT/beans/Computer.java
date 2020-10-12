@@ -2,6 +2,9 @@ package WareHouseRT.WareHouseRT.beans;
 
 import java.util.List;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "computer")
 public abstract class Computer extends Article{
 
 	private List<Component> components;

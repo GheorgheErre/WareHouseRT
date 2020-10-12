@@ -26,7 +26,7 @@ public class TokenController {
 		service.save(token);
 	}
 
-	@GetMapping("/findAllSoftware")
+	@GetMapping("/findAllToken")
 	 @PreAuthorize("hasRole('ADMIN')")
 	public List<Token> findAll() {
 		return service.findAll();

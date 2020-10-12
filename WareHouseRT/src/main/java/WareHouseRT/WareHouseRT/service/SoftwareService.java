@@ -3,10 +3,12 @@ package WareHouseRT.WareHouseRT.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import WareHouseRT.WareHouseRT.beans.Software;
 import WareHouseRT.WareHouseRT.repository.SoftwareRepository;
 
+@Service
 public class SoftwareService {
 	@Autowired
 	private SoftwareRepository repo;
