@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CpuListComponent } from './show-list-article/cpu-list/cpu-list.component';
 import { LoginComponent } from "./login/login.component";
-import { RegistrationComponent } from './registration/registration.component';
 import { pathToFileURL } from 'url';
 import { CableListComponent } from './show-list-article/cable-list/cable-list.component';
 import { CellphoneListComponent } from './show-list-article/cellphone-list/cellphone-list.component';
@@ -28,7 +27,6 @@ import { ArticleCardComponent } from './count-article/article-card/article-card.
 const routes: Routes = [ 
   {path:"", component: WelcomeComponent},
   {path:"cpulist", component: CpuListComponent},
-  {path:"registration", component: RegistrationComponent},
   {path:"cablelist", component: CableListComponent},
   {path:"cellphonelist", component: CellphoneListComponent},
   {path:"desktoplist", component: DesktopListComponent},

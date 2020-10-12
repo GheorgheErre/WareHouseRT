@@ -53,3 +53,18 @@ form {
 #icn-freccia {
     margin-left: 5px;
 }
+.errorInput {
+    padding: 5px 40px;
+    background: transparent;
+    color: red;
+}
+#signup-failed{
+    background: transparent;
+    color: red;
+}
+#signup-success{
+    padding: 5px 40px;
+    background: transparent;
+    color: black;
+}
+

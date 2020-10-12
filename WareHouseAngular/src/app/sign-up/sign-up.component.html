@@ -1,7 +1,12 @@
 <!--<a href="javascript:void(0)" id="close-btn" onclick="closeNav()">CHIUDI
     <fa-icon [icon]="faTimes"></fa-icon>
 </a>-->
-<form>
+<form name = "form"
+(ngSubmit) = "f.form.valid && onSubmit()"
+#f = "ngForm"
+novalidate
+>
+
     <div class="row">
         <div class="col">
             <h1 id="h1-signup">Sign up</h1>
@@ -19,17 +24,40 @@
     </div>
     <div class="row">
         <div class="col mb-2">
-            <input id="input-signup-username" type="text" placeholder="Username" />
+            <input id="input-signup-username" required minlength="3" maxlength="20" #username="ngModel" type="text" placeholder="Username" name="username" [(ngModel)]="user.username" />
         </div>
+    <div class="errorInput" *ngIf="f.submitted && username.invalid">
+        <div *ngIf="username.errors.required">Username is required</div>
+        <div *ngIf="username.errors.minlength">
+          Username must be at least 3 characters
+        </div>
+        <div *ngIf="username.errors.maxlength">
+          Username must be at most 20 characters
+        </div>
+      </div>
     </div>
+
     <div class="row">
         <div class="col mb-4">
-            <input id="input-signup-password" type="password" placeholder="Password" />
+            <input id="input-signup-password" type="password" required minlength="6" #password="ngModel" placeholder="Password" name="password" [(ngModel)]="user.password" />
         </div>
+        <div class="errorInput" *ngIf="f.submitted && password.invalid">
+            <div *ngIf="password.errors.required">Password is required</div>
+            <div *ngIf="password.errors.minlength">
+              Password must be at least 6 characters
+            </div>
+          </div>
     </div>
     <div class="row">
-        <div class="col">
+        <div class="col text-center" >
             <button type="submit" id="btn-signup"><strong>Sign up</strong></button>
+            <div id="signup-failed" *ngIf="f.submitted && isSignUpFailed">
+                Signup failed!<br />{{ errorMessage }}
+              </div>
+              <div id="signup-success" class="alert alert-success" *ngIf="isSuccessful">
+                Your registration is successful!
+              </div>
         </div>
+       
     </div>
 </form>

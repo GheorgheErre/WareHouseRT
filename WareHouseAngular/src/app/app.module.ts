@@ -21,7 +21,6 @@ import { SsdListComponent } from './show-list-article/ssd-list/ssd-list.componen
 import { LoginComponent } from './login/login.component';
 import { FormCPUComponent } from './form/form-cpu/form-cpu.component';
 import { HttpInterceptorService } from './service/http-interceptor.service';
-import { RegistrationComponent } from './registration/registration.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CableListComponent } from './show-list-article/cable-list/cable-list.component';
@@ -72,9 +71,7 @@ import { WelcomeMenuComponent } from './welcome-menu/welcome-menu.component';
     RamListComponent,
     SsdListComponent,
     LoginComponent,
-    RegistrationComponent,
     WelcomeComponent,
-    RegistrationComponent,
     CableListComponent,
     CellphoneListComponent,
     DesktopListComponent,
