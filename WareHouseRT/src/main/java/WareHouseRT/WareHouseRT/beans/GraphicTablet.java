@@ -3,7 +3,7 @@ package WareHouseRT.WareHouseRT.beans;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 
-public class GraficTablet extends Article {
+public class GraphicTablet extends Article {
 	
 	@Transient
 	public static final String SEQUENCE_NAME = "graphic_tablet_sequence";
