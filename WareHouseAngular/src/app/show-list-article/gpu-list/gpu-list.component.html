@@ -1,1 +1,37 @@
-<p>gpu-list works!</p>
+<div class="col-md-6">
+	<h2> Gpu list</h2>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Identifier</th>
+				<th>Users</th>
+				<th>Brand</th>
+				<th>Model</th>
+				<th>Serial Number</th>
+				<th>Location</th>
+                <th>User Number</th>
+                <th>Memory</th>
+                <th>Base Clock</th>
+                <th> Max Boost Clock</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let gpu of listProduct">
+				<td class="hidden"></td>
+			<td>{{gpu.identifier}}</td>
+			<td>{{gpu.users}}</td>
+			<td>{{gpu.brand}}</td>
+			<td>{{gpu.model}}</td>
+			<td>{{gpu.serialNumber}}</td>
+			<td>{{gpu.location}}</td>
+			<td>{{gpu.userNumber}}</td>
+            <td>{{gpu.memory}}</td>
+            <td>{{gpu.baseClock}}</td>
+            <td>{{gpu.maxBoostClock}}</td>
+		
+			</tr>
+		</tbody>
+	</table>
+</div>

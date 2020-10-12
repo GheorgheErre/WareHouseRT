@@ -1,1 +1,33 @@
-<p>hdd-list works!</p>
+<div class="col-md-6">
+	<h2> HDD list</h2>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Identifier</th>
+				<th>Users</th>
+				<th>Brand</th>
+				<th>Model</th>
+				<th>Serial Number</th>
+				<th>Location</th>
+                <th>User Number</th>
+                <th>Capacity</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let hdd of listProduct">
+				<td class="hidden"></td>
+			<td>{{hdd.identifier}}</td>
+			<td>{{hdd.users}}</td>
+			<td>{{hdd.brand}}</td>
+			<td>{{hdd.model}}</td>
+			<td>{{hdd.serialNumber}}</td>
+			<td>{{hdd.location}}</td>
+			<td>{{hdd.userNumber}}</td>
+			<td>{{hdd.capacity}}</td>
+		
+			</tr>
+		</tbody>
+	</table>
+</div>

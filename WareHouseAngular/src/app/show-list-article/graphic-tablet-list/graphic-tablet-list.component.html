@@ -1,1 +1,38 @@
-<p>grafic-tablet-list works!</p>
+<div class="col-md-6">
+	<h2> Graphic Tablet list</h2>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Identifier</th>
+				<th>Users</th>
+				<th>Brand</th>
+				<th>Model</th>
+				<th>Serial Number</th>
+				<th>Location</th>
+                <th>User Number</th>
+                <th>User Height</th>
+                <th>User Width</th>
+                <th>User Length</th>
+
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let graphicTalbe of listProduct">
+				<td class="hidden"></td>
+			<td>{{graphicTalbe.identifier}}</td>
+			<td>{{graphicTalbe.users}}</td>
+			<td>{{graphicTalbe.brand}}</td>
+			<td>{{graphicTalbe.model}}</td>
+			<td>{{graphicTalbe.serialNumber}}</td>
+			<td>{{graphicTalbe.location}}</td>
+			<td>{{graphicTalbe.userNumber}}</td>
+            <td>{{graphicTalbe.height}}</td>
+            <td>{{graphicTalbe.width}}</td>
+            <td>{{graphicTalbe.length}}</td>
+		
+			</tr>
+		</tbody>
+	</table>
+</div>

@@ -4,14 +4,26 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th class="hidden">Id</th>
-				<th>Type</th>
+				<th>Identifier</th>
+				<th>Users</th>
+				<th>Brand</th>
+				<th>Model</th>
+				<th>Serial Number</th>
+				<th>Location</th>
+				<th>User Number</th>
 				
 			</tr>
 		</thead>
 		<tbody>
 			<tr *ngFor="let cable of listProduct">
 				<td class="hidden"></td>
+			<td>{{cable.identifier}}</td>
+			<td>{{cable.users}}</td>
+			<td>{{cable.brand}}</td>
+			<td>{{cable.model}}</td>
+			<td>{{cable.serialNumber}}</td>
+			<td>{{cable.location}}</td>
+			<td>{{cable.userNumber}}</td>
 			<td>{{cable.type}}</td>
 		
 			</tr>

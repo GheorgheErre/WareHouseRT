@@ -4,7 +4,13 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th class="hidden">Id</th>
+				<th>Identifier</th>
+				<th>Users</th>
+				<th>Brand</th>
+				<th>Model</th>
+				<th>Serial Number</th>
+				<th>Location</th>
+				<th>User Number</th>
 				<th>imeiCode</th>
 				<th>operator</th>
 				<th>phoneNumber</th>
@@ -15,7 +21,14 @@
 		<tbody>
 			<tr *ngFor="let cellphone of listProduct">
 				<td class="hidden"></td>
-			<td>{{cellphone.imeiCode}}</td>
+				<td>{{cellphone.identifier}}</td>
+				<td>{{cellphone.users}}</td>
+				<td>{{cellphone.brand}}</td>
+				<td>{{cellphone.model}}</td>
+				<td>{{cellphone.serialNumber}}</td>
+				<td>{{cellphone.location}}</td>
+				<td>{{cellphone.userNumber}}</td>
+				<td>{{cellphone.imeiCode}}</td>
 				<td>{{cellphone.operator}}</td>
 				<td>{{cellphone.phoneNumber}}</td>
 				<td>{{cellphone.rateTipology}}</td>

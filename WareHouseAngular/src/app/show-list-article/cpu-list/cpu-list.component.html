@@ -4,7 +4,13 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th class="hidden">Id</th>
+				<th>Identifier</th>
+				<th>Users</th>
+				<th>Brand</th>
+				<th>Model</th>
+				<th>Serial Number</th>
+				<th>Location</th>
+				<th>User Number</th>
 				<th>Name</th>
 				<th>core</th>
 				<th>threads</th>
@@ -15,12 +21,18 @@
 		<tbody>
 			<tr *ngFor="let cpu of listProduct">
 				<td class="hidden"></td>
-			<td>{{cpu.name}}</td>
+				<td>{{cpu.identifier}}</td>
+				<td>{{cpu.users}}</td>
+				<td>{{cpu.brand}}</td>
+				<td>{{cpu.model}}</td>
+				<td>{{cpu.serialNumber}}</td>
+				<td>{{cpu.location}}</td>
+				<td>{{cpu.userNumber}}</td>
+				<td>{{cpu.name}}</td>
 				<td>{{cpu.core}}</td>
 				<td>{{cpu.threads}}</td>
 				<td>{{cpu.baseClock}}</td>
-				<td>{{cpu.maxBoostClock}}</td>
-				
+				<td>{{cpu.maxBoostClock}}</td>				
 			</tr>
 		</tbody>
 	</table>

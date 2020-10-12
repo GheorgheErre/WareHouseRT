@@ -1,1 +1,30 @@
-<p>keyboard-list works!</p>
+<div class="col-md-6">
+	<h2> Keyboard list</h2>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Identifier</th>
+				<th>Users</th>
+				<th>Brand</th>
+				<th>Model</th>
+				<th>Serial Number</th>
+				<th>Location</th>
+				<th>User Number</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let keyboard of listProduct">
+				<td class="hidden"></td>
+			<td>{{keyboard.identifier}}</td>
+			<td>{{keyboard.users}}</td>
+			<td>{{keyboard.brand}}</td>
+			<td>{{keyboard.model}}</td>
+			<td>{{keyboard.serialNumber}}</td>
+			<td>{{keyboard.location}}</td>
+			<td>{{keyboard.userNumber}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
