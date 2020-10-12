@@ -19,7 +19,7 @@ public class DockingStationService {
 	private SequenceGeneratorService sequenceService;
 
 	public void save(DockingStation dockingStation) {
-		dockingStation.setId(sequenceService.getNextSequence(CPU.SEQUENCE_NAME));
+		dockingStation.setId(sequenceService.getNextSequence(DockingStation.SEQUENCE_NAME));
 		repo.save(dockingStation);
 
 	}
