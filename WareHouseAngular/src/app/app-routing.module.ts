@@ -22,10 +22,13 @@ import { SoftwareListComponent } from './show-list-article/software-list/softwar
 import { SsdListComponent } from './show-list-article/ssd-list/ssd-list.component';
 import { TokenListComponent } from './show-list-article/token-list/token-list.component';
 import { ArticleCardComponent } from './count-article/article-card/article-card.component';
+import { WelcomeMenuComponent } from './welcome-menu/welcome-menu.component';
+import { AuthGaurdService } from './service/service-authGaurd/auth-gaurd.service';
 
 
 const routes: Routes = [ 
   {path:"", component: WelcomeComponent},
+  {path:"homePage", component:WelcomeMenuComponent, canActivate : [AuthGaurdService]},
   {path:"cpulist", component: CpuListComponent},
   {path:"cablelist", component: CableListComponent},
   {path:"cellphonelist", component: CellphoneListComponent},
