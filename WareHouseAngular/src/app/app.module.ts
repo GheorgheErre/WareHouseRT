@@ -58,6 +58,7 @@ import { SoftwareCountComponent } from './count-article/software-count/software-
 import { SsdCountComponent } from './count-article/ssd-count/ssd-count.component';
 import { TokenCountComponent } from './count-article/token-count/token-count.component';
 import { ArticleCardComponent } from './count-article/article-card/article-card.component';
+import { WelcomeMenuComponent } from './welcome-menu/welcome-menu.component';
 
 
 @NgModule({
@@ -107,7 +108,8 @@ import { ArticleCardComponent } from './count-article/article-card/article-card.
     SoftwareCountComponent,
     SsdCountComponent,
     TokenCountComponent,
-    ArticleCardComponent
+    ArticleCardComponent,
+    WelcomeMenuComponent
   ],
   imports: [
     BrowserModule,
