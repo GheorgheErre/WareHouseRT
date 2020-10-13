@@ -1,1 +1,35 @@
-<p>monitor-list works!</p>
+<div class="col-md-6">
+	<h2> Monitor list</h2>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Identifier</th>
+				<th>Users</th>
+				<th>Brand</th>
+				<th>Model</th>
+				<th>Serial Number</th>
+				<th>Location</th>
+                <th>User Number</th>
+                <th>Inches</th>
+                <th>Frequence</th>
+                <th>Resolution</th>				
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let monitor of listProduct">
+				<td class="hidden"></td>
+			<td>{{monitor.identifier}}</td>
+			<td>{{monitor.users}}</td>
+			<td>{{monitor.brand}}</td>
+			<td>{{monitor.model}}</td>
+			<td>{{monitor.serialNumber}}</td>
+			<td>{{monitor.location}}</td>
+			<td>{{monitor.userNumber}}</td>
+			<td>{{monitor.inches}}</td>
+            <td>{{monitor.frequence}}</td>
+            <td>{{monitor.resolution}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

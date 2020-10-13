@@ -1,1 +1,32 @@
-<p>ssd-list works!</p>
+<div class="col-md-6">
+	<h2> SSD list</h2>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Identifier</th>
+				<th>Users</th>
+				<th>Brand</th>
+				<th>Model</th>
+				<th>Serial Number</th>
+				<th>Location</th>
+                <th>User Number</th>
+                <th>Capacity</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let ssd of listProduct">
+				<td class="hidden"></td>
+			<td>{{ssd.identifier}}</td>
+			<td>{{ssd.users}}</td>
+			<td>{{ssd.brand}}</td>
+			<td>{{ssd.model}}</td>
+			<td>{{ssd.serialNumber}}</td>
+			<td>{{ssd.location}}</td>
+			<td>{{ssd.userNumber}}</td>
+			<td>{{ssd.capacity}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

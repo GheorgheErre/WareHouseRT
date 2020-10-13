@@ -1,1 +1,34 @@
-<p>operative-system-list works!</p>
+<div class="col-md-6">
+	<h2> Operative System list</h2>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Identifier</th>
+				<th>Users</th>
+				<th>Brand</th>
+				<th>Model</th>
+				<th>Serial Number</th>
+				<th>Location</th>
+				<th>User Number</th>
+                <th>Product Key</th>
+                <th>Associated Computer</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let operativeSystem of listProduct">
+				<td class="hidden"></td>
+			<td>{{operativeSystem.identifier}}</td>
+			<td>{{operativeSystem.users}}</td>
+			<td>{{operativeSystem.brand}}</td>
+			<td>{{operativeSystem.model}}</td>
+			<td>{{operativeSystem.serialNumber}}</td>
+			<td>{{operativeSystem.location}}</td>
+			<td>{{operativeSystem.userNumber}}</td>
+			<td>{{operativeSystem.productKey}}</td>
+            <td>{{operativeSystem.associatedComputer.identifier}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+

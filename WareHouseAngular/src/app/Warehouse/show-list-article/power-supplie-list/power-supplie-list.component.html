@@ -1,1 +1,34 @@
-<p>power-supplie-list works!</p>
+<div class="col-md-6">
+	<h2> Power Supplie list</h2>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Identifier</th>
+				<th>Users</th>
+				<th>Brand</th>
+				<th>Model</th>
+				<th>Serial Number</th>
+				<th>Location</th>
+                <th>User Number</th>
+                <th>Watts</th>
+                <th>Energy Rating</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let powerSupplie of listProduct">
+				<td class="hidden"></td>
+			<td>{{powerSupplie.identifier}}</td>
+			<td>{{powerSupplie.users}}</td>
+			<td>{{powerSupplie.brand}}</td>
+			<td>{{powerSupplie.model}}</td>
+			<td>{{powerSupplie.serialNumber}}</td>
+			<td>{{powerSupplie.location}}</td>
+			<td>{{powerSupplie.userNumber}}</td>
+			<td>{{powerSupplie.watts}}</td>
+            <td>{{powerSupplie.energyRating}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

@@ -1,1 +1,32 @@
-<p>mouse-list works!</p>
+<div class="col-md-6">
+	<h2> Mouse list</h2>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Identifier</th>
+				<th>Users</th>
+				<th>Brand</th>
+				<th>Model</th>
+				<th>Serial Number</th>
+				<th>Location</th>
+				<th>User Number</th>
+				<th>Mouse</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let mouse of listProduct">
+				<td class="hidden"></td>
+			<td>{{mouse.identifier}}</td>
+			<td>{{mouse.users}}</td>
+			<td>{{mouse.brand}}</td>
+			<td>{{mouse.model}}</td>
+			<td>{{mouse.serialNumber}}</td>
+			<td>{{mouse.location}}</td>
+			<td>{{mouse.userNumber}}</td>
+			<td>{{mouse.type}}</td>
+		
+			</tr>
+		</tbody>
+	</table>
+</div>

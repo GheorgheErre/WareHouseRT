@@ -1,1 +1,33 @@
-<p>software-list works!</p>
+<div class="col-md-6">
+	<h2> Software list</h2>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Identifier</th>
+				<th>Users</th>
+				<th>Brand</th>
+				<th>Model</th>
+				<th>Serial Number</th>
+				<th>Location</th>
+				<th>User Number</th>
+                <th>Product Key</th>
+                <th>Associated Computer</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let software of listProduct">
+				<td class="hidden"></td>
+			<td>{{software.identifier}}</td>
+			<td>{{software.users}}</td>
+			<td>{{software.brand}}</td>
+			<td>{{software.model}}</td>
+			<td>{{software.serialNumber}}</td>
+			<td>{{software.location}}</td>
+			<td>{{software.userNumber}}</td>
+			<td>{{software.productKey}}</td>
+            <td>{{software.associatedComputer.identifier}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

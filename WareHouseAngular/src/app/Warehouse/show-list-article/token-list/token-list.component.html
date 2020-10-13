@@ -1,1 +1,30 @@
-<p>token-list works!</p>
+<div class="col-md-6">
+	<h2> Token list</h2>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Identifier</th>
+				<th>Users</th>
+				<th>Brand</th>
+				<th>Model</th>
+				<th>Serial Number</th>
+				<th>Location</th>
+				<th>User Number</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let token of listProduct">
+				<td class="hidden"></td>
+			<td>{{token.identifier}}</td>
+			<td>{{token.users}}</td>
+			<td>{{token.brand}}</td>
+			<td>{{token.model}}</td>
+			<td>{{token.serialNumber}}</td>
+			<td>{{token.location}}</td>
+			<td>{{token.userNumber}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

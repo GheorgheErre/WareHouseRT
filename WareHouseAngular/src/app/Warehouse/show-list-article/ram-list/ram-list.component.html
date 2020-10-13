@@ -1,1 +1,33 @@
-<p>ram-list works!</p>
+<div class="col-md-6">
+	<h2> Ram list</h2>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Identifier</th>
+				<th>Users</th>
+				<th>Brand</th>
+				<th>Model</th>
+				<th>Serial Number</th>
+				<th>Location</th>
+				<th>User Number</th>
+                <th>Capacity</th>
+                <th>Frequency</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let ram of listProduct">
+				<td class="hidden"></td>
+			<td>{{ram.identifier}}</td>
+			<td>{{ram.users}}</td>
+			<td>{{ram.brand}}</td>
+			<td>{{ram.model}}</td>
+			<td>{{ram.serialNumber}}</td>
+			<td>{{ram.location}}</td>
+			<td>{{ram.userNumber}}</td>
+			<td>{{ram.capacity}}</td>
+            <td>{{ram.frequencies}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
