@@ -3,7 +3,7 @@ import { MonitorService } from 'src/app/service/service-monitor/monitor-service.
 import { ProductCount } from '../product-count';
 
 @Component({
-  selector: 'app-monitor-count',
+  selector: 'monitor-count',
   templateUrl: './monitor-count.component.html',
   styleUrls: ['./monitor-count.component.scss']
 })

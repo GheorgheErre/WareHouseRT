@@ -3,7 +3,7 @@ import { DesktopService } from 'src/app/service/service-desktop/desktop-service.
 import { ProductCount } from '../product-count';
 
 @Component({
-  selector: 'app-desktop-count',
+  selector: 'desktop-count',
   templateUrl: './desktop-count.component.html',
   styleUrls: ['./desktop-count.component.scss']
 })
