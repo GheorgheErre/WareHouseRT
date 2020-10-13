@@ -1,4 +1,4 @@
-import { ServiceService } from '../service/service.service';
+import { ServiceService } from 'src/app/service/service.service';
 
 export class ProductCount {
     countP: number;

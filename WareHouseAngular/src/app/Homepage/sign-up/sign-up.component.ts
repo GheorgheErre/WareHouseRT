@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RegistrationService } from '../service/service-registration/registration.service';
-import { User } from '../user';
+import { RegistrationService } from 'src/app/service/service-registration/registration.service';
+import { User } from 'src/app/user';
 
 @Component({
   selector: 'sign-up',

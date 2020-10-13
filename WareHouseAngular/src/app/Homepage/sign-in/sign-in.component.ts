@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthenticationService } from '../service/service-authentication/authentication.service';
-import { TokenStorageService } from '../service/service-tokenStorage/token-storage.service';
-import { User } from '../user';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { AuthenticationService } from 'src/app/service/service-authentication/authentication.service';
+import { TokenStorageService } from 'src/app/service/service-tokenStorage/token-storage.service';
+import { User } from 'src/app/user';
 
 @Component({
   selector: 'sign-in',
