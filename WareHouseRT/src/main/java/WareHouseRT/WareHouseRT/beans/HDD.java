@@ -12,7 +12,6 @@ public class HDD extends Component{
 	
 	@Id
 	private long id;
-	private String name;
 	private String capacity;
 	
 	public long getId() {
@@ -20,14 +19,6 @@ public class HDD extends Component{
 	}
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getCapacity() {

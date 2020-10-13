@@ -28,7 +28,7 @@ public class CpuController {
 	}
 
 	@GetMapping("/findAllCpu")
-	 @PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN')")
 	public List<CPU> findAll() {
 		return service.findAll();
 	}

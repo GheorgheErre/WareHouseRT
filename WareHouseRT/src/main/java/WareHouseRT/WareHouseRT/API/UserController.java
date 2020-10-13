@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import WareHouseRT.WareHouseRT.beans.AuthRequest;
 import WareHouseRT.WareHouseRT.beans.Role;
 import WareHouseRT.WareHouseRT.beans.User;
 import WareHouseRT.WareHouseRT.enums.ERole;
@@ -49,22 +48,6 @@ public class UserController {
 	private AuthenticationManager authenticationManager;
 	@Autowired
 	private JwtUtil jwtUtil;
-
-//	@PostMapping("/registerUser")
-//	public User registerUser(@RequestBody User user) throws Exception {
-//		String username = user.getUsername();
-//		if (username != null && !"".equals(username)) {
-//			if (service.getUserByUsername(username) != null) {
-//				throw new Exception("user with " + username + " is already exist");
-//			}
-//		}
-//		user.setPassword(passwordEncoder.encode(user.getPassword()));
-//		user.setAccountNonExpired(true);
-//		user.setAccountNonLocked(true);
-//		user.setCredentialsNonExpired(true);
-//		user.setEnabled(true);
-//		return service.save(user);
-//	}
 
 	@PostMapping("/registerUser")
 	public ResponseEntity<?> registerUser(@RequestBody SignupRequest signUpRequest) {

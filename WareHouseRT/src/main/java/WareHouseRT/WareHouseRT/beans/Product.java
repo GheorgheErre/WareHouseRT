@@ -2,16 +2,26 @@ package WareHouseRT.WareHouseRT.beans;
 
 /**
  * 
- *  Class that represents articles stored in the Warehouse. Contains commons data shared trough Article and Component classes.
- *  
- *  */
+ * Class that represents articles stored in the Warehouse. Contains commons data
+ * shared trough Article and Component classes.
+ * 
+ */
 public abstract class Product {
+	private String identifier;
 	private String users;
 	private String brand;
 	private String model;
 	private String serialNumber;
 	private String location;
 	private String userNumber;
+
+	public String getIdentifier() {
+		return identifier;
+	}
+
+	public void setIdentifier(String identifier) {
+		this.identifier = identifier;
+	}
 
 	public String getUsers() {
 		return users;
