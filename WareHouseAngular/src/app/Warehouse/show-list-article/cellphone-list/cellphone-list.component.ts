@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Cellphone } from 'src/app/pcObjects/cellphone/chellphone';
+import { Cellphone } from 'src/app/pcObjects/cellphone/cellphone';
 import { CellphoneService } from 'src/app/service/service-cellphone/cellphone-service.service';
 import { ProductList } from '../product-list/product-list';
 

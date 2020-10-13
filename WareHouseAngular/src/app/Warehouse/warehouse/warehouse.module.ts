@@ -53,8 +53,9 @@ import { WarehouseHomeComponent } from '../warehouse-home/warehouse-home.compone
 
 
 
+
 @NgModule({
-  declarations: [
+  declarations: [    
     CpuListComponent,
     GpuListComponent,
     HddListComponent,
@@ -93,15 +94,15 @@ import { WarehouseHomeComponent } from '../warehouse-home/warehouse-home.compone
     TokenCountComponent,
     ArticleCardComponent,
     WarehouseHomeComponent
-  ],
 
+   ],
   imports: [
     CommonModule,
     AppRoutingModule,
     NgbModule,
     BrowserAnimationsModule,
     LayoutModule,
-    MatToolbarModule,
+    MatToolbarModule,  
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
@@ -109,6 +110,7 @@ import { WarehouseHomeComponent } from '../warehouse-home/warehouse-home.compone
     HttpClientModule,
     FormsModule,
     FontAwesomeModule,
+    
   ]
 })
 export class WarehouseModule { }
