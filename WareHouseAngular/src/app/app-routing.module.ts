@@ -23,10 +23,11 @@ import { RamListComponent } from './Warehouse/show-list-article/ram-list/ram-lis
 import { SoftwareListComponent } from './Warehouse/show-list-article/software-list/software-list.component';
 import { SsdListComponent } from './Warehouse/show-list-article/ssd-list/ssd-list.component';
 import { TokenListComponent } from './Warehouse/show-list-article/token-list/token-list.component';
+import { WarehouseHomeComponent } from './Warehouse/warehouse-home/warehouse-home.component';
 
 
 const routes: Routes = [ 
-  {path:"", component: WelcomeComponent},
+  {path:"", component: WarehouseHomeComponent},
   {path:"homePage", component:WelcomeMenuComponent, canActivate : [AuthGaurdService]},
   {path:"cpulist", component: CpuListComponent},
   {path:"cablelist", component: CableListComponent},

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ArticleCardComponent } from '../count-article/article-card/article-card.component';
 import { CableCountComponent } from '../count-article/cable-count/cable-count.component';
@@ -53,7 +53,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 
 
 @NgModule({
-  declarations: [    
+  declarations: [
     CpuListComponent,
     GpuListComponent,
     HddListComponent,
@@ -90,7 +90,9 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     SoftwareCountComponent,
     SsdCountComponent,
     TokenCountComponent,
-    ArticleCardComponent],
+    ArticleCardComponent,
+  ],
+
   imports: [
     CommonModule,
     AppRoutingModule,
@@ -105,7 +107,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     HttpClientModule,
     FormsModule,
     FontAwesomeModule,
-    
-  ]
+  ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 })
 export class WarehouseModule { }

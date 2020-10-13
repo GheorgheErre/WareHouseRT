@@ -3,9 +3,10 @@ import { LaptopService } from 'src/app/service/service-laptop/laptop-service.ser
 import { ProductCount } from '../product-count';
 
 @Component({
-  selector: 'app-laptop-count',
+  selector: 'laptop-count',
   templateUrl: './laptop-count.component.html',
-  styleUrls: ['./laptop-count.component.scss']
+  styleUrls: ['./laptop-count.component.scss'],
+  
 })
 export class LaptopCountComponent extends ProductCount implements OnInit {
 
