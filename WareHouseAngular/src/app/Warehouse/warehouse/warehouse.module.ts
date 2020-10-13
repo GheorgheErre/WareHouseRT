@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ArticleCardComponent } from '../count-article/article-card/article-card.component';
 import { CableCountComponent } from '../count-article/cable-count/cable-count.component';
@@ -49,6 +49,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { WarehouseHomeComponent } from '../warehouse-home/warehouse-home.component';
 
 
 
@@ -91,6 +92,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     SsdCountComponent,
     TokenCountComponent,
     ArticleCardComponent,
+    WarehouseHomeComponent
   ],
 
   imports: [
@@ -107,7 +109,6 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     HttpClientModule,
     FormsModule,
     FontAwesomeModule,
-  ],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  ]
 })
 export class WarehouseModule { }
