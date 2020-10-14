@@ -1,0 +1,25 @@
+@font-face {
+    font-family: Oswald;
+    src: url("../../../../assets/fonts/Oswald-Regular.ttf");
+}
+* {
+    font-family: "Oswald", sans-serif;
+}
+h4 {
+    letter-spacing: 5px;
+}
+a {
+    border: 2px solid white;
+    width: 100px;
+    color: white;
+    letter-spacing: 2px;
+    transition: 0.5s;
+}
+a:hover {
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+}
+#footer {
+    background-color: #070206;
+}
