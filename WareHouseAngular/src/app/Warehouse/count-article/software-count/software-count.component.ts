@@ -3,7 +3,7 @@ import { SoftwareService } from 'src/app/service/service-software/software-servi
 import { ProductCount } from '../product-count';
 
 @Component({
-  selector: 'app-software-count',
+  selector: 'software-count',
   templateUrl: './software-count.component.html',
   styleUrls: ['./software-count.component.scss']
 })

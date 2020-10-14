@@ -3,7 +3,7 @@ import { MouseService } from 'src/app/service/service-mouse/mouse-service.servic
 import { ProductCount } from '../product-count';
 
 @Component({
-  selector: 'app-mouse-count',
+  selector: 'mouse-count',
   templateUrl: './mouse-count.component.html',
   styleUrls: ['./mouse-count.component.scss']
 })

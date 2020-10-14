@@ -3,7 +3,7 @@ import { KeyboardService } from 'src/app/service/service-keyboard/keyboard-servi
 import { ProductCount } from '../product-count';
 
 @Component({
-  selector: 'app-keyboard-count',
+  selector: 'keyboard-count',
   templateUrl: './keyboard-count.component.html',
   styleUrls: ['./keyboard-count.component.scss']
 })

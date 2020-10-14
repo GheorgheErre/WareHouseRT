@@ -1,11 +1,19 @@
 <div class="card" id="card">
   <img src="../../../../assets/img/laptop.jpg" class="card-img-top">
-  <div class="card-body">
-    <h4 class="card-title"><strong>· Notebook</strong></h4>
-    <p class="card-text">{{countP}}</p>
-
+  <div class="card-body pb-0" id="card-body">
+    <div class="row h-100">
+      <div class="col-10">
+        <h2 class="card-title">Notebook</h2>
+      </div>
+      <div class="col-2 p-0 pr-2">
+        <span class="dot float-right" data-toggle="tooltip" title="quantity">{{countP}}</span>
+      </div>
+    </div>
   </div>
-  <div class="card-footer" id="footer">
-    <a href="#" role="button" class="btn">View</a>
-  </div>
+  <a href="" class="learn-more ml-3">
+    <span class="circle" aria-hidden="true">
+      <span class="icon arrow"></span>
+    </span>
+    <span class="button-text">Visualize</span>
+  </a>
 </div>

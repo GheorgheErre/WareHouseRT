@@ -3,7 +3,7 @@ import { OperativeSystemService } from 'src/app/service/service-operative-system
 import { ProductCount } from '../product-count';
 
 @Component({
-  selector: 'app-operative-system-count',
+  selector: 'operative-system-count',
   templateUrl: './operative-system-count.component.html',
   styleUrls: ['./operative-system-count.component.scss']
 })
