@@ -40,7 +40,7 @@
 	  
 	  <table>
 		<tr>
-		  <th *ngFor='let column of listProduct[0] | getjsoncolKeys'>{{column}}</th>
+		  <th *ngFor='let column of listProduct | getjsonkeys'>{{column}}</th>
 		</tr>
 		<tr *ngFor="let row of listProduct">
 		  <td *ngFor='let val of row | getjsonvalues'>{{val}}</td>

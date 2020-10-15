@@ -17,12 +17,16 @@ import { HttpInterceptorService } from './service/http-interceptor.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomepageModule } from './Homepage/homepage/homepage.module';
 import { WarehouseModule } from './Warehouse/warehouse/warehouse.module';
+import { GetjsonvaluesPipe } from './Warehouse/show-list-article/cpu-list/getjsonvalues.pipe';
+import { GetjsonkeysPipe } from './Warehouse/show-list-article/cpu-list/getjsonkeys.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     FormCPUComponent,
+    GetjsonkeysPipe,
+
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,7 @@ import { WarehouseModule } from './Warehouse/warehouse/warehouse.module';
     provide: HTTP_INTERCEPTORS,
     useClass: HttpInterceptorService,
     multi: true
-  }],
+  }, GetjsonkeysPipe, GetjsonvaluesPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -111,6 +111,7 @@ import { WarehouseHomeComponent } from '../warehouse-home/warehouse-home.compone
     FormsModule,
     FontAwesomeModule,
     
-  ]
+  ],
+  providers:[]
 })
 export class WarehouseModule { }

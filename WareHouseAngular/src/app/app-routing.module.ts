@@ -27,7 +27,8 @@ import { WarehouseHomeComponent } from './Warehouse/warehouse-home/warehouse-hom
 
 
 const routes: Routes = [ 
-  {path:"", component: WarehouseHomeComponent},
+  {path:"", component: WelcomeComponent},
+  {path:"articleList", component: WarehouseHomeComponent},
   {path:"homePage", component:WelcomeMenuComponent, canActivate : [AuthGaurdService]},
   {path:"cpulist", component: CpuListComponent},
   {path:"cablelist", component: CableListComponent},
