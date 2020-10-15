@@ -51,8 +51,9 @@ const routes: Routes = [
   {path:"ssdlist", component: SsdListComponent},
   {path:"tokenlist", component: TokenListComponent},
   {path:"articleCount", component: ArticleCardComponent},
-  {path:"productlist", component: ListProductComponent},
+  {path:"productList", component: ListProductComponent},
   {path:"login", component: LoginComponent}
+ 
 
 
 ] ;

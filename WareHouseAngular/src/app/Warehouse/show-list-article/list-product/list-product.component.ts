@@ -1,11 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { MapType } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { type } from 'os';
 import { Product } from 'src/app/pcObjects/product/product';
-import { CableService } from 'src/app/service/service-cable/cable.service';
-import { CpuService } from 'src/app/service/service-cpu/cpu.service';
+import { DataService } from 'src/app/service/service-data/data.service';
 import { ServiceService } from 'src/app/service/service.service';
 
 @Component({
@@ -19,15 +15,15 @@ export class ListProductComponent implements OnInit {
   services: ServiceService;
   data: string;
 
-  constructor(protected service: ServiceService, private http?: HttpClient, private router: Router) {
-
+  constructor(protected service: ServiceService, private dataService: DataService, private http?: HttpClient) {
+this.services=this.dataService.service;
    // type map = Map<string, ServiceService>;
 
     //let mappa= new Map ([["service" , new ServiceService(http)],["cpu", new CpuService(http)], ["cable", new CableService(http)]]);
 
 
 
-    
+ /*   
    let servicesJson =  {
       
         "cpu": new CpuService(http)
@@ -40,13 +36,12 @@ export class ListProductComponent implements OnInit {
     const state = navigation.extras.state as { data: string };
     this.data = state.data;
 let json= JSON.stringify(servicesJson);
-
-
+*/
 }
 
 
   ngOnInit(): void {
-    this.service.findAll().subscribe(list => {
+    this.services.findAll().subscribe(list => {
       
       this.listProduct = list;
       this.listKeys = this.jsonToList(this.listProduct);
@@ -57,7 +52,7 @@ let json= JSON.stringify(servicesJson);
 
 
   jsonToList(value): any {
-    return Object.keys(value);
+    return Object.keys(value[0]);
 
   }
 
