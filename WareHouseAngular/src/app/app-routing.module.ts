@@ -24,6 +24,8 @@ import { SoftwareListComponent } from './Warehouse/show-list-article/software-li
 import { SsdListComponent } from './Warehouse/show-list-article/ssd-list/ssd-list.component';
 import { TokenListComponent } from './Warehouse/show-list-article/token-list/token-list.component';
 import { WarehouseHomeComponent } from './Warehouse/warehouse-home/warehouse-home.component';
+import { ListProductComponent } from './Warehouse/show-list-article/list-product/list-product.component';
+import { LoginComponent } from './Homepage/login/login.component';
 
 
 const routes: Routes = [ 
@@ -48,7 +50,11 @@ const routes: Routes = [
   {path:"softwarelist", component: SoftwareListComponent},
   {path:"ssdlist", component: SsdListComponent},
   {path:"tokenlist", component: TokenListComponent},
-  {path:"articleCount", component: ArticleCardComponent}
+  {path:"articleCount", component: ArticleCardComponent},
+  {path:"productlist", component: ListProductComponent},
+  {path:"login", component: LoginComponent}
+
+
 ] ;
 
 @NgModule({
