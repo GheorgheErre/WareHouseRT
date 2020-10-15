@@ -3,7 +3,7 @@ import { RamService } from 'src/app/service/service-ram/ram.service';
 import { ProductCount } from '../product-count';
 
 @Component({
-  selector: 'app-ram-count',
+  selector: 'ram-count',
   templateUrl: './ram-count.component.html',
   styleUrls: ['./ram-count.component.scss']
 })

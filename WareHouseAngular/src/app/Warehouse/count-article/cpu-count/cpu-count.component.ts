@@ -3,7 +3,7 @@ import { CpuService } from 'src/app/service/service-cpu/cpu.service';
 import { ProductCount } from '../product-count';
 
 @Component({
-  selector: 'app-cpu-count',
+  selector: 'cpu-count',
   templateUrl: './cpu-count.component.html',
   styleUrls: ['./cpu-count.component.scss']
 })

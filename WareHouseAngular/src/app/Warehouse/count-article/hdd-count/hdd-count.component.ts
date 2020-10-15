@@ -3,7 +3,7 @@ import { HddService } from 'src/app/service/service-hdd/hdd.service';
 import { ProductCount } from '../product-count';
 
 @Component({
-  selector: 'app-hdd-count',
+  selector: 'hdd-count',
   templateUrl: './hdd-count.component.html',
   styleUrls: ['./hdd-count.component.scss']
 })

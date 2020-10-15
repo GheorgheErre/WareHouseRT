@@ -1,9 +1,19 @@
-
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top" id="cardImage" src="../../assets/img/cable.png" alt="Card image cap">
-    <div class="card-body" id="cardBody">
-      <h5 class="card-title">Cable</h5>
-      <p class="card-text">{{countP}}</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class="card" id="card">
+  <img src="../../../../assets/img/cable.jpg" class="card-img-top">
+  <div class="card-body pb-0" id="card-body">
+    <div class="row h-100">
+      <div class="col-10">
+        <h2 class="card-title">Cable</h2>
+      </div>
+      <div class="col-2 p-0 pr-2">
+        <span class="dot float-right" data-toggle="tooltip" title="quantity">{{countP}}</span>
+      </div>
     </div>
+  </div>
+  <a href="" class="learn-more ml-3">
+    <span class="circle" aria-hidden="true">
+      <span class="icon arrow"></span>
+    </span>
+    <span class="button-text">Visualize</span>
+  </a>
 </div>

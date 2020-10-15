@@ -3,7 +3,7 @@ import { DockingStationService } from 'src/app/service/service-docking-station/d
 import { ProductCount } from '../product-count';
 
 @Component({
-  selector: 'app-docking-station-count',
+  selector: 'docking-station-count',
   templateUrl: './docking-station-count.component.html',
   styleUrls: ['./docking-station-count.component.scss']
 })

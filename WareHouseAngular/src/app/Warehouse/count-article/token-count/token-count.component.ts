@@ -3,7 +3,7 @@ import { TokenService } from 'src/app/service/service-token/token.service';
 import { ProductCount } from '../product-count';
 
 @Component({
-  selector: 'app-token-count',
+  selector: 'token-count',
   templateUrl: './token-count.component.html',
   styleUrls: ['./token-count.component.scss']
 })

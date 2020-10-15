@@ -3,7 +3,7 @@ import { CellphoneService } from 'src/app/service/service-cellphone/cellphone-se
 import { ProductCount } from '../product-count';
 
 @Component({
-  selector: 'app-cellphone-count',
+  selector: 'cellphone-count',
   templateUrl: './cellphone-count.component.html',
   styleUrls: ['./cellphone-count.component.scss']
 })

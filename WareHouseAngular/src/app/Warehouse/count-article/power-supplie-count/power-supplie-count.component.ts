@@ -3,7 +3,7 @@ import { PowerSupplieService } from 'src/app/service/service-powerSupplie/power-
 import { ProductCount } from '../product-count';
 
 @Component({
-  selector: 'app-power-supplie-count',
+  selector: 'power-supplie-count',
   templateUrl: './power-supplie-count.component.html',
   styleUrls: ['./power-supplie-count.component.scss']
 })

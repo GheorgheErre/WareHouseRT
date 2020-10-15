@@ -3,7 +3,7 @@ import { SsdService } from 'src/app/service/service-ssd/ssd.service';
 import { ProductCount } from '../product-count';
 
 @Component({
-  selector: 'app-ssd-count',
+  selector: 'ssd-count',
   templateUrl: './ssd-count.component.html',
   styleUrls: ['./ssd-count.component.scss']
 })

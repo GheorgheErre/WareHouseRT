@@ -3,7 +3,7 @@ import { CableService } from 'src/app/service/service-cable/cable.service';
 import { ProductCount } from '../product-count';
 
 @Component({
-  selector: 'app-cable-count',
+  selector: 'cable-count',
   templateUrl: './cable-count.component.html',
   styleUrls: ['./cable-count.component.scss']
 })

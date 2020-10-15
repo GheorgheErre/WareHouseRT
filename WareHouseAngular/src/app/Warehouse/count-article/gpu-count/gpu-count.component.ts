@@ -3,7 +3,7 @@ import { GpuService } from 'src/app/service/service-gpu/gpu.service';
 import { ProductCount } from '../product-count';
 
 @Component({
-  selector: 'app-gpu-count',
+  selector: 'gpu-count',
   templateUrl: './gpu-count.component.html',
   styleUrls: ['./gpu-count.component.scss']
 })

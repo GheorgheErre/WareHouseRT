@@ -3,7 +3,7 @@ import { GraphicTabletService } from 'src/app/service/service-graphic-tablet/gra
 import { ProductCount } from '../product-count';
 
 @Component({
-  selector: 'app-graphic-tablet-count',
+  selector: 'graphic-tablet-count',
   templateUrl: './graphic-tablet-count.component.html',
   styleUrls: ['./graphic-tablet-count.component.scss']
 })
