@@ -50,6 +50,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { WarehouseHomeComponent } from '../warehouse-home/warehouse-home.component';
+import { GetjsonkeysPipe } from '../show-list-article/cpu-list/getjsonkeys.pipe';
+import { GetjsonvaluesPipe } from '../show-list-article/cpu-list/getjsonvalues.pipe';
+import { ProductList } from '../show-list-article/product-list/product-list';
+import { ListProductComponent } from '../show-list-article/list-product/list-product.component';
 
 
 
@@ -93,7 +97,8 @@ import { WarehouseHomeComponent } from '../warehouse-home/warehouse-home.compone
     SsdCountComponent,
     TokenCountComponent,
     ArticleCardComponent,
-    WarehouseHomeComponent
+    WarehouseHomeComponent,
+    ListProductComponent
 
    ],
   imports: [
@@ -112,6 +117,6 @@ import { WarehouseHomeComponent } from '../warehouse-home/warehouse-home.compone
     FontAwesomeModule,
     
   ],
-  providers:[]
+  providers:[GetjsonkeysPipe, GetjsonvaluesPipe]
 })
 export class WarehouseModule { }

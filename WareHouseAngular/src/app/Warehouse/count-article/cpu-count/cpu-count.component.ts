@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { CpuService } from 'src/app/service/service-cpu/cpu.service';
 import { ProductCount } from '../product-count';
 
@@ -9,12 +10,18 @@ import { ProductCount } from '../product-count';
 })
 export class CpuCountComponent extends ProductCount implements OnInit {
 
-  constructor(private cpuService: CpuService) { 
+  constructor(private cpuService: CpuService, private route: ActivatedRoute,
+    private router: Router) {
     super(cpuService);
   }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.countProduct();
+  }
+
+  showList():void{
+    const navigationExtras: NavigationExtras = {state: {data: 'cpu'}};
+    this.router.navigate(['/productList', navigationExtras ])
   }
 
 }
