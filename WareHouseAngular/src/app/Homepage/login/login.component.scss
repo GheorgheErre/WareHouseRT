@@ -7,7 +7,7 @@
 }
 body,
 html,
-#container-login {
+#container{
     height: 100%;
 }
 #col-sign-in {
@@ -18,15 +18,7 @@ html,
     background-color: #313131;
     border-radius: 0px 20px 20px 0px;
 }
-#header-login {
-    position: fixed;
-    height: 100%;
-    width: 0;
-    z-index: 1;
-    bottom: 0;
-    right: 0;
-    overflow-x: hidden;
-}
+
 #logo-login {
     height: 95px;
 }
