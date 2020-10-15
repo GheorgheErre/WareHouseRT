@@ -41,7 +41,7 @@ export class ListProductComponent implements OnInit {
     this.data = state.data;
 let json= JSON.stringify(servicesJson);
 
-json.
+
 }
 
 
