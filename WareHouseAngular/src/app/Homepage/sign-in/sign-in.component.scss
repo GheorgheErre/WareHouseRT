@@ -10,15 +10,22 @@ html {
     height: 100%;
 }
 form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
     padding: 100px;
-    margin: 10px 0px;
     border-radius: 20px;
-    background-image: linear-gradient(to right, #72bbce, #8dc8d8, #a7d5e1);
+    background-color: lightgray;
+}
+a{
+    text-decoration: none;
+    color: white;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+a:hover{
+    color: #004fff;
+    transition: 0.3s;
+}
+img{
+    height: 35px;
 }
 #btn-signin {
     text-decoration: none;
@@ -29,8 +36,9 @@ form {
     transition: 0.5s;
 }
 #btn-signin:hover {
-    background-color: #81c7df;
-    border-color: #81c7df;
+    background-color: #004fff;
+    border-color: #004fff;
+    color: white;
     transition: 0.5s;
 }
 #input-signin-username, #input-signin-password {

@@ -1,11 +1,12 @@
 <form (ngSubmit)="loginUser()" #loginform="ngForm">
     <div class="row">
-        <div class="col">
+        <div class="col mb-5 d-flex flex-row">
+            <img src="../../assets/img/Logo Erre.png" class="pr-3">
             <h1 id="h1-signin">Sign in</h1>
         </div>
     </div>
     <div class="row">
-        <div class="col mb-">
+        <div class="col">
             <span id="span-signin">Hello,already a user?</span>
         </div>
     </div>
@@ -20,9 +21,14 @@
         </div>
     </div>
     <div class="row">
-        <div class="col mb-4">
+        <div class="col mb-2">
             <input id="input-signin-password" type="password" placeholder="Password" name="password"
                 [(ngModel)]="user.password" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mb-4">
+           <a href="">Are you new here? sign up now!</a>
         </div>
     </div>
     <div class="row">

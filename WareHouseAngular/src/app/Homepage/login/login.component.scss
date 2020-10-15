@@ -10,44 +10,10 @@ html,
 #container{
     height: 100%;
 }
-#col-sign-in {
-    background-color: #313131;
-    border-radius: 20px 0 0 20px;
-}
-#col-sign-up{
-    background-color: #313131;
-    border-radius: 0px 20px 20px 0px;
-}
-
-#logo-login {
-    height: 95px;
-}
-
-#btn-choose-signin {
-    text-decoration: none;
-    color: black;
-    padding: 10px 100px;
-    border: 2px solid black;
-    border-radius: 20px;
-    transition: 0.5s;
-}
-#btn-choose-signin:hover {
-    background-color: #004fff;
-    border-color: #004fff;
-    color: white;
-    transition: 0.5s;
-}
-#btn-choose-signup {
-    text-decoration: none;
-    color: black;
-    padding: 10px 100px;
-    border: 2px solid black;
-    border-radius: 20px;
-    transition: 0.5s;
-}
-#btn-choose-signup:hover {
-    background-color: #004fff;
-    border-color: #004fff;
-    color: white;
-    transition: 0.5s;
+#main{
+    height: 100%;
+    background-image: url("../welcome/img/ufficio.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
