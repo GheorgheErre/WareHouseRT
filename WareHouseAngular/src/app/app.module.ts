@@ -19,6 +19,7 @@ import { HomepageModule } from './Homepage/homepage/homepage.module';
 import { WarehouseModule } from './Warehouse/warehouse/warehouse.module';
 import { GetjsonvaluesPipe } from './Warehouse/show-list-article/cpu-list/getjsonvalues.pipe';
 import { GetjsonkeysPipe } from './Warehouse/show-list-article/cpu-list/getjsonkeys.pipe';
+import { PopperDirective } from './popper.directive';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { GetjsonkeysPipe } from './Warehouse/show-list-article/cpu-list/getjsonk
     AppComponent,
     FormCPUComponent,
     GetjsonkeysPipe,
+    PopperDirective,
 
   ],
   imports: [
