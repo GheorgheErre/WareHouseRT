@@ -14,8 +14,11 @@ export abstract class ProductList {
    
   }
 
-  jsonToList(value): any{
-    return Object.keys(value);
+  jsonToList(json): any{
+    return Object.keys(json);
 
+  }
+  jsonToListValue(json):any{
+    return 
   }
 }

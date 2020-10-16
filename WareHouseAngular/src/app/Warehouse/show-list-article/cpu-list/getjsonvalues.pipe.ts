@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class GetjsonvaluesPipe implements PipeTransform {
 
-  transform(value, args: string[]): any {
+  transform(value, args: string[]): any{
 
     let keys = Object.keys(value);
     console.log(keys.map(k => value[k]));
