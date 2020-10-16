@@ -1,9 +1,15 @@
-<p>list-product works!</p>
 
-	  
-<table>
-    <tr>
-      <th *ngFor='let column of listKeys'>{{column}}</th>
+<table class="table table-striped">
+  <thead>
+  <tr >
+    <th *ngFor='let column of listKeys'>{{column}}</th>
     </tr>
-
-  </table>
+  </thead>
+  <tbody>
+  
+    <tr *ngFor='let row of listValues'>
+      <td *ngFor='let field of row'>{{field}}</td>
+    </tr>
+  
+  </tbody>
+</table>

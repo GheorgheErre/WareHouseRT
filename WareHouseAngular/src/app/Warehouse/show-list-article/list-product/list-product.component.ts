@@ -12,31 +12,16 @@ import { ServiceService } from 'src/app/service/service.service';
 export class ListProductComponent implements OnInit {
   listProduct: Product[];
   listKeys: String[];
+  listValues: any[];
   services: ServiceService;
   data: string;
 
-  constructor(protected service: ServiceService, private dataService: DataService, private http?: HttpClient) {
-this.services=this.dataService.service;
-   // type map = Map<string, ServiceService>;
+  constructor(protected service: ServiceService,
+     private dataService: DataService,
+     private http?: HttpClient) {
 
-    //let mappa= new Map ([["service" , new ServiceService(http)],["cpu", new CpuService(http)], ["cable", new CableService(http)]]);
+    this.services=this.dataService.service;
 
-
-
- /*   
-   let servicesJson =  {
-      
-        "cpu": new CpuService(http)
-      ,
-      
-        "cable": new CableService(http)
-      };
-
-    const navigation = this.router.getCurrentNavigation();
-    const state = navigation.extras.state as { data: string };
-    this.data = state.data;
-let json= JSON.stringify(servicesJson);
-*/
 }
 
 
@@ -44,16 +29,28 @@ let json= JSON.stringify(servicesJson);
     this.services.findAll().subscribe(list => {
       
       this.listProduct = list;
-      this.listKeys = this.jsonToList(this.listProduct);
-      
+      this.listKeys = this.getKeysFromJson(this.listProduct);
+      this.getValuesFromJson(this.listProduct);
     })
 
   }
 
 
-  jsonToList(value): any {
+  getKeysFromJson(value): any {
     return Object.keys(value[0]);
+  }
 
+  getValuesFromJson(value){
+    let i = 0; 
+    let arrayTmp : any[];
+    arrayTmp = [];
+    for(let entry of value){
+    let keys = Object.keys(entry);
+    let tmp = keys.map(k => entry[k]);
+    arrayTmp[i] = tmp;
+    i++;
+    }
+       this.listValues = arrayTmp;
   }
 
 }
