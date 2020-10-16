@@ -16,7 +16,8 @@ export class DesktopService extends ServiceService{
     super.saveUrl = 'http://localhost:8080/api/saveDesktop';
     super.getListUrl = 'http://localhost:8080/api/findAllDesktop';
     super.countUrl = 'http://localhost:8080/api/countDesktop';
-
+    super.getByIDUrl = 'http://localhost:8080/api/findDesktop';
+    super.deleteUrl = 'http://localhost:8080/api/deleteDesktop';
   }
 
   

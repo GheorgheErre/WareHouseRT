@@ -13,7 +13,10 @@ export class CableService extends ServiceService{
     super(http);
     super.saveUrl = 'http://localhost:8080/api/saveCable';
     super.getListUrl = 'http://localhost:8080/api/findAllCable';
+    super.getByIDUrl = 'http://localhost:8080/api/findCable';
+    super.deleteUrl = 'http://localhost:8080/api/deleteCable';
     super.countUrl = 'http://localhost:8080/api/countCable';
+   
 
    }
 }

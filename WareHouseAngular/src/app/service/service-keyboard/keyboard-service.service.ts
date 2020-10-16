@@ -14,7 +14,8 @@ export class KeyboardService extends ServiceService{
     super.saveUrl = 'http://localhost:8080/api/saveKeyboard';
     super.getListUrl = 'http://localhost:8080/api/findAllKeyboard';
     super.countUrl = 'http://localhost:8080/api/countKeyboard';
-
+    super.getByIDUrl = 'http://localhost:8080/api/findKeyboard';
+    super.deleteUrl = 'http://localhost:8080/api/deleteKeyboard';
 
   }
 

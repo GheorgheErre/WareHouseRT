@@ -13,5 +13,7 @@ export class SoftwareService extends ServiceService{
     super.saveUrl = 'http://localhost:8080/api/saveSoftware';
     super.getListUrl = 'http://localhost:8080/api/findAllSoftware';
     super.countUrl = 'http://localhost:8080/api/countSoftware';
+    super.getByIDUrl = 'http://localhost:8080/api/findSoftware';
+    super.deleteUrl = 'http://localhost:8080/api/deleteSoftware';
   }
 }

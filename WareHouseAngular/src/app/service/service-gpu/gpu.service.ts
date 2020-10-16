@@ -15,6 +15,8 @@ export class GpuService extends ServiceService{
     this.saveUrl = 'http://localhost:8080/api/saveGpu';
     super.getListUrl = 'http://localhost:8080/api/findAllGpu';
     super.countUrl = 'http://localhost:8080/api/countGpu';
+    super.getByIDUrl = 'http://localhost:8080/api/findGpu';
+    super.deleteUrl = 'http://localhost:8080/api/deleteGpu';
   }
 
 }

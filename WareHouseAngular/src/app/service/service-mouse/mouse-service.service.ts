@@ -15,7 +15,8 @@ export class MouseService extends ServiceService{
     super.saveUrl = 'http://localhost:8080/api/saveMouse';
     super.getListUrl = 'http://localhost:8080/api/findAllMouse';
     super.countUrl = 'http://localhost:8080/api/countMouse';
-
+    super.getByIDUrl = 'http://localhost:8080/api/findMouse';
+    super.deleteUrl = 'http://localhost:8080/api/deleteMouse';
   }
 
   

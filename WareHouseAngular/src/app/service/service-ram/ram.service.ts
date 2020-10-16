@@ -14,6 +14,8 @@ export class RamService extends ServiceService{
     super.saveUrl = 'http://localhost:8080/api/saveRam';
     super.getListUrl = 'http://localhost:8080/api/findAllRam';
     super.countUrl = 'http://localhost:8080/api/countRam';
+    super.getByIDUrl = 'http://localhost:8080/api/findRam';
+    super.deleteUrl = 'http://localhost:8080/api/deleteRam';
    }
 
  

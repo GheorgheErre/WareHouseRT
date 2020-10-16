@@ -15,7 +15,8 @@ export class OperativeSystemService extends ServiceService{
     this.saveUrl = 'http://localhost:8080/api/saveOperativeSystem';
     this.getListUrl = 'http://localhost:8080/api/findAllOperativeSystem';
     super.countUrl = 'http://localhost:8080/api/countOperativeSystem';
-
+    super.getByIDUrl = 'http://localhost:8080/api/findOperativeSystem';
+    super.deleteUrl = 'http://localhost:8080/api/deleteOperativeSystem';
 
   }
 

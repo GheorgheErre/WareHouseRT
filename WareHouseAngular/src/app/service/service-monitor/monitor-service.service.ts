@@ -15,6 +15,8 @@ export class MonitorService extends ServiceService{
     super.saveUrl = 'http://localhost:8080/api/saveMonitor';
     super.getListUrl = 'http://localhost:8080/api/findAllMonitor';
     super.countUrl = 'http://localhost:8080/api/countMonitor';
+    super.getByIDUrl = 'http://localhost:8080/api/findMonitor';
+    super.deleteUrl = 'http://localhost:8080/api/deleteMonitor';
 
   }
 

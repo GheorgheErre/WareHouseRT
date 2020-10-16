@@ -14,6 +14,8 @@ export class HddService extends ServiceService{
     this.saveUrl = 'http://localhost:8080/api/saveHdd';
     super.getListUrl = 'http://localhost:8080/api/findAllHdd';
     super.countUrl = 'http://localhost:8080/api/countHdd';
+    super.getByIDUrl = 'http://localhost:8080/api/findHdd';
+    super.deleteUrl = 'http://localhost:8080/api/deleteHdd';
    }
 
 }

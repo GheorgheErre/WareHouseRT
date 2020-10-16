@@ -15,6 +15,8 @@ export class PowerSupplieService extends ServiceService{
     super.saveUrl = 'http://localhost:8080/api/savePowerSupplie';
     super.getListUrl = 'http://localhost:8080/api/findAllPowerSupplie';
     super.countUrl = 'http://localhost:8080/api/countPowerSupplie';
+    super.getByIDUrl = 'http://localhost:8080/api/findPowerSupplie';
+    super.deleteUrl = 'http://localhost:8080/api/deletePowerSupplie';
   }
 
 }
