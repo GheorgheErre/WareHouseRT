@@ -2,14 +2,68 @@ body,
 html {
     height: 100%;
 }
-#header{
+#header {
     height: 100%;
     background-image: url("img/warehousehome-blured.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
 }
-#container{
+#container {
     height: 100%;
 }
 
+#back {
+    margin-right: 15px;
+    width: 35px;
+    height: 35px;
+    background-color: transparent;
+    border-radius: 100%;
+    border: 1px solid white;
+    text-align: center;
+    line-height: 34px;
+    vertical-align: middle;
+    display: inline-block;
+    transition: 0.5s;
+    #btn-back {
+        transition: 0.5s;
+        color: white;
+        line-height: inherit;
+    }
+}
+#back:hover{
+    background-color: white;
+    transition: 0.5s;
+    #btn-back:hover{
+        color: black;
+        transition: 0.5s;
+    }
+}
+#menu {
+    width: 35px;
+    height: 35px;
+    background-color: transparent;
+    border-radius: 100%;
+    border: 1px solid white;
+    text-align: center;
+    line-height: 34px;
+    vertical-align: middle;
+    display: inline-block;
+    transition: 0.5s;
+    #btn-menu {
+        transition: 0.5s;
+        color: white;
+        line-height: inherit;
+        text-decoration: none;
+        background: none;
+        border: none;
+    }
+}
+#menu:hover{
+    background-color: white;
+    transition: 0.5s;
+    #btn-menu:hover{
+        color: black;
+        transition: 0.5s;
+    }
+}

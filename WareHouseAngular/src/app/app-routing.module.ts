@@ -30,7 +30,7 @@ import { LoginComponent } from './Homepage/login/login.component';
 
 
 const routes: Routes = [ 
-  {path:"", component: WelcomeComponent},
+  {path:"", component: WarehouseHomeComponent},
   {path:"articleList", component: WarehouseHomeComponent},
   {path:"articleCount", component: WarehouseHomeComponent},
   {path:"signUp", component: SignUpComponent},
