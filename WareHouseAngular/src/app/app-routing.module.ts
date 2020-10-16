@@ -1,3 +1,4 @@
+import { SignUpComponent } from './Homepage/sign-up/sign-up.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { pathToFileURL } from 'url';
@@ -31,6 +32,8 @@ import { LoginComponent } from './Homepage/login/login.component';
 const routes: Routes = [ 
   {path:"", component: WelcomeComponent},
   {path:"articleList", component: WarehouseHomeComponent},
+  {path:"articleCount", component: WarehouseHomeComponent},
+  {path:"signUp", component: SignUpComponent},
   {path:"homePage", component:WelcomeMenuComponent, canActivate : [AuthGaurdService]},
   {path:"cpulist", component: CpuListComponent},
   {path:"cablelist", component: CableListComponent},

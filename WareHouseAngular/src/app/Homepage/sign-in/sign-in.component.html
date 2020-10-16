@@ -28,7 +28,7 @@
     </div>
     <div class="row">
         <div class="col mb-4">
-           <a href="">Are you new here? sign up now!</a>
+           <a href="signUp" (click)="openSignUp()">Are you new here? sign up now!</a>
         </div>
     </div>
     <div class="row">
@@ -38,3 +38,4 @@
     </div>
     <small class="text-danger">{{errorMessage}}</small>
 </form>
+<sign-up *ngIf="signUp"></sign-up>

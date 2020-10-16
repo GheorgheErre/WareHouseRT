@@ -10,31 +10,14 @@ html {
     height: 100%;
 }
 form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    height: 100%;
     padding: 100px;
-    margin: 10px 0px;
     border-radius: 20px;
     background-image: linear-gradient(to right, #52b788, #74c69d, #95d5b2);
 }
-#btn-signup {
-    text-decoration: none;
-    padding: 10px 40px;
-    border: 2px solid black;
-    border-radius: 20px;
-    background: transparent;
-    transition: 0.5s;
+img {
+    height: 35px;
 }
-#btn-signup:hover {
-    background-color: #57b98b;
-    border-color: #57b98b;
-    transition: 0.5s;
-}
-#input-signup-username, #input-signup-password {
+input {
     padding: 10px 50px;
     border: 2px solid black;
     border-radius: 20px;
@@ -43,28 +26,47 @@ form {
 ::placeholder {
     opacity: 1;
 }
-#h1-signup {
+h1 {
     font-size: 40px;
     letter-spacing: 2px;
 }
-#span-signup {
+span {
     letter-spacing: 4px;
 }
-#icn-freccia {
-    margin-left: 5px;
+button {
+    text-decoration: none;
+    padding: 10px 40px;
+    border: 2px solid black;
+    border-radius: 20px;
+    background: transparent;
+    transition: 0.5s;
 }
+button:hover {
+    background-color: #57b98b;
+    border-color: #57b98b;
+    transition: 0.5s;
+}
+
+#container {
+    height: 100%;
+    background-image: url("../welcome/img/ufficio-blured.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
 .errorInput {
     padding: 5px 40px;
     background: transparent;
     color: red;
 }
-#signup-failed{
+#signup-failed {
     background: transparent;
     color: red;
 }
-#signup-success{
+#signup-success {
     padding: 5px 40px;
     background: transparent;
     color: black;
 }
-

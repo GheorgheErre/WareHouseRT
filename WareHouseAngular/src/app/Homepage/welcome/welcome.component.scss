@@ -5,6 +5,11 @@
 * {
     font-family: "Oswald", sans-serif;
 }
+html,
+body {
+    height: 100%;
+    overflow-y: hidden;
+}
 h5 {
     color: #004fff;
 }
@@ -15,7 +20,7 @@ h5 {
     background-size: cover;
     background-position: center center;
 }
-#container{
+#container {
     height: 100%;
 }
 #main {

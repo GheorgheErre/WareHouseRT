@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { AuthenticationService } from 'src/app/service/service-authentication/authentication.service';
 import { TokenStorageService } from 'src/app/service/service-tokenStorage/token-storage.service';
 import { User } from 'src/app/user';
@@ -12,8 +11,10 @@ import { User } from 'src/app/user';
 })
 export class SignInComponent implements OnInit {
 
-  faArrowRight = faArrowRight;
-
+  signUp = false;
+  openSignUp(){
+    this.signUp = true;
+  }
   user = new User();
   errorMessage = '';
   isLoggedIn = false;
