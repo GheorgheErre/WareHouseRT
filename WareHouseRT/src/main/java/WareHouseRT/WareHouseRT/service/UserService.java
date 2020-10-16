@@ -1,5 +1,7 @@
 package WareHouseRT.WareHouseRT.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,14 @@ public class UserService {
 		user.setId(sequenceService.getNextSequence(User.SEQUENCE_NAME));
 		 return repo.save(user);
 	} 
+	
+	public void delete(User entity) {
+		repo.delete(entity);
+	}
+
+	public Optional<User> findByID(long id) {
+		return repo.findById(id);
+	}
 	
 	public User getUserByUsername(String username) {
 		return repo.findByUsername(username);

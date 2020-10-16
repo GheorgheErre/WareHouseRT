@@ -1,6 +1,7 @@
 package WareHouseRT.WareHouseRT.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,14 @@ public class HDDService{
 	public void save(HDD hdd) {
 		hdd.setId(sequenceService.getNextSequence(HDD.SEQUENCE_NAME));
 		repo.save(hdd);
+	}
+	
+	public void delete(HDD entity) {
+		repo.delete(entity);
+	}
+
+	public Optional<HDD> findByID(long id) {
+		return repo.findById(id);
 	}
 
 	public List<HDD> findAll() {

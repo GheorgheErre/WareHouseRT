@@ -1,13 +1,12 @@
 package WareHouseRT.WareHouseRT.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import WareHouseRT.WareHouseRT.beans.Cable;
 import WareHouseRT.WareHouseRT.beans.GraphicTablet;
-import WareHouseRT.WareHouseRT.repository.CableRepository;
 import WareHouseRT.WareHouseRT.repository.GraphicTabletRepository;
 
 @Service
@@ -23,6 +22,14 @@ public class GraphicTabletService {
 		graphicTablet.setId(sequenceService.getNextSequence(GraphicTablet.SEQUENCE_NAME));
 		repo.save(graphicTablet);
 		
+	}
+	
+	public void delete(GraphicTablet entity) {
+		repo.delete(entity);
+	}
+
+	public Optional<GraphicTablet> findByID(long id) {
+		return repo.findById(id);
 	}
 
 	public List<GraphicTablet> findAll() {

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import WareHouseRT.WareHouseRT.beans.SSD;
 
 @Repository
-public interface SsdRepository extends MongoRepository<SSD, Integer>{
+public interface SsdRepository extends MongoRepository<SSD, Long>{
 
 }

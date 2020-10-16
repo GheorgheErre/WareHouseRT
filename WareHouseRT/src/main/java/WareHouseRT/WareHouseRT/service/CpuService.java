@@ -1,6 +1,7 @@
 package WareHouseRT.WareHouseRT.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,21 +14,30 @@ public class CpuService {
 
 	@Autowired
 	private CpuRepository repo;
-	
+
 	@Autowired
 	private SequenceGeneratorService sequenceService;
-	
+
 	public void save(CPU cpu) {
 		cpu.setId(sequenceService.getNextSequence(CPU.SEQUENCE_NAME));
 		repo.save(cpu);
-	} 
-	
+	}
+
+	public void delete(CPU entity) {
+		repo.delete(entity);
+	}
+
+	public Optional<CPU> findByID(long id) {
+		return repo.findById(id);
+	}
+
 	public List<CPU> findAll() {
 		return repo.findAll();
-		
-	} 
+
+	}
+
 	public long count() {
-		
+
 		return repo.count();
 	}
 

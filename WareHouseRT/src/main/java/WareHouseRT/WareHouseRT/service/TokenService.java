@@ -1,6 +1,7 @@
 package WareHouseRT.WareHouseRT.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,14 @@ public class TokenService {
 	public void save(Token token) {
 		token.setId(sequenceService.getNextSequence(Token.SEQUENCE_NAME));
 		repo.save(token);
+	}
+	
+	public void delete(Token entity) {
+		repo.delete(entity);
+	}
+
+	public Optional<Token> findByID(long id) {
+		return repo.findById(id);
 	}
 
 	public List<Token> findAll() {

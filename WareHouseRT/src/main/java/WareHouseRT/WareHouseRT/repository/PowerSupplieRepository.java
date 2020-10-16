@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import WareHouseRT.WareHouseRT.beans.PowerSupplie;
 
 @Repository
-public interface PowerSupplieRepository extends MongoRepository<PowerSupplie, Integer>{
+public interface PowerSupplieRepository extends MongoRepository<PowerSupplie, Long>{
 
 }

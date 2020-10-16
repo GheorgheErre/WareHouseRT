@@ -1,6 +1,7 @@
 package WareHouseRT.WareHouseRT.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,14 @@ public class CableService {
 		cable.setId(sequenceService.getNextSequence(Cable.SEQUENCE_NAME));
 		repo.save(cable);
 		
+	}
+
+	public void delete(Cable entity) {
+		repo.delete(entity);
+	}
+
+	public Optional<Cable> findByID(long id) {
+		return repo.findById(id);
 	}
 
 	public List<Cable> findAll() {

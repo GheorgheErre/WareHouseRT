@@ -4,6 +4,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import WareHouseRT.WareHouseRT.beans.RAM;
 
-public interface RamRepository extends MongoRepository<RAM, Integer>{
+public interface RamRepository extends MongoRepository<RAM, Long>{
 
 }
