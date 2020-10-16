@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/pcObjects/product/product';
 import { DataService } from 'src/app/service/service-data/data.service';
 import { ServiceService } from 'src/app/service/service.service';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-list-product',
@@ -15,6 +16,9 @@ export class ListProductComponent implements OnInit {
   listValues: any[];
   services: ServiceService;
   data: string;
+
+  faEdit = faEdit;
+  faTrash = faTrash;
 
   constructor(protected service: ServiceService,
      private dataService: DataService,
