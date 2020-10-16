@@ -12,48 +12,55 @@ html {
 form {
     padding: 100px;
     border-radius: 20px;
-    background-color: lightgray;
+    background-color: white;
+    box-shadow: 12px 12px 10px 1px #004fff;
 }
-a{
+a {
     text-decoration: none;
-    color: white;
     letter-spacing: 2px;
     transition: 0.3s;
+    color: black;
 }
-a:hover{
+a:hover {
     color: #004fff;
     transition: 0.3s;
 }
-img{
+img {
     height: 35px;
 }
-#btn-signin {
-    text-decoration: none;
-    padding: 10px 40px;
-    border: 2px solid black;
+input {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: whitesmoke;
+}
+::placeholder {
+    opacity: 1;
+    color: #004fff;
+}
+button {
+    border: 1px solid #004fff;
+    color: #004fff;
     border-radius: 20px;
+    width: 130px;
     background-color: transparent;
     transition: 0.5s;
 }
-#btn-signin:hover {
+button:hover {
     background-color: #004fff;
     border-color: #004fff;
     color: white;
     transition: 0.5s;
 }
-#input-signin-username, #input-signin-password {
-    padding: 10px 50px;
-    border: 2px solid black;
-    border-radius: 20px;
-    background-color: transparent;
-}
-::placeholder {
-    opacity: 1;
-}
-#h1-signin {
-    font-size: 40px;
+
+#span-signin{
+    color: #004fff;
+    font-size: 35px;
     letter-spacing: 2px;
 }
-#span-signin {
+span {
     letter-spacing: 4px;
+}
+#user-span, #now-span{
+    color: #004fff;
 }
