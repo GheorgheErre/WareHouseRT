@@ -1,6 +1,7 @@
 package WareHouseRT.WareHouseRT.API;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,6 +24,16 @@ public class KeyboardController {
 	@PostMapping("/saveKeyboard")
 	public void save(@RequestBody Keyboard keyboard) {
 		service.save(keyboard);
+	}
+	
+	@PostMapping("/deleteKeyboard")
+	public void delete(@RequestBody Keyboard keyboard) {
+		service.save(keyboard);
+	}
+	
+	@GetMapping("/findKeyboard")
+	public Optional<Keyboard> findByID(@RequestBody Keyboard keyboard ) {
+		return service.findByID(keyboard.getId());
 	}
 
 	@GetMapping("/findAllKeyboard")

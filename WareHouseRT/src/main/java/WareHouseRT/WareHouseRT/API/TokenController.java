@@ -1,6 +1,7 @@
 package WareHouseRT.WareHouseRT.API;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -26,8 +27,18 @@ public class TokenController {
 		service.save(token);
 	}
 
+	@PostMapping("/deleteToken")
+	public void delete(@RequestBody Token token) {
+		service.save(token);
+	}
+
+	@GetMapping("/findToken")
+	public Optional<Token> findByID(@RequestBody Token token) {
+		return service.findByID(token.getId());
+	}
+
 	@GetMapping("/findAllToken")
-	 @PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN')")
 	public List<Token> findAll() {
 		return service.findAll();
 	}

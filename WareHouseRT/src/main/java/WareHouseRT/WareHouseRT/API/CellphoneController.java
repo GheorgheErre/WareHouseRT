@@ -1,6 +1,7 @@
 package WareHouseRT.WareHouseRT.API;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,6 +24,16 @@ public class CellphoneController {
 	@PostMapping("/saveCellphone")
 	public void save(@RequestBody Cellphone cellphone) {
 		service.save(cellphone);
+	}
+	
+	@PostMapping("/deleteCellphone")
+	public void delete(@RequestBody Cellphone cellphone) {
+		service.save(cellphone);
+	}
+	
+	@GetMapping("/findCellphone")
+	public Optional<Cellphone> findByID(@RequestBody Cellphone cellphone ) {
+		return service.findByID(cellphone.getId());
 	}
 
 	@GetMapping("/findAllCellphone")

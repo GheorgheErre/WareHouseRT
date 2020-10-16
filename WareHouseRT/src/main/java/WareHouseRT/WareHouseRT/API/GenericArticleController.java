@@ -1,6 +1,7 @@
 package WareHouseRT.WareHouseRT.API;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,6 +24,16 @@ public class GenericArticleController {
 	@PostMapping("/saveGenericArticle")
 	public void save(@RequestBody GenericArticle genericArticle) {
 		service.save(genericArticle);
+	}
+	
+	@PostMapping("/deleteGenericArticle")
+	public void delete(@RequestBody GenericArticle genericArticle) {
+		service.save(genericArticle);
+	}
+	
+	@GetMapping("/findGenericArticle")
+	public Optional<GenericArticle> findByID(@RequestBody GenericArticle genericArticle ) {
+		return service.findByID(genericArticle.getId());
 	}
 	
 	@GetMapping("/findAllGenericArticle")

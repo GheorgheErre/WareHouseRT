@@ -1,6 +1,7 @@
 package WareHouseRT.WareHouseRT.API;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -9,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 
 import WareHouseRT.WareHouseRT.beans.Laptop;
 import WareHouseRT.WareHouseRT.service.LaptopService;
@@ -25,6 +25,16 @@ public class LaptopController {
 	@PostMapping("/saveLaptop")
 	public void save(@RequestBody Laptop  laptop) {
 		service.save(laptop);
+	}
+	
+	@PostMapping("/deleteLaptop")
+	public void delete(@RequestBody Laptop laptop) {
+		service.save(laptop);
+	}
+	
+	@GetMapping("/findLaptop")
+	public Optional<Laptop> findByID(@RequestBody Laptop laptop ) {
+		return service.findByID(laptop.getId());
 	}
 	
 	@GetMapping("/findAllLaptop")

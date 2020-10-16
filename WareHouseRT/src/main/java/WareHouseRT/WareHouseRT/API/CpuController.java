@@ -1,6 +1,7 @@
 package WareHouseRT.WareHouseRT.API;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -25,6 +26,16 @@ public class CpuController {
 	@PostMapping("/saveCpu")
 	public void save(@RequestBody CPU cpu) {
 		service.save(cpu);
+	}
+	
+	@PostMapping("/deleteCpu")
+	public void delete(@RequestBody CPU cpu) {
+		service.save(cpu);
+	}
+	
+	@GetMapping("/findCpu")
+	public Optional<CPU> findByID(@RequestBody CPU cpu ) {
+		return service.findByID(cpu.getId());
 	}
 
 	@GetMapping("/findAllCpu")

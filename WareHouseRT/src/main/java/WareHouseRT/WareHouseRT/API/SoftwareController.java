@@ -1,6 +1,7 @@
 package WareHouseRT.WareHouseRT.API;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import WareHouseRT.WareHouseRT.beans.Software;
 import WareHouseRT.WareHouseRT.service.SoftwareService;
 
@@ -23,6 +25,16 @@ public class SoftwareController {
 	@PostMapping("/saveSoftware")
 	public void save(@RequestBody Software software) {
 		service.save(software);
+	}
+	
+	@PostMapping("/deleteSoftware")
+	public void delete(@RequestBody Software software) {
+		service.save(software);
+	}
+	
+	@GetMapping("/findSoftware")
+	public Optional<Software> findByID(@RequestBody Software software ) {
+		return service.findByID(software.getId());
 	}
 
 	@GetMapping("/findAllSoftware")

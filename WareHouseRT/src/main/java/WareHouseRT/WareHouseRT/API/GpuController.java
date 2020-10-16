@@ -1,6 +1,7 @@
 package WareHouseRT.WareHouseRT.API;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,7 +18,7 @@ import WareHouseRT.WareHouseRT.service.GpuService;
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api")
 public class GpuController {
-	
+
 	@Autowired
 	private GpuService service;
 
@@ -25,6 +26,17 @@ public class GpuController {
 	public void save(@RequestBody GPU gpu) {
 		service.save(gpu);
 	}
+
+	@PostMapping("/deleteGpu")
+	public void delete(@RequestBody GPU gpu) {
+		service.save(gpu);
+	}
+
+	@GetMapping("/findGpu")
+	public Optional<GPU> findByID(@RequestBody GPU gpu) {
+		return service.findByID(gpu.getId());
+	}
+
 	@GetMapping("/findAllGpu")
 	public List<GPU> findAll() {
 		return service.findAll();

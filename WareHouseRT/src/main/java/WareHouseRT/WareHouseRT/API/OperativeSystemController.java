@@ -1,6 +1,7 @@
 package WareHouseRT.WareHouseRT.API;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,6 +24,16 @@ public class OperativeSystemController {
 	@PostMapping("/saveOperativeSystem")
 	public void save(@RequestBody OperativeSystem operativeSystem) {
 		service.save(operativeSystem);
+	}
+	
+	@PostMapping("/deleteOperativeSystem")
+	public void delete(@RequestBody OperativeSystem operativeSystem) {
+		service.save(operativeSystem);
+	}
+	
+	@GetMapping("/findOperativeSystem")
+	public Optional<OperativeSystem> findByID(@RequestBody OperativeSystem operativeSystem ) {
+		return service.findByID(operativeSystem.getId());
 	}
 
 	@GetMapping("/findAllOperativeSystem")

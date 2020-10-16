@@ -1,6 +1,7 @@
 package WareHouseRT.WareHouseRT.API;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,6 +25,16 @@ public class MonitorController {
 	@PostMapping("/saveMonitor")
 	public void save(@RequestBody Monitor monitor) {
 		service.save(monitor);
+	}
+	
+	@PostMapping("/deleteMonitor")
+	public void delete(@RequestBody Monitor monitor) {
+		service.save(monitor);
+	}
+	
+	@GetMapping("/findMonitor")
+	public Optional<Monitor> findByID(@RequestBody Monitor monitor ) {
+		return service.findByID(monitor.getId());
 	}
 
 	@GetMapping("/findAllMonitor")

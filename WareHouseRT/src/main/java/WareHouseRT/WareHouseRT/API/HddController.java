@@ -1,6 +1,7 @@
 package WareHouseRT.WareHouseRT.API;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,6 +25,16 @@ public class HddController {
 	@PostMapping("/saveHdd")
 	public void save(@RequestBody HDD hdd) {
 		service.save(hdd);
+	}
+	
+	@PostMapping("/deleteHdd")
+	public void delete(@RequestBody HDD hdd) {
+		service.save(hdd);
+	}
+	
+	@GetMapping("/findHdd")
+	public Optional<HDD> findByID(@RequestBody HDD hdd ) {
+		return service.findByID(hdd.getId());
 	}
 	
 	@GetMapping("/findAllHdd")

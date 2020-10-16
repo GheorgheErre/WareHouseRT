@@ -1,6 +1,7 @@
 package WareHouseRT.WareHouseRT.API;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,6 +24,16 @@ public class DockingStationController {
 	@PostMapping("/saveDockingStation")
 	public void save(@RequestBody DockingStation dockingStation) {
 		service.save(dockingStation);
+	}
+	
+	@PostMapping("/deleteDockingStation")
+	public void delete(@RequestBody DockingStation dockingStation) {
+		service.save(dockingStation);
+	}
+	
+	@GetMapping("/findDockingStation")
+	public Optional<DockingStation> findByID(@RequestBody DockingStation dockingStation ) {
+		return service.findByID(dockingStation.getId());
 	}
 
 	@GetMapping("/findAllDockingStation")

@@ -1,6 +1,7 @@
 package WareHouseRT.WareHouseRT.API;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,6 +25,16 @@ public class DesktopController {
 	@PostMapping("/saveDesktop")
 	public void save(@RequestBody Desktop desktop) {
 		service.save(desktop);
+	}
+	
+	@PostMapping("/deleteDesktop")
+	public void delete(@RequestBody Desktop desktop) {
+		service.save(desktop);
+	}
+	
+	@GetMapping("/findDesktop")
+	public Optional<Desktop> findByID(@RequestBody Desktop desktop ) {
+		return service.findByID(desktop.getId());
 	}
 	
 	@GetMapping("/findAllDesktop")

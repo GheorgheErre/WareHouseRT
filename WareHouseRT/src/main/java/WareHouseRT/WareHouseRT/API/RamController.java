@@ -1,6 +1,7 @@
 package WareHouseRT.WareHouseRT.API;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,16 +18,27 @@ import WareHouseRT.WareHouseRT.service.RamService;
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api")
 public class RamController {
-	
+
 	@Autowired
 	private RamService service;
-	
+
 	@PostMapping("/saveRam")
 	public void save(@RequestBody RAM ram) {
 		service.save(ram);
 	}
+	
+	@PostMapping("/deleteRam")
+	public void delete(@RequestBody RAM ram) {
+		service.save(ram);
+	}
+	
+	@GetMapping("/findRam")
+	public Optional<RAM> findByID(@RequestBody RAM ram ) {
+		return service.findByID(ram.getId());
+	}
+
 	@GetMapping("findAllRam")
-	public List<RAM> findAll(){
+	public List<RAM> findAll() {
 		return service.findAll();
 	}
 
