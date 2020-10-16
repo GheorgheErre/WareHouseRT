@@ -9,6 +9,7 @@ export class WarehouseHomeComponent implements OnInit {
 
   faPlus = faPlus;
   faArrowLeft = faArrowLeft;
+
   constructor() { }
 
   ngOnInit(): void {

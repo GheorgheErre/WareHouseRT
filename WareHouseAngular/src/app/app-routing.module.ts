@@ -31,10 +31,10 @@ import { LoginComponent } from './Homepage/login/login.component';
 
 const routes: Routes = [ 
   {path:"", component: WarehouseHomeComponent},
-  {path:"articleList", component: WarehouseHomeComponent},
-  {path:"articleCount", component: WarehouseHomeComponent},
-  {path:"signUp", component: SignUpComponent},
-  {path:"homePage", component:WelcomeMenuComponent, canActivate : [AuthGaurdService]},
+  {path:"WarehouseHomeList", component: WarehouseHomeComponent},
+  {path:"WarehouseHomeCount", component: WarehouseHomeComponent},
+  {path:"SignUp", component: SignUpComponent},
+  {path:"WelcomeMenu", component:WelcomeMenuComponent, canActivate : [AuthGaurdService]},
   {path:"cpulist", component: CpuListComponent},
   {path:"cablelist", component: CableListComponent},
   {path:"cellphonelist", component: CellphoneListComponent},
@@ -55,7 +55,7 @@ const routes: Routes = [
   {path:"tokenlist", component: TokenListComponent},
   {path:"articleCount", component: ArticleCardComponent},
   {path:"productList", component: ListProductComponent},
-  {path:"login", component: LoginComponent}
+  {path:"Login", component: LoginComponent}
  
 
 
