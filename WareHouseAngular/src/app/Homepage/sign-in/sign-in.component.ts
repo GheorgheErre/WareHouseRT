@@ -42,7 +42,7 @@ export class SignInComponent implements OnInit {
      this.isLoginFailed = false;
      this.isLoggedIn = true;
      this.roles = this.tokenStorage.getUser().roles;
-     this.router.navigate(['/homePage']);
+     this.router.navigate(['/WelcomeMenu']);
    },
      err => {
               this.errorMessage = err.error.message

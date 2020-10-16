@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faWarehouse } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -9,9 +10,13 @@ import { faWarehouse } from '@fortawesome/free-solid-svg-icons';
 export class WelcomeMenuComponent implements OnInit {
 
   faWarehouse = faWarehouse;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  openWarehouse(){
+    this.router.navigate(["/WarehouseHomeCount"])
   }
 
 

@@ -24,7 +24,7 @@ export class ListProductComponent implements OnInit {
      private dataService: DataService,
      private http?: HttpClient) {
 
-    this.services=this.dataService.service;
+    //this.services=this.dataService.service;
 
 }
 
