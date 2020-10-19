@@ -4,6 +4,7 @@ import { ServiceService } from 'src/app/service/service.service';
 export abstract class ProductList {
     listProduct: Product[];
     listKeys:String[];
+    //product : Product;
   constructor(protected service : ServiceService) { }
 
   findAllProduct(): void {
@@ -12,6 +13,18 @@ export abstract class ProductList {
       this.listKeys=this.jsonToList(this.listProduct);
     })
    
+  }
+
+  saveProduct(product : Product){
+    this.service.save(product).subscribe(result => console.log("ARTICLE CARICATO CON SUCCESSO"));
+  }
+
+  deleteProduct(product: Product){
+    this.service.delete(product).subscribe(result => console.log("ARTICLE ELIMINATO CON SUCCESSO"));
+  }
+
+  updateProduct(product: Product){
+    this.service.update(product).subscribe(result => console.log("ARTICLE AGGIORNATO CON SUCCESSO"));
   }
 
   jsonToList(json): any{

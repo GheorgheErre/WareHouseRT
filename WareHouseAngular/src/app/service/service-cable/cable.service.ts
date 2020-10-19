@@ -16,6 +16,7 @@ export class CableService extends ServiceService{
     super.getByIDUrl = 'http://localhost:8080/api/findCable';
     super.deleteUrl = 'http://localhost:8080/api/deleteCable';
     super.countUrl = 'http://localhost:8080/api/countCable';
+    super.updateUrl = 'http://localhost:8080/api/updateCable';
    
 
    }

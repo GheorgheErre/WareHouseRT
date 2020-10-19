@@ -13,6 +13,7 @@ export abstract class ServiceService {
   protected getByIDUrl: string;
   protected deleteUrl: string;
   protected countUrl: string;
+  protected updateUrl: string;
 
  
 
@@ -22,6 +23,10 @@ export abstract class ServiceService {
 
   public save(product: Product) {
     return this.http.post<Product>(this.saveUrl, product);
+  }
+
+  public update(product: Product) {
+    return this.http.post<Product>(this.updateUrl, product);
   }
 
   public findAll(): Observable<any> {

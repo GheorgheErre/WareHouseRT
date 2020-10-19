@@ -1,8 +1,8 @@
-<div class="col-md-6">
+<div class="container">
 	<h2> Cpu Details</h2>
 
-	<table class="table table-striped">
-		<thead>
+	<table class="table table-striped table-hover">
+		<thead class="thead-dark">
 			<tr>
 				<th>Identifier</th>
 				<th>Users</th>
@@ -32,16 +32,14 @@
 				<td>{{cpu.core}}</td>
 				<td>{{cpu.threads}}</td>
 				<td>{{cpu.baseClock}}</td>
-				<td>{{cpu.maxBoostClock}}</td>				
+				<td>{{cpu.maxBoostClock}}</td>	
+				<td><button class="btn btn-success">
+					<fa-icon [icon]="faEdit"></fa-icon>
+				  </button></td>
+				  <td><button class="btn btn-danger">
+					<fa-icon [icon]="faTrash"></fa-icon>
+				  </button></td>			
 			</tr>
 		</tbody>
 	</table>
-
-	  
-	  <table>
-		<tr>
-		  <th *ngFor='let column of listKeys'>{{column}}</th>
-		</tr>
-	
-	  </table>
 </div>

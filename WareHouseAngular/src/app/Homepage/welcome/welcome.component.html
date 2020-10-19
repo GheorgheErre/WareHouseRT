@@ -8,8 +8,8 @@
                 <h1 id="line-1">ERRE TECHNOLOGY WAREHOUSE<h5>You desire. We design.</h5>
                 </h1>
                 <hr class="trans--grow hr">
-                <a href="#main" id="bottone-start" class="btn">START NOW</a>
-
+                <a *ngIf="!loggedIn" href="#main" id="bottone-start" class="btn">START NOW</a>
+                <a *ngIf="loggedIn" href="/WelcomeMenu" id="bottone-start" class="btn">START NOW</a>
             </div>
         </div>
     </div>

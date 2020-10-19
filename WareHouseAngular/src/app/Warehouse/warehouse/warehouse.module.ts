@@ -54,6 +54,7 @@ import { GetjsonkeysPipe } from '../show-list-article/cpu-list/getjsonkeys.pipe'
 import { GetjsonvaluesPipe } from '../show-list-article/cpu-list/getjsonvalues.pipe';
 import { ProductList } from '../show-list-article/product-list/product-list';
 import { ListProductComponent } from '../show-list-article/list-product/list-product.component';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 
 
 
@@ -98,7 +99,8 @@ import { ListProductComponent } from '../show-list-article/list-product/list-pro
     TokenCountComponent,
     ArticleCardComponent,
     WarehouseHomeComponent,
-    ListProductComponent
+    ListProductComponent,
+    DashboardComponent
 
    ],
   imports: [

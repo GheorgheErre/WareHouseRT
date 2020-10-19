@@ -21,8 +21,8 @@ export class CpuCountComponent extends ProductCount implements OnInit {
   }
 
   showList():void{
-    this.dataService.setService(this.cpuService);
-    this.router.navigate(['/cpuList'])
+    //this.dataService.setService(this.cpuService);
+    this.router.navigate(['/cpulist'])
   }
 
 }
