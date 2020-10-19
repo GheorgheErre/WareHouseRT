@@ -28,10 +28,12 @@ import { WarehouseHomeComponent } from './Warehouse/warehouse-home/warehouse-hom
 import { ListProductComponent } from './Warehouse/show-list-article/list-product/list-product.component';
 import { LoginComponent } from './Homepage/login/login.component';
 import { DashboardComponent } from './Warehouse/dashboard/dashboard.component';
+import { WorkstationWelcomeComponent } from './workstation-welcome/workstation-welcome.component';
 
 
 const routes: Routes = [ 
-  {path:"", component: DashboardComponent},
+  {path:"", component: WorkstationWelcomeComponent},
+  {path:"WorkstationWelcome",component: WorkstationWelcomeComponent},
   {path:"Dashboard", component: DashboardComponent},
   {path:"WarehouseHomeList", component: WarehouseHomeComponent},
   {path:"WarehouseHomeCount", component: WarehouseHomeComponent},

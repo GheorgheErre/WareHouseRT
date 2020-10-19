@@ -1,0 +1,23 @@
+@font-face {
+    font-family: Poppins;
+    src: url("../../assets/fonts/Poppins-Light.ttf");
+}
+* {
+    font-family: "Poppins", sans-serif;
+}
+html,
+body,
+header {
+    height: 100%;
+}
+button {
+    border: 1px solid black;
+    border-radius: 20px;
+}
+img{
+    height: 600px;
+}
+#container {
+    height: 100%;
+}
+    

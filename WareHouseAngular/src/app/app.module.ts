@@ -21,6 +21,7 @@ import { GetjsonvaluesPipe } from './Warehouse/show-list-article/cpu-list/getjso
 import { GetjsonkeysPipe } from './Warehouse/show-list-article/cpu-list/getjsonkeys.pipe';
 import { PopperDirective } from './popper.directive';
 import { DashboardComponent } from './Warehouse/dashboard/dashboard.component';
+import { WorkstationWelcomeComponent } from './workstation-welcome/workstation-welcome.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { DashboardComponent } from './Warehouse/dashboard/dashboard.component';
     GetjsonkeysPipe,
     PopperDirective,
     DashboardComponent,
+    WorkstationWelcomeComponent,
 
   ],
   imports: [
