@@ -27,10 +27,12 @@ import { TokenListComponent } from './Warehouse/show-list-article/token-list/tok
 import { WarehouseHomeComponent } from './Warehouse/warehouse-home/warehouse-home.component';
 import { ListProductComponent } from './Warehouse/show-list-article/list-product/list-product.component';
 import { LoginComponent } from './Homepage/login/login.component';
+import { DashboardComponent } from './Warehouse/dashboard/dashboard.component';
 
 
 const routes: Routes = [ 
-  {path:"", component: WelcomeComponent},
+  {path:"", component: DashboardComponent},
+  {path:"Dashboard", component: DashboardComponent},
   {path:"WarehouseHomeList", component: WarehouseHomeComponent},
   {path:"WarehouseHomeCount", component: WarehouseHomeComponent},
   {path:"SignUp", component: SignUpComponent},

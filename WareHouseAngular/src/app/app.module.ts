@@ -20,6 +20,7 @@ import { WarehouseModule } from './Warehouse/warehouse/warehouse.module';
 import { GetjsonvaluesPipe } from './Warehouse/show-list-article/cpu-list/getjsonvalues.pipe';
 import { GetjsonkeysPipe } from './Warehouse/show-list-article/cpu-list/getjsonkeys.pipe';
 import { PopperDirective } from './popper.directive';
+import { DashboardComponent } from './Warehouse/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { PopperDirective } from './popper.directive';
     FormCPUComponent,
     GetjsonkeysPipe,
     PopperDirective,
+    DashboardComponent,
 
   ],
   imports: [
