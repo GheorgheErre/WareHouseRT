@@ -1,7 +1,8 @@
 <header>
     <div class="container-fluid h-100">
         <div class="row h-100" id="ground_floor">
-            <div class="col mt-4">
+            <div class="col mt-3 text-center">
+                <img src="../../assets/img/Logo Erre.png" id="logo" class="float-left">
                 <span>Ground floor</span>
                 <hr>
                 <button class="btn">Uff. 1</button>
@@ -10,12 +11,15 @@
                 <button class="btn">Direzione 2</button>
                 <button class="btn">Reception</button>
                 <button class="btn">Uff. 3</button>
-                <a href="#first_floor" class="btn float-right" placement="left" ngbTooltip="first floor"><fa-icon [icon]="faArrowDown"></fa-icon></a>
+                <a href="#first_floor" class="btn float-right" placement="left" ngbTooltip="first floor">
+                    <fa-icon [icon]="faArrowDown"></fa-icon>
+                </a>
                 <img src="../../assets/img/__piano_terra.png">
             </div>
         </div>
-        <div class="row h-100 align-items-center" id="first_floor">
-            <div class="col mt-4">
+        <div class="row h-100" id="first_floor">
+            <div class="col mt-3 text-center">
+                <img src="../../assets/img/Logo Erre.png" id="logo" class="float-left">
                 <span>First floor</span>
                 <hr>
                 <button class="btn">Dir. Erre Ges</button>
@@ -28,8 +32,10 @@
                 <button class="btn">Uff.Lab</button>
                 <button class="btn">Uff. Pro</button>
 
-                <a href="#ground_floor" class="btn float-right"><fa-icon [icon]="faArrowUp"></fa-icon></a>
-                <img src="../../assets/img/__primo_piano.png" >
+                <a href="#ground_floor" class="btn float-right">
+                    <fa-icon [icon]="faArrowUp"></fa-icon>
+                </a>
+                <img src="../../assets/img/__primo_piano.png">
             </div>
 
         </div>
