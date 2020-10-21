@@ -2,12 +2,13 @@
 	<h2> Cable</h2>
 
 	<table id="myTable" class="table table-dark table-hover">
-		<thead> 
+		<thead>
 			<!--<input type="text" id="myInput" (keyup)="myFunction()" placeholder="Search" title="Type in a name">-->
 
-			<tr> <button class="btn btn-primary" (click) = "onAddArticleButton()" data-toggle="modal" data-target="#saveOrUpdateModal">
-				add article
-			</button></tr>
+			<tr> <button class="btn btn-primary" (click)="onAddArticleButton()" data-toggle="modal"
+					data-target="#saveOrUpdateModal">
+					add article
+				</button></tr>
 			<tr>
 				<th>Identifier</th>
 				<th>Users</th>
@@ -23,18 +24,19 @@
 		</thead>
 		<tbody>
 			<tr *ngFor="let cable of listProduct">
-			<td>{{cable.identifier}}</td>
-			<td>{{cable.users}}</td>
-			<td>{{cable.brand}}</td>
-			<td>{{cable.model}}</td>
-			<td>{{cable.serialNumber}}</td>
-			<td>{{cable.location}}</td>
-			<td>{{cable.userNumber}}</td>
-			<td>{{cable.type}}</td>
-			<td><button class="btn btn-success" (click) = "onUpdateButton(cable)" data-toggle="modal" data-target="#saveOrUpdateModal">
-			  </button></td>
-			  <td><button (click) = "deleteProduct(cable)" class="btn btn-danger">
-			  </button></td>	
+				<td>{{cable.identifier}}</td>
+				<td>{{cable.users}}</td>
+				<td>{{cable.brand}}</td>
+				<td>{{cable.model}}</td>
+				<td>{{cable.serialNumber}}</td>
+				<td>{{cable.location}}</td>
+				<td>{{cable.userNumber}}</td>
+				<td>{{cable.type}}</td>
+				<td><button class="btn btn-success" (click)="onUpdateButton(cable)" data-toggle="modal"
+						data-target="#saveOrUpdateModal">
+					</button></td>
+				<td><button (click)="deleteProduct(cable)" class="btn btn-danger">
+					</button></td>
 			</tr>
 		</tbody>
 	</table>
@@ -42,63 +44,63 @@
 
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="saveOrUpdateModal" role="dialog">
-      <div class="modal-dialog">
-      
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Modal Header</h4>
-          </div>
-          <div class="container">
-            <div class="row">
-                <div class="col-auto">
-                    <form (ngSubmit)="saveOrUpdate()" id="formCable">
-        
-                        <div class="form-group" id="cableGroup">
-                            <label>Users:</label>
-                            <input [(ngModel)]="entity.users" class="form-control"  name="users">
-                        </div>
-                        <div class="form-group" id="cableGroup">
-                            <label>Brand:</label>
-                            <input [(ngModel)]="entity.brand" class="form-control" name="brand" >
-                        </div>
-                        <div class="form-group" id="cableGroup">
-                            <label>Model:</label>
-                            <input [(ngModel)]="entity.model" class="form-control" name="model" >
-                        </div>
-                        <div class="form-group" id="cableGroup">
-                            <label>Serial Number:</label>
-                            <input [(ngModel)]="entity.serialNumber" class="form-control" name="serialNumber" >
-                        </div>
-                        <div class="form-group" id="cableGroup">
-                            <label>Location:</label>
-                            <input [(ngModel)]="entity.location" class="form-control" name="location">
-                        </div>
-                        <div class="form-group" id="cableGroup">
-                            <label>User Number:</label>
-                            <input [(ngModel)]="entity.userNumber" class="form-control" name="userNumber">
-                        </div>
-                        <div class="form-group" id="cableGroup">
-                            <label>Type:</label>
-							<input [(ngModel)]="entity.type" class="form-control" name="type">
+<!-- Modal -->
+<div class="modal fade" id="saveOrUpdateModal" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Modal Header</h4>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-auto">
+						<form (ngSubmit)="saveOrUpdate()" id="formCable">
+
+							<div class="form-group" id="cableGroup">
+								<label>Users:</label>
+								<input [(ngModel)]="entity.users" class="form-control" name="users">
 							</div>
-                        <button class="btn btn-primary">Save/Update Cable</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-        
-      </div>
+							<div class="form-group" id="cableGroup">
+								<label>Brand:</label>
+								<input [(ngModel)]="entity.brand" class="form-control" name="brand">
+							</div>
+							<div class="form-group" id="cableGroup">
+								<label>Model:</label>
+								<input [(ngModel)]="entity.model" class="form-control" name="model">
+							</div>
+							<div class="form-group" id="cableGroup">
+								<label>Serial Number:</label>
+								<input [(ngModel)]="entity.serialNumber" class="form-control" name="serialNumber">
+							</div>
+							<div class="form-group" id="cableGroup">
+								<label>Location:</label>
+								<input [(ngModel)]="entity.location" class="form-control" name="location">
+							</div>
+							<div class="form-group" id="cableGroup">
+								<label>User Number:</label>
+								<input [(ngModel)]="entity.userNumber" class="form-control" name="userNumber">
+							</div>
+							<div class="form-group" id="cableGroup">
+								<label>Type:</label>
+								<input [(ngModel)]="entity.type" class="form-control" name="type">
+							</div>
+							<button class="btn btn-primary">Save/Update Cable</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+
 	</div>
-	
-	<!--<script>
+</div>
+
+<!--<script>
 		function myFunction() {
 		  var input, filter, table, tr, td, i, txtValue;
 		  input = document.getElementById("myInput");

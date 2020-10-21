@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Monitor } from 'src/app/pcObjects/monitor/monitor';
 import { MonitorService } from 'src/app/service/service-monitor/monitor-service.service';
-import { PowerSupplieService } from 'src/app/service/service-powerSupplie/power-supplie.service';
 import { ProductList } from '../product-list/product-list';
 
 @Component({
@@ -10,12 +10,22 @@ import { ProductList } from '../product-list/product-list';
 })
 export class MonitorListComponent extends ProductList implements OnInit {
 
-  constructor(private  powerSupplieService:  PowerSupplieService) {
-    super(powerSupplieService);
-   }
+  constructor(private monitorService: MonitorService) {
+    super(monitorService);
+    this.entity = new Monitor()
+  }
 
   ngOnInit(): void {
     this.findAllProduct();
   }
 
+  onUpdateButton(entity: Monitor) {
+    this.entity = entity;
+    this.update = true;
+  }
+
+  onAddArticleButton() {
+    this.entity = new Monitor();
+    this.update = false;
+  }
 }

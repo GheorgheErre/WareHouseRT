@@ -3,6 +3,9 @@
 
 	<table class="table table-striped">
 		<thead>
+			<tr> <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+					add article
+				</button></tr>
 			<tr>
 				<th>Identifier</th>
 				<th>Users</th>
@@ -10,29 +13,87 @@
 				<th>Model</th>
 				<th>Serial Number</th>
 				<th>Location</th>
-                <th>User Number</th>
-                <th>User Height</th>
-                <th>User Width</th>
-                <th>User Length</th>
+				<th>User Number</th>
+				<th>User Height</th>
+				<th>User Width</th>
+				<th>User Length</th>
 
-				
+
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let graphicTalbe of listProduct">
+			<tr *ngFor="let graphicTablet of listProduct">
 				<td class="hidden"></td>
-			<td>{{graphicTalbe.identifier}}</td>
-			<td>{{graphicTalbe.users}}</td>
-			<td>{{graphicTalbe.brand}}</td>
-			<td>{{graphicTalbe.model}}</td>
-			<td>{{graphicTalbe.serialNumber}}</td>
-			<td>{{graphicTalbe.location}}</td>
-			<td>{{graphicTalbe.userNumber}}</td>
-            <td>{{graphicTalbe.height}}</td>
-            <td>{{graphicTalbe.width}}</td>
-            <td>{{graphicTalbe.length}}</td>
-		
+				<td>{{graphicTablet.identifier}}</td>
+				<td>{{graphicTablet.users}}</td>
+				<td>{{graphicTablet.brand}}</td>
+				<td>{{graphicTablet.model}}</td>
+				<td>{{graphicTablet.serialNumber}}</td>
+				<td>{{graphicTablet.location}}</td>
+				<td>{{graphicTablet.userNumber}}</td>
+				<td>{{graphicTablet.height}}</td>
+				<td>{{graphicTablet.width}}</td>
+				<td>{{graphicTablet.length}}</td>
+				<td><button class="btn btn-success" (click)="updateSavedEntity(graphicTablet)" data-toggle="modal"
+						data-target="#modificaModal">
+					</button></td>
+				<td><button (click)="deleteProduct(graphicTablet)" class="btn btn-danger">
+					</button></td>
 			</tr>
 		</tbody>
 	</table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="saveOrUpdateModal" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Modal Header</h4>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-auto">
+						<form (ngSubmit)="saveOrUpdate()" id="formGraphicTablet">
+
+							<div class="form-group" id="graphicTabletGroup">
+								<label>Users:</label>
+								<input [(ngModel)]="entity.users" class="form-control" name="users">
+							</div>
+							<div class="form-group" id="graphicTabletGroup">
+								<label>Brand:</label>
+								<input [(ngModel)]="entity.brand" class="form-control" name="brand">
+							</div>
+							<div class="form-group" id="graphicTabletGroup">
+								<label>Model:</label>
+								<input [(ngModel)]="entity.model" class="form-control" name="model">
+							</div>
+							<div class="form-group" id="graphicTabletGroup">
+								<label>Serial Number:</label>
+								<input [(ngModel)]="entity.serialNumber" class="form-control" name="serialNumber">
+							</div>
+							<div class="form-group" id="graphicTabletGroup">
+								<label>Location:</label>
+								<input [(ngModel)]="entity.location" class="form-control" name="location">
+							</div>
+							<div class="form-group" id="graphicTabletGroup">
+								<label>User Number:</label>
+								<input [(ngModel)]="entity.userNumber" class="form-control" name="userNumber">
+							</div>
+							<div class="form-group" id="graphicTabletGroup">
+								<label>Type:</label>
+								<input [(ngModel)]="entity.type" class="form-control" name="type">
+							</div>
+							<button class="btn btn-primary">Save/Update GraphicTablet</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
 </div>

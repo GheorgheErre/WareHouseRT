@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Keyboard } from 'src/app/pcObjects/keyBoard/key-board';
 import { KeyboardService } from 'src/app/service/service-keyboard/keyboard-service.service';
 import { ProductList } from '../product-list/product-list';
 
@@ -11,10 +12,20 @@ export class KeyboardListComponent extends ProductList implements OnInit {
 
   constructor(private keyboardService: KeyboardService) {
     super(keyboardService);
+    this.entity = new Keyboard()
    }
 
   ngOnInit(): void {
     this.findAllProduct();
   }
 
+  onUpdateButton(entity: Keyboard) {
+    this.entity = entity;
+    this.update = true;
+  }
+
+  onAddArticleButton() {
+    this.entity = new Keyboard();
+    this.update = false;
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Ssd } from 'src/app/pcObjects/ssd/ssd';
 import { SsdService } from 'src/app/service/service-ssd/ssd.service';
 import { ProductList } from '../product-list/product-list';
 
@@ -9,11 +10,22 @@ import { ProductList } from '../product-list/product-list';
 })
 export class SsdListComponent extends ProductList implements OnInit {
 
-  constructor(private  ssdService:  SsdService) {
-    super(ssdService); }
+  constructor(private ssdService: SsdService) {
+    super(ssdService);
+    this.entity = new Ssd()
+  }
 
   ngOnInit(): void {
     this.findAllProduct();
   }
 
+  onUpdateButton(entity: Ssd) {
+    this.entity = entity;
+    this.update = true;
+  }
+
+  onAddArticleButton() {
+    this.entity = new Ssd();
+    this.update = false;
+  }
 }

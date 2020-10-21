@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Gpu } from 'src/app/pcObjects/gpu/gpu';
 import { GpuService } from 'src/app/service/service-gpu/gpu.service';
 import { ProductList } from '../product-list/product-list';
 
@@ -10,10 +11,20 @@ import { ProductList } from '../product-list/product-list';
 export class GpuListComponent extends ProductList implements OnInit {
 
   constructor(private gpuService: GpuService) {
-    super(gpuService);  }
+    super(gpuService);
+    this.entity = new Gpu();
+  }
 
   ngOnInit(): void {
     this.findAllProduct();
   }
+  onUpdateButton(entity: Gpu) {
+    this.entity = entity;
+    this.update = true;
+  }
 
+  onAddArticleButton() {
+    this.entity = new Gpu();
+    this.update = false;
+  }
 }
