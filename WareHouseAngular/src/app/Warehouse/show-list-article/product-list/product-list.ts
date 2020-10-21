@@ -11,6 +11,7 @@ export abstract class ProductList {
   //listKeys:String[];
   update: boolean = false;
   entity: any;
+  filtered : String;
 
   constructor(protected service: ServiceService) { }
 
@@ -42,6 +43,26 @@ export abstract class ProductList {
     this.findAllProduct();
     window.location.reload();
   }
+
+  searchFunction() {
+    let input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 2; i < tr.length; i++) {
+      td = tr[i].getElementsByClassName(this.filtered)[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
+
 
   /* jsonToList(json): any{
    return Object.keys(json);
