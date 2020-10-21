@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DockingStation } from 'src/app/pcObjects/dockingStation/docking-station';
 import { DockingStationService } from 'src/app/service/service-docking-station/docking-station-service.service';
 import { ProductList } from '../product-list/product-list';
 
@@ -15,6 +16,17 @@ export class DockingStationListComponent extends ProductList implements OnInit {
 
   ngOnInit(): void {
     this.findAllProduct();
+    this.entity = new DockingStation()
+  }
+
+  onUpdateButton(entity: DockingStation) {
+    this.entity = entity;
+    this.update = true;
+  }
+
+  onAddArticleButton() {
+    this.entity = new DockingStation();
+    this.update = false;
   }
 
 }

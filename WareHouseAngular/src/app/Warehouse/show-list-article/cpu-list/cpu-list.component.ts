@@ -1,4 +1,5 @@
 import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
+import { Cpu } from 'src/app/pcObjects/cpu/cpu';
 import { CpuService } from 'src/app/service/service-cpu/cpu.service';
 import { ProductList } from '../product-list/product-list';
 
@@ -14,11 +15,21 @@ export class CpuListComponent extends ProductList implements OnInit {
 
   constructor(private cpuService: CpuService) {
     super(cpuService);
+    this.entity = new Cpu();
   }
 
   ngOnInit(): void {
     this.findAllProduct();
-    
+  }
+
+  onUpdateButton(entity: any) {
+    this.entity = entity;
+    this.update = true;
+  }
+
+  onAddArticleButton() {
+    this.entity = new Cpu();
+    this.update = false;
   }
 
  

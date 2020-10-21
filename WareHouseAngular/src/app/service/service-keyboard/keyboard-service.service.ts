@@ -11,7 +11,7 @@ export class KeyboardService extends ServiceService{
 
   constructor(protected http: HttpClient) {
     super(http);
-    super.saveUrl = 'http://localhost:8080/api/saveKeyboard';
+    super.saveOrUpdateUrl = 'http://localhost:8080/api/saveOrUpdateKeyboard';
     super.getListUrl = 'http://localhost:8080/api/findAllKeyboard';
     super.countUrl = 'http://localhost:8080/api/countKeyboard';
     super.getByIDUrl = 'http://localhost:8080/api/findKeyboard';

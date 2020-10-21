@@ -11,7 +11,7 @@ export class GraphicTabletService  extends ServiceService{
 
   constructor(protected http: HttpClient) {
     super(http);
-    super.saveUrl = 'http://localhost:8080/api/saveGraphicTablet';
+    super.saveOrUpdateUrl = 'http://localhost:8080/api/saveOrUpdateGraphicTablet';
     super.getListUrl = 'http://localhost:8080/api/findAllGraphicTablet';
     super.countUrl = 'http://localhost:8080/api/countGraphicTablet';
     super.getByIDUrl = 'http://localhost:8080/api/findGraphicTablet';

@@ -12,7 +12,7 @@ export class MouseService extends ServiceService{
 
   constructor(protected http: HttpClient) {
     super(http);
-    super.saveUrl = 'http://localhost:8080/api/saveMouse';
+    super.saveOrUpdateUrl = 'http://localhost:8080/api/saveOrUpdateMouse';
     super.getListUrl = 'http://localhost:8080/api/findAllMouse';
     super.countUrl = 'http://localhost:8080/api/countMouse';
     super.getByIDUrl = 'http://localhost:8080/api/findMouse';

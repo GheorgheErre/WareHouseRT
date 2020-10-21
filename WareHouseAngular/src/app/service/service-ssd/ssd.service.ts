@@ -12,7 +12,7 @@ export class SsdService extends ServiceService{
 
   constructor(protected http: HttpClient) {
     super(http);
-    super.saveUrl = 'http://localhost:8080/api/saveSsd';
+    super.saveOrUpdateUrl = 'http://localhost:8080/api/saveOrUpdateSsd';
     super.getListUrl = 'http://localhost:8080/api/findAllSsd';
     super.countUrl = 'http://localhost:8080/api/countSsd';
     super.getByIDUrl = 'http://localhost:8080/api/findSsd';

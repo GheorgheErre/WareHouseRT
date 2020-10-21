@@ -13,7 +13,7 @@ export class CellphoneService extends ServiceService{
   
   constructor(protected http: HttpClient) {
     super(http);
-    super.saveUrl = 'http://localhost:8080/api/saveCellphone';
+    super.saveOrUpdateUrl = 'http://localhost:8080/api/saveOrUpdateCellphone';
     super.getListUrl = 'http://localhost:8080/api/findAllCellphone';
     super.getByIDUrl = 'http://localhost:8080/api/findCellphone';
     super.deleteUrl = 'http://localhost:8080/api/deleteCellphone';

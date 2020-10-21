@@ -12,41 +12,25 @@ import { ProductList } from '../product-list/product-list';
 })
 export class CableListComponent extends ProductList implements OnInit {
 
-  cable : Cable = new Cable();
- 
-  constructor(private cableService: CableService,
-    private router: Router) { 
+  constructor(private cableService: CableService) {
     super(cableService);
+    this.entity = new Cable();
   }
 
   ngOnInit(): void {
     this.findAllProduct();
-    
   }
 
-  saveCable(){
-    this.saveProduct(this.cable);
-    this.reloadPage();
-  
+  //aggiorno l'oggetto cable per farlo apparire nel form update
+  onUpdateButton(entity: Cable) {
+    this.entity = entity;
+    this.update = true;
   }
 
-  deleteCable(entity: Cable){
-    this.deleteProduct(entity);
-    this.reloadPage();
+  onAddArticleButton() {
+    this.entity = new Cable();
+    this.update = false;
   }
 
-  updateCable(){
-    this.deleteProduct(this.cable);
-    this.reloadPage();
-  }
-
-  updateSavedEntity(entity: Cable){
-    this.cable = entity;
-  }
-
-  reloadPage() {
-    this.ngOnInit();
-    window.location.reload();
-  }
 
 }

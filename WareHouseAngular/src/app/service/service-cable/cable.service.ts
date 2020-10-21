@@ -11,7 +11,7 @@ export class CableService extends ServiceService{
 
   constructor(protected http: HttpClient) {
     super(http);
-    super.saveUrl = 'http://localhost:8080/api/saveCable';
+    super.saveOrUpdateUrl = 'http://localhost:8080/api/saveOrUpdateCable';
     super.getListUrl = 'http://localhost:8080/api/findAllCable';
     super.getByIDUrl = 'http://localhost:8080/api/findCable';
     super.deleteUrl = 'http://localhost:8080/api/deleteCable';

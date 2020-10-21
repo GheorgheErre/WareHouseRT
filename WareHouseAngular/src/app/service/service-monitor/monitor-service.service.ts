@@ -12,7 +12,7 @@ export class MonitorService extends ServiceService{
 
   constructor(protected http: HttpClient) {
     super(http);
-    super.saveUrl = 'http://localhost:8080/api/saveMonitor';
+    super.saveOrUpdateUrl = 'http://localhost:8080/api/saveOrUpdateMonitor';
     super.getListUrl = 'http://localhost:8080/api/findAllMonitor';
     super.countUrl = 'http://localhost:8080/api/countMonitor';
     super.getByIDUrl = 'http://localhost:8080/api/findMonitor';

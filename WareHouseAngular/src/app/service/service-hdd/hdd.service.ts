@@ -11,7 +11,7 @@ export class HddService extends ServiceService{
 
   constructor(protected http: HttpClient) {
     super(http);
-    this.saveUrl = 'http://localhost:8080/api/saveHdd';
+    this.saveOrUpdateUrl = 'http://localhost:8080/api/saveOrUpdateHdd';
     super.getListUrl = 'http://localhost:8080/api/findAllHdd';
     super.countUrl = 'http://localhost:8080/api/countHdd';
     super.getByIDUrl = 'http://localhost:8080/api/findHdd';

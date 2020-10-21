@@ -12,7 +12,7 @@ export class OperativeSystemService extends ServiceService{
 
   constructor(protected http: HttpClient) {
     super(http);
-    this.saveUrl = 'http://localhost:8080/api/saveOperativeSystem';
+    this.saveOrUpdateUrl = 'http://localhost:8080/api/saveOrUpdateOperativeSystem';
     this.getListUrl = 'http://localhost:8080/api/findAllOperativeSystem';
     super.countUrl = 'http://localhost:8080/api/countOperativeSystem';
     super.getByIDUrl = 'http://localhost:8080/api/findOperativeSystem';

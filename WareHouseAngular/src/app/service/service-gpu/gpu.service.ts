@@ -12,7 +12,7 @@ export class GpuService extends ServiceService{
 
   constructor(protected http: HttpClient) {
     super(http);
-    this.saveUrl = 'http://localhost:8080/api/saveGpu';
+    this.saveOrUpdateUrl = 'http://localhost:8080/api/saveOrUpdateGpu';
     super.getListUrl = 'http://localhost:8080/api/findAllGpu';
     super.countUrl = 'http://localhost:8080/api/countGpu';
     super.getByIDUrl = 'http://localhost:8080/api/findGpu';

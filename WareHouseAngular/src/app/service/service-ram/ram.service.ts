@@ -11,7 +11,7 @@ export class RamService extends ServiceService{
   
   constructor(protected http: HttpClient) {
     super(http);
-    super.saveUrl = 'http://localhost:8080/api/saveRam';
+    super.saveOrUpdateUrl = 'http://localhost:8080/api/saveOrUpdateRam';
     super.getListUrl = 'http://localhost:8080/api/findAllRam';
     super.countUrl = 'http://localhost:8080/api/countRam';
     super.getByIDUrl = 'http://localhost:8080/api/findRam';

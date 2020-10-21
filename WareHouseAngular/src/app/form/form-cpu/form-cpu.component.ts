@@ -18,7 +18,7 @@ export class FormCPUComponent implements OnInit {
 
   onsubmit(): void {
 
-    this.cpuService.save(this.cpu).subscribe(result => console.log("CPU CARICATA CON SUCCESSO"));
+    //this.cpuService.save(this.cpu).subscribe(result => console.log("CPU CARICATA CON SUCCESSO"));
   }
 
   ngOnInit(): void {

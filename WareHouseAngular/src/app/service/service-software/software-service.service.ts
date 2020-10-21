@@ -10,7 +10,7 @@ export class SoftwareService extends ServiceService{
    
   constructor(protected http: HttpClient){
     super(http);
-    super.saveUrl = 'http://localhost:8080/api/saveSoftware';
+    super.saveOrUpdateUrl = 'http://localhost:8080/api/saveOrUpdateSoftware';
     super.getListUrl = 'http://localhost:8080/api/findAllSoftware';
     super.countUrl = 'http://localhost:8080/api/countSoftware';
     super.getByIDUrl = 'http://localhost:8080/api/findSoftware';

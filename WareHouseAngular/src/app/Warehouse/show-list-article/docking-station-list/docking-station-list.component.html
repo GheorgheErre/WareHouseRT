@@ -1,8 +1,11 @@
 <div class="col-md-6">
 	<h2> Desktop Details</h2>
 
-	<table class="table table-striped">
+	<table class="table table-dark table-hover">
 		<thead>
+			<tr> <button class="btn btn-primary" (click) = "onAddArticleButton()" data-toggle="modal" data-target="#saveOrUpdateModal">
+				add article
+			</button></tr>
 			<tr>
 				<th class="hidden">Id</th>
 				<th>Identifier</th>
@@ -25,9 +28,63 @@
 				<td>{{dockingStation.serialNumber}}</td>
 				<td>{{dockingStation.location}}</td>
 				<td>{{dockingStation.userNumber}}</td>
-			
-				
-			</tr>
+				<td><button class="btn btn-success" (click) = "onUpdateButton(dockingStation)" data-toggle="modal" data-target="#saveOrUpdateModal">
+				</button></td>
+				<td><button (click) = "deleteProduct(dockingStation)" class="btn btn-danger">
+				</button></td>	
+			  </tr>
 		</tbody>
 	</table>
 </div>
+
+   <!-- Modal -->
+   <div class="modal fade" id="saveOrUpdateModal" role="dialog">
+	<div class="modal-dialog">
+	
+	  <!-- Modal content-->
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <button type="button" class="close" data-dismiss="modal">&times;</button>
+		  <h4 class="modal-title">Modal Header</h4>
+		</div>
+		<div class="container">
+		  <div class="row">
+			  <div class="col-auto">
+				  <form (ngSubmit)="saveOrUpdate()" id="formdockingStation">
+	  
+					  <div class="form-group" id="dockingStationGroup">
+						  <label>Users:</label>
+						  <input [(ngModel)]="entity.users" class="form-control"  name="users">
+					  </div>
+					  <div class="form-group" id="dockingStationGroup">
+						  <label>Brand:</label>
+						  <input [(ngModel)]="entity.brand" class="form-control" name="brand" >
+					  </div>
+					  <div class="form-group" id="dockingStationGroup">
+						  <label>Model:</label>
+						  <input [(ngModel)]="entity.model" class="form-control" name="model" >
+					  </div>
+					  <div class="form-group" id="dockingStationGroup">
+						  <label>Serial Number:</label>
+						  <input [(ngModel)]="entity.serialNumber" class="form-control" name="serialNumber" >
+					  </div>
+					  <div class="form-group" id="dockingStationGroup">
+						  <label>Location:</label>
+						  <input [(ngModel)]="entity.location" class="form-control" name="location">
+					  </div>
+					  <div class="form-group" id="dockingStationGroup">
+						  <label>User Number:</label>
+						  <input [(ngModel)]="entity.userNumber" class="form-control" name="userNumber">
+					  </div>
+					  <button class="btn btn-primary">Save/Update Cable</button>
+				  </form>
+			  </div>
+		  </div>
+	  </div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		</div>
+	  </div>
+	  
+	</div>
+  </div>

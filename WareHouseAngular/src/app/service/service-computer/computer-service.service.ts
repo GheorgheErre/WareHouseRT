@@ -13,7 +13,7 @@ export class ComputerService extends ServiceService{
 
   constructor(protected http: HttpClient) {
     super(http);
-    super.saveUrl = 'http://localhost:8080/api/saveComputer';
+    super.saveOrUpdateUrl = 'http://localhost:8080/api/saveOrUpdateComputer';
     super.getListUrl = 'http://localhost:8080/api/findAllComputer';
     super.countUrl = 'http://localhost:8080/api/countComputer';
     super.getByIDUrl = 'http://localhost:8080/api/findComputer';

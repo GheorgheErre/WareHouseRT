@@ -1,37 +1,55 @@
+import { Component } from '@angular/core';
 import { Product } from 'src/app/pcObjects/product/product';
 import { ServiceService } from 'src/app/service/service.service';
 
+@Component({
+  template: ''
+})
+
 export abstract class ProductList {
-    listProduct: Product[];
-    listKeys:String[];
-    //product : Product;
-  constructor(protected service : ServiceService) { }
+  listProduct: Product[];
+  //listKeys:String[];
+  update: boolean = false;
+  entity: any;
+
+  constructor(protected service: ServiceService) { }
+
+  ngOnInit(): void {
+  }
 
   findAllProduct(): void {
-    this.service.findAll().subscribe(list =>{
-      this.listProduct=list;
-      this.listKeys=this.jsonToList(this.listProduct);
+    this.service.findAll().subscribe(list => {
+      this.listProduct = list;
+      //this.listKeys=this.jsonToList(this.listProduct);
     })
-   
   }
 
-  saveProduct(product : Product){
-    this.service.save(product).subscribe(result => console.log("ARTICLE CARICATO CON SUCCESSO"));
+  saveOrUpdate() {
+    this.service.saveOrUpdate(this.entity).subscribe(result => {
+      console.log("ARTICLE CARICATO CON SUCCESSO"),
+        this.reloadPage();
+    });
   }
 
-  deleteProduct(product: Product){
-    this.service.delete(product).subscribe(result => console.log("ARTICLE ELIMINATO CON SUCCESSO"));
+  deleteProduct(product: Product) {
+    this.service.delete(product).subscribe(result => {
+      console.log("ARTICLE ELIMINATO CON SUCCESSO"),
+        this.reloadPage();
+    });
   }
 
-  updateProduct(product: Product){
-    this.service.update(product).subscribe(result => console.log("ARTICLE AGGIORNATO CON SUCCESSO"));
+  reloadPage() {
+    this.findAllProduct();
+    window.location.reload();
   }
 
-  jsonToList(json): any{
-    return Object.keys(json);
+  /* jsonToList(json): any{
+   return Object.keys(json);
 
-  }
-  jsonToListValue(json):any{
-    return 
-  }
+ }
+ jsonToListValue(json):any{
+   return 
+ }
+*/
+
 }

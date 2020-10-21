@@ -8,7 +8,7 @@ import { Product } from '../pcObjects/product/product';
   providedIn: 'root'
 })
 export abstract class ServiceService {
-  protected saveUrl: string;
+  protected saveOrUpdateUrl: string;
   protected getListUrl: string;
   protected getByIDUrl: string;
   protected deleteUrl: string;
@@ -21,14 +21,11 @@ export abstract class ServiceService {
   
   }
 
-  public save(product: Product) {
-    return this.http.post<Product>(this.saveUrl, product);
+  public saveOrUpdate(product: Product) {
+    return this.http.post<Product>(this.saveOrUpdateUrl, product);
   }
 
-  public update(product: Product) {
-    return this.http.post<Product>(this.updateUrl, product);
-  }
-
+  
   public findAll(): Observable<any> {
 
     return this.http.get<Product[]>(this.getListUrl);
