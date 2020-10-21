@@ -21,14 +21,14 @@ public class KeyboardController {
 	@Autowired
 	private KeyboardService service;
 
-	@PostMapping("/saveKeyboard")
-	public void save(@RequestBody Keyboard keyboard) {
-		service.save(keyboard);
+	@PostMapping("/saveOrUpdateKeyboard")
+	public void saveOrUpdate(@RequestBody Keyboard keyboard) {
+		service.saveOrUpdate(keyboard);
 	}
 	
 	@PostMapping("/deleteKeyboard")
 	public void delete(@RequestBody Keyboard keyboard) {
-		service.save(keyboard);
+		service.delete(keyboard);
 	}
 	
 	@GetMapping("/findKeyboard")

@@ -23,14 +23,14 @@ public class CpuController {
 	@Autowired
 	private CpuService service;
 
-	@PostMapping("/saveCpu")
-	public void save(@RequestBody CPU cpu) {
-		service.save(cpu);
+	@PostMapping("/saveOrUpdateCpu")
+	public void saveOrUpdate(@RequestBody CPU cpu) {
+		service.saveOrUpdate(cpu);
 	}
 	
 	@PostMapping("/deleteCpu")
 	public void delete(@RequestBody CPU cpu) {
-		service.save(cpu);
+		service.delete(cpu);
 	}
 	
 	@GetMapping("/findCpu")

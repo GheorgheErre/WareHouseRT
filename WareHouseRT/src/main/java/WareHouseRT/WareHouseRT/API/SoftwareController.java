@@ -22,14 +22,14 @@ public class SoftwareController {
 	@Autowired
 	private SoftwareService service;
 
-	@PostMapping("/saveSoftware")
-	public void save(@RequestBody Software software) {
-		service.save(software);
+	@PostMapping("/saveOrUpdateSoftware")
+	public void saveOrUpdate(@RequestBody Software software) {
+		service.saveOrUpdate(software);
 	}
 	
 	@PostMapping("/deleteSoftware")
 	public void delete(@RequestBody Software software) {
-		service.save(software);
+		service.delete(software);
 	}
 	
 	@GetMapping("/findSoftware")

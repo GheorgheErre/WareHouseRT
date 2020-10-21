@@ -21,14 +21,14 @@ public class GenericArticleController {
 	@Autowired
 	private GenericArticleService service;
 
-	@PostMapping("/saveGenericArticle")
-	public void save(@RequestBody GenericArticle genericArticle) {
-		service.save(genericArticle);
+	@PostMapping("/saveOrUpdateGenericArticle")
+	public void saveOrUpdate(@RequestBody GenericArticle genericArticle) {
+		service.saveOrUpdate(genericArticle);
 	}
 	
 	@PostMapping("/deleteGenericArticle")
 	public void delete(@RequestBody GenericArticle genericArticle) {
-		service.save(genericArticle);
+		service.delete(genericArticle);
 	}
 	
 	@GetMapping("/findGenericArticle")

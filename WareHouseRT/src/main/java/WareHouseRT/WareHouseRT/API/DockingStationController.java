@@ -21,14 +21,14 @@ public class DockingStationController {
 	@Autowired
 	private DockingStationService service;
 
-	@PostMapping("/saveDockingStation")
+	@PostMapping("/saveOrUpdateDockingStation")
 	public void save(@RequestBody DockingStation dockingStation) {
-		service.save(dockingStation);
+		service.saveOrUpdate(dockingStation);
 	}
 	
 	@PostMapping("/deleteDockingStation")
 	public void delete(@RequestBody DockingStation dockingStation) {
-		service.save(dockingStation);
+		service.delete(dockingStation);
 	}
 	
 	@GetMapping("/findDockingStation")

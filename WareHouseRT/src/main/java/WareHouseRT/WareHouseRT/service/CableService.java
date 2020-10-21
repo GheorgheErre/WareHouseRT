@@ -1,9 +1,5 @@
 package WareHouseRT.WareHouseRT.service;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,30 +11,35 @@ import WareHouseRT.WareHouseRT.repository.CableRepository;
 
 @Service
 public class CableService {
-	
+
 	@Autowired
 	private CableRepository repo;
-	
+
 	@Autowired
 	private SequenceGeneratorService sequenceService;
 
+	@Autowired
+	private CreateIdentifierService createIdentifier;
+
+	public void saveOrUpdate(Cable entity) {
+		if (repo.findById(entity.getId()).isPresent()) {
+			update(entity);
+		} else
+			save(entity);
+	}
+
 	public void save(Cable cable) {
 		cable.setId(sequenceService.getNextSequence(Cable.SEQUENCE_NAME));
-		cable.setIdentifier(createIdentifier());
+		cable.setIdentifier(createIdentifier.createIdentifier("CBL"));
 		repo.save(cable);
-		
+
 	}
 
 	public void delete(Cable entity) {
 		repo.delete(entity);
 	}
-	
+
 	public void update(Cable newCable) {
-//		Optional<Cable> oldCable = repo.findByIdentifier(identifier);
-//		
-//		if(oldCable.isPresent()) {
-//			
-//		}
 		repo.save(newCable);
 	}
 
@@ -49,25 +50,10 @@ public class CableService {
 	public List<Cable> findAll() {
 		return repo.findAll();
 	}
-	
+
 	public long count() {
-	
+
 		return repo.count();
 	}
-	
-	
-	public String createIdentifier() {
-		String idCable = "CBL";
-		String pattern = "MM/dd/yyyy";
-		DateFormat df = new SimpleDateFormat(pattern);
-		
-		Date today = Calendar.getInstance().getTime(); 
-		String todayAsString = df.format(today);
-		
-		String identifier = idCable + todayAsString;
-		return identifier;
-		
-	}
-
 
 }

@@ -22,14 +22,14 @@ public class PowerSupplieController {
 	@Autowired
 	private PowerSupplieService service;
 
-	@PostMapping("/savePowerSupplie")
-	public void save(@RequestBody PowerSupplie powerSupplie) {
-		service.save(powerSupplie);
+	@PostMapping("/saveOrUpdatePowerSupplie")
+	public void saveOrUpdate(@RequestBody PowerSupplie powerSupplie) {
+		service.saveOrUpdate(powerSupplie);
 	}
 	
 	@PostMapping("/deletePowerSupllie")
 	public void delete(@RequestBody PowerSupplie powerSupplie) {
-		service.save(powerSupplie);
+		service.delete(powerSupplie);
 	}
 	
 	@GetMapping("/findPowerSupllie")

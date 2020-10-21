@@ -17,8 +17,23 @@ public class GpuService {
 	@Autowired
 	private SequenceGeneratorService sequenceService;
 	
+	@Autowired
+	private CreateIdentifierService createIdentifier;
+	
+	public void saveOrUpdate(GPU entity) {
+		if (repo.findById(entity.getId()).isPresent()) {
+			update(entity);
+		} else
+			save(entity);
+	}
+
 	public void save(GPU gpu) {
 		gpu.setId(sequenceService.getNextSequence(GPU.SEQUENCE_NAME));
+		createIdentifier.createIdentifier("GPU");
+		repo.save(gpu);
+	}
+	
+	public void update(GPU gpu) {
 		repo.save(gpu);
 	}
 	

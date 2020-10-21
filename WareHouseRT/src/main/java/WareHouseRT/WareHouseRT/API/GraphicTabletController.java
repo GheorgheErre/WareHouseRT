@@ -23,14 +23,14 @@ public class GraphicTabletController {
 	@Autowired
 	private GraphicTabletService service;
 
-	@PostMapping("/saveGraphicTablet")
-	public void save(@RequestBody GraphicTablet graphicTablet) {
-		service.save(graphicTablet);
+	@PostMapping("/saveOrUpdateGraphicTablet")
+	public void saveOrUpdate(@RequestBody GraphicTablet graphicTablet) {
+		service.saveOrUpdate(graphicTablet);
 	}
 	
 	@PostMapping("/deleteGraphicTablet")
 	public void delete(@RequestBody GraphicTablet graphicTablet) {
-		service.save(graphicTablet);
+		service.delete(graphicTablet);
 	}
 	
 	@GetMapping("/findGraphicTablet")

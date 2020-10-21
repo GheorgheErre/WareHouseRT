@@ -22,14 +22,14 @@ public class TokenController {
 	@Autowired
 	private TokenService service;
 
-	@PostMapping("/saveToken")
-	public void save(@RequestBody Token token) {
-		service.save(token);
+	@PostMapping("/saveOrUpdateToken")
+	public void saveOrUpdate(@RequestBody Token token) {
+		service.saveOrUpdate(token);
 	}
 
 	@PostMapping("/deleteToken")
 	public void delete(@RequestBody Token token) {
-		service.save(token);
+		service.delete(token);
 	}
 
 	@GetMapping("/findToken")

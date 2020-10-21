@@ -17,10 +17,25 @@ public class CpuService {
 
 	@Autowired
 	private SequenceGeneratorService sequenceService;
+	
+	@Autowired
+	private CreateIdentifierService createIdentifier;
+	
+	public void saveOrUpdate(CPU entity) {
+		if (repo.findById(entity.getId()).isPresent()) {
+			update(entity);
+		} else
+			save(entity);
+	}
 
 	public void save(CPU cpu) {
 		cpu.setId(sequenceService.getNextSequence(CPU.SEQUENCE_NAME));
+		cpu.setIdentifier(createIdentifier.createIdentifier("CPU"));
 		repo.save(cpu);
+	}
+	
+	public void update(CPU newCpu) {
+		repo.save(newCpu);
 	}
 
 	public void delete(CPU entity) {

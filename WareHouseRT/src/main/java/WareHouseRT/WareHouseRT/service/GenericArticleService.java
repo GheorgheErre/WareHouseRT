@@ -17,11 +17,26 @@ public class GenericArticleService {
 	
 	@Autowired
 	private SequenceGeneratorService sequenceService;
+	
+	@Autowired
+	private CreateIdentifierService createIdentifier;
+	
+	public void saveOrUpdate(GenericArticle entity) {
+		if (repo.findById(entity.getId()).isPresent()) {
+			update(entity);
+		} else
+			save(entity);
+	}
 
 	public void save(GenericArticle genericArticle) {
 		genericArticle.setId(sequenceService.getNextSequence(GenericArticle.SEQUENCE_NAME));
+		genericArticle.setIdentifier(createIdentifier.createIdentifier("ART"));
 		repo.save(genericArticle);
 		
+	}
+	
+	public void update(GenericArticle entity) {
+		repo.save(entity);
 	}
 	
 	public void delete(GenericArticle entity) {

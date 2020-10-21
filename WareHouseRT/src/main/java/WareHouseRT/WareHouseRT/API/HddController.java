@@ -22,14 +22,14 @@ public class HddController {
 	@Autowired
 	private HDDService service;
 	
-	@PostMapping("/saveHdd")
-	public void save(@RequestBody HDD hdd) {
-		service.save(hdd);
+	@PostMapping("/saveOrUpdateHdd")
+	public void saveOrUpdate(@RequestBody HDD hdd) {
+		service.saveOrUpdate(hdd);
 	}
 	
 	@PostMapping("/deleteHdd")
 	public void delete(@RequestBody HDD hdd) {
-		service.save(hdd);
+		service.delete(hdd);
 	}
 	
 	@GetMapping("/findHdd")

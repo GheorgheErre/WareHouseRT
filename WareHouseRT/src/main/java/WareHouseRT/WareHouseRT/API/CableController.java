@@ -22,9 +22,9 @@ public class CableController {
 	@Autowired
 	private CableService service;
 
-	@PostMapping("/saveCable")
-	public void save(@RequestBody Cable cable) {
-		service.save(cable);
+	@PostMapping("/saveOrUpdateCable")
+	public void saveOrUpdate(@RequestBody Cable cable) {
+		service.saveOrUpdate(cable);
 	}
 
 	@PostMapping("/deleteCable")
@@ -32,10 +32,6 @@ public class CableController {
 		service.delete(cable);
 	}
 	
-	@PostMapping("/updateCable")
-	public void update(@RequestBody Cable cable) {
-		service.update(cable);
-	}
 
 	@GetMapping("/findCable")
 	public Optional<Cable> findByID(@RequestBody Cable cable) {

@@ -22,14 +22,14 @@ public class MouseController {
 	@Autowired
 	private MouseService service;
 	
-	@PostMapping("/saveMouse")
-	public void save(@RequestBody Mouse mouse) {
-		service.save(mouse);
+	@PostMapping("/saveOrUpdateMouse")
+	public void saveOrUpdate(@RequestBody Mouse mouse) {
+		service.saveOrUpdate(mouse);
 	}
 	
 	@PostMapping("/deleteMouse")
 	public void delete(@RequestBody Mouse mouse) {
-		service.save(mouse);
+		service.delete(mouse);
 	}
 	
 	@GetMapping("/findMouse")

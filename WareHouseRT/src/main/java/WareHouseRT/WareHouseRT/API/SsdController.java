@@ -22,14 +22,14 @@ public class SsdController {
 	@Autowired
 	private SsdService service;
 
-	@PostMapping("/saveSsd")
-	public void save(@RequestBody SSD ssd) {
-		service.save(ssd);
+	@PostMapping("/saveOrUpdateSsd")
+	public void saveOrUpdate(@RequestBody SSD ssd) {
+		service.saveOrUpdate(ssd);
 	}
 
 	@PostMapping("/deleteSsd")
 	public void delete(@RequestBody SSD ssd) {
-		service.save(ssd);
+		service.delete(ssd);
 	}
 
 	@GetMapping("/findSsd")

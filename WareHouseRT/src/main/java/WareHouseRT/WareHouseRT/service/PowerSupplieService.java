@@ -17,9 +17,24 @@ public class PowerSupplieService {
 	@Autowired
 	private SequenceGeneratorService sequenceService;
 	
+	@Autowired
+	private CreateIdentifierService createIdentifier;
+	
+	public void saveOrUpdate(PowerSupplie entity) {
+		if (repo.findById(entity.getId()).isPresent()) {
+			update(entity);
+		} else
+			save(entity);
+	}
+	
 	public void save(PowerSupplie powerSupplie) {
 		powerSupplie.setId(sequenceService.getNextSequence(PowerSupplie.SEQUENCE_NAME));
+		powerSupplie.setIdentifier(createIdentifier.createIdentifier("POW"));
 		repo.save(powerSupplie);
+	}
+	
+	public void update(PowerSupplie entity) {
+		repo.save(entity);
 	}
 	
 	public void delete(PowerSupplie entity) {

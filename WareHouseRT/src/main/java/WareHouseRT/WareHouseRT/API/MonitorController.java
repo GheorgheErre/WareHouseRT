@@ -22,14 +22,14 @@ public class MonitorController {
 	@Autowired
 	private MonitorService service;
 
-	@PostMapping("/saveMonitor")
-	public void save(@RequestBody Monitor monitor) {
-		service.save(monitor);
+	@PostMapping("/saveOrUpdateMonitor")
+	public void saveOrUpdate(@RequestBody Monitor monitor) {
+		service.saveOrUpdate(monitor);
 	}
 	
 	@PostMapping("/deleteMonitor")
 	public void delete(@RequestBody Monitor monitor) {
-		service.save(monitor);
+		service.delete(monitor);
 	}
 	
 	@GetMapping("/findMonitor")

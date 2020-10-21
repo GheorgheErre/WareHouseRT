@@ -21,14 +21,14 @@ public class OperativeSystemController {
 	@Autowired
 	private OperativeSystemService service;
 
-	@PostMapping("/saveOperativeSystem")
-	public void save(@RequestBody OperativeSystem operativeSystem) {
-		service.save(operativeSystem);
+	@PostMapping("/saveOrUpdateOperativeSystem")
+	public void saveOrUpdate(@RequestBody OperativeSystem operativeSystem) {
+		service.saveOrUpdate(operativeSystem);
 	}
 	
 	@PostMapping("/deleteOperativeSystem")
 	public void delete(@RequestBody OperativeSystem operativeSystem) {
-		service.save(operativeSystem);
+		service.delete(operativeSystem);
 	}
 	
 	@GetMapping("/findOperativeSystem")

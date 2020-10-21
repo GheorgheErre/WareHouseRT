@@ -21,15 +21,16 @@ public class CellphoneController {
 	@Autowired
 	private CellphoneService service;
 
-	@PostMapping("/saveCellphone")
-	public void save(@RequestBody Cellphone cellphone) {
-		service.save(cellphone);
+	@PostMapping("/saveOrUpdateCellphone")
+	public void saveOrUpdate(@RequestBody Cellphone cellphone) {
+		service.saveOrUpdate(cellphone);
 	}
 	
 	@PostMapping("/deleteCellphone")
 	public void delete(@RequestBody Cellphone cellphone) {
-		service.save(cellphone);
+		service.delete(cellphone);
 	}
+	
 	
 	@GetMapping("/findCellphone")
 	public Optional<Cellphone> findByID(@RequestBody Cellphone cellphone ) {

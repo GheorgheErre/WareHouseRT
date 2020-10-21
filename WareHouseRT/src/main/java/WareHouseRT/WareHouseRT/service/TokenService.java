@@ -18,9 +18,24 @@ public class TokenService {
 	@Autowired
 	private SequenceGeneratorService sequenceService;
 	
+	@Autowired
+	private CreateIdentifierService createIdentifier;
+	
+	public void saveOrUpdate(Token entity) {
+		if (repo.findById(entity.getId()).isPresent()) {
+			update(entity);
+		} else
+			save(entity);
+	}
+	
 	public void save(Token token) {
 		token.setId(sequenceService.getNextSequence(Token.SEQUENCE_NAME));
+		token.setIdentifier(createIdentifier.createIdentifier("TKN"));
 		repo.save(token);
+	}
+	
+	public void update(Token entity) {
+		repo.save(entity);
 	}
 	
 	public void delete(Token entity) {

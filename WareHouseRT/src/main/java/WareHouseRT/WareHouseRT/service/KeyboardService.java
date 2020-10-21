@@ -17,11 +17,26 @@ public class KeyboardService {
 
 	@Autowired
 	private SequenceGeneratorService sequenceService;
+	
+	@Autowired
+	private CreateIdentifierService createIdentifier;
+	
+	public void saveOrUpdate(Keyboard entity) {
+		if (repo.findById(entity.getId()).isPresent()) {
+			update(entity);
+		} else
+			save(entity);
+	}
 
 	public void save(Keyboard keyboard) {
 		keyboard.setId(sequenceService.getNextSequence(Keyboard.SEQUENCE_NAME));
+		keyboard.setIdentifier(createIdentifier.createIdentifier("KEY"));
 		repo.save(keyboard);
 
+	}
+	
+	public void update(Keyboard entity) {
+		repo.save(entity);
 	}
 
 	public void delete(Keyboard entity) {

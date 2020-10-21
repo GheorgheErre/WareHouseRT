@@ -22,14 +22,14 @@ public class GpuController {
 	@Autowired
 	private GpuService service;
 
-	@PostMapping("/saveGpu")
-	public void save(@RequestBody GPU gpu) {
-		service.save(gpu);
+	@PostMapping("/saveOrUpdateGpu")
+	public void saveOrUpdate(@RequestBody GPU gpu) {
+		service.saveOrUpdate(gpu);
 	}
 
 	@PostMapping("/deleteGpu")
 	public void delete(@RequestBody GPU gpu) {
-		service.save(gpu);
+		service.delete(gpu);
 	}
 
 	@GetMapping("/findGpu")

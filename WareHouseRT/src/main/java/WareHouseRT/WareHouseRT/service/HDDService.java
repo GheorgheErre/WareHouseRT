@@ -18,9 +18,24 @@ public class HDDService{
 	@Autowired
 	private SequenceGeneratorService sequenceService;
 	
+	@Autowired
+	private CreateIdentifierService createIdentifier;
+	
+	public void saveOrUpdate(HDD entity) {
+		if (repo.findById(entity.getId()).isPresent()) {
+			update(entity);
+		} else
+			save(entity);
+	}
+	
 	public void save(HDD hdd) {
 		hdd.setId(sequenceService.getNextSequence(HDD.SEQUENCE_NAME));
+		hdd.setIdentifier(createIdentifier.createIdentifier("HDD"));
 		repo.save(hdd);
+	}
+	
+	public void update(HDD entity) {
+		repo.save(entity);
 	}
 	
 	public void delete(HDD entity) {

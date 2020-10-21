@@ -18,9 +18,24 @@ public class RamService {
 	@Autowired
 	private SequenceGeneratorService sequenceService;
 	
+	@Autowired
+	private CreateIdentifierService createIdentifier;
+	
+	public void saveOrUpdate(RAM entity) {
+		if (repo.findById(entity.getId()).isPresent()) {
+			update(entity);
+		} else
+			save(entity);
+	}
+	
 	public void save(RAM ram) {
 		ram.setId(sequenceService.getNextSequence(RAM.SEQUENCE_NAME));
+		ram.setIdentifier(createIdentifier.createIdentifier("RAM"));
 		repo.save(ram);
+	}
+	
+	public void update(RAM entity) {
+		repo.save(entity);
 	}
 	
 	public void delete(RAM entity) {

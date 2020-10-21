@@ -13,7 +13,6 @@ public class CPU extends Component{
 	@Id
 	private long id;
 
-	private String name;
 	private int core;
 	private int threads;
 	private String baseClock;
@@ -25,14 +24,6 @@ public class CPU extends Component{
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public int getCore() {

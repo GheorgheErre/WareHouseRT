@@ -17,11 +17,26 @@ public class GraphicTabletService {
 	
 	@Autowired
 	private SequenceGeneratorService sequenceService;
+	
+	@Autowired
+	private CreateIdentifierService createIdentifier;
+	
+	public void saveOrUpdate(GraphicTablet entity) {
+		if (repo.findById(entity.getId()).isPresent()) {
+			update(entity);
+		} else
+			save(entity);
+	}
 
 	public void save(GraphicTablet graphicTablet) {
 		graphicTablet.setId(sequenceService.getNextSequence(GraphicTablet.SEQUENCE_NAME));
+		createIdentifier.createIdentifier("GFT");
 		repo.save(graphicTablet);
 		
+	}
+	
+	public void update(GraphicTablet entity) {
+		repo.save(entity);
 	}
 	
 	public void delete(GraphicTablet entity) {

@@ -22,14 +22,14 @@ public class RamController {
 	@Autowired
 	private RamService service;
 
-	@PostMapping("/saveRam")
-	public void save(@RequestBody RAM ram) {
-		service.save(ram);
+	@PostMapping("/saveOrUpdateRam")
+	public void saveOrUpdate(@RequestBody RAM ram) {
+		service.saveOrUpdate(ram);
 	}
 	
 	@PostMapping("/deleteRam")
 	public void delete(@RequestBody RAM ram) {
-		service.save(ram);
+		service.delete(ram);
 	}
 	
 	@GetMapping("/findRam")

@@ -17,9 +17,26 @@ public class DockingStationService {
 
 	@Autowired
 	private SequenceGeneratorService sequenceService;
+	
+	@Autowired
+	private CreateIdentifierService createIdentifier;
+	
+	public void saveOrUpdate(DockingStation entity) {
+		if (repo.findById(entity.getId()).isPresent()) {
+			update(entity);
+		} else
+			save(entity);
+	}
+
 
 	public void save(DockingStation dockingStation) {
 		dockingStation.setId(sequenceService.getNextSequence(DockingStation.SEQUENCE_NAME));
+		createIdentifier.createIdentifier("DKS");
+		repo.save(dockingStation);
+
+	}
+	
+	public void update(DockingStation dockingStation) {
 		repo.save(dockingStation);
 
 	}
