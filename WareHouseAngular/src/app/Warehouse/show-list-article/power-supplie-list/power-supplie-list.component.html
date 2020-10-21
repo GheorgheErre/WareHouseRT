@@ -3,7 +3,8 @@
 
 	<table class="table table-striped">
 		<thead>
-			<tr> <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+			<tr><button class="btn btn-primary" (click)="onAddArticleButton()" data-toggle="modal"
+					data-target="#saveOrUpdateModal">
 					add article
 				</button></tr>
 			<tr>
@@ -20,7 +21,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let powerSupplie of listProduct">
+			<tr *ngFor="let powerSupply of listProduct">
 				<td class="hidden"></td>
 				<td>{{powerSupplie.identifier}}</td>
 				<td>{{powerSupplie.users}}</td>
@@ -31,10 +32,10 @@
 				<td>{{powerSupplie.userNumber}}</td>
 				<td>{{powerSupplie.watts}}</td>
 				<td>{{powerSupplie.energyRating}}</td>
-				<td><button class="btn btn-success" (click)="updateSavedEntity(powerSupplie)" data-toggle="modal"
-						data-target="#modificaModal">
+				<td><button class="btn btn-success" (click)="onUpdateButton(powerSupply)" data-toggle="modal"
+						data-target="#saveOrUpdateModal">
 					</button></td>
-				<td><button (click)="deleteProduct(powerSupplie)" class="btn btn-danger">
+				<td><button (click)="deleteProduct(powerSupply)" class="btn btn-danger">
 					</button></td>
 			</tr>
 		</tbody>

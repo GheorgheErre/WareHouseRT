@@ -3,7 +3,8 @@
 
 	<table class="table table-striped">
 		<thead>
-			<tr> <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+			<tr><button class="btn btn-primary" (click)="onAddArticleButton()" data-toggle="modal"
+					data-target="#saveOrUpdateModal">
 					add article
 				</button></tr>
 			<tr>
@@ -27,8 +28,8 @@
 				<td>{{keyboard.serialNumber}}</td>
 				<td>{{keyboard.location}}</td>
 				<td>{{keyboard.userNumber}}</td>
-				<td><button class="btn btn-success" (click)="updateSavedEntity(keyboard)" data-toggle="modal"
-						data-target="#modificaModal">
+				<td><button class="btn btn-success" (click)="onUpdateButton(keyboard)" data-toggle="modal"
+						data-target="#saveOrUpdateModal">
 					</button></td>
 				<td><button (click)="deleteProduct(keyboard)" class="btn btn-danger">
 					</button></td>

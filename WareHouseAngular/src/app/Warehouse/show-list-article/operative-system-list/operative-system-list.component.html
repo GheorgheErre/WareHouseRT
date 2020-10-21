@@ -3,7 +3,8 @@
 
 	<table class="table table-striped">
 		<thead>
-			<tr> <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+			<tr><button class="btn btn-primary" (click)="onAddArticleButton()" data-toggle="modal"
+					data-target="#saveOrUpdateModal">
 					add article
 				</button></tr>
 			<tr>
@@ -30,8 +31,8 @@
 				<td>{{operativeSystem.userNumber}}</td>
 				<td>{{operativeSystem.productKey}}</td>
 				<td>{{operativeSystem.associatedComputer.identifier}}</td>
-				<td><button class="btn btn-success" (click)="updateSavedEntity(operativeSystem)" data-toggle="modal"
-						data-target="#modificaModal">
+				<td><button class="btn btn-success" (click)="onUpdateButton(operativeSystem)" data-toggle="modal"
+						data-target="#saveOrUpdateModal">
 					</button></td>
 				<td><button (click)="deleteProduct(operativeSystem)" class="btn btn-danger">
 					</button></td>

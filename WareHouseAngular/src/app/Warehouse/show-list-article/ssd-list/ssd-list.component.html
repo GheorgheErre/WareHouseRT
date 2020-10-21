@@ -3,7 +3,8 @@
 
 	<table class="table table-striped">
 		<thead>
-			<tr> <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+			<tr><button class="btn btn-primary" (click)="onAddArticleButton()" data-toggle="modal"
+					data-target="#saveOrUpdateModal">
 					add article
 				</button></tr>
 			<tr>
@@ -29,8 +30,8 @@
 				<td>{{ssd.location}}</td>
 				<td>{{ssd.userNumber}}</td>
 				<td>{{ssd.capacity}}</td>
-				<td><button class="btn btn-success" (click)="updateSavedEntity(ssd)" data-toggle="modal"
-						data-target="#modificaModal">
+				<td><button class="btn btn-success" (click)="onUpdateButton(ssd)" data-toggle="modal"
+						data-target="#saveOrUpdateModal">
 					</button></td>
 				<td><button (click)="deleteProduct(ssd)" class="btn btn-danger">
 					</button></td>
