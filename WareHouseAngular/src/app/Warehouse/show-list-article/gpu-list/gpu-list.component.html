@@ -84,8 +84,16 @@
 								<input [(ngModel)]="entity.userNumber" class="form-control" name="userNumber">
 							</div>
 							<div class="form-group" id="gpuGroup">
-								<label>Type:</label>
-								<input [(ngModel)]="entity.type" class="form-control" name="type">
+								<label>Memory:</label>
+								<input [(ngModel)]="entity.memory" class="form-control" name="memory">
+							</div>
+							<div class="form-group" id="gpuGroup">
+								<label>Base Clock:</label>
+								<input [(ngModel)]="entity.baseClock" class="form-control" name="baseClock">
+							</div>
+							<div class="form-group" id="gpuGroup">
+								<label>Max Boost Clock:</label>
+								<input [(ngModel)]="entity.maxBoostClock" class="form-control" name="maxBoostClock">
 							</div>
 							<button class="btn btn-primary">Save/Update Gpu</button>
 						</form>

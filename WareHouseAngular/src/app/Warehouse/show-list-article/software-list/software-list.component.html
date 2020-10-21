@@ -30,7 +30,7 @@
 				<td>{{software.location}}</td>
 				<td>{{software.userNumber}}</td>
 				<td>{{software.productKey}}</td>
-				<td>{{software.associatedComputer.identifier}}</td>
+				<!--<td>{{software.associatedComputer.identifier}}</td>-->
 				<td><button class="btn btn-success" (click)="onUpdateButton(software)" data-toggle="modal"
 						data-target="#saveOrUpdateModal">
 					</button></td>
@@ -80,8 +80,8 @@
 								<input [(ngModel)]="entity.userNumber" class="form-control" name="userNumber">
 							</div>
 							<div class="form-group" id="softwareGroup">
-								<label>Type:</label>
-								<input [(ngModel)]="entity.type" class="form-control" name="type">
+								<label>Product Key:</label>
+								<input [(ngModel)]="entity.productKey" class="form-control" name="productKey">
 							</div>
 							<button class="btn btn-primary">Save/Update Software</button>
 						</form>

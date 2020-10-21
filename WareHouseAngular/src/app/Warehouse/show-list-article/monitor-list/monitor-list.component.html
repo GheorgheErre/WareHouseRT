@@ -3,9 +3,10 @@
 
 	<table class="table table-striped">
 		<thead>
-			<tr> <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-					add article
-				</button></tr>
+			<tr> <button class="btn btn-primary" (click)="onAddArticleButton()" data-toggle="modal"
+				data-target="#saveOrUpdateModal">
+				add article
+			</button></tr>
 			<tr>
 				<th>Identifier</th>
 				<th>Users</th>
@@ -32,9 +33,9 @@
 				<td>{{monitor.inches}}</td>
 				<td>{{monitor.frequence}}</td>
 				<td>{{monitor.resolution}}</td>
-				<td><button class="btn btn-success" (click)="updateSavedEntity(monitor)" data-toggle="modal"
-						data-target="#modificaModal">
-					</button></td>
+				<td><button class="btn btn-success" (click)="onUpdateButton(monitor)" data-toggle="modal"
+					data-target="#saveOrUpdateModal">
+				</button></td>
 				<td><button (click)="deleteProduct(monitor)" class="btn btn-danger">
 					</button></td>
 			</tr>
@@ -82,8 +83,16 @@
 								<input [(ngModel)]="entity.userNumber" class="form-control" name="userNumber">
 							</div>
 							<div class="form-group" id="monitorGroup">
-								<label>Type:</label>
-								<input [(ngModel)]="entity.type" class="form-control" name="type">
+								<label>Inches:</label>
+								<input [(ngModel)]="entity.inches" class="form-control" name="inches">
+							</div>
+							<div class="form-group" id="monitorGroup">
+								<label>Frequence:</label>
+								<input [(ngModel)]="entity.frequence" class="form-control" name="frequence">
+							</div>
+							<div class="form-group" id="monitorGroup">
+								<label>Resolution:</label>
+								<input [(ngModel)]="entity.resolution" class="form-control" name="resolution">
 							</div>
 							<button class="btn btn-primary">Save/Update Monitor</button>
 						</form>

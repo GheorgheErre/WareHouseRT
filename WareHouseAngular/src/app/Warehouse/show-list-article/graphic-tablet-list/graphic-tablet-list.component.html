@@ -15,9 +15,9 @@
 				<th>Serial Number</th>
 				<th>Location</th>
 				<th>User Number</th>
-				<th>User Height</th>
-				<th>User Width</th>
-				<th>User Length</th>
+				<th>Height</th>
+				<th>Width</th>
+				<th>Length</th>
 
 
 			</tr>
@@ -84,8 +84,16 @@
 								<input [(ngModel)]="entity.userNumber" class="form-control" name="userNumber">
 							</div>
 							<div class="form-group" id="graphicTabletGroup">
-								<label>Type:</label>
-								<input [(ngModel)]="entity.type" class="form-control" name="type">
+								<label>Height:</label>
+								<input [(ngModel)]="entity.height" class="form-control" name="height">
+							</div>
+							<div class="form-group" id="graphicTabletGroup">
+								<label>Width:</label>
+								<input [(ngModel)]="entity.width" class="form-control" name="width">
+							</div>
+							<div class="form-group" id="graphicTabletGroup">
+								<label>Length:</label>
+								<input [(ngModel)]="entity.length" class="form-control" name="length">
 							</div>
 							<button class="btn btn-primary">Save/Update GraphicTablet</button>
 						</form>

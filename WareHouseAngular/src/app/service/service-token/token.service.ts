@@ -12,7 +12,7 @@ export class TokenService extends ServiceService {
     super.saveOrUpdateUrl = 'http://localhost:8080/api/saveOrUpdateToken';
     super.getListUrl = 'http://localhost:8080/api/findAllToken';
     super.countUrl = 'http://localhost:8080/api/countToken';
-    super.getByIDUrl = 'http://localhost:8080/api/findCellphone';
-    super.deleteUrl = 'http://localhost:8080/api/deleteCellphone';
+    super.getByIDUrl = 'http://localhost:8080/api/findToken';
+    super.deleteUrl = 'http://localhost:8080/api/deleteToken';
   }
 }
