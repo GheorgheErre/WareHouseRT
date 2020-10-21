@@ -30,7 +30,7 @@
 				<td>{{operativeSystem.location}}</td>
 				<td>{{operativeSystem.userNumber}}</td>
 				<td>{{operativeSystem.productKey}}</td>
-				<td>{{operativeSystem.associatedComputer.identifier}}</td>
+				<!--<td>{{operativeSystem.associatedComputer.identifier}}</td>-->
 				<td><button class="btn btn-success" (click)="onUpdateButton(operativeSystem)" data-toggle="modal"
 						data-target="#saveOrUpdateModal">
 					</button></td>
@@ -80,9 +80,13 @@
 								<input [(ngModel)]="entity.userNumber" class="form-control" name="userNumber">
 							</div>
 							<div class="form-group" id="operativeSystemGroup">
-								<label>Type:</label>
-								<input [(ngModel)]="entity.type" class="form-control" name="type">
+								<label>Product key:</label>
+								<input [(ngModel)]="entity.productKey" class="form-control" name="productKey">
 							</div>
+							<!--<div class="form-group" id="operativeSystemGroup">
+								<label>Associated computer:</label>
+								<input [(ngModel)]="entity.associatedComputer" class="form-control" name="associatedComputer">
+							</div>-->
 							<button class="btn btn-primary">Save/Update Operative System</button>
 						</form>
 					</div>
