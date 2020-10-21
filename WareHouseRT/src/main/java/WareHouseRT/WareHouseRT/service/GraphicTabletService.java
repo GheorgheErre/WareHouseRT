@@ -30,7 +30,7 @@ public class GraphicTabletService {
 
 	public void save(GraphicTablet graphicTablet) {
 		graphicTablet.setId(sequenceService.getNextSequence(GraphicTablet.SEQUENCE_NAME));
-		createIdentifier.createIdentifier("GFT");
+		graphicTablet.setIdentifier(createIdentifier.createIdentifier("GFT"));
 		repo.save(graphicTablet);
 		
 	}

@@ -21,7 +21,7 @@ public class SsdService {
 	private CreateIdentifierService createIdentifier;
 	
 	public void saveOrUpdate(SSD entity) {
-		if (repo.findById(entity.getId()).isPresent()) {
+		if (repo.findById(entity.getId()).isPresent() && entity.getId() != 0) {
 			update(entity);
 		} else
 			save(entity);

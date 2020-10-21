@@ -31,7 +31,7 @@ public class DockingStationService {
 
 	public void save(DockingStation dockingStation) {
 		dockingStation.setId(sequenceService.getNextSequence(DockingStation.SEQUENCE_NAME));
-		createIdentifier.createIdentifier("DKS");
+		dockingStation.setIdentifier(createIdentifier.createIdentifier("DKS"));
 		repo.save(dockingStation);
 
 	}

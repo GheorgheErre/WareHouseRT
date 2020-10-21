@@ -27,12 +27,12 @@ public class PowerSupplieController {
 		service.saveOrUpdate(powerSupplie);
 	}
 	
-	@PostMapping("/deletePowerSupllie")
+	@PostMapping("/deletePowerSupplie")
 	public void delete(@RequestBody PowerSupplie powerSupplie) {
 		service.delete(powerSupplie);
 	}
 	
-	@GetMapping("/findPowerSupllie")
+	@GetMapping("/findPowerSupplie")
 	public Optional<PowerSupplie> findByID(@RequestBody PowerSupplie powerSupplie ) {
 		return service.findByID(powerSupplie.getId());
 	}
