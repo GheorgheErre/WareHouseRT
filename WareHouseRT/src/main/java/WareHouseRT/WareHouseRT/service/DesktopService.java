@@ -16,10 +16,25 @@ public class DesktopService {
 
 	@Autowired
 	private SequenceGeneratorService sequenceService;
+	
+	@Autowired
+	private CreateIdentifierService createIdentifier;
+	
+	public void saveOrUpdate(Desktop entity) {
+		if (repo.findById(entity.getId()).isPresent()) {
+			update(entity);
+		} else
+			save(entity);
+	}
 
 	public void save(Desktop desktop) {
 		desktop.setId(sequenceService.getNextSequence(Desktop.SEQUENCE_NAME));
+		desktop.setIdentifier(createIdentifier.createIdentifier("DSK"));
 		repo.save(desktop);
+	}
+	
+	public void update(Desktop entity) {
+		repo.save(entity);
 	}
 	
 	public void delete(Desktop entity) {

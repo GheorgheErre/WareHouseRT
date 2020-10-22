@@ -22,14 +22,14 @@ public class LaptopController {
 	@Autowired
 	private LaptopService service;
 	
-	@PostMapping("/saveLaptop")
-	public void save(@RequestBody Laptop  laptop) {
-		service.save(laptop);
+	@PostMapping("/saveOrUpdateLaptop")
+	public void saveOrUpdate(@RequestBody Laptop  laptop) {
+		service.saveOrUpdate(laptop);
 	}
 	
 	@PostMapping("/deleteLaptop")
 	public void delete(@RequestBody Laptop laptop) {
-		service.save(laptop);
+		service.delete(laptop);
 	}
 	
 	@GetMapping("/findLaptop")

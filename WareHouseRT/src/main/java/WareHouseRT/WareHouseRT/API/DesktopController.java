@@ -22,14 +22,14 @@ public class DesktopController {
 	@Autowired
 	private DesktopService service;
 	
-	@PostMapping("/saveDesktop")
-	public void save(@RequestBody Desktop desktop) {
-		service.save(desktop);
+	@PostMapping("/saveOrUpdateDesktop")
+	public void saveOrUpdate(@RequestBody Desktop desktop) {
+		service.saveOrUpdate(desktop);
 	}
 	
 	@PostMapping("/deleteDesktop")
 	public void delete(@RequestBody Desktop desktop) {
-		service.save(desktop);
+		service.delete(desktop);
 	}
 	
 	@GetMapping("/findDesktop")
