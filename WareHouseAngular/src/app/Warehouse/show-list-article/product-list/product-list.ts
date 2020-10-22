@@ -8,10 +8,13 @@ import { ServiceService } from 'src/app/service/service.service';
 
 export abstract class ProductList {
   listProduct: Product[];
+  wareHouseListProduct: Product[];
+  showList: Product[];
   //listKeys:String[];
   update: boolean = false;
   entity: any;
   filtered : String;
+  isChecked : any;
 
   constructor(protected service: ServiceService) { }
 
@@ -21,7 +24,8 @@ export abstract class ProductList {
   findAllProduct(): void {
     this.service.findAll().subscribe(list => {
       this.listProduct = list;
-      //this.listKeys=this.jsonToList(this.listProduct);
+      this.wareHouseListProduct = this.listProduct.filter((product) => product.location === "magazzino");
+      this.showList = this.wareHouseListProduct;
     })
   }
 
@@ -42,6 +46,15 @@ export abstract class ProductList {
   reloadPage() {
     this.findAllProduct();
     window.location.reload();
+  }
+
+  setList(){
+    if(this.isChecked){
+      this.showList = this.listProduct;
+    }
+    else{
+      this.showList = this.wareHouseListProduct;
+    }
   }
 
   searchFunction() {
