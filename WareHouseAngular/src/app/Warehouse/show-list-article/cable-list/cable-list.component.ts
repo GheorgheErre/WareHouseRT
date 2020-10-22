@@ -5,6 +5,7 @@ import { Cable } from 'src/app/pcObjects/cable/cable';
 import { CableService } from 'src/app/service/service-cable/cable.service';
 import { ServiceService } from 'src/app/service/service.service';
 import { ProductList } from '../product-list/product-list';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-cable-list',
@@ -13,7 +14,7 @@ import { ProductList } from '../product-list/product-list';
 })
 export class CableListComponent extends ProductList implements OnInit {
   
-
+  faPlus  = faPlus;
   constructor(private cableService: CableService) {
     super(cableService);
     this.entity = new Cable();

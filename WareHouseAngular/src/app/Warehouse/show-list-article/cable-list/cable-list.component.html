@@ -1,62 +1,75 @@
-<div class="col-auto">
-	<h2> Cable</h2>
-	<div style="width:200px;">
-		Filter By
-		<select [(ngModel)]="filtered" class="form-control" name="users">
-		  <option value="identifier">identifier</option>
-		  <option value="model">model</option>
-		  <option value="brand">brand</option>
-		  <option value="location">location</option>
-		  <option value="type">type</option>
-		</select>
-	  </div>
+<header>
+	<div class="container h-100">
+		<div class="row h-100 d-flex flex-column">
+			<div class="col">
+				<div class="row h-100 align-items-end">
 
-	<input type="text" id="myInput" (keyup)="searchFunction()" placeholder="Search for names.." title="Type in a name">
-	<table id="myTable" class="table table-dark table-hover">
+					<div class="col-6 mb-2 d-flex flex-row">
 
-		<thead>
-			<tr>
-				<td>
-				<button class="btn btn-primary" (click)="onAddArticleButton()" data-toggle="modal"
-					data-target="#saveOrUpdateModal">
-					add article
-				</button>
-				</td>
-			</tr>
-			<tr>
-				<th>Identifier</th>
-				<th>Users</th>
-				<th>Brand</th>
-				<th>Model</th>
-				<th>Serial Number</th>
-				<th>Location</th>
-				<th>User Number</th>
-				<th>Type</th>
-				<th>Modifica</th>
-				<th>Elimina</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr *ngFor="let cable of listProduct">
-				<td class="identifier">{{cable.identifier}}</td>
-				<td>{{cable.users}}</td>
-				<td class="brand">{{cable.brand}}</td>
-				<td class="model">{{cable.model}}</td>
-				<td>{{cable.serialNumber}}</td>
-				<td class="location">{{cable.location}}</td>
-				<td>{{cable.userNumber}}</td>
-				<td class="type">{{cable.type}}</td>
-				<td><button class="btn btn-success" (click)="onUpdateButton(cable)" data-toggle="modal"
-						data-target="#saveOrUpdateModal">
-					</button></td>
-				<td><button (click)="deleteProduct(cable)" class="btn btn-danger">
-					</button></td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-
-
+						<button class="btn mr-2" id="btn-add" (click)="onAddArticleButton()" data-toggle="modal"
+							data-target="#saveOrUpdateModal">
+							<fa-icon [icon]="faPlus"></fa-icon>
+						</button>
+						<select [(ngModel)]="filtered" class="custom-select" name="filter">
+							<option selected disabled>Filter by:</option>
+							<option value="identifier">Identifier</option>
+							<option value="model">Model</option>
+							<option value="brand">Brand</option>
+							<option value="location">Location</option>
+							<option value="type">Type</option>
+						</select>
+					</div>
+					<div class="col-6 mb-2 d-flex flex-row">
+						<input class="form-control" type="text" id="myInput" (keyup)="searchFunction()"
+							placeholder="Search by filter...">
+						<div class="custom-control custom-switch d-flex align-items-end ml-2">
+							<input type="checkbox" class="custom-control-input" id="location" name="location" [(ngModel)]="isChecked"
+								(change)="setList()">
+							<label for="location" class="custom-control-label" id="label-all">All</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="table-responsive">
+					<table id="myTable" class="table table-striped">
+						<thead>
+							<tr>
+								<th scope="row">Identifier</th>
+								<th scope="row">Users</th>
+								<th scope="row">Brand</th>
+								<th scope="row">Model</th>
+								<th scope="row">Serial Number</th>
+								<th scope="row">Location</th>
+								<th scope="row">User Number</th>
+								<th scope="row">Type</th>
+								<th scope="row">Modify</th>
+								<th scope="row">Delete</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let cable of listProduct">
+								<td class="identifier">{{cable.identifier}}</td>
+								<td>{{cable.users}}</td>
+								<td class="brand">{{cable.brand}}</td>
+								<td class="model">{{cable.model}}</td>
+								<td>{{cable.serialNumber}}</td>
+								<td class="location">{{cable.location}}</td>
+								<td>{{cable.userNumber}}</td>
+								<td class="type">{{cable.type}}</td>
+								<td><button class="btn btn-success" (click)="onUpdateButton(cable)" data-toggle="modal"
+										data-target="#saveOrUpdateModal">
+									</button></td>
+								<td><button (click)="deleteProduct(cable)" class="btn btn-danger">
+									</button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
 
 <!-- Modal -->
 <div class="modal fade" id="saveOrUpdateModal" role="dialog">
@@ -113,4 +126,3 @@
 
 	</div>
 </div>
-
