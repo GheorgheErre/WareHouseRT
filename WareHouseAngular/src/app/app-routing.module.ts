@@ -32,7 +32,7 @@ import { WorkstationWelcomeComponent } from './workstation-welcome/workstation-w
 
 
 const routes: Routes = [ 
-  {path:"", component: WarehouseHomeComponent},
+  {path:"", component: WelcomeComponent},
   {path:"WorkstationWelcome",component: WorkstationWelcomeComponent},
   {path:"Dashboard", component: DashboardComponent},
   {path:"WarehouseHomeList", component: WarehouseHomeComponent},

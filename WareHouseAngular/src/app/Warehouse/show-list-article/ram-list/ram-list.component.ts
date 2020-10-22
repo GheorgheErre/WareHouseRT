@@ -20,11 +20,9 @@ export class RamListComponent extends ProductList implements OnInit {
   }
   onUpdateButton(entity: Ram) {
     this.entity = entity;
-    this.update = true;
   }
 
   onAddArticleButton() {
     this.entity = new Ram();
-    this.update = false;
   }
 }

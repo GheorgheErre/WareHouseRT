@@ -21,11 +21,9 @@ export class SsdListComponent extends ProductList implements OnInit {
 
   onUpdateButton(entity: Ssd) {
     this.entity = entity;
-    this.update = true;
   }
 
   onAddArticleButton() {
     this.entity = new Ssd();
-    this.update = false;
   }
 }

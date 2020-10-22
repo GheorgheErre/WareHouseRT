@@ -1,0 +1,146 @@
+@font-face {
+    font-family: Poppins;
+    src: url("../../../../assets/fonts/Poppins-Light.ttf");
+}
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+html,
+body,
+header {
+    background-image: url("../../../../assets/img/desk-alternativa-blured.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+/* Parte sopra la tabella*/
+#btn-add {
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 50%;
+    color: white;
+    transition: 0.5s;
+    box-shadow: none !important;
+    outline: 0;
+}
+#btn-add:hover {
+    background-color: white;
+    border: 1px solid white;
+    color: black;
+    transition: 0.5s;
+}
+#btn-modify, #btn-delete{
+
+    border-radius: 10px;
+}
+select {
+    border-radius: 20px 20px 0 0;
+    background-color: transparent;
+    color: white;
+    box-shadow: none !important;
+    outline: 0;
+    transition: 0.5s;
+}
+select:hover {
+    background-color: white;
+    transition: 0.5s;
+    color: black;
+}
+
+#myInput {
+    border: none;
+    border-bottom: 1px solid white;
+    border-radius: 0px;
+    background-color: transparent;
+    transition: 0.5s;
+    box-shadow: none !important;
+    outline: 0;
+}
+#myInput:focus {
+    color: white;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+::placeholder {
+    color: white;
+}
+#label-all {
+    color: white;
+}
+/* Tabella */
+table {
+    background-color: white;
+    border-radius: 10px 10px 0 0;
+    border: none;
+}
+thead {
+    border-radius: 20px 20px 0 0;
+    border: none;
+}
+th {
+    border: none;
+}
+
+/* Modal */
+#modal {
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+#modal-header {
+    border: none;
+    padding: 0px;
+}
+#modal-body {
+    background-color: black;
+    border: none;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+#modal-footer {
+    border: none;
+}
+h3 {
+    letter-spacing: 5px;
+    font-size: 20px;
+}
+#gpuGroup {
+    border: none;
+    background-color: transparent;
+    color: white;
+}
+input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    border-radius: 0px;
+    color: white;
+}
+input:focus {
+    border: none;
+    border: 1px solid white;
+    transition: 0.5s;
+    border-radius: 20px;
+    background-color: transparent;
+    color: white;
+    box-shadow: none !important;
+    outline: 0;
+}
+span {
+    color: white;
+}
+button {
+    border: 1px solid white;
+    border-radius: 20px;
+    color: white;
+    transition: 0.5s;
+}
+button:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid white;
+    transition: 0.5s;
+}

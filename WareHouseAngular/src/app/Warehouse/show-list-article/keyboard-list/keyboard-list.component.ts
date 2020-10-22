@@ -21,11 +21,9 @@ export class KeyboardListComponent extends ProductList implements OnInit {
 
   onUpdateButton(entity: Keyboard) {
     this.entity = entity;
-    this.update = true;
   }
 
   onAddArticleButton() {
     this.entity = new Keyboard();
-    this.update = false;
   }
 }

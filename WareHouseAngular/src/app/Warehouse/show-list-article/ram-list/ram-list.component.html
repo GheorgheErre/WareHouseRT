@@ -1,101 +1,128 @@
-<div class="col-md-6">
-	<h2> Ram list</h2>
+<header>
+	<div class="container">
+		<div class="row h-100 d-flex flex-column flex-wrap">
+			<div class="col mt-5">
+				<div class="row h-100 align-items-end">
 
-	<table class="table table-striped">
-		<thead>
-			<tr><button class="btn btn-primary" (click)="onAddArticleButton()" data-toggle="modal"
-					data-target="#saveOrUpdateModal">
-					add article
-				</button></tr>
-			<tr>
-				<th>Identifier</th>
-				<th>Users</th>
-				<th>Brand</th>
-				<th>Model</th>
-				<th>Serial Number</th>
-				<th>Location</th>
-				<th>User Number</th>
-				<th>Capacity</th>
-				<th>Frequency</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr *ngFor="let ram of listProduct">
-				<td class="hidden"></td>
-				<td>{{ram.identifier}}</td>
-				<td>{{ram.users}}</td>
-				<td>{{ram.brand}}</td>
-				<td>{{ram.model}}</td>
-				<td>{{ram.serialNumber}}</td>
-				<td>{{ram.location}}</td>
-				<td>{{ram.userNumber}}</td>
-				<td>{{ram.capacity}}</td>
-				<td>{{ram.frequencies}}</td>
-				<td><button class="btn btn-success" (click)="onUpdateButton(ram)" data-toggle="modal"
-						data-target="#saveOrUpdateModal">
-					</button></td>
-				<td><button (click)="deleteProduct(ram)" class="btn btn-danger">
-					</button></td>
-			</tr>
-		</tbody>
-	</table>
-</div>
+					<div class="col-6 mb-2 d-flex flex-row">
+
+						<button class="btn mr-2" id="btn-add" (click)="onAddArticleButton()" data-toggle="modal"
+							data-target="#saveOrUpdateModal">
+							<fa-icon [icon]="faPlus"></fa-icon>
+						</button>
+						<select [(ngModel)]="filtered" class="custom-select" name="filter">
+							<option selected disabled>Filter by:</option>
+							<option value="identifier">Identifier</option>
+							<option value="model">Model</option>
+							<option value="brand">Brand</option>
+							<option value="location">Location</option>
+							<option value="type">Type</option>
+						</select>
+					</div>
+					<div class="col-6 mb-2 d-flex flex-row">
+						<input class="form-control" type="text" id="myInput" (keyup)="searchFunction()"
+							placeholder="Search by filter...">
+						<div class="custom-control custom-switch d-flex align-items-end ml-2">
+							<input type="checkbox" class="custom-control-input" id="location" name="location"
+								[(ngModel)]="isChecked" (change)="setList()">
+							<label for="location" class="custom-control-label" id="label-all">All</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="table-responsive">
+					<table id="myTable" class="table table-striped">
+						<thead>
+							<tr>
+								<th scope="row">Identifier</th>
+								<th scope="row">Users</th>
+								<th scope="row">Brand</th>
+								<th scope="row">Model</th>
+								<th scope="row">Serial Number</th>
+								<th scope="row">Location</th>
+								<th scope="row">User Number</th>
+								<th scope="row">Capacity</th>
+								<th scope="row">Frequencies</th>
+								<th scope="row">Modify</th>
+								<th scope="row">Delete</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let ram of listProduct">
+								<td class="hidden"></td>
+								<td>{{ram.identifier}}</td>
+								<td>{{ram.users}}</td>
+								<td>{{ram.brand}}</td>
+								<td>{{ram.model}}</td>
+								<td>{{ram.serialNumber}}</td>
+								<td>{{ram.location}}</td>
+								<td>{{ram.userNumber}}</td>
+								<td>{{ram.capacity}}</td>
+								<td>{{ram.frequencies}}</td>
+								<td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(ram)"
+									data-toggle="modal" data-target="#saveOrUpdateModal">
+									<fa-icon [icon]="faPen"></fa-icon>
+								</button></td>
+							<td><button (click)="deleteProduct(ram)" class="btn btn-danger" id="btn-delete">
+									<fa-icon [icon]="faEraser"></fa-icon>
+								</button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
 
 
 <!-- Modal -->
 <div class="modal fade" id="saveOrUpdateModal" role="dialog">
-	<div class="modal-dialog">
-		<!-- Modal content-->
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">Modal Header</h4>
-			</div>
-			<div class="container">
-				<div class="row">
-					<div class="col-auto">
-						<form (ngSubmit)="saveOrUpdate()" id="formRam">
+	<div class="modal-dialog modal-dialog-centered">
 
-							<div class="form-group" id="ramGroup">
-								<label>Users:</label>
-								<input [(ngModel)]="entity.users" class="form-control" name="users">
-							</div>
-							<div class="form-group" id="ramGroup">
-								<label>Brand:</label>
-								<input [(ngModel)]="entity.brand" class="form-control" name="brand">
-							</div>
-							<div class="form-group" id="ramGroup">
-								<label>Model:</label>
-								<input [(ngModel)]="entity.model" class="form-control" name="model">
-							</div>
-							<div class="form-group" id="ramGroup">
-								<label>Serial Number:</label>
-								<input [(ngModel)]="entity.serialNumber" class="form-control" name="serialNumber">
-							</div>
-							<div class="form-group" id="ramGroup">
-								<label>Location:</label>
-								<input [(ngModel)]="entity.location" class="form-control" name="location">
-							</div>
-							<div class="form-group" id="ramGroup">
-								<label>User Number:</label>
-								<input [(ngModel)]="entity.userNumber" class="form-control" name="userNumber">
-							</div>
-							<div class="form-group" id="ramGroup">
-								<label>Capacity:</label>
-								<input [(ngModel)]="entity.capacity" class="form-control" name="capacity">
-							</div>
-							<div class="form-group" id="ramGroup">
-								<label>Frequency:</label>
-								<input [(ngModel)]="entity.frequencies" class="form-control" name="frequencies">
-							</div>
-							<button class="btn btn-primary">Save/Update RAM</button>
-						</form>
+		<!-- Modal content-->
+		<div class="modal-content" id="modal">
+
+			<div class="modal-header" id="modal-header">
+				<h3 class="modal-title">Add a new article:</h3>
+			</div>
+
+			<div class="modal-body" id="modal-body">
+				<form (ngSubmit)="saveOrUpdate()" id="formRam">
+
+					<div class="form-control mb-2" id="ramGroup">
+						<input [(ngModel)]="entity.users" name="users" class="form-control" placeholder="Users:">
 					</div>
-				</div>
+					<div class="form-control mb-2" id="ramGroup">
+						<input [(ngModel)]="entity.brand" name="brand" class="form-control" placeholder="Brand:">
+					</div>
+					<div class="form-control mb-2" id="ramGroup">
+						<input [(ngModel)]="entity.model" name="model" class="form-control" placeholder="Model:">
+					</div>
+					<div class="form-control mb-2" id="ramGroup">
+						<input [(ngModel)]="entity.serialNumber" name="serialNumber" class="form-control"
+							placeholder="Serial number:">
+					</div>
+					<div class="form-control mb-2" id="ramGroup">
+						<input [(ngModel)]="entity.userNumber" name="userNumber" class="form-control"
+							placeholder="User number:">
+					</div>
+					<div class="form-control mb-4" id="ramGroup">
+						<input [(ngModel)]="entity.capacity" name="capacity" class="form-control" placeholder="Capacity:">
+					</div>
+					<div class="form-control mb-4" id="ramGroup">
+						<input [(ngModel)]="entity.frequencies" name="frequencies" class="form-control" placeholder="Frequencies:">
+					</div>
+					<div class="float-right">
+						<button class="btn mr-2 float-left">Save/Update RAM</button>
+						<button class="btn float-left" data-dismiss="modal">Close</button>
+					</div>
+				</form>
 			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			</div>
+
+
 		</div>
+
 	</div>
 </div>

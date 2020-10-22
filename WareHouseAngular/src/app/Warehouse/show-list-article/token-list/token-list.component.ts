@@ -21,11 +21,9 @@ export class TokenListComponent extends ProductList implements OnInit {
 
   onUpdateButton(entity: Token) {
     this.entity = entity;
-    this.update = true;
   }
 
   onAddArticleButton() {
     this.entity = new Token();
-    this.update = false;
   }
 }

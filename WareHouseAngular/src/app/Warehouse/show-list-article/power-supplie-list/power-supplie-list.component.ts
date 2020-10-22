@@ -20,11 +20,9 @@ export class PowerSupplieListComponent extends ProductList implements OnInit {
   }
   onUpdateButton(entity: Powersupplie) {
     this.entity = entity;
-    this.update = true;
   }
 
   onAddArticleButton() {
     this.entity = new Powersupplie();
-    this.update = false;
   }
 }

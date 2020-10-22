@@ -21,12 +21,10 @@ export class MouseListComponent extends ProductList implements OnInit {
 
   onUpdateButton(entity: Mouse) {
     this.entity = entity;
-    this.update = true;
   }
 
   onAddArticleButton() {
     this.entity = new Mouse();
-    this.update = false;
   }
 }
 

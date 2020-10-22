@@ -21,11 +21,9 @@ export class HddListComponent extends ProductList implements OnInit {
 
   onUpdateButton(entity: Hdd) {
     this.entity = entity;
-    this.update = true;
   }
 
   onAddArticleButton() {
     this.entity = new Hdd();
-    this.update = false;
   }
 }

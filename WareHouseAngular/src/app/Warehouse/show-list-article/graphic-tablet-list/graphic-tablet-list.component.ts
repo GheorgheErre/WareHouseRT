@@ -20,11 +20,10 @@ export class GraphicTabletListComponent extends ProductList implements OnInit {
   }
   onUpdateButton(entity: GraphicTablet) {
     this.entity = entity;
-    this.update = true;
   }
 
   onAddArticleButton() {
     this.entity = new GraphicTablet();
-    this.update = false;
+
   }
 }

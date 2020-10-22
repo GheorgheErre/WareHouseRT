@@ -21,12 +21,10 @@ export class DesktopListComponent extends ProductList implements OnInit {
 
   onUpdateButton(entity: Desktop) {
     this.entity = entity;
-    this.update = true;
   }
 
   onAddArticleButton() {
     this.entity = new Desktop();
-    this.update = false;
   }
 
 

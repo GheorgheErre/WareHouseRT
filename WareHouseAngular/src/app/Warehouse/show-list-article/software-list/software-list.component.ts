@@ -22,11 +22,9 @@ export class SoftwareListComponent extends ProductList implements OnInit {
 
   onUpdateButton(entity: Software) {
     this.entity = entity;
-    this.update = true;
   }
 
   onAddArticleButton() {
     this.entity = new Software();
-    this.update = false;
   }
 }

@@ -20,11 +20,9 @@ export class GpuListComponent extends ProductList implements OnInit {
   }
   onUpdateButton(entity: Gpu) {
     this.entity = entity;
-    this.update = true;
   }
 
   onAddArticleButton() {
     this.entity = new Gpu();
-    this.update = false;
   }
 }

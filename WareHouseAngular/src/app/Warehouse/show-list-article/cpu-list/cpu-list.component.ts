@@ -24,12 +24,10 @@ export class CpuListComponent extends ProductList implements OnInit {
 
   onUpdateButton(entity: any) {
     this.entity = entity;
-    this.update = true;
   }
 
   onAddArticleButton() {
     this.entity = new Cpu();
-    this.update = false;
   }
 
  

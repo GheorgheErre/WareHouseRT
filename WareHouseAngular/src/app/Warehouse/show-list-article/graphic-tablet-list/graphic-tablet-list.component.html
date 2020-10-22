@@ -1,108 +1,132 @@
-<div class="col-md-6">
-	<h2> Graphic Tablet list</h2>
+<header>
+	<div class="container">
+		<div class="row h-100 d-flex flex-column flex-wrap">
+			<div class="col mt-5">
+				<div class="row h-100 align-items-end">
 
-	<table class="table table-striped">
-		<thead>
-			<tr><button class="btn btn-primary" (click)="onAddArticleButton()" data-toggle="modal"
-					data-target="#saveOrUpdateModal">
-					add article
-				</button></tr>
-			<tr>
-				<th>Identifier</th>
-				<th>Users</th>
-				<th>Brand</th>
-				<th>Model</th>
-				<th>Serial Number</th>
-				<th>Location</th>
-				<th>User Number</th>
-				<th>Height</th>
-				<th>Width</th>
-				<th>Length</th>
+					<div class="col-6 mb-2 d-flex flex-row">
 
-
-			</tr>
-		</thead>
-		<tbody>
-			<tr *ngFor="let graphicTablet of listProduct">
-				<td class="hidden"></td>
-				<td>{{graphicTablet.identifier}}</td>
-				<td>{{graphicTablet.users}}</td>
-				<td>{{graphicTablet.brand}}</td>
-				<td>{{graphicTablet.model}}</td>
-				<td>{{graphicTablet.serialNumber}}</td>
-				<td>{{graphicTablet.location}}</td>
-				<td>{{graphicTablet.userNumber}}</td>
-				<td>{{graphicTablet.height}}</td>
-				<td>{{graphicTablet.width}}</td>
-				<td>{{graphicTablet.length}}</td>
-				<td><button class="btn btn-success" (click)="onUpdateButton(graphicTablet)" data-toggle="modal"
-						data-target="#saveOrUpdateModal">
-					</button></td>
-				<td><button (click)="deleteProduct(graphicTablet)" class="btn btn-danger">
-					</button></td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="saveOrUpdateModal" role="dialog">
-	<div class="modal-dialog">
-		<!-- Modal content-->
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">Modal Header</h4>
-			</div>
-			<div class="container">
-				<div class="row">
-					<div class="col-auto">
-						<form (ngSubmit)="saveOrUpdate()" id="formGraphicTablet">
-
-							<div class="form-group" id="graphicTabletGroup">
-								<label>Users:</label>
-								<input [(ngModel)]="entity.users" class="form-control" name="users">
-							</div>
-							<div class="form-group" id="graphicTabletGroup">
-								<label>Brand:</label>
-								<input [(ngModel)]="entity.brand" class="form-control" name="brand">
-							</div>
-							<div class="form-group" id="graphicTabletGroup">
-								<label>Model:</label>
-								<input [(ngModel)]="entity.model" class="form-control" name="model">
-							</div>
-							<div class="form-group" id="graphicTabletGroup">
-								<label>Serial Number:</label>
-								<input [(ngModel)]="entity.serialNumber" class="form-control" name="serialNumber">
-							</div>
-							<div class="form-group" id="graphicTabletGroup">
-								<label>Location:</label>
-								<input [(ngModel)]="entity.location" class="form-control" name="location">
-							</div>
-							<div class="form-group" id="graphicTabletGroup">
-								<label>User Number:</label>
-								<input [(ngModel)]="entity.userNumber" class="form-control" name="userNumber">
-							</div>
-							<div class="form-group" id="graphicTabletGroup">
-								<label>Height:</label>
-								<input [(ngModel)]="entity.height" class="form-control" name="height">
-							</div>
-							<div class="form-group" id="graphicTabletGroup">
-								<label>Width:</label>
-								<input [(ngModel)]="entity.width" class="form-control" name="width">
-							</div>
-							<div class="form-group" id="graphicTabletGroup">
-								<label>Length:</label>
-								<input [(ngModel)]="entity.length" class="form-control" name="length">
-							</div>
-							<button class="btn btn-primary">Save/Update GraphicTablet</button>
-						</form>
+						<button class="btn mr-2" id="btn-add" (click)="onAddArticleButton()" data-toggle="modal"
+							data-target="#saveOrUpdateModal">
+							<fa-icon [icon]="faPlus"></fa-icon>
+						</button>
+						<select [(ngModel)]="filtered" class="custom-select" name="filter">
+							<option selected disabled>Filter by:</option>
+							<option value="identifier">Identifier</option>
+							<option value="model">Model</option>
+							<option value="brand">Brand</option>
+							<option value="location">Location</option>
+							<option value="type">Type</option>
+						</select>
+					</div>
+					<div class="col-6 mb-2 d-flex flex-row">
+						<input class="form-control" type="text" id="myInput" (keyup)="searchFunction()"
+							placeholder="Search by filter...">
+						<div class="custom-control custom-switch d-flex align-items-end ml-2">
+							<input type="checkbox" class="custom-control-input" id="location" name="location"
+								[(ngModel)]="isChecked" (change)="setList()">
+							<label for="location" class="custom-control-label" id="label-all">All</label>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<div class="col">
+				<div class="table-responsive">
+					<table id="myTable" class="table table-striped">
+						<thead>
+							<tr>
+								<th scope="row">Identifier</th>
+								<th scope="row">Users</th>
+								<th scope="row">Brand</th>
+								<th scope="row">Model</th>
+								<th scope="row">Serial Number</th>
+								<th scope="row">Location</th>
+								<th scope="row">User Number</th>
+								<th scope="row">Heigth</th>
+								<th scope="row">Width</th>
+								<th scope="row">Length</th>
+								<th scope="row">Modify</th>
+								<th scope="row">Delete</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let graphicTablet of listProduct">
+								<td class="hidden"></td>
+								<td>{{graphicTablet.identifier}}</td>
+								<td>{{graphicTablet.users}}</td>
+								<td>{{graphicTablet.brand}}</td>
+								<td>{{graphicTablet.model}}</td>
+								<td>{{graphicTablet.serialNumber}}</td>
+								<td>{{graphicTablet.location}}</td>
+								<td>{{graphicTablet.userNumber}}</td>
+								<td>{{graphicTablet.height}}</td>
+								<td>{{graphicTablet.width}}</td>
+								<td>{{graphicTablet.length}}</td>
+								<td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(graphicTablet)"
+									data-toggle="modal" data-target="#saveOrUpdateModal">
+									<fa-icon [icon]="faPen"></fa-icon>
+								</button></td>
+							<td><button (click)="deleteProduct(graphicTablet)" class="btn btn-danger" id="btn-delete">
+									<fa-icon [icon]="faEraser"></fa-icon>
+								</button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
+	</div>
+</header>
+
+<!-- Modal -->
+<div class="modal fade" id="saveOrUpdateModal" role="dialog">
+	<div class="modal-dialog modal-dialog-centered">
+
+		<!-- Modal content-->
+		<div class="modal-content" id="modal">
+
+			<div class="modal-header" id="modal-header">
+				<h3 class="modal-title">Add a new article:</h3>
+			</div>
+
+			<div class="modal-body" id="modal-body">
+				<form (ngSubmit)="saveOrUpdate()" id="formGraphicTablet">
+
+					<div class="form-control mb-2" id="graphicTabletGroup">
+						<input [(ngModel)]="entity.users" name="users" class="form-control" placeholder="Users:">
+					</div>
+					<div class="form-control mb-2" id="graphicTabletGroup">
+						<input [(ngModel)]="entity.brand" name="brand" class="form-control" placeholder="Brand:">
+					</div>
+					<div class="form-control mb-2" id="graphicTabletGroup">
+						<input [(ngModel)]="entity.model" name="model" class="form-control" placeholder="Model:">
+					</div>
+					<div class="form-control mb-2" id="graphicTabletGroup">
+						<input [(ngModel)]="entity.serialNumber" name="serialNumber" class="form-control"
+							placeholder="Serial number:">
+					</div>
+					<div class="form-control mb-2" id="graphicTabletGroup">
+						<input [(ngModel)]="entity.userNumber" name="userNumber" class="form-control"
+							placeholder="User number:">
+					</div>
+					<div class="form-control mb-4" id="graphicTabletGroup">
+						<input [(ngModel)]="entity.height" name="height" class="form-control" placeholder="Heigth:">
+					</div>
+					<div class="form-control mb-4" id="graphicTabletGroup">
+						<input [(ngModel)]="entity.width" name="width" class="form-control" placeholder="Width:">
+					</div>
+					<div class="form-control mb-4" id="graphicTabletGroup">
+						<input [(ngModel)]="entity.length" name="length" class="form-control" placeholder="Length:">
+					</div>
+					<div class="float-right">
+						<button class="btn mr-2 float-left">Save/Update Graphic Tablet</button>
+						<button class="btn float-left" data-dismiss="modal">Close</button>
+					</div>
+				</form>
+			</div>
+
+
+		</div>
+
 	</div>
 </div>

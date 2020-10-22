@@ -21,12 +21,10 @@ export class DockingStationListComponent extends ProductList implements OnInit {
 
   onUpdateButton(entity: DockingStation) {
     this.entity = entity;
-    this.update = true;
   }
 
   onAddArticleButton() {
     this.entity = new DockingStation();
-    this.update = false;
   }
 
 }

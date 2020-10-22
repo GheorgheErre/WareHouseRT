@@ -23,11 +23,9 @@ export class CellphoneListComponent extends ProductList implements OnInit {
 
   onUpdateButton(entity: Cellphone) {
     this.entity = entity;
-    this.update = true;
   }
 
   onAddArticleButton() {
     this.entity = new Cellphone();
-    this.update = false;
   }
 }

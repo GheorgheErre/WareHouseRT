@@ -21,12 +21,10 @@ export class LaptopListComponent extends ProductList implements OnInit {
 
   onUpdateButton(entity: Laptop) {
     this.entity = entity;
-    this.update = true;
   }
 
   onAddArticleButton() {
     this.entity = new Laptop();
-    this.update = false;
   }
 
 

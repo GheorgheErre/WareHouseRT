@@ -21,11 +21,9 @@ export class MonitorListComponent extends ProductList implements OnInit {
 
   onUpdateButton(entity: Monitor) {
     this.entity = entity;
-    this.update = true;
   }
 
   onAddArticleButton() {
     this.entity = new Monitor();
-    this.update = false;
   }
 }
