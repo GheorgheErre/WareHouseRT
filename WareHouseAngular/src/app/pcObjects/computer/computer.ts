@@ -3,6 +3,12 @@ import { Component } from '../component/component';
 
 export class Computer extends Article{
 
-    components: Component[]
+    //components: Component[]
+    cpu : String;
+    gpu : String;
+    ram : number;
+    hdd: number;
+    ssd: number;
+    power: number;
 
 }
