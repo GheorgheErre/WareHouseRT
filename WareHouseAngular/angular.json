@@ -36,7 +36,7 @@
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/popper.js/dist/umd/popper.min.js",
               "src/app/Homepage/welcome/js/welcome.js",
-              "src/app/workstation-welcome/js/workstation-welcome.js"
+              "src/app/WorkStation/workstation-welcome/js/workstation-welcome.js"
             ]
           },
           "configurations": {

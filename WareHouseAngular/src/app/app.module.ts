@@ -18,7 +18,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomepageModule } from './Homepage/homepage/homepage.module';
 import { WarehouseModule } from './Warehouse/warehouse/warehouse.module';
 import { PopperDirective } from './popper.directive';
-import { WorkstationWelcomeComponent } from './workstation-welcome/workstation-welcome.component';
+import { WorkstationModule } from './WorkStation/workstation/workstation.module';
+import { UserWorkStationComponent } from './WorkStation/user-work-station/user-work-station.component';
+import { UserWorkstationComponent } from './WorkStation/user-workstation/user-workstation.component';
+import { OfficeComponent } from './WorkStation/office/office.component';
 
 
 @NgModule({
@@ -26,7 +29,9 @@ import { WorkstationWelcomeComponent } from './workstation-welcome/workstation-w
     AppComponent,
     FormCPUComponent,
     PopperDirective,
-    WorkstationWelcomeComponent
+    UserWorkStationComponent,
+    UserWorkstationComponent,
+    OfficeComponent
 
   ],
   imports: [
@@ -44,7 +49,8 @@ import { WorkstationWelcomeComponent } from './workstation-welcome/workstation-w
     FormsModule,
     FontAwesomeModule,
     HomepageModule,
-    WarehouseModule
+    WarehouseModule,
+    WorkstationModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

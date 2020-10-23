@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'workstation-welcome',
