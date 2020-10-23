@@ -19,5 +19,9 @@ export class WelcomeMenuComponent implements OnInit {
     this.router.navigate(["/WarehouseHomeCount"])
   }
 
+  openWorkstation(){
+    this.router.navigate(["/WorkstationWelcome"])
+  }
+
 
 }
