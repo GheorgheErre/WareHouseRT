@@ -10,8 +10,9 @@ html,
 body,
 header {
     background-image: url("../../../../assets/img/desk-alternativa-blured.jpg");
-    background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
 }
 
 /* Parte sopra la tabella*/
@@ -30,8 +31,8 @@ header {
     color: black;
     transition: 0.5s;
 }
-#btn-modify, #btn-delete{
-
+#btn-modify,
+#btn-delete {
     border-radius: 10px;
 }
 select {
