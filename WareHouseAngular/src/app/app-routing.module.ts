@@ -29,6 +29,7 @@ import { ListProductComponent } from './Warehouse/show-list-article/list-product
 import { LoginComponent } from './Homepage/login/login.component';
 import { DashboardComponent } from './Warehouse/dashboard/dashboard.component';
 import { WorkstationWelcomeComponent } from './WorkStation/workstation-welcome/workstation-welcome.component';
+import { CreateWorkstationComponent } from './WorkStation/create-workstation/create-workstation.component';
 
 
 
@@ -60,7 +61,8 @@ const routes: Routes = [
   {path:"tokenlist", component: TokenListComponent},
   {path:"articleCount", component: ArticleCardComponent},
   {path:"productList", component: ListProductComponent},
-  {path:"Login", component: LoginComponent}
+  {path:"Login", component: LoginComponent},
+  {path:"CreateWorkstation", component: CreateWorkstationComponent}
 ] ;
 
 @NgModule({

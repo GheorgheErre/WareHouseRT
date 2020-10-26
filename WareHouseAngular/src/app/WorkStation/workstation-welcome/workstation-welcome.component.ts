@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -11,9 +12,13 @@ export class WorkstationWelcomeComponent implements OnInit {
 
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  goToOffice(){
+    this.router.navigate(["/CreateWorkstation"]);
   }
 
 }

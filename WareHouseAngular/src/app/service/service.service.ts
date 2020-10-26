@@ -18,7 +18,6 @@ export abstract class ServiceService {
  
 
   constructor(protected http?: HttpClient) {
-  
   }
 
   public saveOrUpdate(product: Product) {

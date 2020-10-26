@@ -14,15 +14,46 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { OfficeComponent } from '../office/office.component';
 import { UserWorkstationComponent } from '../user-workstation/user-workstation.component';
+import { CreateWorkstationComponent } from '../create-workstation/create-workstation.component';
+import { AmministrazioneComponent } from '../office/first-floor/amministrazione/amministrazione.component';
+import { DirErreGesComponent } from '../office/first-floor/dir-erre-ges/dir-erre-ges.component';
+import { DirErreLabComponent } from '../office/first-floor/dir-erre-lab/dir-erre-lab.component';
+import { DirErreProComponent } from '../office/first-floor/dir-erre-pro/dir-erre-pro.component';
+import { DirErreTechComponent } from '../office/first-floor/dir-erre-tech/dir-erre-tech.component';
+import { HrAndSalesComponent } from '../office/first-floor/hr-and-sales/hr-and-sales.component';
+import { UffLabComponent } from '../office/first-floor/uff-lab/uff-lab.component';
+import { UffProComponent } from '../office/first-floor/uff-pro/uff-pro.component';
+import { Direzione1Component } from '../office/ground-floor/direzione1/direzione1.component';
+import { Direzione2Component } from '../office/ground-floor/direzione2/direzione2.component';
+import { ReceptionComponent } from '../office/ground-floor/reception/reception.component';
+import { Uff2Component } from '../office/ground-floor/uff2/uff2.component';
+import { Uff3Component } from '../office/ground-floor/uff3/uff3.component';
+import { Uff1FirstFloorComponent } from '../office/first-floor/uff1-first-floor/uff1-first-floor.component';
+import { Uff1GroundFloorComponent } from '../office/ground-floor/uff1-ground-floor/uff1-ground-floor.component';
+
 
 
 @NgModule({
   declarations: [
     WorkstationWelcomeComponent,
     UserWorkstationComponent,
-    OfficeComponent
+    CreateWorkstationComponent,
+    Direzione1Component,
+    Uff2Component,
+    Direzione2Component,
+    ReceptionComponent,
+    Uff3Component,
+    DirErreGesComponent,
+    AmministrazioneComponent,
+    DirErreTechComponent,
+    DirErreProComponent,
+    HrAndSalesComponent,
+    DirErreLabComponent,
+    UffLabComponent,
+    UffProComponent,
+    Uff1FirstFloorComponent,
+    Uff1GroundFloorComponent,
   ],
   imports: [
     CommonModule,
