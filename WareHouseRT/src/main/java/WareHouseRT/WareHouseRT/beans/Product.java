@@ -7,6 +7,8 @@ package WareHouseRT.WareHouseRT.beans;
  * 
  */
 public abstract class Product {
+	
+
 	private String identifier;
 	private String users;
 	private String brand;
@@ -69,5 +71,11 @@ public abstract class Product {
 
 	public void setUserNumber(String userNumber) {
 		this.userNumber = userNumber;
+	}
+	
+	@Override
+	public String toString() {
+		return "Product [identifier=" + identifier + ", users=" + users + ", brand=" + brand + ", model=" + model
+				+ ", serialNumber=" + serialNumber + ", location=" + location + ", userNumber=" + userNumber + "]";
 	}
 }
