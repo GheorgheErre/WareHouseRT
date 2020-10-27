@@ -18,7 +18,7 @@ export class WorkstationWelcomeComponent implements OnInit {
   }
 
   goToOffice(){
-    this.router.navigate(["/CreateWorkstation"]);
+    this.router.navigate(["/Ufficio1GroundFloor"]);
   }
 
 }
