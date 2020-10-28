@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { WorkstationInSession } from 'src/app/WorkStation/workstation-in-session';
 
 @Component({
   selector: 'app-uff2',
   templateUrl: './uff2.component.html',
   styleUrls: ['./uff2.component.scss']
 })
-export class Uff2Component implements OnInit {
+export class Uff2Component extends WorkstationInSession implements OnInit {
 
-  constructor() { }
+  constructor() {
+    super();
+  }
 
   ngOnInit(): void {
   }
 
-  setWorkstationInSession(ufficio, numero){
-    window.sessionStorage.setItem("ufficio_workstation", ufficio);
-    window.sessionStorage.setItem("numero_workstation", numero);
-  }
+
 }
