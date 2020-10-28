@@ -42,6 +42,7 @@ export class WorkStationService {
 
   }
 
+
   public delete(workstation: Workstation) {
     return this.http.post<Workstation>(this.deleteUrl, workstation);
   }

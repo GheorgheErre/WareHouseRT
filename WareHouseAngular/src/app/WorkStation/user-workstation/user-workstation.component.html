@@ -1,1 +1,137 @@
-<p>user-workstation works!</p>
+<header>
+    <div class="container">
+        <div class="row h-100 d-flex flex-column flex-wrap">
+
+            <div class="col">
+                <div class="table-responsive">
+                    <table id="detailsTable" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="row">Office</th>
+                                <th scope="row">Numero</th>
+                                <th scope="row">Utente</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{office}}</td>
+                                <td>{{numero}}</td>
+                                <td>{{workstation.user}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col mt-5">
+                <div class="row h-100 align-items-end">
+
+                    <div class="col-6 mb-2 d-flex flex-row">
+
+                        <button class="btn mr-2" id="btn-add"  data-toggle="modal"
+                            data-target="#saveOrUpdateModal">
+                            <fa-icon [icon]="faPlus"></fa-icon>
+                        </button>
+                        <select class="custom-select" name="filter">
+                            <option selected disabled>Add Article:</option>
+                            <option value="laptop">Laptop</option>
+                            <option value="desktop">Desktop</option>
+                            <option value="monitor">Monitor</option>
+                            <option value="keyboard">Keyboard</option>
+                            <option value="cable">Cable</option>
+                            <option value="cellphone">Cellphone</option>
+                            <option value="graphicTablet">Graphic Tablet</option>
+                            <option value="mouse">Mouse</option>
+                            <option value="dockingStation">Docking Station</option>
+                            <option value="token">Token</option>
+
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+      <!--      <div class="col">
+                <div class="table-responsive">
+                    <table id="articleTable" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="row">Type</th>
+                                <th scope="row">Identifier</th>
+								<th scope="row">Users</th>
+								<th scope="row">Brand</th>
+								<th scope="row">Model</th>
+								<th scope="row">Serial Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let cable of listProduct">
+                                <td class="identifier">{{cable.identifier}}</td>
+                                <td>{{cable.users}}</td>
+                                <td class="brand">{{cable.brand}}</td>
+                                <td class="model">{{cable.model}}</td>
+                                <td>{{cable.serialNumber}}</td>
+                                <td class="location">{{cable.location}}</td>
+                                <td>{{cable.userNumber}}</td>
+                                <td class="type">{{cable.type}}</td>
+                                <td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(cable)"
+                                        data-toggle="modal" data-target="#saveOrUpdateModal">
+                                        <fa-icon [icon]="faPen"></fa-icon>
+                                    </button></td>
+                                <td><button (click)="deleteProduct(cable)" class="btn btn-danger" id="btn-delete">
+                                        <fa-icon [icon]="faEraser"></fa-icon>
+                                    </button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            -->
+        </div>
+    </div>
+</header>
+
+<!-- Modal -->
+<!--
+<div class="modal fade" id="saveOrUpdateModal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+
+         Modal content
+        <div class="modal-content" id="modal">
+
+            <div class="modal-header" id="modal-header">
+                <h3 class="modal-title">Add a new article:</h3>
+            </div>
+
+            <div class="modal-body" id="modal-body">
+                <form (ngSubmit)="saveOrUpdate()" id="formCable">
+
+                    <div class="form-control mb-2" id="cableGroup">
+                        <input [(ngModel)]="entity.users" name="users" class="form-control" placeholder="Users:">
+                    </div>
+                    <div class="form-control mb-2" id="cableGroup">
+                        <input [(ngModel)]="entity.brand" name="brand" class="form-control" placeholder="Brand:">
+                    </div>
+                    <div class="form-control mb-2" id="cableGroup">
+                        <input [(ngModel)]="entity.model" name="model" class="form-control" placeholder="Model:">
+                    </div>
+                    <div class="form-control mb-2" id="cableGroup">
+                        <input [(ngModel)]="entity.serialNumber" name="serialNumber" class="form-control"
+                            placeholder="Serial number:">
+                    </div>
+                    <div class="form-control mb-2" id="cableGroup">
+                        <input [(ngModel)]="entity.userNumber" name="userNumber" class="form-control"
+                            placeholder="User number:">
+                    </div>
+                    <div class="form-control mb-4" id="cableGroup">
+                        <input [(ngModel)]="entity.type" name="type" class="form-control" placeholder="Type:">
+                    </div>
+                    <div class="float-right">
+                        <button class="btn mr-2 float-left">Save/Update cable</button>
+                        <button class="btn float-left" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+-->

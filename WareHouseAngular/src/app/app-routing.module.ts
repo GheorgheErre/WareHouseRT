@@ -31,6 +31,7 @@ import { DashboardComponent } from './Warehouse/dashboard/dashboard.component';
 import { WorkstationWelcomeComponent } from './WorkStation/workstation-welcome/workstation-welcome.component';
 import { CreateWorkstationComponent } from './WorkStation/create-workstation/create-workstation.component';
 import { Uff1GroundFloorComponent } from './WorkStation/office/ground-floor/uff1-ground-floor/uff1-ground-floor.component';
+import { UserWorkstationComponent } from './WorkStation/user-workstation/user-workstation.component';
 
 
 
@@ -64,8 +65,8 @@ const routes: Routes = [
   {path:"productList", component: ListProductComponent},
   {path:"Login", component: LoginComponent},
   {path:"CreateWorkstation", component: CreateWorkstationComponent},
-  {path:"Ufficio1GroundFloor", component: Uff1GroundFloorComponent}
-
+  {path:"Ufficio1GroundFloor", component: Uff1GroundFloorComponent},
+  {path:"Workstation", component: UserWorkstationComponent}
 ] ;
 
 @NgModule({

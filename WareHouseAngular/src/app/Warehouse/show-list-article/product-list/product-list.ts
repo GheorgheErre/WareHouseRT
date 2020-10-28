@@ -12,7 +12,7 @@ export abstract class ProductList {
   faEraser = faEraser;
   faPen = faPen;
   faPlus  = faPlus;
-  listProduct: Product[];
+  listProduct: any;
   wareHouseListProduct: Product[];
   showList: Product[];
   //listKeys:String[];

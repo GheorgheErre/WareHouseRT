@@ -39,7 +39,8 @@ export class AuthenticationService {
 
   isUserLoggedIn() {
     let user = sessionStorage.getItem(USER_KEY);
-    if (user === null) return false
+    let token  = sessionStorage.getItem(TOKEN_KEY)
+    if (user === null || token === null) return false
     return true
   }
 

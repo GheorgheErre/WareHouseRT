@@ -27,7 +27,7 @@ export abstract class ServiceService {
   
   public findAll(): Observable<any> {
 
-    return this.http.get<Product[]>(this.getListUrl);
+    return this.http.get(this.getListUrl);
 
   }
 
