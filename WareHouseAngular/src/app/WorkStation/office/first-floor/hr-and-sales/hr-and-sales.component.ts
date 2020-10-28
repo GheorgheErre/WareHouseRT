@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { WorkstationInSession } from 'src/app/WorkStation/workstation-in-session';
 
 @Component({
   selector: 'app-hr-and-sales',
   templateUrl: './hr-and-sales.component.html',
   styleUrls: ['./hr-and-sales.component.scss']
 })
-export class HrAndSalesComponent implements OnInit {
+export class HrAndSalesComponent extends WorkstationInSession implements  OnInit{
 
-  constructor() { }
+  constructor() {
+    super();
+  }
 
   ngOnInit(): void {
   }
