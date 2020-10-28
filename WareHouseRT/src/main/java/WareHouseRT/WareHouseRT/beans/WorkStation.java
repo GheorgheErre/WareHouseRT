@@ -16,7 +16,9 @@ public class WorkStation {
 	@Id
 	private long id;
 
-	private String officeLocation;
+	private String office;
+	
+	private int numero;
 
 	private String user;
 
@@ -31,12 +33,12 @@ public class WorkStation {
 		this.id = id;
 	}
 
-	public String getOfficeLocation() {
-		return officeLocation;
+	public String getOffice() {
+		return office;
 	}
 
-	public void setOfficeLocation(String officeLocation) {
-		this.officeLocation = officeLocation;
+	public void setOffice(String office) {
+		this.office = office;
 	}
 
 	public List<Article> getArticles() {
@@ -53,6 +55,14 @@ public class WorkStation {
 
 	public void setUser(String user) {
 		this.user = user;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
 	}
 
 }

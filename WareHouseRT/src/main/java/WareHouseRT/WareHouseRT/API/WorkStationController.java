@@ -1,8 +1,6 @@
 package WareHouseRT.WareHouseRT.API;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,8 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import WareHouseRT.WareHouseRT.beans.Article;
 import WareHouseRT.WareHouseRT.beans.WorkStation;
 import WareHouseRT.WareHouseRT.service.WorkStationService;
 
@@ -25,13 +21,14 @@ public class WorkStationController {
 	private WorkStationService service;
 	
 	@PostMapping("/saveOrUpdateWorkStation")
-	public void saveOrUpdate(@RequestBody WorkStation workStation) {
-		service.saveOrUpdate(workStation);
+	public void saveOrUpdate(@RequestBody WorkStation workstation) {
+		service.saveOrUpdate(workstation);
 	}
 	
+	
 	@GetMapping("/findWorkStation/{id}")
-	public Optional<WorkStation> findByID(@PathVariable Long id) {
-		return service.findByID(id);
+	public WorkStation findWorkstation (@PathVariable("id") int id) {
+		return service.findWorkstation(id);
 		
 	}
 	
