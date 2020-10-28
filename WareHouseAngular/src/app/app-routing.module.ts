@@ -43,6 +43,7 @@ import { HrAndSalesComponent } from './WorkStation/office/first-floor/hr-and-sal
 import { DirErreLabComponent } from './WorkStation/office/first-floor/dir-erre-lab/dir-erre-lab.component';
 import { UffLabComponent } from './WorkStation/office/first-floor/uff-lab/uff-lab.component';
 import { UffProComponent } from './WorkStation/office/first-floor/uff-pro/uff-pro.component';
+import { DirErreTechComponent } from './WorkStation/office/first-floor/dir-erre-tech/dir-erre-tech.component';
 
 
 
@@ -81,9 +82,9 @@ const routes: Routes = [
   {path:"Ufficio2GroundFloor", component: Uff2Component},
   {path:"Reception", component: ReceptionComponent},
   {path:"Ufficio3GroundFloor", component: Uff3Component},
-  {path:"DirezioneErreGes", component: Uff3Component},
+  {path:"DirezioneErreGes", component: DirErreGesComponent},
   {path:"Amministrazione", component: AmministrazioneComponent},
-  {path:"DirezioneErreTech", component: DirErreGesComponent},
+  {path:"DirezioneErreTech", component: DirErreTechComponent},
   {path:"Ufficio1FirstFloor", component: Uff1FirstFloorComponent},
   {path:"DirezioneErrePro", component: DirErreProComponent},
   {path:"HRSales", component: HrAndSalesComponent},
