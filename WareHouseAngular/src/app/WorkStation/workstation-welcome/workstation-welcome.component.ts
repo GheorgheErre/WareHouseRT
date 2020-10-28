@@ -17,8 +17,8 @@ export class WorkstationWelcomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goToOffice(){
-    this.router.navigate(["/Ufficio1GroundFloor"]);
+  goToOffice(path:string){
+    this.router.navigate([path]);
   }
 
   create(){

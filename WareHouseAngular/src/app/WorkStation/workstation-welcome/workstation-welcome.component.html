@@ -5,12 +5,10 @@
                 <img src="../../../assets/img/Logo Erre.png" id="logo" class="float-left">
                 <span>Ground floor</span>
                 <hr>
-                <button (click)="goToOffice()" class="btn">Uff. 1</button>
-                <button (click)="create()" class="btn">Direzione 1</button>
-                <button class="btn">Uff. 2</button>
-                <button class="btn">Direzione 2</button>
-                <button class="btn">Reception</button>
-                <button class="btn">Uff. 3</button>
+                <button (click)="goToOffice('/Ufficio1GroundFloor')" class="btn">Uff. 1</button>
+                <button (click)="goToOffice('/Ufficio2GroundFloor')" class="btn">Uff. 2</button>
+                <button (click)="goToOffice('/Reception')" class="btn">Reception</button>
+                <button (click)="goToOffice('/Ufficio3GroundFloor')" class="btn">Uff. 3</button>
                 <a href="#first_floor" class="btn float-right" placement="left" ngbTooltip="first floor">
                     <fa-icon [icon]="faArrowDown"></fa-icon>
                 </a>
@@ -18,19 +16,20 @@
             </div>
         </div>
         <div class="row h-100" id="first_floor">
+       
             <div class="col mt-3 text-center">
                 <img src="../../../assets/img/Logo Erre.png" id="logo" class="float-left">
                 <span>First floor</span>
                 <hr>
-                <button class="btn">Dir. Erre Ges</button>
-                <button class="btn">Amministrazione</button>
-                <button class="btn">Dir. Erre Tech</button>
-                <button class="btn">Uff.1</button>
-                <button class="btn">Dir. Erre Pro</button>
-                <button class="btn">HR and Sales</button>
-                <button class="btn">Dir. Erre Lab</button>
-                <button class="btn">Uff.Lab</button>
-                <button class="btn">Uff. Pro</button>
+                <button (click)="goToOffice('/DirezioneErreGes')" class="btn">Dir. Erre Ges</button>
+                <button (click)="goToOffice('/Amministrazione')" class="btn">Amministrazione</button>
+                <button (click)="goToOffice('/DirezioneErreTech')" class="btn">Dir. Erre Tech</button>
+                <button (click)="goToOffice('/Ufficio1FirstFloor')" class="btn">Uff.1</button>
+                <button (click)="goToOffice('/DirezioneErrePro')" class="btn">Dir. Erre Pro</button>
+                <button (click)="goToOffice('/HRSales')" class="btn">HR and Sales</button>
+                <button (click)="goToOffice('/DirezioneErreLab')" class="btn">Dir. Erre Lab</button>
+                <button (click)="goToOffice('/UfficioLab')" class="btn">Uff.Lab</button>
+                <button (click)="goToOffice('/UfficioPro')" class="btn">Uff. Pro</button>
 
                 <a href="#ground_floor" class="btn float-right">
                     <fa-icon [icon]="faArrowUp"></fa-icon>
@@ -39,5 +38,6 @@
             </div>
 
         </div>
+   
     </div>
 </header>

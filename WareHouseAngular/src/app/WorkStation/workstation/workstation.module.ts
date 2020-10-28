@@ -24,8 +24,6 @@ import { DirErreTechComponent } from '../office/first-floor/dir-erre-tech/dir-er
 import { HrAndSalesComponent } from '../office/first-floor/hr-and-sales/hr-and-sales.component';
 import { UffLabComponent } from '../office/first-floor/uff-lab/uff-lab.component';
 import { UffProComponent } from '../office/first-floor/uff-pro/uff-pro.component';
-import { Direzione1Component } from '../office/ground-floor/direzione1/direzione1.component';
-import { Direzione2Component } from '../office/ground-floor/direzione2/direzione2.component';
 import { ReceptionComponent } from '../office/ground-floor/reception/reception.component';
 import { Uff2Component } from '../office/ground-floor/uff2/uff2.component';
 import { Uff3Component } from '../office/ground-floor/uff3/uff3.component';
@@ -39,9 +37,7 @@ import { Uff1GroundFloorComponent } from '../office/ground-floor/uff1-ground-flo
     WorkstationWelcomeComponent,
     UserWorkstationComponent,
     CreateWorkstationComponent,
-    Direzione1Component,
     Uff2Component,
-    Direzione2Component,
     ReceptionComponent,
     Uff3Component,
     DirErreGesComponent,

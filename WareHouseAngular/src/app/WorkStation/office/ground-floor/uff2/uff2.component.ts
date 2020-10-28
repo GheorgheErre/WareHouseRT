@@ -12,4 +12,8 @@ export class Uff2Component implements OnInit {
   ngOnInit(): void {
   }
 
+  setWorkstationInSession(ufficio, numero){
+    window.sessionStorage.setItem("ufficio_workstation", ufficio);
+    window.sessionStorage.setItem("numero_workstation", numero);
+  }
 }

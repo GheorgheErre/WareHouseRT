@@ -32,6 +32,17 @@ import { WorkstationWelcomeComponent } from './WorkStation/workstation-welcome/w
 import { CreateWorkstationComponent } from './WorkStation/create-workstation/create-workstation.component';
 import { Uff1GroundFloorComponent } from './WorkStation/office/ground-floor/uff1-ground-floor/uff1-ground-floor.component';
 import { UserWorkstationComponent } from './WorkStation/user-workstation/user-workstation.component';
+import { Uff2Component } from './WorkStation/office/ground-floor/uff2/uff2.component';
+import { ReceptionComponent } from './WorkStation/office/ground-floor/reception/reception.component';
+import { Uff3Component } from './WorkStation/office/ground-floor/uff3/uff3.component';
+import { AmministrazioneComponent } from './WorkStation/office/first-floor/amministrazione/amministrazione.component';
+import { DirErreGesComponent } from './WorkStation/office/first-floor/dir-erre-ges/dir-erre-ges.component';
+import { Uff1FirstFloorComponent } from './WorkStation/office/first-floor/uff1-first-floor/uff1-first-floor.component';
+import { DirErreProComponent } from './WorkStation/office/first-floor/dir-erre-pro/dir-erre-pro.component';
+import { HrAndSalesComponent } from './WorkStation/office/first-floor/hr-and-sales/hr-and-sales.component';
+import { DirErreLabComponent } from './WorkStation/office/first-floor/dir-erre-lab/dir-erre-lab.component';
+import { UffLabComponent } from './WorkStation/office/first-floor/uff-lab/uff-lab.component';
+import { UffProComponent } from './WorkStation/office/first-floor/uff-pro/uff-pro.component';
 
 
 
@@ -66,7 +77,19 @@ const routes: Routes = [
   {path:"Login", component: LoginComponent},
   {path:"CreateWorkstation", component: CreateWorkstationComponent},
   {path:"Ufficio1GroundFloor", component: Uff1GroundFloorComponent},
-  {path:"Workstation", component: UserWorkstationComponent}
+  {path:"Workstation", component: UserWorkstationComponent},
+  {path:"Ufficio2GroundFloor", component: Uff2Component},
+  {path:"Reception", component: ReceptionComponent},
+  {path:"Ufficio3GroundFloor", component: Uff3Component},
+  {path:"DirezioneErreGes", component: Uff3Component},
+  {path:"Amministrazione", component: AmministrazioneComponent},
+  {path:"DirezioneErreTech", component: DirErreGesComponent},
+  {path:"Ufficio1FirstFloor", component: Uff1FirstFloorComponent},
+  {path:"DirezioneErrePro", component: DirErreProComponent},
+  {path:"HRSales", component: HrAndSalesComponent},
+  {path:"DirezioneErreLab", component: DirErreLabComponent},
+  {path:"UfficioLab", component: UffLabComponent},
+  {path:"UfficioPro", component: UffProComponent}
 ] ;
 
 @NgModule({
