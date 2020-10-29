@@ -1,40 +1,99 @@
-<h2>Image Maps</h2>
-<p>Click on the cup of coffee to go to a new page and read more about the topic:</p>
-
-<img src="../../../../../assets/img/Ufficio_tecnico_2_PT.png" alt="Workplace" usemap="#workmap" >
-
-<map name="workmap">
 
 
-  <area alt="1" title="1" href="/Workstation" coords="63,77 83,77 83,61 100,60 101,77 114,76 114,107 64,106 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 1)">
-  <area alt="2" title="2" href="/Workstation" coords="166,106 166,77 153,76 151,61 136,61 135,76 115,76 115,106 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 2)">
-  <area alt="3" title="3" href="/Workstation" coords="218,106 218,78 204,77 203,62 188,61 187,76 167,77 167,107 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 3)">
-  <area alt="4" title="4" href="/Workstation" coords="270,106 270,77 256,76 255,61 240,61 238,76 219,76 219,106 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 4)">
-  <area alt="5" title="5" href="/Workstation" coords="321,106 321,77 307,76 306,61 291,61 289,76 270,76 270,106 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 5)">
-  <area alt="6" title="6" href="/Workstation" coords="63,106 114,107 115,136 99,136 99,153 85,153 84,136 63,136 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 6)">
-  <area alt="7" title="7" href="/Workstation" coords="115,105 166,106 167,135 151,135 150,152 137,152 136,135 115,135 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 7)">
-  <area alt="8" title="8" href="/Workstation" coords="167,106 218,106 219,135 203,135 202,153 189,153 188,135 167,135 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 8)">  
-  <area alt="9" title="9" href="/Workstation" coords="218,106 269,107 270,136 254,136 253,153 240,153 239,136 218,136 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 9)">
-  <area alt="10" title="10" href="/Workstation" coords="270,106 321,106 321,135 306,135 305,153 291,153 291,135 270,135 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 10)">
+<header>
+  <div class="container-fluid h-100" id="container">
 
-  <area alt="11" title="11" href="/Workstation" coords="118,197 147,197 147,251 117,250 117,235 103,235 102,220 117,219 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 11)">
-  <area alt="12" title="12" href="/Workstation" coords="147,198 176,198 177,218 193,219 193,234 177,234 177,250 146,249 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 12)">
-  <area alt="13" title="13" href="/Workstation" coords="117,249 146,249 147,302 117,301 116,287 103,287 102,271 117,270 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 13)">
-  <area alt="14" title="14" href="/Workstation" coords="148,250 176,250 177,270 194,271 194,288 177,288 177,301 148,301 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 14)">
+    <app-workstation-header [title]="title"></app-workstation-header>
+    <div class="row" id="first_floor">
 
-  <area alt="15" title="15" href="/Workstation" coords="63,367 83,366 84,351 100,350 100,366 115,367 115,396 63,396 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 15)">
-  <area alt="" title="16" href="/Workstation" coords="116,366 136,366 137,350 152,350 153,366 167,366 168,396 115,395 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 16)">
-  <area alt="" title="17" href="/Workstation" coords="168,366 187,366 188,350 204,350 205,366 219,366 219,396 167,395 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 17)">
-  <area alt="" title="18" href="/Workstation" coords="219,366 238,366 239,350 255,350 255,366 270,366 270,396 218,395 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 18)">
-  <area alt="" title="19" href="/Workstation" coords="270,366 290,366 291,350 307,350 307,366 322,366 322,396 270,395 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 19)">
-  <area alt="" title="20" href="/Workstation" coords="64,396 115,395 115,426 100,426 100,442 85,442 84,426 64,425 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 20)">
-  <area alt="" title="21" href="/Workstation" coords="114,395 166,395 166,426 151,426 151,442 136,442 136,426 115,425 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 21)">
-  <area alt="" title="22" href="/Workstation" coords="167,396 218,395 218,426 204,426 203,442 188,442 188,426 168,425 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 22)">
-  <area alt="" title="23" href="/Workstation" coords="219,396 270,395 270,426 255,426 255,442 240,442 240,426 219,425 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 23)">
-  <area alt="" title="24" href="/Workstation" coords="270,396 321,396 321,427 307,427 306,442 291,443 291,427 271,426 " shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 24)">
+      <div class="col mt-3 text-center">
+        <img src="../../../../../assets/img/Ufficio_tecnico_2_PT.png" alt="Workplace" usemap="#workmap">
 
-  <area alt="" title="25" href="Workstation" coords="420,395 486,395 486,425 463,425 463,440 448,439 446,426 420,424 " shape="polygon" (click)="setWorkstationInSession('dir_uff_2_gf', 1)">
+        <map name="workmap">
 
-  -----------
 
-</map>
+          <area alt="1" title="1" href="/Workstation" coords="63,77 83,77 83,61 100,60 101,77 114,76 114,107 64,106 "
+            shape="polygon" (click)="setWorkstationInSession('uff_2_gf', 1)">
+          <area alt="2" title="2" href="/Workstation"
+            coords="166,106 166,77 153,76 151,61 136,61 135,76 115,76 115,106 " shape="polygon"
+            (click)="setWorkstationInSession('uff_2_gf', 2)">
+          <area alt="3" title="3" href="/Workstation"
+            coords="218,106 218,78 204,77 203,62 188,61 187,76 167,77 167,107 " shape="polygon"
+            (click)="setWorkstationInSession('uff_2_gf', 3)">
+          <area alt="4" title="4" href="/Workstation"
+            coords="270,106 270,77 256,76 255,61 240,61 238,76 219,76 219,106 " shape="polygon"
+            (click)="setWorkstationInSession('uff_2_gf', 4)">
+          <area alt="5" title="5" href="/Workstation"
+            coords="321,106 321,77 307,76 306,61 291,61 289,76 270,76 270,106 " shape="polygon"
+            (click)="setWorkstationInSession('uff_2_gf', 5)">
+          <area alt="6" title="6" href="/Workstation"
+            coords="63,106 114,107 115,136 99,136 99,153 85,153 84,136 63,136 " shape="polygon"
+            (click)="setWorkstationInSession('uff_2_gf', 6)">
+          <area alt="7" title="7" href="/Workstation"
+            coords="115,105 166,106 167,135 151,135 150,152 137,152 136,135 115,135 " shape="polygon"
+            (click)="setWorkstationInSession('uff_2_gf', 7)">
+          <area alt="8" title="8" href="/Workstation"
+            coords="167,106 218,106 219,135 203,135 202,153 189,153 188,135 167,135 " shape="polygon"
+            (click)="setWorkstationInSession('uff_2_gf', 8)">
+          <area alt="9" title="9" href="/Workstation"
+            coords="218,106 269,107 270,136 254,136 253,153 240,153 239,136 218,136 " shape="polygon"
+            (click)="setWorkstationInSession('uff_2_gf', 9)">
+          <area alt="10" title="10" href="/Workstation"
+            coords="270,106 321,106 321,135 306,135 305,153 291,153 291,135 270,135 " shape="polygon"
+            (click)="setWorkstationInSession('uff_2_gf', 10)">
+
+          <area alt="11" title="11" href="/Workstation"
+            coords="118,197 147,197 147,251 117,250 117,235 103,235 102,220 117,219 " shape="polygon"
+            (click)="setWorkstationInSession('uff_2_gf', 11)">
+          <area alt="12" title="12" href="/Workstation"
+            coords="147,198 176,198 177,218 193,219 193,234 177,234 177,250 146,249 " shape="polygon"
+            (click)="setWorkstationInSession('uff_2_gf', 12)">
+          <area alt="13" title="13" href="/Workstation"
+            coords="117,249 146,249 147,302 117,301 116,287 103,287 102,271 117,270 " shape="polygon"
+            (click)="setWorkstationInSession('uff_2_gf', 13)">
+          <area alt="14" title="14" href="/Workstation"
+            coords="148,250 176,250 177,270 194,271 194,288 177,288 177,301 148,301 " shape="polygon"
+            (click)="setWorkstationInSession('uff_2_gf', 14)">
+
+          <area alt="15" title="15" href="/Workstation"
+            coords="63,367 83,366 84,351 100,350 100,366 115,367 115,396 63,396 " shape="polygon"
+            (click)="setWorkstationInSession('uff_2_gf', 15)">
+          <area alt="" title="16" href="/Workstation"
+            coords="116,366 136,366 137,350 152,350 153,366 167,366 168,396 115,395 " shape="polygon"
+            (click)="setWorkstationInSession('uff_2_gf', 16)">
+          <area alt="" title="17" href="/Workstation"
+            coords="168,366 187,366 188,350 204,350 205,366 219,366 219,396 167,395 " shape="polygon"
+            (click)="setWorkstationInSession('uff_2_gf', 17)">
+          <area alt="" title="18" href="/Workstation"
+            coords="219,366 238,366 239,350 255,350 255,366 270,366 270,396 218,395 " shape="polygon"
+            (click)="setWorkstationInSession('uff_2_gf', 18)">
+          <area alt="" title="19" href="/Workstation"
+            coords="270,366 290,366 291,350 307,350 307,366 322,366 322,396 270,395 " shape="polygon"
+            (click)="setWorkstationInSession('uff_2_gf', 19)">
+          <area alt="" title="20" href="/Workstation"
+            coords="64,396 115,395 115,426 100,426 100,442 85,442 84,426 64,425 " shape="polygon"
+            (click)="setWorkstationInSession('uff_2_gf', 20)">
+          <area alt="" title="21" href="/Workstation"
+            coords="114,395 166,395 166,426 151,426 151,442 136,442 136,426 115,425 " shape="polygon"
+            (click)="setWorkstationInSession('uff_2_gf', 21)">
+          <area alt="" title="22" href="/Workstation"
+            coords="167,396 218,395 218,426 204,426 203,442 188,442 188,426 168,425 " shape="polygon"
+            (click)="setWorkstationInSession('uff_2_gf', 22)">
+          <area alt="" title="23" href="/Workstation"
+            coords="219,396 270,395 270,426 255,426 255,442 240,442 240,426 219,425 " shape="polygon"
+            (click)="setWorkstationInSession('uff_2_gf', 23)">
+          <area alt="" title="24" href="/Workstation"
+            coords="270,396 321,396 321,427 307,427 306,442 291,443 291,427 271,426 " shape="polygon"
+            (click)="setWorkstationInSession('uff_2_gf', 24)">
+
+          <area alt="" title="25" href="Workstation"
+            coords="420,395 486,395 486,425 463,425 463,440 448,439 446,426 420,424 " shape="polygon"
+            (click)="setWorkstationInSession('dir_uff_2_gf', 1)">
+
+          
+
+        </map>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,13 +1,30 @@
-<img src="../../../../../assets/img/UfficioTecnicoErreGes_PT.png" alt="Workplace" usemap="#workmap" >
+<header>
+    <div class="container-fluid h-100" id="container">
 
-<map name="workmap">
+        <app-workstation-header [title]="title"></app-workstation-header>
+        <div class="row" id="first_floor">
+
+            <div class="col mt-3 text-center">
+                <img src="../../../../../assets/img/UfficioTecnicoErreGes_PT.png" alt="Workplace" usemap="#workmap">
+
+                <map name="workmap">
 
 
-<area alt="x" title="1" href="" coords="65,72 88,73 88,56 105,55 104,73 125,73 124,103 65,103  " shape="polygon" (click)="setWorkstationInSession('uff_3_gf', 1)">
-<area alt="3" title="2" href="" coords="184,73 184,102 124,103 124,72 146,72 145,56 162,56 162,72 " shape="polygon" (click)="setWorkstationInSession('uff_3_gf', 2)">
-<area alt="z" title="3" href="" coords="66,132 88,132 88,148 105,149 105,132 124,132 124,103 64,103 " shape="polygon" (click)="setWorkstationInSession('uff_3_gf', 3)">
-<area alt="z" title="4" href="" coords="184,132 184,102 125,103 125,132 147,132 147,148 162,148 162,132 " shape="polygon" (click)="setWorkstationInSession('uff_3_gf', 4)">
+                    <area alt="x" title="1" href="" coords="65,72 88,73 88,56 105,55 104,73 125,73 124,103 65,103  "
+                        shape="polygon" (click)="setWorkstationInSession('uff_3_gf', 1)">
+                    <area alt="3" title="2" href="" coords="184,73 184,102 124,103 124,72 146,72 145,56 162,56 162,72 "
+                        shape="polygon" (click)="setWorkstationInSession('uff_3_gf', 2)">
+                    <area alt="z" title="3" href=""
+                        coords="66,132 88,132 88,148 105,149 105,132 124,132 124,103 64,103 " shape="polygon"
+                        (click)="setWorkstationInSession('uff_3_gf', 3)">
+                    <area alt="z" title="4" href=""
+                        coords="184,132 184,102 125,103 125,132 147,132 147,148 162,148 162,132 " shape="polygon"
+                        (click)="setWorkstationInSession('uff_3_gf', 4)">
 
 
 
-</map>
+                </map>
+            </div>
+        </div>
+    </div>
+</header>

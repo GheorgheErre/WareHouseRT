@@ -8,6 +8,8 @@ import { WorkstationInSession } from 'src/app/WorkStation/workstation-in-session
 })
 export class ReceptionComponent extends WorkstationInSession implements OnInit {
 
+  title="Reception";
+
   constructor() {
     super();
   }
