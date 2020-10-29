@@ -8,13 +8,15 @@ import { WorkstationInSession } from 'src/app/WorkStation/workstation-in-session
 })
 export class Uff2Component extends WorkstationInSession implements OnInit {
 
-  title="Ufficio tecnico 2";
+  title = "Ufficio tecnico 2";
 
   constructor() {
     super();
   }
 
   ngOnInit(): void {
+
+
   }
 
 
