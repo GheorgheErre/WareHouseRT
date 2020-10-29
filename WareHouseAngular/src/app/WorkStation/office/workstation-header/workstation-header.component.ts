@@ -1,3 +1,4 @@
+import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,7 +10,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 export class WorkstationHeaderComponent implements OnInit {
 
   faArrowLeft = faArrowLeft;
-
+  @Input() title: string;
   constructor() { }
 
   ngOnInit(): void {

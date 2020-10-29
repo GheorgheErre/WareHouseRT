@@ -8,6 +8,8 @@ import { WorkstationInSession } from 'src/app/WorkStation/workstation-in-session
 })
 export class AmministrazioneComponent extends WorkstationInSession implements  OnInit{
 
+  title="Amministrazione";
+
   constructor() {
     super();
   }
