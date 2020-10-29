@@ -8,6 +8,8 @@ import { WorkstationInSession } from 'src/app/WorkStation/workstation-in-session
 })
 export class DirErreProComponent extends WorkstationInSession implements  OnInit{
 
+  title="Direrzione Erre Pro";
+
   constructor() {
     super();
   }

@@ -8,6 +8,8 @@ import { WorkstationInSession } from 'src/app/WorkStation/workstation-in-session
 })
 export class HrAndSalesComponent extends WorkstationInSession implements  OnInit{
 
+  title="HR & Sales Erre Technology Group";
+
   constructor() {
     super();
   }

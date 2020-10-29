@@ -1,7 +1,24 @@
-<img src="../../../../../assets/img/UfficioTecnicoErreLab_1P.png" usemap="#image_map">
-<map name="image_map">
-  <area alt="" title="1" href="/Workstation" coords="82,50 112,50 111,110 83,110 82,92 66,92 67,77 82,77  " shape="polygon" (click)="setWorkstationInSession('uff_errelab_1f', 1)">
-  <area alt="" title="2" href="/Workstation" coords="141,50 142,77 160,77 160,93 142,92 142,110 112,109 112,50 " shape="polygon" (click)="setWorkstationInSession('uff_errelab_1f', 2)">
-  <area alt="" title="3" href="/Workstation" coords="82,168 112,169 111,110 83,110 82,129 67,128 67,144 82,145 " shape="polygon" (click)="setWorkstationInSession('uff_errelab_1f', 3)">
-  <area alt="" title="4" href="/Workstation" coords="141,168 141,144 159,144 160,129 142,129 142,110 112,109 112,168 " shape="polygon" (click)="setWorkstationInSession('uff_errelab_1f', 4)">
-</map>
+<header>
+  <div class="container-fluid h-100" id="container">
+
+    <app-workstation-header [title]="title"></app-workstation-header>
+
+    <div class="row" id="first_floor">
+
+      <div class="col mt-3 text-center">
+        <img src="../../../../../assets/img/UfficioTecnicoErreLab_1P.png" usemap="#image_map">
+        <map name="image_map">
+          <area alt="" title="1" href="/Workstation" coords="82,50 112,50 111,110 83,110 82,92 66,92 67,77 82,77  "
+            shape="polygon" (click)="setWorkstationInSession('uff_errelab_1f', 1)">
+          <area alt="" title="2" href="/Workstation" coords="141,50 142,77 160,77 160,93 142,92 142,110 112,109 112,50 "
+            shape="polygon" (click)="setWorkstationInSession('uff_errelab_1f', 2)">
+          <area alt="" title="3" href="/Workstation" coords="82,168 112,169 111,110 83,110 82,129 67,128 67,144 82,145 "
+            shape="polygon" (click)="setWorkstationInSession('uff_errelab_1f', 3)">
+          <area alt="" title="4" href="/Workstation"
+            coords="141,168 141,144 159,144 160,129 142,129 142,110 112,109 112,168 " shape="polygon"
+            (click)="setWorkstationInSession('uff_errelab_1f', 4)">
+        </map>
+      </div>
+    </div>
+  </div>
+</header>

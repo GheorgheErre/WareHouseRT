@@ -8,6 +8,8 @@ import { WorkstationInSession } from 'src/app/WorkStation/workstation-in-session
 })
 export class UffLabComponent extends WorkstationInSession implements  OnInit{
 
+  title="Ufficio Tecnico Erre Lab";
+
   constructor() {
     super();
   }

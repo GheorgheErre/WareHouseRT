@@ -6,8 +6,8 @@ import { WorkstationInSession } from 'src/app/WorkStation/workstation-in-session
   templateUrl: './dir-erre-ges.component.html',
   styleUrls: ['./dir-erre-ges.component.scss']
 })
-export class DirErreGesComponent extends WorkstationInSession implements  OnInit{
-
+export class DirErreGesComponent extends WorkstationInSession implements OnInit {
+  title = "Direzione Erre Ges";
   constructor() {
     super();
   }

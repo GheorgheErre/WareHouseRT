@@ -8,6 +8,8 @@ import { WorkstationInSession } from 'src/app/WorkStation/workstation-in-session
 })
 export class Uff1FirstFloorComponent extends WorkstationInSession implements  OnInit{
 
+  title="Ufficio 1";
+
   constructor() {
     super();
   }

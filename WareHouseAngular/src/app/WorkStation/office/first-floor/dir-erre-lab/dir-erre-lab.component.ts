@@ -7,7 +7,7 @@ import { WorkstationInSession } from 'src/app/WorkStation/workstation-in-session
   styleUrls: ['./dir-erre-lab.component.scss']
 })
 export class DirErreLabComponent extends WorkstationInSession implements  OnInit{
-
+  title="Direzione Erre Lab";
   constructor() {
     super();
   }
