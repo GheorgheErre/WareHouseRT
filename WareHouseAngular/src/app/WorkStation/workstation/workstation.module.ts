@@ -29,6 +29,7 @@ import { Uff2Component } from '../office/ground-floor/uff2/uff2.component';
 import { Uff3Component } from '../office/ground-floor/uff3/uff3.component';
 import { Uff1FirstFloorComponent } from '../office/first-floor/uff1-first-floor/uff1-first-floor.component';
 import { Uff1GroundFloorComponent } from '../office/ground-floor/uff1-ground-floor/uff1-ground-floor.component';
+import { WorkstationHeaderComponent } from '../office/workstation-header/workstation-header.component';
 
 
 
@@ -50,6 +51,7 @@ import { Uff1GroundFloorComponent } from '../office/ground-floor/uff1-ground-flo
     UffProComponent,
     Uff1FirstFloorComponent,
     Uff1GroundFloorComponent,
+    WorkstationHeaderComponent
   ],
   imports: [
     CommonModule,
@@ -66,6 +68,7 @@ import { Uff1GroundFloorComponent } from '../office/ground-floor/uff1-ground-flo
     HttpClientModule,
     FormsModule,
     FontAwesomeModule
+    
   ],
   providers:[]
 })
