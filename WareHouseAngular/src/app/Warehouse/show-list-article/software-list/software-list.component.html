@@ -31,7 +31,7 @@
 				</div>
 			</div>
 			<div class="col">
-				<div class="table-responsive">
+				<div *ngIf="listProduct?.length; else emptyList" class="table-responsive">
 					<table id="myTable" class="table table-striped">
 						<thead>
 							<tr>
@@ -69,6 +69,7 @@
 						</tbody>
 					</table>
 				</div>
+				<ng-template #emptyList><div id="emptyListMessage">No Software present in the warehouse, press <fa-icon [icon]="faPlus"></fa-icon> to add a new Software.</div></ng-template>
 			</div>
 		</div>
 	</div>

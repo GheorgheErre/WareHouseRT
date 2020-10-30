@@ -10,8 +10,11 @@ html,
 body,
 header {
     background-image: url("../../../../assets/img/desk-alternativa-blured.jpg");
+    height: 100%;
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
 /* Parte sopra la tabella*/
@@ -30,8 +33,8 @@ header {
     color: black;
     transition: 0.5s;
 }
-#btn-modify, #btn-delete{
-
+#btn-modify,
+#btn-delete {
     border-radius: 10px;
 }
 select {
@@ -107,7 +110,7 @@ h3 {
     letter-spacing: 5px;
     font-size: 20px;
 }
-#cellphoneGroup {
+#laptopGroup {
     border: none;
     background-color: transparent;
     color: white;
@@ -143,4 +146,11 @@ button:hover {
     color: black;
     border: 1px solid white;
     transition: 0.5s;
+}
+#emptyListMessage{
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    float: center;
 }
