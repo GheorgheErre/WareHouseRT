@@ -13,6 +13,7 @@ export class HddCountComponent extends ProductCount implements OnInit {
     super(hddService); }
 
   ngOnInit(): void {
+    this.countProduct();
   }
 
 }

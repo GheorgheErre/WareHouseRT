@@ -14,7 +14,7 @@ export class RamCountComponent extends ProductCount implements OnInit {
    }
 
   ngOnInit(): void {
-    this.countProduct;
+    this.countProduct();
   }
 
 }
