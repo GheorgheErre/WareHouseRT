@@ -35,10 +35,10 @@ export class WorkStationService {
 
   }
 
-  public findByID(id: string): Observable<any> {
-    let params = new HttpParams().set("id",id);
+  public findByOfficeAndNumero(office, numero): Observable<any> {
+    //let params = new HttpParams().set("id",id);
 
-    return this.http.get<Workstation[]>(this.getByIDUrl, {params: params});
+    return this.http.get(`http://localhost:8080/api/findWorkStation/${office}/${numero}`, /*{params: params}*/);
 
   }
 

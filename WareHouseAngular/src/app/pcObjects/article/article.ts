@@ -1,5 +1,6 @@
 import { Product } from '../product/product'
 
-export class Article extends Product{
+export abstract class Article extends Product{
 
+    public abstract toJSON(): Article;
 }

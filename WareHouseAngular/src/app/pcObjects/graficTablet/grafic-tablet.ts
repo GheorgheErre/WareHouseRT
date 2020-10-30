@@ -6,4 +6,10 @@ export class GraphicTablet extends Article{
     width: number;
     length: number;
 
+    public toJSON(): GraphicTablet {
+        return Object.assign({}, {
+            "@type" : 'GraphicTablet'
+          }, this);
+      }
+
 }

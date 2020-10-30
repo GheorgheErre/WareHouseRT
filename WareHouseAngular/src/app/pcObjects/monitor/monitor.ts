@@ -6,4 +6,9 @@ export class Monitor extends Article {
     frequence: number;
     resolution: number;
 
+    public toJSON(): Monitor {
+        return Object.assign({}, {
+            "@type" : 'Monitor'
+          }, this);
+      }
 }

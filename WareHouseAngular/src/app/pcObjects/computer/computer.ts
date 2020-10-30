@@ -1,7 +1,7 @@
 import { Article } from '../article/article';
 import { Component } from '../component/component';
 
-export class Computer extends Article{
+export abstract class Computer extends Article{
 
     //components: Component[]
     cpu : String;
@@ -10,5 +10,6 @@ export class Computer extends Article{
     hdd: number;
     ssd: number;
     power: number;
+
 
 }
