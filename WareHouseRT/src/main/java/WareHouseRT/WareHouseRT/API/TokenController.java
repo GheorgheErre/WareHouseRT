@@ -38,13 +38,11 @@ public class TokenController {
 	}
 
 	@GetMapping("/findAllToken")
-	@PreAuthorize("hasRole('ADMIN')")
 	public List<Token> findAll() {
 		return service.findAll();
 	}
 
 	@GetMapping("/countToken")
-	@PreAuthorize("hasRole('ADMIN')")
 	public long count() {
 		return service.count();
 	}

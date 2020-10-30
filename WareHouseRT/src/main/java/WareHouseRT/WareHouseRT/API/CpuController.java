@@ -39,13 +39,11 @@ public class CpuController {
 	}
 
 	@GetMapping("/findAllCpu")
-	@PreAuthorize("hasRole('ADMIN')")
 	public List<CPU> findAll() {
 		return service.findAll();
 	}
 
 	@GetMapping("/countCpu")
-	@PreAuthorize("hasRole('ADMIN')")
 	public long count() {
 		return service.count();
 	}

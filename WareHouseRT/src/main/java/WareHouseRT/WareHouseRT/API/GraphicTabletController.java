@@ -39,13 +39,11 @@ public class GraphicTabletController {
 	}
 
 	@GetMapping("/findAllGraphicTablet")
-	 @PreAuthorize("hasRole('ADMIN')")
 	public List<GraphicTablet> findAll() {
 		return service.findAll();
 	}
 
 	@GetMapping("/countGraphicTablet")
-	@PreAuthorize("hasRole('ADMIN')")
 	public long count() {
 		return service.count();
 	}

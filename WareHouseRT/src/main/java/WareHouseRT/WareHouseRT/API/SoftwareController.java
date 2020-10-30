@@ -38,13 +38,11 @@ public class SoftwareController {
 	}
 
 	@GetMapping("/findAllSoftware")
-	 @PreAuthorize("hasRole('ADMIN')")
 	public List<Software> findAll() {
 		return service.findAll();
 	}
 
 	@GetMapping("/countSoftware")
-	@PreAuthorize("hasRole('ADMIN')")
 	public long count() {
 		return service.count();
 	}
