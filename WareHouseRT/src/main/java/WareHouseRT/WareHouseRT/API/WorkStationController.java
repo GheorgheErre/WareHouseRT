@@ -26,10 +26,14 @@ public class WorkStationController {
 	}
 	
 	
-	@GetMapping("/findWorkStation/{id}")
-	public WorkStation findWorkstation (@PathVariable("id") int id) {
-		return service.findWorkstation(id);
-		
+//	@GetMapping("/findWorkStation/{id}")
+//	public WorkStation findWorkstation (@PathVariable("id") int id) {
+//		return service.findWorkstation(id);		
+//	}
+	
+	@GetMapping("/findWorkStation/{office}/{numero}")
+	public WorkStation findWorkstation (@PathVariable("office") String office, @PathVariable("numero") int numero) {
+		return service.findWorkstation(office, numero);		
 	}
 	
 	@PostMapping("/deleteWorkStation")

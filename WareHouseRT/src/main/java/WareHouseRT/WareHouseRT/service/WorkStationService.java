@@ -82,13 +82,13 @@ public class WorkStationService {
 		repo.delete(entity);
 	}
 
-//	public Optional<WorkStation> findByID(long id) {
-//		return repo.findById(id);
-//	}
-	
-	public WorkStation findWorkstation(int numero) {
-		return repo.findByNumero(numero);
+	public WorkStation findWorkstation(String office, int numero) {
+		return repo.findByOfficeAndNumero(office, numero);
 	}
+	
+//	public WorkStation findWorkstation(int numero) {
+//		return repo.findByNumero(numero);
+//	}
 
 	public List<WorkStation> findAll() {
 		return repo.findAll();

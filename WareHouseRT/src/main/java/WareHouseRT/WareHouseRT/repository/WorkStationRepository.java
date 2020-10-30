@@ -8,4 +8,5 @@ import WareHouseRT.WareHouseRT.beans.WorkStation;
 public interface WorkStationRepository extends MongoRepository<WorkStation, Long>{
 
 	public WorkStation findByNumero(int numero);
+	public WorkStation findByOfficeAndNumero(String office, int numero);
 }
