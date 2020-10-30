@@ -11,5 +11,15 @@ export abstract class Computer extends Article{
     ssd: number;
     power: number;
 
+    constructor(){
+        super();
+        this.cpu = "";
+        this.gpu = "";
+        this.ram = 0;
+        this.hdd = 0;
+        this.ssd = 0;
+        this.power = 0;
+}
+
 
 }

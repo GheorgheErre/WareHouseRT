@@ -85,6 +85,8 @@
 										data-target="#addTokenModal">Token</button>
 									<button ngbDropdownItem data-toggle="modal"
 										data-target="#addDockingStationModal">Docking Station</button>
+										<!--<button (click)="prepareForm('Laptop')" ngbDropdownItem data-toggle="modal"
+										data-target="#addArticleModal">Article</button>-->
 								</div>
 							</div>
 						</div>
@@ -108,13 +110,13 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr *ngFor="let article of rowsWorkstation">
-							<td>{{article[0]}}</td>
-							<td>{{article[1]}}</td>
-							<td>{{article[2]}}</td>
-							<td>{{article[3]}}</td>
-							<td>{{article[4]}}</td>
-							<td>{{article[5]}}</td>
+						<tr *ngFor="let article of workstation.articles">
+							<td>{{article.articleType}}</td>
+							<td>{{article.identifier}}</td>
+							<td>{{article.users}}</td>
+							<td>{{article.brand}}</td>
+							<td>{{article.model}}</td>
+							<td>{{article.serialNumber}}</td>
 							<td><button (click)="articleDetails(article)" class="btn btn-success" id="btn-delete"
 									data-toggle="modal" data-target="#articleDetailsModal">
 									Details
@@ -149,13 +151,13 @@
 						<table id="myTable" class="table table-striped">
 							<thead>
 								<tr>
-									<th *ngFor="let column of columnsArticle" scope="row">{{column}}</th>
+									<th *ngFor="let item of entity | keyvalue" scope="row">{{item.key}}</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr *ngFor="let row of rowsArticle">
-									<td *ngFor="let field of row">{{field}}</td>
-									<td><button (click)="addArticle(row)">add</button></td>
+								<tr *ngFor="let article of showWarehouseList">
+									<td *ngFor="let item of article | keyvalue">{{item.value}}</td>
+									<td><button (click)="addArticleFromWarehouse(article)">add</button></td>
 								</tr>
 							</tbody>
 						</table>
@@ -190,6 +192,34 @@
 		</div>
 	</div>
 </div>
+
+<!-- Modal add article
+<div class="modal fade" id="addArticleModal" role="dialog">
+	<div class="modal-dialog modal-dialog-centered">
+
+		
+		<div class="modal-content" id="modal">
+
+			<div class="modal-header" id="modal-header">
+				<h3 class="modal-title">Add Article:</h3>
+			</div>
+
+			<div class="modal-body" id="modal-body">
+				<form [formGroup]="form" (ngSubmit)="addArticleFromOutsideProva()" id="formArticle">
+
+					<div class="form-control mb-2" id="articleGroup" *ngFor="let item of entity | keyvalue">
+						<input type="text" formControlName="{{item.key}}" class="form-control" placeholder="{{item.key}}">
+					</div>
+					<div class="float-right">
+						<button class="btn mr-2 float-left">Add Article</button>
+						<button class="btn float-left" data-dismiss="modal">Close</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+-->
 
 <!--Modal add Laptop -->
 <div class="modal fade" id="addLaptopModal" role="dialog">

@@ -40,25 +40,21 @@ export class UserWorkstationComponent implements OnInit {
   numero: any;
   workstation = new Workstation();
   showWarehouseList: Article[];
-  columnsWorkstation: any;
-  rowsWorkstation: any;
-  columnsArticle: any;
-  rowsArticle: any[];
   entity: Article;
 
-  laptop : Laptop = new Laptop();
-  desktop : Desktop = new Desktop();
-  monitor : Monitor = new Monitor();
-  keyboard : Keyboard = new Keyboard();
-  mouse : Mouse = new Mouse();
-  cable : Cable = new Cable();
-  cellphone : Cellphone = new Cellphone();
-  graphicTablet : GraphicTablet = new GraphicTablet();
-  dockingStation : DockingStation = new DockingStation();
-  token : Token = new Token();
+  laptop: Laptop = new Laptop();
+  desktop: Desktop = new Desktop();
+  monitor: Monitor = new Monitor();
+  keyboard: Keyboard = new Keyboard();
+  mouse: Mouse = new Mouse();
+  cable: Cable = new Cable();
+  cellphone: Cellphone = new Cellphone();
+  graphicTablet: GraphicTablet = new GraphicTablet();
+  dockingStation: DockingStation = new DockingStation();
+  token: Token = new Token();
 
   articleType: any;
-  service : ServiceService;
+  service: ServiceService;
 
   constructor(private router: Router,
     private workstationService: WorkStationService,
@@ -78,79 +74,72 @@ export class UserWorkstationComponent implements OnInit {
 
   ngOnInit(): void {
     this.workstationService.findByOfficeAndNumero(this.office, this.numero).subscribe(data => {
-      this.workstation = data;
-      if (this.workstation.articles.length != 0) {
-        this.columnsWorkstation = this.jsonToList(this.workstation.articles[0]);
-        this.rowsWorkstation = this.jsonToListValue(this.workstation.articles);
+      if (data.articles.length > 0) {
+        this.workstation = this.removeType(data);
+      }
+      else {
+        this.workstation = data;
       }
     })
   }
 
+  // show the list of a selected article form warehouse
   showList(article) {
     this.chooseService(article);
-    this.findAllProduct(this.service);
+    this.findAllProduct();
   }
 
   // metodo che richiede la lista di un determinato tipo di articolo
-  findAllProduct(service: ServiceService): void {
-    service.findAll().subscribe(list => {
+  findAllProduct(): void {
+    this.service.findAll().subscribe(list => {
       this.showWarehouseList = list.filter((product) => product.location === "magazzino");
-      this.columnsArticle = this.jsonToList(this.showWarehouseList[0]);
-      this.rowsArticle = this.jsonToListValue(this.showWarehouseList);
     })
   }
 
   articleDetails(article) {
-    /*this.entity = article;
-    this.rowsArticle = this.jsonToList(this.workstation.articles.filter((a) => a.identifier === article[1])[0]);
-    this.rowsArticle[0] = "Type";*/
-    this.entity = this.workstation.articles.filter((a) => a.identifier === article[1])[0];
+    this.entity = article;
   }
 
 
   // aggiungi nuovo articolo alla mia workstation
-  addArticle(article) {
-    this.entity = this.showWarehouseList.filter((a) => a.identifier === article[1])[0];
+  addArticleFromWarehouse(article) {
+    this.entity = article;
     this.entity.location = "workstation";
     this.workstation.articles.push(this.entity);
     this.updateWorkstation();
   }
 
-  addArticleFromOutside(article){
+  // add a new article from outside
+  addArticleFromOutside(article) {
     this.chooseService(article);
     this.entity.location = "workstation";
-    this.entity = this.entity.toJSON();
+    this.entity = this.addType(this.entity);
     this.workstation.articles.push(this.entity);
     this.updateWorkstation();
   }
 
-  //prepareForm(article){
-    //this.chooseService(article);
-  //}
-
-
+  // delete article from workstation and from anywhere
   deleteArticle(article) {
-    this.chooseService(article[0]);
-    this.entity = this.workstation.articles.filter((a) => a.identifier === article[1])[0];
-
+    this.chooseService(article.articleType);
+    this.entity = this.addType(article);
     this.service.delete(this.entity).subscribe(result => {
       console.log("ARTICLE ELIMINATO CON SUCCESSO")
     });
-
-    this.workstation.articles = this.workstation.articles.filter((a) => a.identifier != article[1]);
+    this.workstation.articles = this.workstation.articles.filter((a) => a.identifier != article.identifier);
     this.updateWorkstation();
   }
 
+  // move article from workstation to warehouse
   moveToWarehouse(article) {
-    this.chooseService(article[0]);
-    this.entity = this.workstation.articles.filter((a) => a.identifier === article[1])[0];
+    this.chooseService(article.articleType);
+    this.entity = this.addType(article);
     this.entity.location = "magazzino";
 
     this.service.saveOrUpdate(this.entity).subscribe(result => {
       console.log("ARTICLE CARICATO CON SUCCESSO")
     });
 
-    this.workstation.articles = this.workstation.articles.filter((a) => a.identifier != article[1]);
+    this.workstation.articles = this.workstation.articles.filter((a) => a.identifier != article.identifier);
     this.updateWorkstation();
   }
 
@@ -158,50 +147,22 @@ export class UserWorkstationComponent implements OnInit {
 
   //salvo la mia workstation aggiornando quindi la tabella di articoli
   updateWorkstation() {
+    this.workstation = this.addType(this.workstation);
     this.workstationService.saveOrUpdate(this.workstation).subscribe(result => {
       console.log("ARTICLE CARICATO CON SUCCESSO"),
         this.reloadPage();
     });
   }
 
-  // prendo le chiavi del JSON per generate gli headers della tabella
-  jsonToList(json): any {
-    return Object.keys(json);
-
-  }
-
-  // prendo i valori dei JSON per generare le righe della tabella
-  jsonToListValue(value): any {
-    if (value.length >= 0) {
-      let keys = Object.keys(value[0]);
-      let tmp: String[][] = [];
-      let i = 0;
-
-      for (let entry of value) {
-        console.log(keys.map(k => entry[k]));
-        tmp[i] = keys.map(k => entry[k]);
-        i++;
-      }
-      return tmp;
-    }
-
-    let keys = Object.keys(value);
-    return keys.map(k => value[k]);
-  }
-
-  reloadPage() {
-    window.location.reload();
-  }
-
   chooseService(article) {
     switch (article) {
       case "Laptop":
-        this.entity = this.laptop;
+        this.entity = new Laptop();
         this.service = this.laptopService;
         break;
       case "Dektop":
         this.entity = this.desktop;;
-        this.service =  this.desktopService;
+        this.service = this.desktopService;
         break;
       case "Monitor":
         this.entity = this.monitor;
@@ -237,5 +198,34 @@ export class UserWorkstationComponent implements OnInit {
         break;
     }
   }
+
+  removeType(json) {
+    let workstationJSONString = JSON.stringify(json);
+    workstationJSONString = workstationJSONString.split("@type").join("articleType");
+    return JSON.parse(workstationJSONString);
+  }
+
+  addType(json) {
+    let workstationJSONString = JSON.stringify(json);
+    workstationJSONString = workstationJSONString.split("articleType").join("@type");
+    return JSON.parse(workstationJSONString);
+  }
+
+  reloadPage() {
+    window.location.reload();
+  }
+
+ 
+ 
+ /* prepareForm(article){
+    this.chooseService(article);
+  }
+
+  addArticleFromOutsideProva(){
+    this.entity.location = "workstation";
+    this.entity = this.addType(this.entity);
+    this.workstation.articles.push(this.entity);
+    this.updateWorkstation();
+  }*/
 
 }
