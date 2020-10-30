@@ -6,9 +6,24 @@
     font-family: "Poppins", sans-serif;
 }
 html,
-body,
+body {
+    height: 100%;
+}
 header {
     height: 100%;
+    background-image: url("img/workstation-welcome.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+main {
+    height: 100%;
+    background-image: url("img/workstation-welcome-up.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
 button {
     border-bottom: 1px solid black;
@@ -17,9 +32,9 @@ button {
     border-top: 1px solid white;
     color: black;
     border-radius: 20px;
-    margin-right: 10px;
     transition: 0.5s;
     letter-spacing: 3px;
+    
 }
 button:hover {
     background: black;
@@ -28,36 +43,46 @@ button:hover {
     border-radius: 20px;
     transition: 0.5s;
 }
-a {
+
+span {
+    color: #004fff;
+    font-size: 30px;
+    letter-spacing: 5px;
+}
+
+#img-piani {
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 550px;
+}
+#logo {
+    height: 70px;
+}
+
+#btn-back,
+#btn-switch_floor {
     border: 1px solid black;
     border-radius: 50%;
     transition: 0.5s;
+    color: black;
 }
-a:hover {
+
+#btn-back:hover,
+#btn-switch_floor:hover {
     background-color: black;
     color: white;
-    border: 1px solid black;
     transition: 0.5s;
 }
-hr {
+#hr-ground {
+    margin: 10px 0px;
+    padding: 0;
+    width: 25%;
     border: 1px solid black;
 }
-img {
-    height: 590px;
-}
-span {
-    font-size: 30px;
-    letter-spacing: 5px;
-    margin-top: 100px;
-}
-#container {
-    background-image: url("img/white.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-}
-#logo {
-    height: 45px;
-    margin: 10px;
+#hr_first{
+    margin: 10px 0px;
+    padding: 0;
+    width: 20%;
+    border: 1px solid black;
+
 }

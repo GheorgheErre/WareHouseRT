@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faArrowDown, faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -10,6 +10,7 @@ import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 })
 export class WorkstationWelcomeComponent implements OnInit {
 
+  faArrowLeft = faArrowLeft;
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;
   constructor(private router: Router) { }
