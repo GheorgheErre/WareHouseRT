@@ -9,9 +9,13 @@
 html,
 body,
 header {
+    
     background-image: url("../../../../assets/img/desk-alternativa-blured.jpg");
+    height: 100%;
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
 /* Parte sopra la tabella*/
