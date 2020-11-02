@@ -1,12 +1,22 @@
-<div class="row ">
-    <div class="col mt-3 text-center">
-        <img src="../../../assets/img/Logo Erre.png" id="logo" class="float-left">
-        <span>{{title}}</span>
-        <hr>
-        <a href="/WorkstationWelcome" class="btn float-left" placement="top" ngbTooltip="Building">
-            <fa-icon [icon]="faArrowLeft"></fa-icon>
-        </a>
-        <h2>Click on a workstation to see its details</h2>
+<nav>
+    <div class="container-fluid ">
+        <div class="row ">
+            <div class="col">
+                <div class="navbar">
+                    <div class="row w-100 align-items-center">
+                        <div class="col-auto align-self-start">
+                            <a href="/WorkstationWelcome" class="btn" placement="right" ngbTooltip="Building">
+                                <fa-icon [icon]="faArrowLeft"></fa-icon>
+                            </a>
+                        </div>
+                        <div class="col mt-5 align-self-center text-center">
+                            <span>{{title}}</span>
+                            <p>Click on a workstation to see its details.</p>
+                        </div>
 
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</nav>
