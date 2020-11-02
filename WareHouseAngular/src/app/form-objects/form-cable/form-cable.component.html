@@ -1,0 +1,28 @@
+<div>
+    <form (ngSubmit)="sendCableToParent()" id="formCable">
+
+        <div class="form-control mb-2" id="cableGroup">
+            <input [(ngModel)]="cable.users" name="users" class="form-control" placeholder="Users:">
+        </div>
+        <div class="form-control mb-2" id="cableGroup">
+            <input [(ngModel)]="cable.brand" name="brand" class="form-control" placeholder="Brand:">
+        </div>
+        <div class="form-control mb-2" id="cableGroup">
+            <input [(ngModel)]="cable.model" name="model" class="form-control" placeholder="Model:">
+        </div>
+        <div class="form-control mb-2" id="cableGroup">
+            <input [(ngModel)]="cable.serialNumber" name="serialNumber" class="form-control"
+                placeholder="Serial number:">
+        </div>
+        <div class="form-control mb-2" id="cableGroup">
+            <input [(ngModel)]="cable.userNumber" name="userNumber" class="form-control" placeholder="User number:">
+        </div>
+        <div class="form-control mb-4" id="cableGroup">
+            <input [(ngModel)]="cable.type" name="type" class="form-control" placeholder="Type:">
+        </div>
+        <div class="float-right">
+            <button class="btn mr-2 float-left">Add Cable</button>
+            <button class="btn float-left" data-dismiss="modal">Close</button>
+        </div>
+    </form>
+</div>

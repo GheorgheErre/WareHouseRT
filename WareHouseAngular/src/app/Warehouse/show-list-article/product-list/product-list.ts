@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { faPlus,faPen,faEraser } from '@fortawesome/free-solid-svg-icons';
+import { Article } from 'src/app/pcObjects/article/article';
 import { Product } from 'src/app/pcObjects/product/product';
 import { ServiceService } from 'src/app/service/service.service';
 
@@ -15,8 +16,7 @@ export abstract class ProductList {
   listProduct: any;
   wareHouseListProduct: Product[];
   showList: Product[];
-  //listKeys:String[];
-  entity: any;
+  entity: Product;
   filtered : String;
   isChecked : any;
 
@@ -33,7 +33,8 @@ export abstract class ProductList {
     })
   }
 
-  saveOrUpdate() {
+  saveOrUpdate(product) {
+    this.entity = product;
     this.entity.location = "magazzino";
     this.service.saveOrUpdate(this.entity).subscribe(result => {
       console.log("ARTICLE CARICATO CON SUCCESSO"),
@@ -81,14 +82,5 @@ export abstract class ProductList {
     }
   }
 
-
-  /* jsonToList(json): any{
-   return Object.keys(json);
-
- }
- jsonToListValue(json):any{
-   return 
- }
-*/
 
 }

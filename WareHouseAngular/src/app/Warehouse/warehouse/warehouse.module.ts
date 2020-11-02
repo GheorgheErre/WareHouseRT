@@ -52,6 +52,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { WarehouseHomeComponent } from '../warehouse-home/warehouse-home.component';
 import { ListProductComponent } from '../show-list-article/list-product/list-product.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
+import { FormLaptopComponent } from 'src/app/form-objects/form-laptop/form-laptop.component';
 
 
 
@@ -97,7 +98,8 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
     ArticleCardComponent,
     WarehouseHomeComponent,
     ListProductComponent,
-    DashboardComponent
+    DashboardComponent,
+    FormLaptopComponent
 
    ],
   imports: [
