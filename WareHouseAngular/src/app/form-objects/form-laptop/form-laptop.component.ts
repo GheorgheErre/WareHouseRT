@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Laptop } from 'src/app/pcObjects/laptop/laptop';
 
 @Component({
@@ -8,7 +8,7 @@ import { Laptop } from 'src/app/pcObjects/laptop/laptop';
 })
 export class FormLaptopComponent implements OnInit {
 
-  laptop : Laptop = new Laptop();
+  @Input() laptop : Laptop 
   @Output() laptopToEmit = new EventEmitter<Laptop>();
 
   constructor() { }

@@ -22,6 +22,10 @@ export class LaptopListComponent extends ProductList implements OnInit {
     this.entity = entity;
   }
 
+  onAddArticleButton() {
+    this.entity = new Laptop();
+  }
+
 
 
 }

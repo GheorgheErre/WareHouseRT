@@ -6,7 +6,7 @@
 
 					<div class="col-6 mb-2 d-flex flex-row">
 
-						<button class="btn mr-2" id="btn-add" data-toggle="modal"
+						<button class="btn mr-2" id="btn-add" data-toggle="modal" (click)="onAddArticleButton()"
 							data-target="#saveOrUpdateModal">
 							<fa-icon [icon]="faPlus"></fa-icon>
 						</button>
@@ -91,7 +91,7 @@
 		<!-- Modal content-->
 		<div class="modal-content" id="modal">
 			<div class="modal-body" id="modal-body">
-				<app-form-laptop (laptopToEmit)="saveOrUpdate($event)"></app-form-laptop>
+				<app-form-laptop [laptop]="entity" (laptopToEmit)="saveOrUpdate($event)"></app-form-laptop>
 			</div>
 		</div>
 	</div>
