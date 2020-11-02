@@ -2,137 +2,61 @@
     font-family: Poppins;
     src: url("../../../assets/fonts/Poppins-Light.ttf");
 }
+
 * {
     font-family: "Poppins", sans-serif;
 }
 
-
-/* Parte sopra la tabella*/
-#btn-add {
-    background-color: transparent;
-    border: 1px solid white;
-    border-radius: 50%;
-    color: black;
-    transition: 0.5s;
-    box-shadow: none !important;
-    outline: 0;
-}
-#btn-add:hover {
-    color: black;
-    transition: 0.5s;
-}
-#btn-modify, #btn-delete{
-
-    border-radius: 10px;
-}
-select {
-    border-radius: 20px 20px 0 0;
-    background-color: transparent;
-    color: black;
-    box-shadow: none !important;
-    outline: 0;
-    transition: 0.5s;
-}
-select:hover {
-    background-color: white;
-    transition: 0.5s;
-    color: black;
+body,
+html {
+    height: 100%;
 }
 
-#myInput {
-    border: none;
-    border-bottom: 1px solid white;
-    border-radius: 0px;
-    background-color: transparent;
-    transition: 0.5s;
-    box-shadow: none !important;
-    outline: 0;
-}
-#myInput:focus {
-    color: white;
-    background: transparent;
-    border: 1px solid white;
-    border-radius: 20px;
-    transition: 0.5s;
-}
-::placeholder {
-    color: white;
-}
-#label-all {
-    color: white;
-}
-/* Tabella */
-table {
-    background-color: white;
-    border-radius: 10px 10px 0 0;
-    border: none;
-}
-thead {
-    border-radius: 20px 20px 0 0;
-    border: none;
-}
-th {
-    border: none;
+header {
+    height: 100%;
+    background-image: url("img/workstation2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
-/* Modal */
-#modal {
-    background-color: transparent;
-    color: white;
-    border: none;
-}
-#modal-header {
-    border: none;
-    padding: 0px;
-}
-#modal-body {
-    border: none;
-    border: 1px solid white;
-    border-radius: 10px;
-}
-#modal-footer {
-    border: none;
-}
 h3 {
-    letter-spacing: 5px;
-    font-size: 20px;
-}
-
-#articleGroup {
-    border: none;
-    background-color: transparent;
-    color: black;
-}
-
-input {
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid white;
-    border-radius: 0px;
-    color: black;
-}
-input:focus {
-    border: none;
-    border: 1px solid black;
-    transition: 0.5s;
+    border: 1px solid white;
+    background: white;
     border-radius: 20px;
-    background-color: transparent;
+    width: 120px;
+    padding: 0 10px;
+}
+
+#tabella-workstation {
+    background-color: white;
+    border-collapse: collapse;
+    margin: 25px 0px;
+    font-size: 15px;
+    overflow: hidden;
+}
+
+#warehouse-dropdown,
+#outside-dropdown {
+    background: white;
     color: black;
+    border: 1px solid white;
+    border-radius: 10px 10px 0 0;
     box-shadow: none !important;
     outline: 0;
 }
-span {
-    color: white;
-}
-button {
-   // border: 1px solid white;
-    border-radius: 20px;
-    color: black;
-    transition: 0.5s;
-}
-button:hover {
-    background-color: white;
-    color: black;
+
+#warehouse-dropdown-body,
+#outside-dropdown-body {
+    width: 100%;
+    border-radius: 0 0 10px 10px;
     border: 1px solid white;
-    transition: 0.5s;
+    #btn-body:hover {
+        color: #004fff;
+    }
+    #btn-body:focus {
+        background-color: white;
+        color: #004fff;
+    }
 }

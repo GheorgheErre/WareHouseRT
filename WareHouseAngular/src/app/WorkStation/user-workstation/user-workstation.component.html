@@ -1,196 +1,166 @@
 <header>
-	<div class="container">
-		<div class="row h-100 d-flex flex-column flex-wrap">
+    <nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div class="navbar">
+                        <div class="row">
+                            <div class="col">
+                                <h3>Office: {{office}} </h3>
+                            </div>
+                            <div class="col">
+                                <h3>Number: {{numero}}
+                                </h3>
+                            </div>
+                            <div class="col">
+                                <h3>User: {{workstation.user}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-			<div class="col">
-				<div class="table-responsive">
-					<table id="detailsTable" class="table table-striped">
-						<thead>
-							<tr>
-								<th scope="row">Office</th>
-								<th scope="row">Numero</th>
-								<th scope="row">Utente</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>{{office}}</td>
-								<td>{{numero}}</td>
-								<td>{{workstation.user}}</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
+    <div class="container-fluid">
+        <div class="row d-flex flex-column">
+            <div class="col">
 
-			<div class="col mt-5">
-				<div class="row h-100 align-items-end">
+                <div class="row">
+                    <div class="col">
+                        <div ngbDropdown class="d-inline-block">
+                            <button class="btn" id="warehouse-dropdown" ngbDropdownToggle>Add
+											article from warehouse</button>
+                            <div ngbDropdownMenu aria-labelledby="warehouse-dropdown" id="warehouse-dropdown-body">
+                                <button id="btn-body" ngbDropdownItem (click)="showList('Laptop')" data-toggle="modal" data-target="#addArticleFromWarehouseModal">Laptop</button>
+                                <button id="btn-body" ngbDropdownItem (click)="showList('Desktop')" data-toggle="modal" data-target="#addArticleFromWarehouseModal">Desktop</button>
+                                <button id="btn-body" ngbDropdownItem (click)="showList('Monitor')" data-toggle="modal" data-target="#addArticleFromWarehouseModal">Monitor</button>
+                                <button id="btn-body" ngbDropdownItem (click)="showList('Keyboard')" data-toggle="modal" data-target="#addArticleFromWarehouseModal">Keyboard</button>
+                                <button id="btn-body" ngbDropdownItem (click)="showList('Cable')" data-toggle="modal" data-target="#addArticleFromWarehouseModal">Cable</button>
+                                <button id="btn-body" ngbDropdownItem (click)="showList('GraphicTablet')" data-toggle="modal" data-target="#addArticleFromWarehouseModal">Graphic Tablet</button>
+                                <button id="btn-body" ngbDropdownItem (click)="showList('Cellphone')" data-toggle="modal" data-target="#addArticleFromWarehouseModal">Cellphone</button>
+                                <button id="btn-body" ngbDropdownItem (click)="showList('Mouse')" data-toggle="modal" data-target="#addArticleFromWarehouseModal">Mouse</button>
+                                <button id="btn-body" ngbDropdownItem (click)="showList('Token')" data-toggle="modal" data-target="#addArticleFromWarehouseModal">Token</button>
+                                <button id="btn-body" ngbDropdownItem (click)="showList('DockingStation')" data-toggle="modal" data-target="#addArticleFromWarehouseModal">Docking Station</button>
+                            </div>
+                        </div>
 
-					<div class="row">
-						<div class="col">
-							<div ngbDropdown class="d-inline-block">
-								<button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>ADD
-									ARTICLE FROM WAREHOUSE</button>
-								<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-									<button ngbDropdownItem (click)="showList('Laptop')" data-toggle="modal"
-										data-target="#addArticleFromWarehouseModal">Laptop</button>
-									<button ngbDropdownItem (click)="showList('Desktop')" data-toggle="modal"
-										data-target="#addArticleFromWarehouseModal">Desktop</button>
-									<button ngbDropdownItem (click)="showList('Monitor')" data-toggle="modal"
-										data-target="#addArticleFromWarehouseModal">Monitor</button>
-									<button ngbDropdownItem (click)="showList('Keyboard')" data-toggle="modal"
-										data-target="#addArticleFromWarehouseModal">Keyboard</button>
-									<button ngbDropdownItem (click)="showList('Cable')" data-toggle="modal"
-										data-target="#addArticleFromWarehouseModal">Cable</button>
-									<button ngbDropdownItem (click)="showList('GraphicTablet')" data-toggle="modal"
-										data-target="#addArticleFromWarehouseModal">Graphic Tablet</button>
-									<button ngbDropdownItem (click)="showList('Cellphone')" data-toggle="modal"
-										data-target="#addArticleFromWarehouseModal">Cellphone</button>
-									<button ngbDropdownItem (click)="showList('Mouse')" data-toggle="modal"
-										data-target="#addArticleFromWarehouseModal">Mouse</button>
-									<button ngbDropdownItem (click)="showList('Token')" data-toggle="modal"
-										data-target="#addArticleFromWarehouseModal">Token</button>
-									<button ngbDropdownItem (click)="showList('DockingStation')" data-toggle="modal"
-										data-target="#addArticleFromWarehouseModal">Docking Station</button>
-								</div>
-							</div>
-						</div>
-					</div>
+                        <div ngbDropdown class="ml-2 d-inline-block">
+                            <button class="btn" id="outside-dropdown" ngbDropdownToggle>Add
+											article from outside</button>
+                            <div id="outside-dropdown-body" ngbDropdownMenu aria-labelledby="outside-dropdown">
+                                <button id="btn-body" ngbDropdownItem data-toggle="modal" data-target="#addLaptopModal">Laptop</button>
+                                <button id="btn-body" ngbDropdownItem data-toggle="modal" data-target="#addDesktopModal">Desktop</button>
+                                <button id="btn-body" ngbDropdownItem data-toggle="modal" data-target="#addMonitorModal">Monitor</button>
+                                <button id="btn-body" ngbDropdownItem data-toggle="modal" data-target="#addKeyboardModal">Keyboard</button>
+                                <button id="btn-body" ngbDropdownItem data-toggle="modal" data-target="#addCableModal">Cable</button>
+                                <button id="btn-body" ngbDropdownItem data-toggle="modal" data-target="#addGraphicTabletModal">Graphic Tablet</button>
+                                <button id="btn-body" ngbDropdownItem data-toggle="modal" data-target="#addCellphoneModal">Cellphone</button>
+                                <button id="btn-body" ngbDropdownItem data-toggle="modal" data-target="#addMouseModal">Mouse</button>
+                                <button id="btn-body" ngbDropdownItem data-toggle="modal" data-target="#addTokenModal">Token</button>
+                                <button id="btn-body" ngbDropdownItem data-toggle="modal" data-target="#addDockingStationModal">Docking Station</button>
 
-					<!-- <div class="col-6 mb-2 d-flex flex-row">-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-					<div class="row">
-						<div class="col">
-							<div ngbDropdown class="d-inline-block">
-								<button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>ADD
-									ARTICLE FROM OUTSIDE</button>
-								<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-									<button ngbDropdownItem data-toggle="modal"
-										data-target="#addLaptopModal">Laptop</button>
-									<button ngbDropdownItem data-toggle="modal"
-										data-target="#addDesktopModal">Desktop</button>
-									<button ngbDropdownItem data-toggle="modal"
-										data-target="#addMonitorModal">Monitor</button>
-									<button ngbDropdownItem data-toggle="modal"
-										data-target="#addKeyboardModal">Keyboard</button>
-									<button ngbDropdownItem data-toggle="modal"
-										data-target="#addCableModal">Cable</button>
-									<button ngbDropdownItem data-toggle="modal"
-										data-target="#addGraphicTabletModal">Graphic Tablet</button>
-									<button ngbDropdownItem data-toggle="modal"
-										data-target="#addCellphoneModal">Cellphone</button>
-									<button ngbDropdownItem data-toggle="modal"
-										data-target="#addMouseModal">Mouse</button>
-									<button ngbDropdownItem data-toggle="modal"
-										data-target="#addTokenModal">Token</button>
-									<button ngbDropdownItem data-toggle="modal"
-										data-target="#addDockingStationModal">Docking Station</button>
-										<!--<button (click)="prepareForm('Laptop')" ngbDropdownItem data-toggle="modal"
-										data-target="#addArticleModal">Article</button>-->
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-			</div>
-		</div>
-		<div class="col">
-			<div class="table-responsive">
-				<table id="articleTable" class="table table-striped">
-					<thead>
-						<tr>
-							<th scope="row">Type</th>
-							<th scope="row">Identifier</th>
-							<th scope="row">Users</th>
-							<th scope="row">Brand</th>
-							<th scope="row">Model</th>
-							<th scope="row">Serial Number</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr *ngFor="let article of workstation.articles">
-							<td>{{article.articleType}}</td>
-							<td>{{article.identifier}}</td>
-							<td>{{article.users}}</td>
-							<td>{{article.brand}}</td>
-							<td>{{article.model}}</td>
-							<td>{{article.serialNumber}}</td>
-							<td><button (click)="articleDetails(article)" class="btn btn-success" id="btn-delete"
-									data-toggle="modal" data-target="#articleDetailsModal">
+            <div class="col mt-1">
+                <div class="table-responsive">
+                    <table id="tabella-workstation" class="table">
+                        <thead id="thead">
+                            <tr>
+                                <th scope="row">Type</th>
+                                <th scope="row">Identifier</th>
+                                <th scope="row">Users</th>
+                                <th scope="row">Brand</th>
+                                <th scope="row">Model</th>
+                                <th scope="row">Serial Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let article of workstation.articles">
+                                <td>{{article.articleType}}</td>
+                                <td>{{article.identifier}}</td>
+                                <td>{{article.users}}</td>
+                                <td>{{article.brand}}</td>
+                                <td>{{article.model}}</td>
+                                <td>{{article.serialNumber}}</td>
+                                <td><button (click)="articleDetails(article)" class="btn btn-success" id="btn-delete" data-toggle="modal" data-target="#articleDetailsModal">
 									Details
 								</button></td>
-							<td><button (click)="moveToWarehouse(article)" class="btn btn-primary" id="btn-delete">
+                                <td><button (click)="moveToWarehouse(article)" class="btn btn-primary" id="btn-delete">
 									Move to Warehouse
 								</button></td>
-							<td><button (click)="deleteArticle(article)" class="btn btn-danger" id="btn-delete">
+                                <td><button (click)="deleteArticle(article)" class="btn btn-danger" id="btn-delete">
 									<fa-icon [icon]="faEraser"></fa-icon>
 								</button></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
 
 <!--Modal tabella articoli da magazzino -->
 <div class="modal fade" id="addArticleFromWarehouseModal" role="dialog">
-	<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered">
 
-		<!-- Modal content-->
-		<div class="modal-content" id="modal">
+        <!-- Modal content-->
+        <div class="modal-content" id="modal">
 
-			<div class="modal-header" id="modal-header">
-				<h3 class="modal-title">List {{articleType}}:</h3>
-			</div>
-			<div class="modal-body" id="modal-body">
-				<div class="col">
-					<div class="table-responsive">
-						<table id="myTable" class="table table-striped">
-							<thead>
-								<tr>
-									<th *ngFor="let item of entity | keyvalue" scope="row">{{item.key}}</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr *ngFor="let article of showWarehouseList">
-									<td *ngFor="let item of article | keyvalue">{{item.value}}</td>
-									<td><button (click)="addArticleFromWarehouse(article)">add</button></td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-				<button data-dismiss="modal"> Chiudi </button>
-			</div>
-		</div>
-	</div>
+            <div class="modal-header" id="modal-header">
+                <h3 class="modal-title">List {{articleType}}:</h3>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <div class="col">
+                    <div class="table-responsive">
+                        <table id="myTable" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th *ngFor="let item of entity | keyvalue" scope="row">{{item.key}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let article of showWarehouseList">
+                                    <td *ngFor="let item of article | keyvalue">{{item.value}}</td>
+                                    <td><button (click)="addArticleFromWarehouse(article)">add</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <button data-dismiss="modal"> Chiudi </button>
+            </div>
+        </div>
+    </div>
 </div>
 
 
 <!--Modal details article -->
 <div class="modal fade" id="articleDetailsModal" role="dialog">
-	<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered">
 
-		<!-- Modal content-->
-		<div class="modal-content" id="modal">
+        <!-- Modal content-->
+        <div class="modal-content" id="modal">
 
-			<div class="modal-header" id="modal-header">
-				<h3 class="modal-title">DETAILS:</h3>
-			</div>
-			<table id="myTable" class="table table-striped">
-				<thead>
-				<tbody>
-					<tr *ngFor="let item of entity | keyvalue">
-						<td>{{item.key}}</td>
-						<td>{{item.value}}</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
+            <div class="modal-header" id="modal-header">
+                <h3 class="modal-title">DETAILS:</h3>
+            </div>
+            <table id="myTable" class="table table-striped">
+                <thead>
+                    <tbody>
+                        <tr *ngFor="let item of entity | keyvalue">
+                            <td>{{item.key}}</td>
+                            <td>{{item.value}}</td>
+                        </tr>
+                    </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 <!-- Modal add article
@@ -223,487 +193,456 @@
 
 <!--Modal add Laptop -->
 <div class="modal fade" id="addLaptopModal" role="dialog">
-	<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered">
 
-		<!-- Modal content-->
-		<div class="modal-content" id="modal">
+        <!-- Modal content-->
+        <div class="modal-content" id="modal">
 
-			<div class="modal-header" id="modal-header">
-				<h3 class="modal-title">Add Laptop:</h3>
-			</div>
+            <div class="modal-header" id="modal-header">
+                <h3 class="modal-title">Add Laptop:</h3>
+            </div>
 
-			<div class="modal-body" id="modal-body">
-				<form (ngSubmit)="addArticleFromOutside('Laptop')" id="formArticle">
+            <div class="modal-body" id="modal-body">
+                <form (ngSubmit)="addArticleFromOutside('Laptop')" id="formArticle">
 
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="laptop.users" name="users" class="form-control" placeholder="Users:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="laptop.brand" name="brand" class="form-control" placeholder="Brand:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="laptop.model" name="model" class="form-control" placeholder="Model:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="laptop.serialNumber" name="serialNumber" class="form-control"
-							placeholder="Serial number:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="laptop.userNumber" name="userNumber" class="form-control"
-							placeholder="User number:">
-					</div>
-					<div class="form-control mb-4" id="articleGroup">
-						<input [(ngModel)]="laptop.cpu" name="cpu" class="form-control" placeholder="CPU:">
-					</div>
-					<div class="form-control mb-4" id="articleGroup">
-						<input [(ngModel)]="laptop.gpu" name="gpu" class="form-control" placeholder="GPU">
-					</div>
-					<div class="form-control mb-4" id="articleGroup">
-						<input [(ngModel)]="laptop.hdd" name="hdd" class="form-control" placeholder="HDD:">
-					</div>
-					<div class="form-control mb-4" id="articleGroup">
-						<input [(ngModel)]="laptop.ssd" name="ssd" class="form-control" placeholder="SSD:">
-					</div>
-					<div class="form-control mb-4" id="articleGroup">
-						<input [(ngModel)]="laptop.ram" name="ram" class="form-control" placeholder="RAM:">
-					</div>
-					<div class="float-right">
-						<button class="btn mr-2 float-left">Add Laptop</button>
-						<button class="btn float-left" data-dismiss="modal">Close</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="laptop.users" name="users" class="form-control" placeholder="Users:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="laptop.brand" name="brand" class="form-control" placeholder="Brand:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="laptop.model" name="model" class="form-control" placeholder="Model:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="laptop.serialNumber" name="serialNumber" class="form-control" placeholder="Serial number:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="laptop.userNumber" name="userNumber" class="form-control" placeholder="User number:">
+                    </div>
+                    <div class="form-control mb-4" id="articleGroup">
+                        <input [(ngModel)]="laptop.cpu" name="cpu" class="form-control" placeholder="CPU:">
+                    </div>
+                    <div class="form-control mb-4" id="articleGroup">
+                        <input [(ngModel)]="laptop.gpu" name="gpu" class="form-control" placeholder="GPU">
+                    </div>
+                    <div class="form-control mb-4" id="articleGroup">
+                        <input [(ngModel)]="laptop.hdd" name="hdd" class="form-control" placeholder="HDD:">
+                    </div>
+                    <div class="form-control mb-4" id="articleGroup">
+                        <input [(ngModel)]="laptop.ssd" name="ssd" class="form-control" placeholder="SSD:">
+                    </div>
+                    <div class="form-control mb-4" id="articleGroup">
+                        <input [(ngModel)]="laptop.ram" name="ram" class="form-control" placeholder="RAM:">
+                    </div>
+                    <div class="float-right">
+                        <button class="btn mr-2 float-left">Add Laptop</button>
+                        <button class="btn float-left" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Modal add desktop -->
 <div class="modal fade" id="addDesktopModal" role="dialog">
-	<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered">
 
-		<!-- Modal content-->
-		<div class="modal-content" id="modal">
+        <!-- Modal content-->
+        <div class="modal-content" id="modal">
 
-			<div class="modal-header" id="modal-header">
-				<h3 class="modal-title">Add Desktop:</h3>
-			</div>
+            <div class="modal-header" id="modal-header">
+                <h3 class="modal-title">Add Desktop:</h3>
+            </div>
 
-			<div class="modal-body" id="modal-body">
-				<form (ngSubmit)="addArticleFromOutside('Desktop')" id="formArticle">
+            <div class="modal-body" id="modal-body">
+                <form (ngSubmit)="addArticleFromOutside('Desktop')" id="formArticle">
 
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="desktop.users" name="users" class="form-control" placeholder="Users:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="desktop.brand" name="brand" class="form-control" placeholder="Brand:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="desktop.model" name="model" class="form-control" placeholder="Model:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="desktop.serialNumber" name="serialNumber" class="form-control"
-							placeholder="Serial number:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="desktop.userNumber" name="userNumber" class="form-control"
-							placeholder="User number:">
-					</div>
-					<div class="form-control mb-4" id="articleGroup">
-						<input [(ngModel)]="desktop.cpu" name="cpu" class="form-control" placeholder="CPU:">
-					</div>
-					<div class="form-control mb-4" id="articleGroup">
-						<input [(ngModel)]="desktop.gpu" name="gpu" class="form-control" placeholder="GPU">
-					</div>
-					<div class="form-control mb-4" id="articleGroup">
-						<input [(ngModel)]="desktop.hdd" name="hdd" class="form-control" placeholder="HDD:">
-					</div>
-					<div class="form-control mb-4" id="articleGroup">
-						<input [(ngModel)]="desktop.ssd" name="ssd" class="form-control" placeholder="SSD:">
-					</div>
-					<div class="form-control mb-4" id="articleGroup">
-						<input [(ngModel)]="desktop.ram" name="ram" class="form-control" placeholder="RAM:">
-					</div>
-					<div class="float-right">
-						<button class="btn mr-2 float-left">Add Desktop</button>
-						<button class="btn float-left" data-dismiss="modal">Close</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="desktop.users" name="users" class="form-control" placeholder="Users:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="desktop.brand" name="brand" class="form-control" placeholder="Brand:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="desktop.model" name="model" class="form-control" placeholder="Model:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="desktop.serialNumber" name="serialNumber" class="form-control" placeholder="Serial number:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="desktop.userNumber" name="userNumber" class="form-control" placeholder="User number:">
+                    </div>
+                    <div class="form-control mb-4" id="articleGroup">
+                        <input [(ngModel)]="desktop.cpu" name="cpu" class="form-control" placeholder="CPU:">
+                    </div>
+                    <div class="form-control mb-4" id="articleGroup">
+                        <input [(ngModel)]="desktop.gpu" name="gpu" class="form-control" placeholder="GPU">
+                    </div>
+                    <div class="form-control mb-4" id="articleGroup">
+                        <input [(ngModel)]="desktop.hdd" name="hdd" class="form-control" placeholder="HDD:">
+                    </div>
+                    <div class="form-control mb-4" id="articleGroup">
+                        <input [(ngModel)]="desktop.ssd" name="ssd" class="form-control" placeholder="SSD:">
+                    </div>
+                    <div class="form-control mb-4" id="articleGroup">
+                        <input [(ngModel)]="desktop.ram" name="ram" class="form-control" placeholder="RAM:">
+                    </div>
+                    <div class="float-right">
+                        <button class="btn mr-2 float-left">Add Desktop</button>
+                        <button class="btn float-left" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Modal add monitor-->
 <div class="modal fade" id="addMonitorModal" role="dialog">
-	<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered">
 
-		<!-- Modal content-->
-		<div class="modal-content" id="modal">
+        <!-- Modal content-->
+        <div class="modal-content" id="modal">
 
-			<div class="modal-header" id="modal-header">
-				<h3 class="modal-title">Add Monitor:</h3>
-			</div>
+            <div class="modal-header" id="modal-header">
+                <h3 class="modal-title">Add Monitor:</h3>
+            </div>
 
-			<div class="modal-body" id="modal-body">
-				<form (ngSubmit)="addArticleFromOutside('Monitor')" id="formArticle">
+            <div class="modal-body" id="modal-body">
+                <form (ngSubmit)="addArticleFromOutside('Monitor')" id="formArticle">
 
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="monitor.users" name="users" class="form-control" placeholder="Users:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="monitor.brand" name="brand" class="form-control" placeholder="Brand:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="monitor.model" name="model" class="form-control" placeholder="Model:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="monitor.serialNumber" name="serialNumber" class="form-control"
-							placeholder="Serial number:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="monitor.userNumber" name="userNumber" class="form-control"
-							placeholder="User number:">
-					</div>
-					<div class="form-control mb-4" id="articleGroup">
-						<input [(ngModel)]="monitor.inches" name="inches" class="form-control" placeholder="Inches:">
-					</div>
-					<div class="form-control mb-4" id="articleGroup">
-						<input [(ngModel)]="monitor.frequence" name="frequence" class="form-control"
-							placeholder="Frequence:">
-					</div>
-					<div class="form-control mb-4" id="articleGroup">
-						<input [(ngModel)]="monitor.resolution" name="resolution" class="form-control"
-							placeholder="Resolution:">
-					</div>
-					<div class="float-right">
-						<button class="btn mr-2 float-left">Add Monitor</button>
-						<button class="btn float-left" data-dismiss="modal">Close</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="monitor.users" name="users" class="form-control" placeholder="Users:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="monitor.brand" name="brand" class="form-control" placeholder="Brand:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="monitor.model" name="model" class="form-control" placeholder="Model:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="monitor.serialNumber" name="serialNumber" class="form-control" placeholder="Serial number:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="monitor.userNumber" name="userNumber" class="form-control" placeholder="User number:">
+                    </div>
+                    <div class="form-control mb-4" id="articleGroup">
+                        <input [(ngModel)]="monitor.inches" name="inches" class="form-control" placeholder="Inches:">
+                    </div>
+                    <div class="form-control mb-4" id="articleGroup">
+                        <input [(ngModel)]="monitor.frequence" name="frequence" class="form-control" placeholder="Frequence:">
+                    </div>
+                    <div class="form-control mb-4" id="articleGroup">
+                        <input [(ngModel)]="monitor.resolution" name="resolution" class="form-control" placeholder="Resolution:">
+                    </div>
+                    <div class="float-right">
+                        <button class="btn mr-2 float-left">Add Monitor</button>
+                        <button class="btn float-left" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Modal add keyboard-->
 <div class="modal fade" id="addKeyboardModal" role="dialog">
-	<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered">
 
-		<!-- Modal content-->
-		<div class="modal-content" id="modal">
+        <!-- Modal content-->
+        <div class="modal-content" id="modal">
 
-			<div class="modal-header" id="modal-header">
-				<h3 class="modal-title">Add Keyboard:</h3>
-			</div>
+            <div class="modal-header" id="modal-header">
+                <h3 class="modal-title">Add Keyboard:</h3>
+            </div>
 
-			<div class="modal-body" id="modal-body">
-				<form (ngSubmit)="addArticleFromOutside('Keyboard')" id="formArticle">
+            <div class="modal-body" id="modal-body">
+                <form (ngSubmit)="addArticleFromOutside('Keyboard')" id="formArticle">
 
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="keyboard.users" name="users" class="form-control" placeholder="Users:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="keyboard.brand" name="brand" class="form-control" placeholder="Brand:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="keyboard.model" name="model" class="form-control" placeholder="Model:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="keyboard.serialNumber" name="serialNumber" class="form-control"
-							placeholder="Serial number:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="keyboard.userNumber" name="userNumber" class="form-control"
-							placeholder="User number:">
-					</div>
-					<div class="float-right">
-						<button class="btn mr-2 float-left">Add Keyboard</button>
-						<button class="btn float-left" data-dismiss="modal">Close</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="keyboard.users" name="users" class="form-control" placeholder="Users:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="keyboard.brand" name="brand" class="form-control" placeholder="Brand:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="keyboard.model" name="model" class="form-control" placeholder="Model:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="keyboard.serialNumber" name="serialNumber" class="form-control" placeholder="Serial number:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="keyboard.userNumber" name="userNumber" class="form-control" placeholder="User number:">
+                    </div>
+                    <div class="float-right">
+                        <button class="btn mr-2 float-left">Add Keyboard</button>
+                        <button class="btn float-left" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Modal add mouse-->
 <div class="modal fade" id="addMouseModal" role="dialog">
-	<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered">
 
-		<!-- Modal content-->
-		<div class="modal-content" id="modal">
+        <!-- Modal content-->
+        <div class="modal-content" id="modal">
 
-			<div class="modal-header" id="modal-header">
-				<h3 class="modal-title">Add Mouse:</h3>
-			</div>
+            <div class="modal-header" id="modal-header">
+                <h3 class="modal-title">Add Mouse:</h3>
+            </div>
 
-			<div class="modal-body" id="modal-body">
-				<form (ngSubmit)="addArticleFromOutside('Mouse')" id="formArticle">
+            <div class="modal-body" id="modal-body">
+                <form (ngSubmit)="addArticleFromOutside('Mouse')" id="formArticle">
 
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="mouse.users" name="users" class="form-control" placeholder="Users:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="mouse.brand" name="brand" class="form-control" placeholder="Brand:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="mouse.model" name=" model" class="form-control" placeholder="Model:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="mouse.serialNumber" name="serialNumber" class="form-control"
-							placeholder="Serial number:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="mouse.userNumber" name=" userNumber" class="form-control"
-							placeholder="User number:">
-					</div>
-					<div class="form-control mb-4" id="articleGroup">
-						<input [(ngModel)]="mouse.type" name="type" class="form-control" placeholder="Type:">
-					</div>
-					<div class="float-right">
-						<button class="btn mr-2 float-left">Add Mouse</button>
-						<button class="btn float-left" data-dismiss="modal">Close</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="mouse.users" name="users" class="form-control" placeholder="Users:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="mouse.brand" name="brand" class="form-control" placeholder="Brand:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="mouse.model" name=" model" class="form-control" placeholder="Model:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="mouse.serialNumber" name="serialNumber" class="form-control" placeholder="Serial number:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="mouse.userNumber" name=" userNumber" class="form-control" placeholder="User number:">
+                    </div>
+                    <div class="form-control mb-4" id="articleGroup">
+                        <input [(ngModel)]="mouse.type" name="type" class="form-control" placeholder="Type:">
+                    </div>
+                    <div class="float-right">
+                        <button class="btn mr-2 float-left">Add Mouse</button>
+                        <button class="btn float-left" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Modal add cable-->
 <div class="modal fade" id="addCableModal" role="dialog">
-	<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered">
 
-		<!-- Modal content-->
-		<div class="modal-content" id="modal">
+        <!-- Modal content-->
+        <div class="modal-content" id="modal">
 
-			<div class="modal-header" id="modal-header">
-				<h3 class="modal-title">Add Cable:</h3>
-			</div>
+            <div class="modal-header" id="modal-header">
+                <h3 class="modal-title">Add Cable:</h3>
+            </div>
 
-			<div class="modal-body" id="modal-body">
-				<form (ngSubmit)="addArticleFromOutside('Cable')" id="formArticle">
+            <div class="modal-body" id="modal-body">
+                <form (ngSubmit)="addArticleFromOutside('Cable')" id="formArticle">
 
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="cable.users" name="users" class="form-control" placeholder="Users:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="cable.brand" name="brand" class="form-control" placeholder="Brand:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="cable.model" name="model" class="form-control" placeholder="Model:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="cable.serialNumber" name="serialNumber" class="form-control"
-							placeholder="Serial number:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="cable.userNumber" name="userNumber" class="form-control"
-							placeholder="User number:">
-					</div>
-					<div class="form-control mb-4" id="articleGroup">
-						<input [(ngModel)]="cable.type" name="type" class="form-control" placeholder="Type:">
-					</div>
-					<div class="float-right">
-						<button class="btn mr-2 float-left">Add Cable</button>
-						<button class="btn float-left" data-dismiss="modal">Close</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="cable.users" name="users" class="form-control" placeholder="Users:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="cable.brand" name="brand" class="form-control" placeholder="Brand:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="cable.model" name="model" class="form-control" placeholder="Model:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="cable.serialNumber" name="serialNumber" class="form-control" placeholder="Serial number:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="cable.userNumber" name="userNumber" class="form-control" placeholder="User number:">
+                    </div>
+                    <div class="form-control mb-4" id="articleGroup">
+                        <input [(ngModel)]="cable.type" name="type" class="form-control" placeholder="Type:">
+                    </div>
+                    <div class="float-right">
+                        <button class="btn mr-2 float-left">Add Cable</button>
+                        <button class="btn float-left" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Modal add cellphone-->
 <div class="modal fade" id="addCellphoneModal" role="dialog">
-	<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered">
 
-		<!-- Modal content-->
-		<div class="modal-content" id="modal">
+        <!-- Modal content-->
+        <div class="modal-content" id="modal">
 
-			<div class="modal-header" id="modal-header">
-				<h3 class="modal-title">Add Cellphone:</h3>
-			</div>
+            <div class="modal-header" id="modal-header">
+                <h3 class="modal-title">Add Cellphone:</h3>
+            </div>
 
-			<div class="modal-body" id="modal-body">
-				<form (ngSubmit)="addArticleFromOutside('Cellphone')" id="formArticle">
+            <div class="modal-body" id="modal-body">
+                <form (ngSubmit)="addArticleFromOutside('Cellphone')" id="formArticle">
 
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="cellphone.users" name="users" class="form-control" placeholder="Users:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="cellphone.brand" name="brand" class="form-control" placeholder="Brand:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="cellphone.model" name="model" class="form-control" placeholder="Model:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="cellphone.serialNumber" name="serialNumber" class="form-control"
-							placeholder="Serial number:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="cellphone.userNumber" name="userNumber" class="form-control"
-							placeholder="User number:">
-					</div>
-					<div class="form-control mb-4" id="articleGroup">
-						<input [(ngModel)]="cellphone.imeiCode" name="imeiCode" class="form-control"
-							placeholder="IMieiCode:">
-					</div>
-					<div class="form-control mb-4" id="articleGroup">
-						<input [(ngModel)]="cellphone.operator" name="operator" class="form-control"
-							placeholder="Operator:">
-					</div>
-					<div class="form-control mb-4" id="articleGroup">
-						<input [(ngModel)]="cellphone.phoneNumber" name="phoneNumber" class="form-control"
-							placeholder="Phone Number:">
-					</div>
-					<div class="form-control mb-4" id="articleGroup">
-						<input [(ngModel)]="cellphone.rateTypology" name="rateTipology" class="form-control"
-							placeholder="Rate Tipology:">
-					</div>
-					<div class="float-right">
-						<button class="btn mr-2 float-left">Add Cellphone</button>
-						<button class="btn float-left" data-dismiss="modal">Close</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="cellphone.users" name="users" class="form-control" placeholder="Users:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="cellphone.brand" name="brand" class="form-control" placeholder="Brand:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="cellphone.model" name="model" class="form-control" placeholder="Model:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="cellphone.serialNumber" name="serialNumber" class="form-control" placeholder="Serial number:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="cellphone.userNumber" name="userNumber" class="form-control" placeholder="User number:">
+                    </div>
+                    <div class="form-control mb-4" id="articleGroup">
+                        <input [(ngModel)]="cellphone.imeiCode" name="imeiCode" class="form-control" placeholder="IMieiCode:">
+                    </div>
+                    <div class="form-control mb-4" id="articleGroup">
+                        <input [(ngModel)]="cellphone.operator" name="operator" class="form-control" placeholder="Operator:">
+                    </div>
+                    <div class="form-control mb-4" id="articleGroup">
+                        <input [(ngModel)]="cellphone.phoneNumber" name="phoneNumber" class="form-control" placeholder="Phone Number:">
+                    </div>
+                    <div class="form-control mb-4" id="articleGroup">
+                        <input [(ngModel)]="cellphone.rateTypology" name="rateTipology" class="form-control" placeholder="Rate Tipology:">
+                    </div>
+                    <div class="float-right">
+                        <button class="btn mr-2 float-left">Add Cellphone</button>
+                        <button class="btn float-left" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Modal add dockingStation-->
 <div class="modal fade" id="addDockingStationModal" role="dialog">
-	<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered">
 
-		<!-- Modal content-->
-		<div class="modal-content" id="modal">
+        <!-- Modal content-->
+        <div class="modal-content" id="modal">
 
-			<div class="modal-header" id="modal-header">
-				<h3 class="modal-title">Add Docking Station:</h3>
-			</div>
+            <div class="modal-header" id="modal-header">
+                <h3 class="modal-title">Add Docking Station:</h3>
+            </div>
 
-			<div class="modal-body" id="modal-body">
-				<form (ngSubmit)="addArticleFromOutside('DockingStation')" id="formArticle">
+            <div class="modal-body" id="modal-body">
+                <form (ngSubmit)="addArticleFromOutside('DockingStation')" id="formArticle">
 
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="dockingStation.users" name="users" class="form-control"
-							placeholder="Users:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="dockingStation.brand" name="brand" class="form-control"
-							placeholder="Brand:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="dockingStation.model" name="model" class="form-control"
-							placeholder="Model:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="dockingStation.serialNumber" name="serialNumber" class="form-control"
-							placeholder="Serial number:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="dockingStation.userNumber" name="userNumber" class="form-control"
-							placeholder="User number:">
-					</div>
-					<div class="float-right">
-						<button class="btn mr-2 float-left">Add DockingStation</button>
-						<button class="btn float-left" data-dismiss="modal">Close</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="dockingStation.users" name="users" class="form-control" placeholder="Users:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="dockingStation.brand" name="brand" class="form-control" placeholder="Brand:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="dockingStation.model" name="model" class="form-control" placeholder="Model:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="dockingStation.serialNumber" name="serialNumber" class="form-control" placeholder="Serial number:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="dockingStation.userNumber" name="userNumber" class="form-control" placeholder="User number:">
+                    </div>
+                    <div class="float-right">
+                        <button class="btn mr-2 float-left">Add DockingStation</button>
+                        <button class="btn float-left" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Modal add graphicTablet-->
 <div class="modal fade" id="addGraphicTabletModal" role="dialog">
-	<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered">
 
-		<!-- Modal content-->
-		<div class="modal-content" id="modal">
+        <!-- Modal content-->
+        <div class="modal-content" id="modal">
 
-			<div class="modal-header" id="modal-header">
-				<h3 class="modal-title">Add Graphic Tablet:</h3>
-			</div>
+            <div class="modal-header" id="modal-header">
+                <h3 class="modal-title">Add Graphic Tablet:</h3>
+            </div>
 
-			<div class="modal-body" id="modal-body">
-				<form (ngSubmit)="addArticleFromOutside('GraphicTablet')" id="formArticle">
+            <div class="modal-body" id="modal-body">
+                <form (ngSubmit)="addArticleFromOutside('GraphicTablet')" id="formArticle">
 
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="graphicTablet.users" name="users" class="form-control" placeholder="Users:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="graphicTablet.brand" name="brand" class="form-control" placeholder="Brand:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="graphicTablet.model" name="model" class="form-control" placeholder="Model:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="graphicTablet.serialNumber" name="serialNumber" class="form-control"
-							placeholder="Serial number:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="graphicTablet.userNumber" name="userNumber" class="form-control"
-							placeholder="User number:">
-					</div>
-					<div class="form-control mb-4" id="articleGroup">
-						<input [(ngModel)]="graphicTablet.height" name="height" class="form-control"
-							placeholder="Heigth:">
-					</div>
-					<div class="form-control mb-4" id="articleGroup">
-						<input [(ngModel)]="graphicTablet.width" name="width" class="form-control" placeholder="Width:">
-					</div>
-					<div class="form-control mb-4" id="articleGroup">
-						<input [(ngModel)]="graphicTablet.length" name="length" class="form-control"
-							placeholder="Length:">
-					</div>
-					<div class="float-right">
-						<button class="btn mr-2 float-left">Add Graphic Tablet</button>
-						<button class="btn float-left" data-dismiss="modal">Close</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="graphicTablet.users" name="users" class="form-control" placeholder="Users:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="graphicTablet.brand" name="brand" class="form-control" placeholder="Brand:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="graphicTablet.model" name="model" class="form-control" placeholder="Model:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="graphicTablet.serialNumber" name="serialNumber" class="form-control" placeholder="Serial number:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="graphicTablet.userNumber" name="userNumber" class="form-control" placeholder="User number:">
+                    </div>
+                    <div class="form-control mb-4" id="articleGroup">
+                        <input [(ngModel)]="graphicTablet.height" name="height" class="form-control" placeholder="Heigth:">
+                    </div>
+                    <div class="form-control mb-4" id="articleGroup">
+                        <input [(ngModel)]="graphicTablet.width" name="width" class="form-control" placeholder="Width:">
+                    </div>
+                    <div class="form-control mb-4" id="articleGroup">
+                        <input [(ngModel)]="graphicTablet.length" name="length" class="form-control" placeholder="Length:">
+                    </div>
+                    <div class="float-right">
+                        <button class="btn mr-2 float-left">Add Graphic Tablet</button>
+                        <button class="btn float-left" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Modal add token-->
 <div class="modal fade" id="addTokenModal" role="dialog">
-	<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered">
 
-		<!-- Modal content-->
-		<div class="modal-content" id="modal">
+        <!-- Modal content-->
+        <div class="modal-content" id="modal">
 
-			<div class="modal-header" id="modal-header">
-				<h3 class="modal-title">Add Token:</h3>
-			</div>
+            <div class="modal-header" id="modal-header">
+                <h3 class="modal-title">Add Token:</h3>
+            </div>
 
-			<div class="modal-body" id="modal-body">
-				<form (ngSubmit)="addArticleFromOutside('Token')" id="formArticle">
+            <div class="modal-body" id="modal-body">
+                <form (ngSubmit)="addArticleFromOutside('Token')" id="formArticle">
 
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="token.users" name="users" class="form-control" placeholder="Users:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="token.brand" name="brand" class="form-control" placeholder="Brand:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="token.model" name=" model" class="form-control" placeholder="Model:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="token.serialNumber" name="serialNumber" class="form-control"
-							placeholder="Serial number:">
-					</div>
-					<div class="form-control mb-2" id="articleGroup">
-						<input [(ngModel)]="token.userNumber" name="userNumber" class="form-control"
-							placeholder="User number:">
-					</div>
-					<div class="float-right">
-						<button class="btn mr-2 float-left">Add Token</button>
-						<button class="btn float-left" data-dismiss="modal">Close</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="token.users" name="users" class="form-control" placeholder="Users:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="token.brand" name="brand" class="form-control" placeholder="Brand:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="token.model" name=" model" class="form-control" placeholder="Model:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="token.serialNumber" name="serialNumber" class="form-control" placeholder="Serial number:">
+                    </div>
+                    <div class="form-control mb-2" id="articleGroup">
+                        <input [(ngModel)]="token.userNumber" name="userNumber" class="form-control" placeholder="User number:">
+                    </div>
+                    <div class="float-right">
+                        <button class="btn mr-2 float-left">Add Token</button>
+                        <button class="btn float-left" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
