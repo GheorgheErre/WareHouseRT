@@ -6,11 +6,9 @@
     <div class="row" id="first_floor">
 
       <div class="col mt-3 text-center">
-        <img src="../../../../../assets/img/DirezioneGeneraleGes_1P.png" usemap="#image_map">
-        <map name="image_map">
-          <area alt="" title="1" href="/Workstation" coords="61,49 91,50 91,125 62,125 61,92 45,92 45,76 62,76 "
-            shape="polygon" (click)="setWorkstationInSession('dir-erre-ges', 1)">
-        </map></div>
+        <img src="../../../../../assets/img/DirezioneGeneraleGes_1P.png" usemap="#workmap">
+        <app-map [coords]="coords" [workstationInSession]="workstationInSession"></app-map>
+      </div>
     </div>
   </div>
 </header>

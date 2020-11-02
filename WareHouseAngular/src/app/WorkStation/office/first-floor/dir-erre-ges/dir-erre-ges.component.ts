@@ -8,6 +8,9 @@ import { WorkstationInSession } from 'src/app/WorkStation/workstation-in-session
 })
 export class DirErreGesComponent extends WorkstationInSession implements OnInit {
   title = "Direzione Erre Ges";
+  workstationInSession="dir-erre-ges";
+  coords=["61,49 91,50 91,125 62,125 61,92 45,92 45,76 62,76 "]
+
   constructor() {
     super();
   }

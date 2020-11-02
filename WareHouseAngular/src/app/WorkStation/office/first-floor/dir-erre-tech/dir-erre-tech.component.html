@@ -7,11 +7,7 @@
 
       <div class="col mt-3 text-center">
         <img src="../../../../../assets/img/DirezioneGeneraleErreTechnologyGroup_1P.png" usemap="#image_map">
-        <map name="image_map">
-          <area alt="" title="1" href="/Workstation"
-            coords="119,139 171,191 148,215 125,194 114,204 102,193 114,182 94,163 " shape="polygon"
-            (click)="setWorkstationInSession('dir-erre-tech', 1)">
-        </map>
+        <app-map [coords]="coords" [workstationInSession]="workstationInSession"></app-map>
       </div>
     </div>
   </div>

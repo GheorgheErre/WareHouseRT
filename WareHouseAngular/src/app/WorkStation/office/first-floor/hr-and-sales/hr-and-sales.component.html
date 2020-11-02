@@ -6,19 +6,8 @@
     <div class="row" id="first_floor">
 
       <div class="col mt-3 text-center">
-        <img src="../../../../../assets/img/HReSalesErreTchnologyGroup_1P.png" usemap="#image_map">
-        <map name="image_map">
-          <area alt="" title="1" href="" coords="35,122 102,123 102,152 80,152 79,168 62,168 62,152 35,152"
-            shape="polygon" (click)="setWorkstationInSession('hr-and-sales', 1)">
-          <area alt="" title="2" href="" coords="190,49 220,49 220,108 190,108 190,92 176,92 175,77 190,76 "
-            shape="polygon" (click)="setWorkstationInSession('hr-and-sales', 2)">
-          <area alt="" title="3" href="" coords="220,50 249,50 250,76 267,77 267,92 250,91 249,108 220,108 "
-            shape="polygon" (click)="setWorkstationInSession('hr-and-sales', 3)">
-          <area alt="" title="4" href="" coords="249,167 249,144 268,144 268,127 249,128 249,109 220,108 220,168 "
-            shape="polygon" (click)="setWorkstationInSession('hr-and-sales', 4)">
-          <area alt="" title="5" href="" coords="190,167 220,168 220,108 191,108 191,127 176,127 176,143 191,144 "
-            shape="polygon" (click)="setWorkstationInSession('hr-and-sales', 5)">
-        </map>
+        <img src="../../../../../assets/img/HReSalesErreTchnologyGroup_1P.png" usemap="#workmap">
+        <app-map [coords]="coords" [workstationInSession]="workstationInSession"></app-map>
       </div>
     </div>
   </div>

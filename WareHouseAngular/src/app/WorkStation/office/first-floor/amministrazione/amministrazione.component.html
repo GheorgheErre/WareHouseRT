@@ -9,20 +9,7 @@
                 <img src="../../../../../assets/img/AmministrazioneErreTechnologyGroup_1P.png" alt="Workplace"
                     usemap="#workmap">
 
-                <map name="workmap">
-
-                    <area alt="" title="1" href="/Workstation"
-                        coords="59,45 89,45 90,104 31,105 31,83 49,83 37,73 50,61 59,70" shape="polygon"
-                        (click)="setWorkstationInSession('amministrazione', 1)">
-                    <area alt="" title="2" href="/Workstation"
-                        coords="130,45 130,104 190,105 189,83 172,82 182,73 172,61 161,72 160,45" shape="polygon"
-                        (click)="setWorkstationInSession('amministrazione', 2)">
-                    <area alt="" title="3" href="/Workstation"
-                        coords="264,83 264,103 190,104 189,82 221,82 222,66 239,67 239,82 " shape="polygon"
-                        (click)="setWorkstationInSession('amministrazione', 3)">
-
-
-                </map>
+                    <app-map [coords]="coords" [workstationInSession]="workstationInSession"></app-map>
             </div>
         </div>
     </div>

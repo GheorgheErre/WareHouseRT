@@ -6,15 +6,8 @@
         <div class="row" id="first_floor">
 
             <div class="col mt-3 text-center">
-                <img src="../../../../../assets/img/Ufficio_1_1P.png" usemap="#image_map">
-                <map name="image_map">
-                    <area alt="" title="1" href="/Workstation"
-                        coords="71,96 101,96 101,164 71,163 71,131 54,132 54,115 71,115 " shape="polygon"
-                        (click)="setWorkstationInSession('uff_1_1f', 1)">
-                    <area alt="" title="2" href="/Workstation"
-                        coords="227,96 257,97 257,120 273,119 274,134 257,134 257,164 227,163  " shape="polygon"
-                        (click)="setWorkstationInSession('uff_1_1f', 2)">
-                </map>
+                <img src="../../../../../assets/img/Ufficio_1_1P.png" usemap="#workmap">
+                <app-map [coords]="coords" [workstationInSession]="workstationInSession"></app-map>
             </div>
         </div>
     </div>
