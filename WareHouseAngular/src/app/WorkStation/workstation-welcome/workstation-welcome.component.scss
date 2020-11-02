@@ -11,7 +11,7 @@ body {
 }
 header {
     height: 100%;
-    background-image: url("img/workstation-welcome.jpg");
+    background-image: url("img/workstation-welcomeCopia.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -19,7 +19,7 @@ header {
 }
 main {
     height: 100%;
-    background-image: url("img/workstation-welcome-up.jpg");
+    background-image: url("img/workstation-welcomeCopia1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -28,8 +28,8 @@ main {
 button {
     border-bottom: 1px solid black;
     border-left: 1px solid black;
-    border-right: 1px solid white;
-    border-top: 1px solid white;
+    border-right: 1px solid lightgrey;
+    border-top: 1px solid lightgrey;
     color: black;
     border-radius: 20px;
     transition: 0.5s;
@@ -53,7 +53,7 @@ span {
 #img-piani {
     border: 1px solid black;
     border-radius: 10px;
-    height: 550px;
+    
 }
 #logo {
     height: 70px;

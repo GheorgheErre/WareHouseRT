@@ -1,116 +1,119 @@
-<header id="ground_floor">
-    <nav class="navbar fixed-top">
-        <div class="container-fluid">
-            <div class="row w-100">
-                <div class="col-2"><a href="WelcomeMenu" id=btn-back class="btn">
-                        <fa-icon [icon]="faArrowLeft"></fa-icon>
-                    </a></div>
-                <div class="col-10 d-flex justify-content-end"><a href="#ground_floor" id="btn-switch_floor" class="btn"
-                        placement="left" ngbTooltip="ground floor">
-                        <fa-icon [icon]="faArrowUp"></fa-icon>
-                    </a>
-                    <a href="#first_floor" id="btn-switch_floor" class="btn ml-3" placement="left"
-                        ngbTooltip="first floor">
-                        <fa-icon [icon]="faArrowDown"></fa-icon>
-                    </a></div>
+<div class="container">
+    <header id="ground_floor">
+        <nav class="navbar fixed-top">
+            <div class="container ">
+                <div class="row w-100">
+                    <div class="col-2"><a href="WelcomeMenu" id=btn-back class="btn">
+                            <fa-icon [icon]="faArrowLeft"></fa-icon>
+                        </a></div>
+                    <div class="col-10 d-flex justify-content-end"><a href="#ground_floor" id="btn-switch_floor"
+                            class="btn" placement="left" ngbTooltip="ground floor">
+                            <fa-icon [icon]="faArrowUp"></fa-icon>
+                        </a>
+                        <a href="#first_floor" id="btn-switch_floor" class="btn ml-3" placement="left"
+                            ngbTooltip="first floor">
+                            <fa-icon [icon]="faArrowDown"></fa-icon>
+                        </a></div>
+                </div>
             </div>
-        </div>
-    </nav>
-    <div class="container-fluid h-100">
-        <div class="row h-100 align-items-center">
+        </nav>
+        <div class="container h-100 p-2">
+            <div class="row h-100 align-items-center">
 
-            <div class="col">
-                <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/Ufficio2GroundFloor')" class="btn  mb-3">Uff. tec. 2</button>
+                <div class="col-2">
+                    <div class="row">
+                        <div class="col">
+                            <button (click)="goToOffice('/Ufficio2GroundFloor')" class="btn  mb-3">Uff. tec. 2</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button (click)="goToOffice('/Reception')" class="btn mb-3">Reception</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button (click)="goToOffice('/Ufficio3GroundFloor')" class="btn mb-3">Uff. tec. 3</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button (click)="goToOffice('/Ufficio1GroundFloor')" class="btn mb-3">Uff. tec. 1</button>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/Reception')" class="btn">Reception</button>
-                    </div>
+                <div class="col-10">
+                    <span>Ground floor</span>
+                    <hr id="hr-ground">
+                    <img class="img-fluid" id="img-piani" src="../../../assets/img/b__piano_terra.png">
+
                 </div>
-            </div>
-            <div class="col">
-                <span>Ground floor</span>
-                <hr id="hr-ground">
-                <img id="img-piani" src="../../../assets/img/b__piano_terra.png">
 
             </div>
-            <div class="col">
-                <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/Ufficio3GroundFloor')" class="btn mb-3 float-right">Uff. tec. 3</button>
+        </div>
+    </header>
+    <main id="first_floor" >
+        <div class="container h-100 p-2">
+            <div class="row h-100  align-items-center">
+                <div class="col-2">
+                    <div class="row">
+                        <div class="col">
+                            <button (click)="goToOffice('/DirezioneErreGes')" class="btn mb-3">Dir. Erre
+                                Ges</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button (click)="goToOffice('/Amministrazione')" class="btn mb-3">Amministrazione</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button (click)="goToOffice('/DirezioneErreTech')" class="btn mb-3">Dir. Erre
+                                Tech</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button (click)="goToOffice('/Ufficio1FirstFloor')" class="btn mb-3">Uff.1</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button (click)="goToOffice('/DirezioneErrePro')" class="btn">Dir. Erre Pro</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button (click)="goToOffice('/HRSales')" class="btn mb-3">HR and Sales</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button (click)="goToOffice('/DirezioneErreLab')" class="btn mb-3 ">Dir. Erre
+                                Lab</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button (click)="goToOffice('/UfficioLab')" class="btn mb-3">Uff. tec. Erre
+                                Lab</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button (click)="goToOffice('/UfficioPro')" class="btn">Uff. tec. Erre Pro</button>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/Ufficio1GroundFloor')" class="btn float-right">Uff. tec. 1</button>
-                    </div>
+                <div class="col-10">
+                    <span>First floor</span>
+                    <hr id="hr_first">
+                    <img class="img-fluid" id="img-piani" src="../../../assets/img/b__primo_piano.png">
                 </div>
+
             </div>
         </div>
-    </div>
-</header>
-<main id="first_floor">
-    <div class="container-fluid h-100">
-        <div class="row h-100 align-items-center">
-            <div class="col">
-                <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/DirezioneErreGes')" class="btn mb-3">Dir. Erre Ges</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/Amministrazione')" class="btn mb-3">Amministrazione</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/DirezioneErreTech')" class="btn mb-3">Dir. Erre Tech</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/Ufficio1FirstFloor')" class="btn mb-3">Uff.1</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/DirezioneErrePro')" class="btn">Dir. Erre Pro</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <span>First floor</span>
-                <hr id="hr_first">
-                <img id="img-piani" src="../../../assets/img/b__primo_piano.png">
-            </div>
-            <div class="col">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <button (click)="goToOffice('/HRSales')" class="btn mb-3 float-right">HR and Sales</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/DirezioneErreLab')" class="btn mb-3 float-right">Dir. Erre
-                            Lab</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/UfficioLab')" class="btn mb-3 float-right">Uff. tec. Erre
-                            Lab</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/UfficioPro')" class="btn float-right">Uff. tec. Erre Pro</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
+    </main>
+
+</div>
