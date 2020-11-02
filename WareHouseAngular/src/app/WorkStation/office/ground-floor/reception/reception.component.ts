@@ -9,6 +9,8 @@ import { WorkstationInSession } from 'src/app/WorkStation/workstation-in-session
 export class ReceptionComponent extends WorkstationInSession implements OnInit {
 
   title="Reception";
+  workstationInSession = "reception";
+  coords= ["58,85 87,85 88,108 103,108 103,124 88,123 88,144 58,144 "];
 
   constructor() {
     super();

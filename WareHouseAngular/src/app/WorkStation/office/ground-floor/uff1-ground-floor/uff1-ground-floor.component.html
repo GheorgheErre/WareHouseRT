@@ -8,71 +8,7 @@
             <div class="col mt-3 text-center">
                 <img src="../../../../../assets/img/ufficio_tecnico1_PT.png" alt="Workplace" usemap="#workmap">
 
-                <map name="workmap">
-                   <!--direzione--> 
-                    <!--cambiare argomento ufficio in dir_uff_1_gf-->
-                    <area alt="" title="1" href="/Workstation"
-                        coords="49,89 79,89 79,156 49,155 50,130 33,129 32,114 49,114 " shape="polygon"
-                        (click)="setWorkstationInSession('direzione', 1)">
-                    <!-- 1 tavolo da sinistra--> 
-                    <area alt="2" title="1" href="/Workstation"
-                        coords="184,85 207,85 206,68 223,68 222,85 243,85 243,116 184,115 " shape="polygon"
-                        (click)="setWorkstationInSession('uff_1_gf', 1)">
-                    <area alt="" title="2" href="/Workstation"
-                        coords="244,84 263,84 263,68 279,68 278,84 302,85 303,115 244,114 " shape="polygon"
-                        (click)="setWorkstationInSession('uff_1_gf', 2)">
-                    <area alt="3" title="3" href="/Workstation"
-                        coords="184,115 243,115 244,146 224,145 223,162 208,162 207,145 185,145 " shape="polygon"
-                        (click)="setWorkstationInSession('uff_1_gf', 3)">
-                    <area alt="5" title="4" href="/Workstation"
-                        coords="243,115 302,115 303,146 283,145 282,162 267,162 266,145 244,145 " shape="polygon"
-                        (click)="setWorkstationInSession('uff_1_gf', 4)">
-
-                    <!--2 tavolo da sinistra--> 
-
-                    <area alt="d" title="5" href="/Workstation"
-                        coords="367,56 396,56 396,116 366,117 367,97 351,98 350,81 366,81 " shape="polygon"
-                        (click)="setWorkstationInSession('uff_1_gf', 5)">
-                    <area alt="d" title="6" href="/Workstation"
-                        coords="396,57 426,56 426,81 443,81 443,97 425,97 425,115 396,115  " shape="polygon"
-                        (click)="setWorkstationInSession('uff_1_gf', 6)">
-                    <area alt="45" title="7" href="/Workstation"
-                        coords="367,174 397,175 396,116 367,116 367,137 351,137 351,153 367,153" shape="polygon"
-                        (click)="setWorkstationInSession('uff_1_gf', 7)">
-                    <area alt="s" title="8" href="/Workstation"
-                        coords="396,115 426,114 426,139 443,139 443,155 425,155 425,173 396,173 " shape="polygon"
-                        (click)="setWorkstationInSession('uff_1_gf', 8)">
-
-                    <!-- 3 tav six--> 
-
-                    <area alt="s" title="9" href="/Workstation"
-                        coords="488,85 512,85 510,69 528,68 528,85 547,85 548,115 489,115 " shape="polygon"
-                        (click)="setWorkstationInSession('uff_1_gf', 9)">
-                    <area alt="c" title="10" href="/Workstation"
-                        coords="547,87 569,87 569,71 587,71 586,87 607,87 606,117 547,116 " shape="polygon"
-                        (click)="setWorkstationInSession('uff_1_gf', 10)">
-                    <area alt="s" title="11" href="/Workstation"
-                        coords="488,144 511,145 511,160 528,161 527,145 548,145 548,115 487,115 " shape="polygon"
-                        (click)="setWorkstationInSession('uff_1_gf', 11)">
-                    <area alt="" title="12" href="/Workstation"
-                        coords="548,144 571,145 571,160 587,161 587,145 608,145 608,115 547,115  " shape="polygon"
-                        (click)="setWorkstationInSession('uff_1_gf', 12)">
-
-                    <!--4 tav six-->
-                    <area alt="" title="13" href="/Workstation"
-                        coords="670,55 699,55 698,115 670,115 669,97 654,97 653,82 670,79 " shape="polygon"
-                        (click)="setWorkstationInSession('uff_1_gf', 13)">
-                    <area alt="s" title="14" href="/Workstation"
-                        coords="699,57 729,57 729,82 743,82 744,98 729,98 729,115 699,115  " shape="polygon"
-                        (click)="setWorkstationInSession('uff_1_gf', 14)">
-                    <area alt="s" title="15" href="/Workstation"
-                        coords="670,115 700,115 699,175 670,175 670,157 654,157 654,141 670,139 " shape="polygon"
-                        (click)="setWorkstationInSession('uff_1_gf', 15)">
-                    <area alt="s" title="16" href="/Workstation"
-                        coords="700,115 729,114 729,139 746,139 746,155 728,155 728,173 699,173 " shape="polygon"
-                        (click)="setWorkstationInSession('uff_1_gf', 16)">
-
-                </map>
+                <app-map [coords]="coords" [workstationInSession]="workstationInSession"></app-map>
             </div>
         </div>
     </div>

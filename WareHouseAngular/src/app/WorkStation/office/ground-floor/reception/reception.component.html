@@ -5,11 +5,8 @@
     <div class="row" id="first_floor">
 
       <div class="col mt-3 text-center">
-        <img id="imgMap" src="../../../../../assets/img/Reception.png" usemap="#image_map">
-        <map name="image_map">
-          <area alt="" title="1" href="/Workstation" coords="58,85 87,85 88,108 103,108 103,124 88,123 88,144 58,144 "
-            shape="polygon" (click)="setWorkstationInSession('reception', 1)">>
-        </map>
+        <img id="imgMap" src="../../../../../assets/img/Reception.png" usemap="#workmap">
+        <app-map [coords]="coords" [workstationInSession]="workstationInSession"></app-map>
       </div>
     </div>
   </div>
