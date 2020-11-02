@@ -1,0 +1,4 @@
+<map name="workmap">
+    <area *ngFor="let coord of coords; index as i" alt="{{i+1}}" title="{{i+1}}" href="/Workstation" coords={{coord}}
+      shape="polygon" (click)="setWorkstationInSession('uff_2_gf', i+1)">
+</map>
