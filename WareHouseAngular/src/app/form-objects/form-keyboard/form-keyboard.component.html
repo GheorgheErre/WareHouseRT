@@ -1,1 +1,27 @@
-<p>form-keyboard works!</p>
+<div>
+    <h3>ADD KEYBOARD</h3>
+<form (ngSubmit)="sendKeyboardToParent()" id="formKeyboard">
+
+    <div class="form-control mb-2" id="keyboardGroup">
+        <input [(ngModel)]="keyboard.users" name="users" class="form-control" placeholder="Users:">
+    </div>
+    <div class="form-control mb-2" id="keyboardGroup">
+        <input [(ngModel)]="keyboard.brand" name="brand" class="form-control" placeholder="Brand:">
+    </div>
+    <div class="form-control mb-2" id="keyboardGroup">
+        <input [(ngModel)]="keyboard.model" name="model" class="form-control" placeholder="Model:">
+    </div>
+    <div class="form-control mb-2" id="keyboardGroup">
+        <input [(ngModel)]="keyboard.serialNumber" name="serialNumber" class="form-control"
+            placeholder="Serial number:">
+    </div>
+    <div class="form-control mb-2" id="keyboardGroup">
+        <input [(ngModel)]="keyboard.userNumber" name="userNumber" class="form-control"
+            placeholder="User number:">
+    </div>
+    <div class="float-right">
+        <button class="btn mr-2 float-left">Save/Update keyboard</button>
+        <button class="btn float-left" data-dismiss="modal">Close</button>
+    </div>
+</form>
+</div>

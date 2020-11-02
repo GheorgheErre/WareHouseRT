@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Cable } from 'src/app/pcObjects/cable/cable';
 
 @Component({
@@ -8,7 +8,7 @@ import { Cable } from 'src/app/pcObjects/cable/cable';
 })
 export class FormCableComponent implements OnInit {
 
-  cable : Cable = new Cable();
+  @Input() cable : Cable;
   @Output() cableToEmit = new EventEmitter<Cable>();
 
 

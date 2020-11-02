@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Gpu } from 'src/app/pcObjects/gpu/gpu';
 
 @Component({
   selector: 'app-form-gpu',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormGpuComponent implements OnInit {
 
+  @Input() gpu : Gpu;
+  @Output() gpuToEmit = new EventEmitter<Gpu>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  sendGpuToParent() {
+    this.gpuToEmit.emit(this.gpu);
+}
 
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Hdd } from 'src/app/pcObjects/hdd/hdd';
 
 @Component({
   selector: 'app-form-hdd',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormHddComponent implements OnInit {
 
+  @Input() hdd : Hdd;
+  @Output() hddToEmit = new EventEmitter<Hdd>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  sendHddToParent() {
+    this.hddToEmit.emit(this.hdd);
+}
 
 }

@@ -1,1 +1,38 @@
-<p>form-cellphone works!</p>
+<div>
+    <h3>ADD CELLPHONE</h3>
+    <form (ngSubmit)="sendCellphoneToParent()" id="formCellphone">
+
+        <div class="form-control mb-2" id="cellphoneGroup">
+            <input [(ngModel)]="cellphone.users" name="users" class="form-control" placeholder="Users:">
+        </div>
+        <div class="form-control mb-2" id="cellphoneGroup">
+            <input [(ngModel)]="cellphone.brand" name="brand" class="form-control" placeholder="Brand:">
+        </div>
+        <div class="form-control mb-2" id="cellphoneGroup">
+            <input [(ngModel)]="cellphone.model" name="model" class="form-control" placeholder="Model:">
+        </div>
+        <div class="form-control mb-2" id="cellphoneGroup">
+            <input [(ngModel)]="cellphone.serialNumber" name="serialNumber" class="form-control"
+                placeholder="Serial number:">
+        </div>
+        <div class="form-control mb-2" id="cellphoneGroup">
+            <input [(ngModel)]="cellphone.userNumber" name="userNumber" class="form-control" placeholder="User number:">
+        </div>
+        <div class="form-control mb-4" id="cellphoneGroup">
+            <input [(ngModel)]="cellphone.imeiCode" name="imeiCode" class="form-control" placeholder="IMieiCode:">
+        </div>
+        <div class="form-control mb-4" id="cellphoneGroup">
+            <input [(ngModel)]="cellphone.operator" name="operator" class="form-control" placeholder="Operator:">
+        </div>
+        <div class="form-control mb-4" id="cellphoneGroup">
+            <input [(ngModel)]="cellphone.phoneNumber" name="phoneNumber" class="form-control" placeholder="Phone Number:">
+        </div>
+        <div class="form-control mb-4" id="cellphoneGroup">
+            <input [(ngModel)]="cellphone.rateTypology" name="type" class="form-control" placeholder="Rate Tipology:">
+        </div>
+        <div class="float-right">
+            <button class="btn mr-2 float-left">Save/Update cellphone</button>
+            <button class="btn float-left" data-dismiss="modal">Close</button>
+        </div>
+    </form>
+</div>

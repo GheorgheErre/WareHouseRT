@@ -12,6 +12,7 @@ export class DockingStationListComponent extends ProductList implements OnInit {
 
   constructor(private dockingStationService: DockingStationService) {
     super(dockingStationService);
+    this.entity = new DockingStation();
   }
 
   ngOnInit(): void {

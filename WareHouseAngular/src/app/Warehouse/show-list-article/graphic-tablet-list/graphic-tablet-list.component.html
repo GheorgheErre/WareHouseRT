@@ -79,54 +79,14 @@
 	</div>
 </header>
 
-<!-- Modal 
+<!-- Modal -->
 <div class="modal fade" id="saveOrUpdateModal" role="dialog">
 	<div class="modal-dialog modal-dialog-centered">
 
 		<div class="modal-content" id="modal">
-
-			<div class="modal-header" id="modal-header">
-				<h3 class="modal-title">Add a new article:</h3>
-			</div>
-
 			<div class="modal-body" id="modal-body">
-				<form (ngSubmit)="saveOrUpdate()" id="formGraphicTablet">
-
-					<div class="form-control mb-2" id="graphicTabletGroup">
-						<input [(ngModel)]="entity.users" name="users" class="form-control" placeholder="Users:">
-					</div>
-					<div class="form-control mb-2" id="graphicTabletGroup">
-						<input [(ngModel)]="entity.brand" name="brand" class="form-control" placeholder="Brand:">
-					</div>
-					<div class="form-control mb-2" id="graphicTabletGroup">
-						<input [(ngModel)]="entity.model" name="model" class="form-control" placeholder="Model:">
-					</div>
-					<div class="form-control mb-2" id="graphicTabletGroup">
-						<input [(ngModel)]="entity.serialNumber" name="serialNumber" class="form-control"
-							placeholder="Serial number:">
-					</div>
-					<div class="form-control mb-2" id="graphicTabletGroup">
-						<input [(ngModel)]="entity.userNumber" name="userNumber" class="form-control"
-							placeholder="User number:">
-					</div>
-					<div class="form-control mb-4" id="graphicTabletGroup">
-						<input [(ngModel)]="entity.height" name="height" class="form-control" placeholder="Heigth:">
-					</div>
-					<div class="form-control mb-4" id="graphicTabletGroup">
-						<input [(ngModel)]="entity.width" name="width" class="form-control" placeholder="Width:">
-					</div>
-					<div class="form-control mb-4" id="graphicTabletGroup">
-						<input [(ngModel)]="entity.length" name="length" class="form-control" placeholder="Length:">
-					</div>
-					<div class="float-right">
-						<button class="btn mr-2 float-left">Save/Update Graphic Tablet</button>
-						<button class="btn float-left" data-dismiss="modal">Close</button>
-					</div>
-				</form>
+				<app-form-graphic-tablet [graphicTablet]="entity" (graphicTabletToEmit)="saveOrUpdate($event)"></app-form-graphic-tablet>
 			</div>
-
-
 		</div>
-
 	</div>
-</div>-->
+</div>
