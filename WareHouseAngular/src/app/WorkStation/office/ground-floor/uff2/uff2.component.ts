@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class Uff2Component implements OnInit {
 
   title = "Ufficio tecnico 2";
+  workstationInSession = "uff_2_gf";
   coords = ["63,77 83,77 83,61 100,60 101,77 114,76 114,107 64,106 ",
     "166,106 166,77 153,76 151,61 136,61 135,76 115,76 115,106 ",
     "218,106 218,78 204,77 203,62 188,61 187,76 167,77 167,107 ",

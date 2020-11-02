@@ -10,6 +10,7 @@ export class MapComponent extends WorkstationInSession implements OnInit {
 
 
   @Input() coords: [];
+  @Input() workstationInSession: string;
   constructor() {
     super();
   }
