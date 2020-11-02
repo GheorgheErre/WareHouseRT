@@ -2,13 +2,16 @@
     font-family: Poppins;
     src: url("../../../assets/fonts/Poppins-Light.ttf");
 }
+
 * {
     font-family: "Poppins", sans-serif;
 }
+
 html,
 body {
     height: 100%;
 }
+
 header {
     height: 100%;
     background-image: url("img/workstation-welcomeCopia.jpg");
@@ -17,6 +20,7 @@ header {
     background-position: center center;
     background-attachment: fixed;
 }
+
 main {
     height: 100%;
     background-image: url("img/workstation-welcomeCopia1.jpg");
@@ -25,21 +29,22 @@ main {
     background-position: center center;
     background-attachment: fixed;
 }
+
 button {
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
+    border-bottom: 1px solid #004fff;
+    border-left: 1px solid #004fff;
     border-right: 1px solid lightgrey;
     border-top: 1px solid lightgrey;
     color: black;
     border-radius: 20px;
     transition: 0.5s;
     letter-spacing: 3px;
-    
 }
+
 button:hover {
-    background: black;
-    color: white;
-    border: 1px solid black;
+    background: white;
+    color: #004fff;
+    border: 1px solid #004fff;
     border-radius: 20px;
     transition: 0.5s;
 }
@@ -48,13 +53,19 @@ span {
     color: #004fff;
     font-size: 30px;
     letter-spacing: 5px;
+    border: 1px solid white;
+    background-color: white;
+    box-shadow: 10px 5px 5px #004fff;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 #img-piani {
     border: 1px solid black;
     border-radius: 10px;
-    
+    height: 700px;
 }
+
 #logo {
     height: 70px;
 }
@@ -72,17 +83,4 @@ span {
     background-color: black;
     color: white;
     transition: 0.5s;
-}
-#hr-ground {
-    margin: 10px 0px;
-    padding: 0;
-    width: 25%;
-    border: 1px solid black;
-}
-#hr_first{
-    margin: 10px 0px;
-    padding: 0;
-    width: 20%;
-    border: 1px solid black;
-
 }
