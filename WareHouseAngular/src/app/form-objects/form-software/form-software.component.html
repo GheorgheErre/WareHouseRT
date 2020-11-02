@@ -1,1 +1,27 @@
-<p>form-software works!</p>
+<form (ngSubmit)="sendSoftwareToParent()" id="formSoftware">
+
+    <div class="form-control mb-2" id="softwareGroup">
+        <input [(ngModel)]="software.users" name="users" class="form-control" placeholder="Users:">
+    </div>
+    <div class="form-control mb-2" id="softwareGroup">
+        <input [(ngModel)]="software.brand" name="brand" class="form-control" placeholder="Brand:">
+    </div>
+    <div class="form-control mb-2" id="softwareGroup">
+        <input [(ngModel)]="software.model" name="model" class="form-control" placeholder="Model:">
+    </div>
+    <div class="form-control mb-2" id="softwareGroup">
+        <input [(ngModel)]="software.serialNumber" name="serialNumber" class="form-control"
+            placeholder="Serial number:">
+    </div>
+    <div class="form-control mb-2" id="softwareGroup">
+        <input [(ngModel)]="software.userNumber" name="userNumber" class="form-control"
+            placeholder="User number:">
+    </div>
+    <div class="form-control mb-4" id="softwareGroup">
+        <input [(ngModel)]="software.productKey" name="productKey" class="form-control" placeholder="Product Key:">
+    </div>
+    <div class="float-right">
+        <button class="btn mr-2 float-left">Save/Update software</button>
+        <button class="btn float-left" data-dismiss="modal">Close</button>
+    </div>
+</form>

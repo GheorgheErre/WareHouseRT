@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Ram } from 'src/app/pcObjects/ram/ram';
 
 @Component({
   selector: 'app-form-ram',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormRamComponent implements OnInit {
 
+  @Input() ram: Ram;
+  @Output() ramToEmit = new EventEmitter<Ram>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  sendRamToParent() {
+    this.ramToEmit.emit(this.ram);
+  }
 }

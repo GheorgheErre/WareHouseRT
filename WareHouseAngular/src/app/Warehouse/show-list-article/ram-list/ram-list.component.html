@@ -50,7 +50,6 @@
 						</thead>
 						<tbody>
 							<tr *ngFor="let ram of listProduct">
-								<td class="hidden"></td>
 								<td>{{ram.identifier}}</td>
 								<td>{{ram.users}}</td>
 								<td>{{ram.brand}}</td>
@@ -77,8 +76,7 @@
 	</div>
 </header>
 
-
-<!-- Modal 
+ Modal 
 <div class="modal fade" id="saveOrUpdateModal" role="dialog">
 	<div class="modal-dialog modal-dialog-centered">
 
@@ -89,40 +87,11 @@
 			</div>
 
 			<div class="modal-body" id="modal-body">
-				<form (ngSubmit)="saveOrUpdate()" id="formRam">
-
-					<div class="form-control mb-2" id="ramGroup">
-						<input [(ngModel)]="entity.users" name="users" class="form-control" placeholder="Users:">
-					</div>
-					<div class="form-control mb-2" id="ramGroup">
-						<input [(ngModel)]="entity.brand" name="brand" class="form-control" placeholder="Brand:">
-					</div>
-					<div class="form-control mb-2" id="ramGroup">
-						<input [(ngModel)]="entity.model" name="model" class="form-control" placeholder="Model:">
-					</div>
-					<div class="form-control mb-2" id="ramGroup">
-						<input [(ngModel)]="entity.serialNumber" name="serialNumber" class="form-control"
-							placeholder="Serial number:">
-					</div>
-					<div class="form-control mb-2" id="ramGroup">
-						<input [(ngModel)]="entity.userNumber" name="userNumber" class="form-control"
-							placeholder="User number:">
-					</div>
-					<div class="form-control mb-4" id="ramGroup">
-						<input [(ngModel)]="entity.capacity" name="capacity" class="form-control" placeholder="Capacity:">
-					</div>
-					<div class="form-control mb-4" id="ramGroup">
-						<input [(ngModel)]="entity.frequencies" name="frequencies" class="form-control" placeholder="Frequencies:">
-					</div>
-					<div class="float-right">
-						<button class="btn mr-2 float-left">Save/Update RAM</button>
-						<button class="btn float-left" data-dismiss="modal">Close</button>
-					</div>
-				</form>
+				<app-form-ram [ram]="entity" (ramToEmit)="saveOrUpdate($event)"></app-form-ram>
 			</div>
 
 
 		</div>
 
 	</div>
-</div>-->
+</div>
