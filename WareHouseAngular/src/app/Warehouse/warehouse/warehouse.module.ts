@@ -52,6 +52,23 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { WarehouseHomeComponent } from '../warehouse-home/warehouse-home.component';
 import { ListProductComponent } from '../show-list-article/list-product/list-product.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
+import { FormLaptopComponent } from 'src/app/form-objects/form-laptop/form-laptop.component';
+import { FormCableComponent } from 'src/app/form-objects/form-cable/form-cable.component';
+import { FormCellphoneComponent } from 'src/app/form-objects/form-cellphone/form-cellphone.component';
+import { FormCpuComponent } from 'src/app/form-objects/form-cpu/form-cpu.component';
+import { FormDesktopComponent } from 'src/app/form-objects/form-desktop/form-desktop.component';
+import { FormDockingStationComponent } from 'src/app/form-objects/form-docking-station/form-docking-station.component';
+import { FormGpuComponent } from 'src/app/form-objects/form-gpu/form-gpu.component';
+import { FormGraphicTabletComponent } from 'src/app/form-objects/form-graphic-tablet/form-graphic-tablet.component';
+import { FormHddComponent } from 'src/app/form-objects/form-hdd/form-hdd.component';
+import { FormMonitorComponent } from 'src/app/form-objects/form-monitor/form-monitor.component';
+import { FormMouseComponent } from 'src/app/form-objects/form-mouse/form-mouse.component';
+import { FormOperativeSystemComponent } from 'src/app/form-objects/form-operative-system/form-operative-system.component';
+import { FormPowerSupplieComponent } from 'src/app/form-objects/form-power-supplie/form-power-supplie.component';
+import { FormRamComponent } from 'src/app/form-objects/form-ram/form-ram.component';
+import { FormSoftwareComponent } from 'src/app/form-objects/form-software/form-software.component';
+import { FormSsdComponent } from 'src/app/form-objects/form-ssd/form-ssd.component';
+import { FormTokenComponent } from 'src/app/form-objects/form-token/form-token.component';
 
 
 
@@ -97,8 +114,24 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
     ArticleCardComponent,
     WarehouseHomeComponent,
     ListProductComponent,
-    DashboardComponent
-
+    DashboardComponent,
+    FormLaptopComponent,
+    FormCableComponent,
+    FormCellphoneComponent,
+    FormCpuComponent,
+    FormDesktopComponent,
+    FormDockingStationComponent,
+    FormGpuComponent,
+    FormGraphicTabletComponent,
+    FormHddComponent,
+    FormMonitorComponent,
+    FormMouseComponent,
+    FormOperativeSystemComponent,
+    FormPowerSupplieComponent,
+    FormRamComponent,
+    FormSoftwareComponent,
+    FormSsdComponent,
+    FormTokenComponent
    ],
   imports: [
     CommonModule,

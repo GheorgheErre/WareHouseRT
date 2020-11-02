@@ -13,7 +13,6 @@ export class CableListComponent extends ProductList implements OnInit {
 
   constructor(private cableService: CableService) {
     super(cableService);
-    this.entity = new Cable();
 
   }
 
@@ -28,8 +27,6 @@ export class CableListComponent extends ProductList implements OnInit {
   }
 
   onAddArticleButton() {
-    this.entity = new Cable();
-
   }
 
 

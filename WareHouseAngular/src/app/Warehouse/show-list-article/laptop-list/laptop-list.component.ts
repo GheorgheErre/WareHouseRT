@@ -12,7 +12,6 @@ export class LaptopListComponent extends ProductList implements OnInit {
 
   constructor(private laptopService: LaptopService) {
     super(laptopService);
-    this.entity = new Laptop();
    }
 
   ngOnInit(): void {
@@ -26,6 +25,7 @@ export class LaptopListComponent extends ProductList implements OnInit {
   onAddArticleButton() {
     this.entity = new Laptop();
   }
+
 
 
 }
