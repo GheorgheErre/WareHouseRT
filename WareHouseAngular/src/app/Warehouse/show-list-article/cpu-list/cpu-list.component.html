@@ -1,5 +1,5 @@
 <header>
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row h-100 d-flex flex-column flex-wrap">
 			<div class="col mt-5">
 				<div class="row h-100 align-items-end">
@@ -51,7 +51,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr *ngFor="let cpu of showList">
+							<tr *ngFor="let cpu of listProduct">
 								<td class="hidden"></td>
 								<td>{{cpu.identifier}}</td>
 								<td>{{cpu.users}}</td>
