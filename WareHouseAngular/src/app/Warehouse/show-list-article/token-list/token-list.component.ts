@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormTokenComponent } from 'src/app/form-objects/form-token/form-token.component';
 import { Token } from 'src/app/pcObjects/token/token';
 import { TokenService } from 'src/app/service/service-token/token.service';
 import { ProductList } from '../product-list/product-list';
@@ -9,6 +10,8 @@ import { ProductList } from '../product-list/product-list';
   styleUrls: ['./token-list.component.scss']
 })
 export class TokenListComponent extends ProductList implements OnInit {
+
+  @ViewChild(FormTokenComponent) formTokenComponent: FormTokenComponent;
 
   constructor(private tokenService: TokenService) {
     super(tokenService);
@@ -21,6 +24,8 @@ export class TokenListComponent extends ProductList implements OnInit {
 
   onUpdateButton(entity: Token) {
     this.entity = entity;
+    this.formTokenComponent.setToken(this.entity);
+
   }
 
   onAddArticleButton() {

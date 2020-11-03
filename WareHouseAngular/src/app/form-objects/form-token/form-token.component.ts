@@ -9,14 +9,18 @@ import { Token } from 'src/app/pcObjects/token/token';
 })
 export class FormTokenComponent implements OnInit {
 
-  @Input() token : Token; 
+  @Input() token: Token;
   @Output() tokenToEmit = new EventEmitter<Token>();
+  tokenTemp = new Token();
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  setToken(entity): void {
+    this.tokenTemp = JSON.parse(JSON.stringify(entity));
+  }
   sendTokenToParent() {
     this.tokenToEmit.emit(this.token);
-}
+  }
 }

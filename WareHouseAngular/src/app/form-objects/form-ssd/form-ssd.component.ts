@@ -7,14 +7,18 @@ import { Ssd } from 'src/app/pcObjects/ssd/ssd';
   styleUrls: ['./form-ssd.component.scss']
 })
 export class FormSsdComponent implements OnInit {
-  @Input() ssd : Ssd 
+  @Input() ssd: Ssd
   @Output() ssdToEmit = new EventEmitter<Ssd>();
+  ssdTemp = new Ssd();
   constructor() { }
 
   ngOnInit(): void {
   }
+  setSsd(entity): void {
+    this.ssdTemp = JSON.parse(JSON.stringify(entity));
+  }
   sendSsdToParent() {
     this.ssdToEmit.emit(this.ssd);
-}
+  }
 
 }
