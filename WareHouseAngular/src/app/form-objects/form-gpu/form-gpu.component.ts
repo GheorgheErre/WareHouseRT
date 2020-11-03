@@ -10,10 +10,15 @@ export class FormGpuComponent implements OnInit {
 
   @Input() gpu : Gpu;
   @Output() gpuToEmit = new EventEmitter<Gpu>();
+  gpuTemp = new Gpu();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  setGpu(entity): void {
+    this.gpuTemp = JSON.parse(JSON.stringify(entity));
   }
 
   sendGpuToParent() {

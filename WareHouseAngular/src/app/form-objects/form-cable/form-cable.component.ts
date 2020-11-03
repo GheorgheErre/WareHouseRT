@@ -11,10 +11,15 @@ export class FormCableComponent implements OnInit {
   @Input() cable : Cable;
   @Output() cableToEmit = new EventEmitter<Cable>();
 
+  cableTemp = new Cable();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  setCable(entity): void {
+    this.cableTemp = JSON.parse(JSON.stringify(entity));
   }
 
   sendCableToParent() {

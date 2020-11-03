@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { FormCableComponent } from 'src/app/form-objects/form-cable/form-cable.component';
 import { Cable } from 'src/app/pcObjects/cable/cable';
 import { CableService } from 'src/app/service/service-cable/cable.service';
 import { ProductList } from '../product-list/product-list';
@@ -10,6 +11,7 @@ import { ProductList } from '../product-list/product-list';
 })
 export class CableListComponent extends ProductList implements OnInit {
 
+  @ViewChild(FormCableComponent) formCable: FormCableComponent;
 
   constructor(private cableService: CableService) {
     super(cableService);
@@ -23,7 +25,7 @@ export class CableListComponent extends ProductList implements OnInit {
   //aggiorno l'oggetto cable per farlo apparire nel form update
   onUpdateButton(entity: Cable) {
     this.entity = entity;
-
+    this.formCable.setCable(this.entity);
   }
 
   onAddArticleButton() {

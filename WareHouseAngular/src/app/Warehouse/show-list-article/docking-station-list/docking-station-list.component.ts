@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormDockingStationComponent } from 'src/app/form-objects/form-docking-station/form-docking-station.component';
 import { DockingStation } from 'src/app/pcObjects/dockingStation/docking-station';
 import { DockingStationService } from 'src/app/service/service-docking-station/docking-station-service.service';
 import { ProductList } from '../product-list/product-list';
@@ -9,6 +10,8 @@ import { ProductList } from '../product-list/product-list';
   styleUrls: ['./docking-station-list.component.scss']
 })
 export class DockingStationListComponent extends ProductList implements OnInit {
+
+  @ViewChild(FormDockingStationComponent) formDockingStation: FormDockingStationComponent;
 
   constructor(private dockingStationService: DockingStationService) {
     super(dockingStationService);
@@ -22,6 +25,7 @@ export class DockingStationListComponent extends ProductList implements OnInit {
 
   onUpdateButton(entity: DockingStation) {
     this.entity = entity;
+    this.formDockingStation.setDockingStation(this.entity);
   }
 
   onAddArticleButton() {

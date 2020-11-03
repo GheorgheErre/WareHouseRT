@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormGraphicTabletComponent } from 'src/app/form-objects/form-graphic-tablet/form-graphic-tablet.component';
 import { GraphicTablet } from 'src/app/pcObjects/graficTablet/grafic-tablet';
 import { GraphicTabletService } from 'src/app/service/service-graphic-tablet/graphic-tablet-service.service';
 import { ProductList } from '../product-list/product-list';
@@ -10,6 +11,8 @@ import { ProductList } from '../product-list/product-list';
 })
 export class GraphicTabletListComponent extends ProductList implements OnInit {
 
+  @ViewChild(FormGraphicTabletComponent) formGraphicTablet: FormGraphicTabletComponent;
+
   constructor(private graphicTabletService: GraphicTabletService) {
     super(graphicTabletService);
     this.entity = new GraphicTablet();
@@ -20,6 +23,7 @@ export class GraphicTabletListComponent extends ProductList implements OnInit {
   }
   onUpdateButton(entity: GraphicTablet) {
     this.entity = entity;
+    this.formGraphicTablet.setGraphicTablet(this.entity);
   }
 
   onAddArticleButton() {

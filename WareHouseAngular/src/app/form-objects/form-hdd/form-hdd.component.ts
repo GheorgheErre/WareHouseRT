@@ -11,9 +11,15 @@ export class FormHddComponent implements OnInit {
   @Input() hdd : Hdd;
   @Output() hddToEmit = new EventEmitter<Hdd>();
 
+  hddTemp = new Hdd();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  setHdd(entity): void {
+    this.hddTemp = JSON.parse(JSON.stringify(entity));
   }
 
   sendHddToParent() {

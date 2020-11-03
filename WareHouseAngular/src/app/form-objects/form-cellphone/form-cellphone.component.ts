@@ -11,13 +11,19 @@ export class FormCellphoneComponent implements OnInit {
   @Input() cellphone;
   @Output() cellphoneToEmit = new EventEmitter<Cellphone>();
 
+  cellphoneTemp = new Cellphone();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  setCellphone(entity): void {
+    this.cellphoneTemp = JSON.parse(JSON.stringify(entity));
+  }
+
   sendCellphoneToParent() {
     this.cellphoneToEmit.emit(this.cellphone);
-}
+  }
 
 }

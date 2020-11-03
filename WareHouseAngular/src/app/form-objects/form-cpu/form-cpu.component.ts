@@ -8,16 +8,21 @@ import { Cpu } from 'src/app/pcObjects/cpu/cpu';
 })
 export class FormCpuComponent implements OnInit {
 
-  @Input() cpu : Cpu;
+  @Input() cpu: Cpu;
   @Output() cpuToEmit = new EventEmitter<Cpu>();
+
+  cpuTemp = new Cpu();
 
   constructor() { }
 
   ngOnInit(): void {
   }
+  setCpu(entity): void {
+    this.cpuTemp = JSON.parse(JSON.stringify(entity));
+  }
 
   sendCpuToParent() {
     this.cpuToEmit.emit(this.cpu);
-}
+  }
 
 }

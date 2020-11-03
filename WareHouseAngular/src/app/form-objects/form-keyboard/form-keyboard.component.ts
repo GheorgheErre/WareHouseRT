@@ -11,10 +11,16 @@ export class FormKeyboardComponent implements OnInit {
   @Input() keyboard : Keyboard;
   @Output() keyboardToEmit = new EventEmitter<Keyboard>();
 
+  keyboardTemp = new Keyboard();
+
   constructor() {
    }
 
   ngOnInit(): void {
+  }
+
+  setKeyboard(entity): void {
+    this.keyboardTemp = JSON.parse(JSON.stringify(entity));
   }
 
   sendKeyboardToParent() {

@@ -10,10 +10,16 @@ export class FormDesktopComponent implements OnInit {
 
   @Input() desktop : Desktop;
   @Output() desktopToEmit = new EventEmitter<Desktop>();
+  desktopTemp = new Desktop();
 
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+
+  setDesktop(entity): void {
+    this.desktopTemp = JSON.parse(JSON.stringify(entity));
   }
 
   sendDesktopToParent() {

@@ -8,17 +8,22 @@ import { GraphicTablet } from 'src/app/pcObjects/graficTablet/grafic-tablet';
 })
 export class FormGraphicTabletComponent implements OnInit {
 
-  @Input() graphicTablet : GraphicTablet;
+  @Input() graphicTablet: GraphicTablet;
   @Output() graphicTabletToEmit = new EventEmitter<GraphicTablet>();
+  graphicTabletTemp = new GraphicTablet();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  setGraphicTablet(entity): void {
+    this.graphicTabletTemp = JSON.parse(JSON.stringify(entity));
+  }
+
   sendGraphicTabletToParent() {
     this.graphicTabletToEmit.emit(this.graphicTablet);
-}
+  }
 
 
 }

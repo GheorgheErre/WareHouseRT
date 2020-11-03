@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormKeyboardComponent } from 'src/app/form-objects/form-keyboard/form-keyboard.component';
 import { Keyboard } from 'src/app/pcObjects/keyBoard/key-board';
 import { KeyboardService } from 'src/app/service/service-keyboard/keyboard-service.service';
 import { ProductList } from '../product-list/product-list';
@@ -9,6 +10,8 @@ import { ProductList } from '../product-list/product-list';
   styleUrls: ['./keyboard-list.component.scss']
 })
 export class KeyboardListComponent extends ProductList implements OnInit {
+
+  @ViewChild(FormKeyboardComponent) formKeyboard: FormKeyboardComponent;
 
   constructor(private keyboardService: KeyboardService) {
     super(keyboardService);
@@ -21,6 +24,7 @@ export class KeyboardListComponent extends ProductList implements OnInit {
 
   onUpdateButton(entity: Keyboard) {
     this.entity = entity;
+    this.formKeyboard.setKeyboard(this.entity);
   }
 
   onAddArticleButton() {

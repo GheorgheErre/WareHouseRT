@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormDesktopComponent } from 'src/app/form-objects/form-desktop/form-desktop.component';
 import { Desktop } from 'src/app/pcObjects/desktop/desktop';
 import { DesktopService } from 'src/app/service/service-desktop/desktop-service.service';
 import { ProductList } from '../product-list/product-list';
@@ -9,6 +10,8 @@ import { ProductList } from '../product-list/product-list';
   styleUrls: ['./desktop-list.component.scss']
 })
 export class DesktopListComponent extends ProductList implements OnInit {
+
+  @ViewChild(FormDesktopComponent) formDesktop: FormDesktopComponent;
 
   constructor(private desktopService: DesktopService) {
     super(desktopService);
@@ -21,6 +24,7 @@ export class DesktopListComponent extends ProductList implements OnInit {
 
   onUpdateButton(entity: Desktop) {
     this.entity = entity;
+    this.formDesktop.setDesktop(this.entity);
   }
 
   onAddArticleButton() {
