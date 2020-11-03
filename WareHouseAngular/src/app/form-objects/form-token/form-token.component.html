@@ -1,1 +1,26 @@
-<p>form-token works!</p>
+<div>
+    <h3>ADD TOKEN</h3>
+    <form (ngSubmit)="sendTokenToParent()" id="formToken">
+
+        <div class="form-control mb-2" id="tokenGroup">
+            <input [(ngModel)]="token.users" name="users" class="form-control" placeholder="Users:">
+        </div>
+        <div class="form-control mb-2" id="tokenGroup">
+            <input [(ngModel)]="token.brand" name="brand" class="form-control" placeholder="Brand:">
+        </div>
+        <div class="form-control mb-2" id="tokenGroup">
+            <input [(ngModel)]="token.model" name="model" class="form-control" placeholder="Model:">
+        </div>
+        <div class="form-control mb-2" id="tokenGroup">
+            <input [(ngModel)]="token.serialNumber" name="serialNumber" class="form-control"
+                placeholder="Serial number:">
+        </div>
+        <div class="form-control mb-2" id="tokenGroup">
+            <input [(ngModel)]="token.userNumber" name="userNumber" class="form-control" placeholder="User number:">
+        </div>
+        <div class="float-right">
+            <button class="btn mr-2 float-left">Save/Update token</button>
+            <button class="btn float-left" data-dismiss="modal">Close</button>
+        </div>
+    </form>
+</div>

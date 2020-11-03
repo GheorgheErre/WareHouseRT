@@ -50,7 +50,6 @@
 						</thead>
 						<tbody>
 							<tr *ngFor="let ssd of listProduct">
-								<td class="hidden"></td>
 								<td>{{ssd.identifier}}</td>
 								<td>{{ssd.users}}</td>
 								<td>{{ssd.brand}}</td>
@@ -77,7 +76,7 @@
 </header>
 
 
-<!-- Modal 
+ 
 <div class="modal fade" id="saveOrUpdateModal" role="dialog">
 	<div class="modal-dialog modal-dialog-centered">
 
@@ -88,37 +87,12 @@
 			</div>
 
 			<div class="modal-body" id="modal-body">
-				<form (ngSubmit)="saveOrUpdate()" id="formSsd">
+				<app-form-ssd [ssd]="entity" (ssdToEmit)="saveOrUpdate($event)"></app-form-ssd>
 
-					<div class="form-control mb-2" id="ssdGroup">
-						<input [(ngModel)]="entity.users" name="users" class="form-control" placeholder="Users:">
-					</div>
-					<div class="form-control mb-2" id="ssdGroup">
-						<input [(ngModel)]="entity.brand" name="brand" class="form-control" placeholder="Brand:">
-					</div>
-					<div class="form-control mb-2" id="ssdGroup">
-						<input [(ngModel)]="entity.model" name="model" class="form-control" placeholder="Model:">
-					</div>
-					<div class="form-control mb-2" id="ssdGroup">
-						<input [(ngModel)]="entity.serialNumber" name="serialNumber" class="form-control"
-							placeholder="Serial number:">
-					</div>
-					<div class="form-control mb-2" id="ssdGroup">
-						<input [(ngModel)]="entity.userNumber" name="userNumber" class="form-control"
-							placeholder="User number:">
-					</div>
-					<div class="form-control mb-4" id="ssdGroup">
-						<input [(ngModel)]="entity.capacity" name="capacity" class="form-control" placeholder="Capacity:">
-					</div>
-					<div class="float-right">
-						<button class="btn mr-2 float-left">Save/Update SSD</button>
-						<button class="btn float-left" data-dismiss="modal">Close</button>
-					</div>
-				</form>
 			</div>
 
 
 		</div>
 
 	</div>
-</div>-->
+</div>

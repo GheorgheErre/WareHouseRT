@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Cellphone } from 'src/app/pcObjects/cellphone/cellphone';
 
 @Component({
   selector: 'app-form-cellphone',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormCellphoneComponent implements OnInit {
 
+  @Input() cellphone;
+  @Output() cellphoneToEmit = new EventEmitter<Cellphone>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  sendCellphoneToParent() {
+    this.cellphoneToEmit.emit(this.cellphone);
+}
 
 }

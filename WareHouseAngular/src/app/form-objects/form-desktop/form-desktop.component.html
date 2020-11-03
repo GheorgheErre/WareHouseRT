@@ -1,1 +1,42 @@
-<p>form-desktop works!</p>
+<div>
+    <h3>ADD DESKTOP</h3>
+<form (ngSubmit)="sendDesktopToParent()" id="formDesktop">
+
+    <div class="form-control mb-2" id="desktopGroup">
+        <input [(ngModel)]="desktop.users" name="users" class="form-control" placeholder="Users:">
+    </div>
+    <div class="form-control mb-2" id="desktopGroup">
+        <input [(ngModel)]="desktop.brand" name="brand" class="form-control" placeholder="Brand:">
+    </div>
+    <div class="form-control mb-2" id="desktopGroup">
+        <input [(ngModel)]="desktop.model" name="model" class="form-control" placeholder="Model:">
+    </div>
+    <div class="form-control mb-2" id="desktopGroup">
+        <input [(ngModel)]="desktop.serialNumber" name="serialNumber" class="form-control"
+            placeholder="Serial number:">
+    </div>
+    <div class="form-control mb-2" id="desktopGroup">
+        <input [(ngModel)]="desktop.userNumber" name="userNumber" class="form-control"
+            placeholder="User number:">
+    </div>
+    <div class="form-control mb-4" id="desktopGroup">
+        <input [(ngModel)]="desktop.cpu" name="cpu" class="form-control" placeholder="CPU:">
+    </div>
+    <div class="form-control mb-4" id="desktopGroup">
+        <input [(ngModel)]="desktop.gpu" name="gpu" class="form-control" placeholder="GPU">
+    </div>
+    <div class="form-control mb-4" id="desktopGroup">
+        <input [(ngModel)]="desktop.hdd" name="hdd" class="form-control" placeholder="HDD:">
+    </div>
+    <div class="form-control mb-4" id="desktopGroup">
+        <input [(ngModel)]="desktop.ssd" name="ssd" class="form-control" placeholder="SSD:">
+    </div>
+    <div class="form-control mb-4" id="desktopGroup">
+        <input [(ngModel)]="desktop.ram" name="ram" class="form-control" placeholder="RAM:">
+    </div>
+    <div class="float-right">
+        <button class="btn mr-2 float-left">Save/Update desktop</button>
+        <button class="btn float-left" data-dismiss="modal">Close</button>
+    </div>
+</form>
+</div>

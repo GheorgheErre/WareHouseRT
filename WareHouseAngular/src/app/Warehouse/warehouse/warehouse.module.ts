@@ -69,6 +69,7 @@ import { FormRamComponent } from 'src/app/form-objects/form-ram/form-ram.compone
 import { FormSoftwareComponent } from 'src/app/form-objects/form-software/form-software.component';
 import { FormSsdComponent } from 'src/app/form-objects/form-ssd/form-ssd.component';
 import { FormTokenComponent } from 'src/app/form-objects/form-token/form-token.component';
+import { FormKeyboardComponent } from 'src/app/form-objects/form-keyboard/form-keyboard.component';
 
 
 
@@ -129,6 +130,7 @@ import { FormTokenComponent } from 'src/app/form-objects/form-token/form-token.c
     FormOperativeSystemComponent,
     FormPowerSupplieComponent,
     FormRamComponent,
+    FormKeyboardComponent,
     FormSoftwareComponent,
     FormSsdComponent,
     FormTokenComponent

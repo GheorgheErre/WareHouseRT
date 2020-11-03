@@ -11,8 +11,6 @@ import { ProductList } from '../product-list/product-list';
 })
 export class CpuListComponent extends ProductList implements OnInit {
 
- 
-
   constructor(private cpuService: CpuService) {
     super(cpuService);
     this.entity = new Cpu();

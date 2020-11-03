@@ -66,7 +66,7 @@
                 </div>
             </div>
 
-            <div class="col mt-1">
+            <div *ngIf="workstation.articles?.length; else emptyList" class="col mt-1">
                 <div class="table-responsive">
                     <table id="tabella-workstation" class="table">
                         <thead id="thead">
@@ -101,6 +101,7 @@
                     </table>
                 </div>
             </div>
+            <ng-template #emptyList><div id="emptyListMessage">No articles present in this workstation, press "Add article" to add articles to this workstation</div></ng-template>
         </div>
     </div>
 </header>

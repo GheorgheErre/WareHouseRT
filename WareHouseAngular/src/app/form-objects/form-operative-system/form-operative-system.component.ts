@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { OperativeSystem } from 'src/app/pcObjects/operativeSystem/operative-system';
 
 @Component({
   selector: 'app-form-operative-system',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormOperativeSystemComponent implements OnInit {
 
+  @Input() operativeSystem : OperativeSystem 
+  @Output() operativeSystemToEmit = new EventEmitter<OperativeSystem>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  
+  sendOperativeSystemToParent() {
+    this.operativeSystemToEmit.emit(this.operativeSystem);
+}
 }

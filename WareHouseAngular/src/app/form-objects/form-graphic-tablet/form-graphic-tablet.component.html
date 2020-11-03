@@ -1,1 +1,35 @@
-<p>form-graphic-tablet works!</p>
+<div>
+    <h3>ADD GRAPHIC TABLET</h3>
+    <form (ngSubmit)="sendGraphicTabletToParent()" id="formGraphicTablet">
+
+        <div class="form-control mb-2" id="graphicTabletGroup">
+            <input [(ngModel)]="graphicTablet.users" name="users" class="form-control" placeholder="Users:">
+        </div>
+        <div class="form-control mb-2" id="graphicTabletGroup">
+            <input [(ngModel)]="graphicTablet.brand" name="brand" class="form-control" placeholder="Brand:">
+        </div>
+        <div class="form-control mb-2" id="graphicTabletGroup">
+            <input [(ngModel)]="graphicTablet.model" name="model" class="form-control" placeholder="Model:">
+        </div>
+        <div class="form-control mb-2" id="graphicTabletGroup">
+            <input [(ngModel)]="graphicTablet.serialNumber" name="serialNumber" class="form-control"
+                placeholder="Serial number:">
+        </div>
+        <div class="form-control mb-2" id="graphicTabletGroup">
+            <input [(ngModel)]="graphicTablet.userNumber" name="userNumber" class="form-control" placeholder="User number:">
+        </div>
+        <div class="form-control mb-4" id="graphicTabletGroup">
+            <input [(ngModel)]="graphicTablet.height" name="height" class="form-control" placeholder="Heigth:">
+        </div>
+        <div class="form-control mb-4" id="graphicTabletGroup">
+            <input [(ngModel)]="graphicTablet.width" name="width" class="form-control" placeholder="Width:">
+        </div>
+        <div class="form-control mb-4" id="graphicTabletGroup">
+            <input [(ngModel)]="graphicTablet.length" name="length" class="form-control" placeholder="Length:">
+        </div>
+        <div class="float-right">
+            <button class="btn mr-2 float-left">Save/Update Graphic Tablet</button>
+            <button class="btn float-left" data-dismiss="modal">Close</button>
+        </div>
+    </form>
+</div>

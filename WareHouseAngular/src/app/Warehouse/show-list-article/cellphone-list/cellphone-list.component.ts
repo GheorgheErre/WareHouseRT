@@ -10,8 +10,6 @@ import { ProductList } from '../product-list/product-list';
 })
 export class CellphoneListComponent extends ProductList implements OnInit {
 
-  //entity: Cellphone = new Cellphone();
-
   constructor(private cellphoneService: CellphoneService) { 
     super(cellphoneService);
     this.entity = new Cellphone();

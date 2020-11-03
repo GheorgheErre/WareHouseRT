@@ -50,7 +50,6 @@
 						</thead>
 						<tbody>
 							<tr *ngFor="let powerSupplie of listProduct">
-								<td class="hidden"></td>
 								<td>{{powerSupplie.identifier}}</td>
 								<td>{{powerSupplie.users}}</td>
 								<td>{{powerSupplie.brand}}</td>
@@ -60,68 +59,37 @@
 								<td>{{powerSupplie.userNumber}}</td>
 								<td>{{powerSupplie.watts}}</td>
 								<td>{{powerSupplie.energyRating}}</td>
-								<td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(powerSupplie)"
-									data-toggle="modal" data-target="#saveOrUpdateModal">
-									<fa-icon [icon]="faPen"></fa-icon>
-								</button></td>
-							<td><button (click)="deleteProduct(powerSupplie)" class="btn btn-danger" id="btn-delete">
-									<fa-icon [icon]="faEraser"></fa-icon>
-								</button></td>
+								<td><button class="btn btn-success" id="btn-modify"
+										(click)="onUpdateButton(powerSupplie)" data-toggle="modal"
+										data-target="#saveOrUpdateModal">
+										<fa-icon [icon]="faPen"></fa-icon>
+									</button></td>
+								<td><button (click)="deleteProduct(powerSupplie)" class="btn btn-danger"
+										id="btn-delete">
+										<fa-icon [icon]="faEraser"></fa-icon>
+									</button></td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
-				<ng-template #emptyList><div id="emptyListMessage">No Power Supply Unit present in the warehouse, press <fa-icon [icon]="faPlus"></fa-icon> to add a new Power Supply Unit.</div></ng-template>
+				<ng-template #emptyList>
+					<div id="emptyListMessage">No Power Supply Unit present in the warehouse, press <fa-icon
+							[icon]="faPlus"></fa-icon> to add a new Power Supply Unit.</div>
+				</ng-template>
 			</div>
 		</div>
 	</div>
 </header>
 
-<!-- Modal 
+
 <div class="modal fade" id="saveOrUpdateModal" role="dialog">
 	<div class="modal-dialog modal-dialog-centered">
 
 		<div class="modal-content" id="modal">
-
-			<div class="modal-header" id="modal-header">
-				<h3 class="modal-title">Add a new article:</h3>
-			</div>
-
 			<div class="modal-body" id="modal-body">
-				<form (ngSubmit)="saveOrUpdate()" id="formPowerSupplie">
-
-					<div class="form-control mb-2" id="powerSupplieGroup">
-						<input [(ngModel)]="entity.users" name="users" class="form-control" placeholder="Users:">
-					</div>
-					<div class="form-control mb-2" id="powerSupplieGroup">
-						<input [(ngModel)]="entity.brand" name="brand" class="form-control" placeholder="Brand:">
-					</div>
-					<div class="form-control mb-2" id="powerSupplieGroup">
-						<input [(ngModel)]="entity.model" name="model" class="form-control" placeholder="Model:">
-					</div>
-					<div class="form-control mb-2" id="powerSupplieGroup">
-						<input [(ngModel)]="entity.serialNumber" name="serialNumber" class="form-control"
-							placeholder="Serial number:">
-					</div>
-					<div class="form-control mb-2" id="powerSupplieGroup">
-						<input [(ngModel)]="entity.userNumber" name="userNumber" class="form-control"
-							placeholder="User number:">
-					</div>
-					<div class="form-control mb-4" id="powerSupplieGroup">
-						<input [(ngModel)]="entity.watts" name="watts" class="form-control" placeholder="Watts:">
-					</div>
-					<div class="form-control mb-4" id="powerSupplieGroup">
-						<input [(ngModel)]="entity.energyRating" name="energyRating" class="form-control" placeholder="Energy Rating:">
-					</div>
-					<div class="float-right">
-						<button class="btn mr-2 float-left">Save/Update Power Supplie</button>
-						<button class="btn float-left" data-dismiss="modal">Close</button>
-					</div>
-				</form>
+				<app-form-power-supplie [powerSupplie]="entity" (powerSupplieToEmit)="saveOrUpdate($event)"></app-form-power-supplie>
 			</div>
-
-
 		</div>
 
 	</div>
-</div>-->
+</div>

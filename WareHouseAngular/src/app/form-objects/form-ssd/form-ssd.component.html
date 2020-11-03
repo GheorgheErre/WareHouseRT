@@ -1,1 +1,29 @@
-<p>form-ssd works!</p>
+<div>
+    <h3>ADD SSD</h3>
+    <form (ngSubmit)="sendSsdToParent()" id="formSsd">
+
+        <div class="form-control mb-2" id="ssdGroup">
+            <input [(ngModel)]="ssd.users" name="users" class="form-control" placeholder="Users:">
+        </div>
+        <div class="form-control mb-2" id="ssdGroup">
+            <input [(ngModel)]="ssd.brand" name="brand" class="form-control" placeholder="Brand:">
+        </div>
+        <div class="form-control mb-2" id="ssdGroup">
+            <input [(ngModel)]="ssd.model" name="model" class="form-control" placeholder="Model:">
+        </div>
+        <div class="form-control mb-2" id="ssdGroup">
+            <input [(ngModel)]="ssd.serialNumber" name="serialNumber" class="form-control"
+                placeholder="Serial number:">
+        </div>
+        <div class="form-control mb-2" id="ssdGroup">
+            <input [(ngModel)]="ssd.userNumber" name="userNumber" class="form-control" placeholder="User number:">
+        </div>
+        <div class="form-control mb-4" id="ssdGroup">
+            <input [(ngModel)]="ssd.capacity" name="capacity" class="form-control" placeholder="Capacity:">
+        </div>
+        <div class="float-right">
+            <button class="btn mr-2 float-left">Save/Update SSD</button>
+            <button class="btn float-left" data-dismiss="modal">Close</button>
+        </div>
+    </form>
+</div>
