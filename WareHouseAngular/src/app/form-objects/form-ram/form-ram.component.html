@@ -3,26 +3,26 @@
     <form (ngSubmit)="sendRamToParent()" id="formRam">
 
         <div class="form-control mb-2" id="ramGroup">
-            <input [(ngModel)]="ram.users" name="users" class="form-control" placeholder="Users:">
+            <input [(ngModel)]="ramTemp.users" name="users" class="form-control" placeholder="Users:">
         </div>
         <div class="form-control mb-2" id="ramGroup">
-            <input [(ngModel)]="ram.brand" name="brand" class="form-control" placeholder="Brand:">
+            <input [(ngModel)]="ramTemp.brand" name="brand" class="form-control" placeholder="Brand:">
         </div>
         <div class="form-control mb-2" id="ramGroup">
-            <input [(ngModel)]="ram.model" name="model" class="form-control" placeholder="Model:">
+            <input [(ngModel)]="ramTemp.model" name="model" class="form-control" placeholder="Model:">
         </div>
         <div class="form-control mb-2" id="ramGroup">
-            <input [(ngModel)]="ram.serialNumber" name="serialNumber" class="form-control"
+            <input [(ngModel)]="ramTemp.serialNumber" name="serialNumber" class="form-control"
                 placeholder="Serial number:">
         </div>
         <div class="form-control mb-2" id="ramGroup">
-            <input [(ngModel)]="ram.userNumber" name="userNumber" class="form-control" placeholder="User number:">
+            <input [(ngModel)]="ramTemp.userNumber" name="userNumber" class="form-control" placeholder="User number:">
         </div>
         <div class="form-control mb-4" id="ramGroup">
-            <input [(ngModel)]="ram.capacity" name="capacity" class="form-control" placeholder="Capacity:">
+            <input [(ngModel)]="ramTemp.capacity" name="capacity" class="form-control" placeholder="Capacity:">
         </div>
         <div class="form-control mb-4" id="ramGroup">
-            <input [(ngModel)]="ram.frequencies" name="frequencies" class="form-control" placeholder="Frequencies:">
+            <input [(ngModel)]="ramTemp.frequencies" name="frequencies" class="form-control" placeholder="Frequencies:">
         </div>
         <div class="float-right">
             <button class="btn mr-2 float-left">Save/Update RAM</button>

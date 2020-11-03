@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormPowerSupplieComponent } from 'src/app/form-objects/form-power-supplie/form-power-supplie.component';
 import { Powersupplie } from 'src/app/pcObjects/powerSupplie/powersupplie';
 import { PowerSupplieService } from 'src/app/service/service-powerSupplie/power-supplie.service';
 import { ProductList } from '../product-list/product-list';
@@ -10,6 +11,8 @@ import { ProductList } from '../product-list/product-list';
 })
 export class PowerSupplieListComponent extends ProductList implements OnInit {
 
+  @ViewChild(FormPowerSupplieComponent) formPowerSupplieComponent: FormPowerSupplieComponent;
+
   constructor(private powerSupplieService: PowerSupplieService) {
     super(powerSupplieService);
     this.entity = new Powersupplie()
@@ -20,6 +23,8 @@ export class PowerSupplieListComponent extends ProductList implements OnInit {
   }
   onUpdateButton(entity: Powersupplie) {
     this.entity = entity;
+    this.formPowerSupplieComponent.setPowerSupplie(this.entity);
+
   }
 
   onAddArticleButton() {

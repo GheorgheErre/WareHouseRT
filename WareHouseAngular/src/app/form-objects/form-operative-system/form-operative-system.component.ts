@@ -10,13 +10,16 @@ export class FormOperativeSystemComponent implements OnInit {
 
   @Input() operativeSystem : OperativeSystem 
   @Output() operativeSystemToEmit = new EventEmitter<OperativeSystem>();
+  operativeSystemTemp = new OperativeSystem();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  
+  setOperativeSystem(entity): void {
+    this.operativeSystemTemp = JSON.parse(JSON.stringify(entity));
+  }
   sendOperativeSystemToParent() {
     this.operativeSystemToEmit.emit(this.operativeSystem);
 }

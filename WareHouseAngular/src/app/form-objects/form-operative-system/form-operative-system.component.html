@@ -3,23 +3,23 @@
     <form (ngSubmit)="sendOperativeSystemToParent()" id="formOperativeSystem">
 
         <div class="form-control mb-2" id="operativeSystemGroup">
-            <input [(ngModel)]="operativeSystem.users" name="users" class="form-control" placeholder="Users:">
+            <input [(ngModel)]="operativeSystemTemp.users" name="users" class="form-control" placeholder="Users:">
         </div>
         <div class="form-control mb-2" id="operativeSystemGroup">
-            <input [(ngModel)]="operativeSystem.brand" name="brand" class="form-control" placeholder="Brand:">
+            <input [(ngModel)]="operativeSystemTemp.brand" name="brand" class="form-control" placeholder="Brand:">
         </div>
         <div class="form-control mb-2" id="operativeSystemGroup">
-            <input [(ngModel)]="operativeSystem.model" name="model" class="form-control" placeholder="Model:">
+            <input [(ngModel)]="operativeSystemTemp.model" name="model" class="form-control" placeholder="Model:">
         </div>
         <div class="form-control mb-2" id="operativeSystemGroup">
-            <input [(ngModel)]="operativeSystem.serialNumber" name="serialNumber" class="form-control"
+            <input [(ngModel)]="operativeSystemTemp.serialNumber" name="serialNumber" class="form-control"
                 placeholder="Serial number:">
         </div>
         <div class="form-control mb-2" id="operativeSystemGroup">
-            <input [(ngModel)]="operativeSystem.userNumber" name="userNumber" class="form-control" placeholder="User number:">
+            <input [(ngModel)]="operativeSystemTemp.userNumber" name="userNumber" class="form-control" placeholder="User number:">
         </div>
         <div class="form-control mb-4" id="operativeSystemGroup">
-            <input [(ngModel)]="operativeSystem.productKey" name="productKey" class="form-control" placeholder="Product Key:">
+            <input [(ngModel)]="operativeSystemTemp.productKey" name="productKey" class="form-control" placeholder="Product Key:">
         </div>
         <div class="float-right">
             <button class="btn mr-2 float-left">Save/Update operativeSystem</button>

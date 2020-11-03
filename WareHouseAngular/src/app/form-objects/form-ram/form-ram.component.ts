@@ -10,12 +10,15 @@ export class FormRamComponent implements OnInit {
 
   @Input() ram: Ram;
   @Output() ramToEmit = new EventEmitter<Ram>();
+  ramTemp=new Ram();
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  setRam(entity): void {
+    this.ramTemp = JSON.parse(JSON.stringify(entity));
+  }
   sendRamToParent() {
     this.ramToEmit.emit(this.ram);
   }

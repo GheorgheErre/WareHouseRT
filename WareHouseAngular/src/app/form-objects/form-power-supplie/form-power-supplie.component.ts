@@ -9,13 +9,15 @@ import { Powersupplie } from 'src/app/pcObjects/powerSupplie/powersupplie';
 export class FormPowerSupplieComponent implements OnInit {
   @Input() powerSupplie : Powersupplie 
   @Output() powerSupplieToEmit = new EventEmitter<Powersupplie>();
-
+  powerSupplieTemp=new Powersupplie();
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  
+  setPowerSupplie(entity): void {
+    this.powerSupplieTemp = JSON.parse(JSON.stringify(entity));
+  }
   sendPowersupplieToParent() {
     this.powerSupplieToEmit.emit(this.powerSupplie);
 }

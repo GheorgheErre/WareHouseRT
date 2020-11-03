@@ -3,23 +3,23 @@
     <form (ngSubmit)="sendMouseToParent()" id="formMouse">
 
         <div class="form-control mb-2" id="mouseGroup">
-            <input [(ngModel)]="mouse.users" name="users" class="form-control" placeholder="Users:">
+            <input [(ngModel)]="mouseTemp.users" name="users" class="form-control" placeholder="Users:">
         </div>
         <div class="form-control mb-2" id="mouseGroup">
-            <input [(ngModel)]="mouse.brand" name="brand" class="form-control" placeholder="Brand:">
+            <input [(ngModel)]="mouseTemp.brand" name="brand" class="form-control" placeholder="Brand:">
         </div>
         <div class="form-control mb-2" id="mouseGroup">
-            <input [(ngModel)]="mouse.model" name="model" class="form-control" placeholder="Model:">
+            <input [(ngModel)]="mouseTemp.model" name="model" class="form-control" placeholder="Model:">
         </div>
         <div class="form-control mb-2" id="mouseGroup">
-            <input [(ngModel)]="mouse.serialNumber" name="serialNumber" class="form-control"
+            <input [(ngModel)]="mouseTemp.serialNumber" name="serialNumber" class="form-control"
                 placeholder="Serial number:">
         </div>
         <div class="form-control mb-2" id="mouseGroup">
-            <input [(ngModel)]="mouse.userNumber" name="userNumber" class="form-control" placeholder="User number:">
+            <input [(ngModel)]="mouseTemp.userNumber" name="userNumber" class="form-control" placeholder="User number:">
         </div>
         <div class="form-control mb-4" id="mouseGroup">
-            <input [(ngModel)]="mouse.type" name="type" class="form-control" placeholder="Type:">
+            <input [(ngModel)]="mouseTemp.type" name="type" class="form-control" placeholder="Type:">
         </div>
         <div class="float-right">
             <button class="btn mr-2 float-left">Save/Update mouse</button>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormSoftwareComponent } from 'src/app/form-objects/form-software/form-software.component';
 import { Software } from 'src/app/pcObjects/software/software';
 import { SoftwareService } from 'src/app/service/service-software/software-service.service';
 import { ProductList } from '../product-list/product-list';
@@ -9,6 +10,8 @@ import { ProductList } from '../product-list/product-list';
   styleUrls: ['./software-list.component.scss']
 })
 export class SoftwareListComponent extends ProductList implements OnInit {
+
+  @ViewChild(FormSoftwareComponent) formSoftwareComponent: FormSoftwareComponent;
 
   constructor(private softwareService: SoftwareService) {
     super(softwareService);
@@ -22,6 +25,8 @@ export class SoftwareListComponent extends ProductList implements OnInit {
 
   onUpdateButton(entity: Software) {
     this.entity = entity;
+    this.formSoftwareComponent.setSoftware(this.entity);
+
   }
 
   onAddArticleButton() {

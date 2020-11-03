@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormMouseComponent } from 'src/app/form-objects/form-mouse/form-mouse.component';
 import { Mouse } from 'src/app/pcObjects/mouse/mouse';
 import { MouseService } from 'src/app/service/service-mouse/mouse-service.service';
 import { ProductList } from '../product-list/product-list';
@@ -9,6 +10,8 @@ import { ProductList } from '../product-list/product-list';
   styleUrls: ['./mouse-list.component.scss']
 })
 export class MouseListComponent extends ProductList implements OnInit {
+
+  @ViewChild(FormMouseComponent) formMouse: FormMouseComponent;
 
   constructor(private mouseService: MouseService) {
     super(mouseService);
@@ -21,6 +24,7 @@ export class MouseListComponent extends ProductList implements OnInit {
 
   onUpdateButton(entity: Mouse) {
     this.entity = entity;
+    this.formMouse.setMouse(this.entity);
   }
 
   onAddArticleButton() {

@@ -10,12 +10,16 @@ export class FormMonitorComponent implements OnInit {
 
   @Input() monitor : Monitor;
   @Output() monitorToEmit = new EventEmitter<Monitor>();
+  monitorTemp = new Monitor();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  setMonitor(entity): void {
+    this.monitorTemp = JSON.parse(JSON.stringify(entity));
+  }
   sendMonitorToParent() {
     this.monitorToEmit.emit(this.monitor);
 }

@@ -10,12 +10,15 @@ export class FormMouseComponent implements OnInit {
 
   @Input() mouse : Mouse;
   @Output() mouseToEmit = new EventEmitter<Mouse>();
-
+  mouseTemp = new Mouse();
+  
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  setMouse(entity): void {
+    this.mouseTemp = JSON.parse(JSON.stringify(entity));
+  }
   sendMouseToParent() {
     this.mouseToEmit.emit(this.mouse);
 }

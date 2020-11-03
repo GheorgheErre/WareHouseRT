@@ -3,26 +3,26 @@
     <form (ngSubmit)="sendPowersupplieToParent()" id="formPowerSupplie">
 
         <div class="form-control mb-2" id="powerSupplieGroup">
-            <input [(ngModel)]="powerSupplie.users" name="users" class="form-control" placeholder="Users:">
+            <input [(ngModel)]="powerSupplieTemp.users" name="users" class="form-control" placeholder="Users:">
         </div>
         <div class="form-control mb-2" id="powerSupplieGroup">
-            <input [(ngModel)]="powerSupplie.brand" name="brand" class="form-control" placeholder="Brand:">
+            <input [(ngModel)]="powerSupplieTemp.brand" name="brand" class="form-control" placeholder="Brand:">
         </div>
         <div class="form-control mb-2" id="powerSupplieGroup">
-            <input [(ngModel)]="powerSupplie.model" name="model" class="form-control" placeholder="Model:">
+            <input [(ngModel)]="powerSupplieTemp.model" name="model" class="form-control" placeholder="Model:">
         </div>
         <div class="form-control mb-2" id="powerSupplieGroup">
-            <input [(ngModel)]="powerSupplie.serialNumber" name="serialNumber" class="form-control"
+            <input [(ngModel)]="powerSupplieTemp.serialNumber" name="serialNumber" class="form-control"
                 placeholder="powerSupplie number:">
         </div>
         <div class="form-control mb-2" id="powerSupplieGroup">
-            <input [(ngModel)]="powerSupplie.userNumber" name="userNumber" class="form-control" placeholder="User number:">
+            <input [(ngModel)]="powerSupplieTemp.userNumber" name="userNumber" class="form-control" placeholder="User number:">
         </div>
         <div class="form-control mb-4" id="powerSupplieGroup">
-            <input [(ngModel)]="powerSupplie.watts" name="watts" class="form-control" placeholder="Watts:">
+            <input [(ngModel)]="powerSupplieTemp.watts" name="watts" class="form-control" placeholder="Watts:">
         </div>
         <div class="form-control mb-4" id="powerSupplieGroup">
-            <input [(ngModel)]="powerSupplie.energyRating" name="energyRating" class="form-control"
+            <input [(ngModel)]="powerSupplieTemp.energyRating" name="energyRating" class="form-control"
                 placeholder="Energy Rating:">
         </div>
         <div class="float-right">
