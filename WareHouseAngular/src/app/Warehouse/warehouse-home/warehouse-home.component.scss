@@ -2,19 +2,25 @@
     font-family: Poppins;
     src: url("../../../assets/fonts/Poppins-Light.ttf");
 }
+
 * {
     font-family: "Poppins", sans-serif;
 }
-@mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65, 0, 0.076, 1)) {
+
+@mixin transition($property: all,
+$duration: 0.45s,
+$ease: cubic-bezier(0.65, 0, 0.076, 1)) {
     transition: $property $duration $ease;
 }
-body,
-html {
-    height: 100%;
+
+header {
+    background-image: url("img/warehousehome-blured.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
-form {
-    background-color: transparent;
-}
+
 button {
     color: white;
     border-bottom: 1px solid white;
@@ -24,6 +30,7 @@ button {
     letter-spacing: 5px;
     margin-right: 10px;
 }
+
 button:hover {
     background-color: white;
     color: black;
@@ -31,44 +38,22 @@ button:hover {
     border-radius: 20px;
     overflow: hidden;
 }
+
 span {
     font-size: 20px;
     letter-spacing: 5px;
 }
-#header {
-    height: 100%;
-    background-image: url("img/warehousehome-blured.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-#container {
-    height: 100%;
+
+a {
+    border: 1px solid white;
+    border-radius: 50%;
+    color: white;
+    transition: 0.5s;
 }
 
-#back {
-    margin-right: 15px;
-    width: 35px;
-    height: 35px;
-    background-color: transparent;
-    border-radius: 100%;
-    border: 1px solid white;
-    text-align: center;
-    line-height: 34px;
-    vertical-align: middle;
-    display: inline-block;
+a:hover {
+    border: 1px solid black;
+    background-color: black;
     transition: 0.5s;
-    #btn-back {
-        transition: 0.5s;
-        color: white;
-        line-height: inherit;
-    }
-}
-#back:hover {
-    background-color: white;
-    transition: 0.5s;
-    #btn-back:hover {
-        color: black;
-        transition: 0.5s;
-    }
+    color: white;
 }

@@ -1,117 +1,90 @@
-<header id="header">
-    <div class="container-fluid" id="container">
-        <div class="row">
-            <div class="col-12 p-0">
-                <nav class="navbar navbar-expand-lg">
-                    <div id="back">
-                        <a href="WelcomeMenu" id=btn-back>
-                            <fa-icon [icon]="faArrowLeft"></fa-icon>
-                        </a>
-                    </div>
-                </nav>
-            </div>
-        </div>
-        <div class="row h-75 align-items-center">
-            <div class="col-1">
-                <a class="carousel-control-prev" href="#carousel-arrow" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-            </div>
-            <div class="col-10">
-                <div id="carousel-arrow" class="carousel slide" data-ride="carousel">
-
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="row">
-                                <div class="col">
-                                    <laptop-count></laptop-count>
-                                </div>
-                                <div class="col">
-                                    <desktop-count></desktop-count>
-                                </div>
-                                <div class="col">
-                                    <monitor-count></monitor-count>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="row">
-                                <div class="col">
-                                    <keyboard-count></keyboard-count>
-                                </div>
-                                <div class="col">
-                                    <mouse-count></mouse-count>
-                                </div>
-                                <div class="col">
-                                    <software-count></software-count>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="row">
-                                <div class="col">
-                                    <operative-system-count></operative-system-count>
-                                </div>
-                                <div class="col">
-                                    <cellphone-count></cellphone-count>
-                                </div>
-                                <div class="col">
-                                    <graphic-tablet-count></graphic-tablet-count>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="row">
-                                <div class="col">
-                                    <hdd-count></hdd-count>
-                                </div>
-                                <div class="col">
-                                    <ssd-count></ssd-count>
-                                </div>
-                                <div class="col">
-                                    <ram-count></ram-count>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="row">
-                                <div class="col">
-                                    <cpu-count></cpu-count>
-                                </div>
-                                <div class="col">
-                                    <gpu-count></gpu-count>
-                                </div>
-                                <div class="col">
-                                    <docking-station-count></docking-station-count>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="row">
-                                <div class="col">
-                                    <power-supplie-count></power-supplie-count>
-                                </div>
-                                <div class="col">
-                                    <cable-count></cable-count>
-                                </div>
-                                <div class="col">
-                                    <token-count></token-count>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <a href="WelcomeMenu" class="btn">
+                        <fa-icon [icon]="faArrowLeft"></fa-icon>
+                    </a>
                 </div>
             </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row h-100 align-items-center">
+            <div class="col-1"></div>
+            <div class="col-10">
 
-            <div class="col-1">
-                <a class="carousel-control-next" href="#carousel-arrow" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+                <div class="row">
+                    <div class="col mt-2">
+                        <laptop-count></laptop-count>
+                    </div>
+                    <div class="col mt-2">
+                        <desktop-count></desktop-count>
+                    </div>
+                    <div class="col mt-2">
+                        <monitor-count></monitor-count>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col mt-2">
+                        <mouse-count></mouse-count>
+                    </div>
+                    <div class="col mt-2">
+                        <software-count></software-count>
+                    </div>
+                    <div class="col mt-2">
+                        <hdd-count></hdd-count>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col mt-2">
+                        <cellphone-count></cellphone-count>
+                    </div>
+
+                    <div class="col mt-2">
+                        <cpu-count></cpu-count>
+                    </div>
+                    <div class="col mt-2">
+                        <gpu-count></gpu-count>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col mt-2">
+                        <ssd-count></ssd-count>
+                    </div>
+                    <div class="col mt-2">
+                        <ram-count></ram-count>
+                    </div>
+                    <div class="col mt-2">
+                        <keyboard-count></keyboard-count>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col mt-2">
+                        <docking-station-count></docking-station-count>
+                    </div>
+                    <div class="col mt-2">
+                        <cable-count></cable-count>
+                    </div>
+                    <div class="col mt-2">
+                        <token-count></token-count>
+                    </div>
+                </div>
+                <div class="row mt-2 mb-3">
+                    <div class="col mt-2">
+                        <operative-system-count></operative-system-count>
+                    </div>
+                    <div class="col mt-2">
+                        <power-supplie-count></power-supplie-count>
+                    </div>
+                    <div class="col mt-2">
+                        <graphic-tablet-count></graphic-tablet-count>
+                    </div>
+
+                </div>
             </div>
+            <div class="col"></div>
         </div>
     </div>
 </header>
-
