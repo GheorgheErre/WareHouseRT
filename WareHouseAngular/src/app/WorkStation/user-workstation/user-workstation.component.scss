@@ -68,3 +68,42 @@ h3 {
     margin-top: 20px;
     float: center;
 }
+
+/* Modal */
+#formModal {
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+
+#formModal-body {
+    background-color: black;
+    border: none;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    border-radius: 0px;
+    color: white;
+}
+input:focus {
+    border: none;
+    border: 1px solid black;
+    transition: 0.5s;
+    border-radius: 20px;
+    background-color: transparent;
+    color: white;
+    box-shadow: none !important;
+    outline: 0;
+}
+
+#modal {
+    width: auto;
+    height: auto;
+}
+
+
+  

@@ -53,7 +53,7 @@ export class UserWorkstationComponent implements OnInit {
   dockingStation: DockingStation = new DockingStation();
   token: Token = new Token();
 
-  articleType: any;
+  articleType: String;
   service: ServiceService;
 
   constructor(private router: Router,
@@ -111,11 +111,17 @@ export class UserWorkstationComponent implements OnInit {
 
   // add a new article from outside
   addArticleFromOutside(article) {
-    this.chooseService(article);
+    //this.chooseService(article);
+    this.entity = article;
     this.entity.location = "workstation";
     this.entity = this.addType(this.entity);
     this.workstation.articles.push(this.entity);
     this.updateWorkstation();
+  }
+
+  prepareForm(articleType){
+    this.chooseService(articleType);
+    this.articleType = articleType;
   }
 
   // delete article from workstation and from anywhere
@@ -157,7 +163,7 @@ export class UserWorkstationComponent implements OnInit {
   chooseService(article) {
     switch (article) {
       case "Laptop":
-        this.entity = new Laptop();
+        this.entity = this.laptop;
         this.service = this.laptopService;
         break;
       case "Dektop":
@@ -214,18 +220,4 @@ export class UserWorkstationComponent implements OnInit {
   reloadPage() {
     window.location.reload();
   }
-
- 
- 
- /* prepareForm(article){
-    this.chooseService(article);
-  }
-
-  addArticleFromOutsideProva(){
-    this.entity.location = "workstation";
-    this.entity = this.addType(this.entity);
-    this.workstation.articles.push(this.entity);
-    this.updateWorkstation();
-  }*/
-
 }

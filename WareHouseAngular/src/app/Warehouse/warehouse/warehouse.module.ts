@@ -151,6 +151,18 @@ import { FormKeyboardComponent } from 'src/app/form-objects/form-keyboard/form-k
     FontAwesomeModule,
     
   ],
+
+  exports: [FormLaptopComponent,
+    FormCableComponent,
+    FormCellphoneComponent,
+    FormDesktopComponent,
+    FormDockingStationComponent,
+    FormGraphicTabletComponent,
+    FormMonitorComponent,
+    FormMouseComponent,
+    FormKeyboardComponent,
+    FormTokenComponent],
+    
   providers:[]
 })
 export class WarehouseModule { }

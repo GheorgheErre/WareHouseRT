@@ -11,7 +11,8 @@ export class FormKeyboardComponent implements OnInit {
   @Input() keyboard : Keyboard;
   @Output() keyboardToEmit = new EventEmitter<Keyboard>();
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit(): void {
   }
