@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormLaptopComponent } from 'src/app/form-objects/form-laptop/form-laptop.component';
 import { Laptop } from 'src/app/pcObjects/laptop/laptop';
 import { LaptopService } from 'src/app/service/service-laptop/laptop-service.service';
 import { ProductList } from '../product-list/product-list';
@@ -9,6 +10,8 @@ import { ProductList } from '../product-list/product-list';
   styleUrls: ['./laptop-list.component.scss']
 })
 export class LaptopListComponent extends ProductList implements OnInit {
+
+  @ViewChild(FormLaptopComponent) formLaptop: FormLaptopComponent;
 
   constructor(private laptopService: LaptopService) {
     super(laptopService);
@@ -21,6 +24,7 @@ export class LaptopListComponent extends ProductList implements OnInit {
 
   onUpdateButton(entity: Laptop) {
     this.entity = entity;
+    this.formLaptop.setLaptop(this.entity);
   }
 
   onAddArticleButton() {

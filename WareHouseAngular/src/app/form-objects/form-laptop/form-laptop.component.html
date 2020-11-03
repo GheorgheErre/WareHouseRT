@@ -3,36 +3,36 @@
 		<form (ngSubmit)="sendLaptopToParent()" id="formLaptop">
 
 			<div class="form-control mb-2" id="laptopGroup">
-				<input [(ngModel)]="laptop.users" name="users" class="form-control" placeholder="Users:">
+				<input [(ngModel)]="laptopTemp.users" name="users" class="form-control" placeholder="Users:">
 			</div>
 			<div class="form-control mb-2" id="laptopGroup">
-				<input [(ngModel)]="laptop.brand" name="brand" class="form-control" placeholder="Brand:">
+				<input [(ngModel)]="laptopTemp.brand" name="brand" class="form-control" placeholder="Brand:">
 			</div>
 			<div class="form-control mb-2" id="laptopGroup">
-				<input [(ngModel)]="laptop.model" name="model" class="form-control" placeholder="Model:">
+				<input [(ngModel)]="laptopTemp.model" name="model" class="form-control" placeholder="Model:">
 			</div>
 			<div class="form-control mb-2" id="laptopGroup">
-				<input [(ngModel)]="laptop.serialNumber" name="serialNumber" class="form-control"
+				<input [(ngModel)]="laptopTemp.serialNumber" name="serialNumber" class="form-control"
 					placeholder="Serial number:">
 			</div>
 			<div class="form-control mb-2" id="laptopGroup">
-				<input [(ngModel)]="laptop.userNumber" name="userNumber" class="form-control"
+				<input [(ngModel)]="laptopTemp.userNumber" name="userNumber" class="form-control"
 					placeholder="User number:">
 			</div>
 			<div class="form-control mb-4" id="laptopGroup">
-				<input [(ngModel)]="laptop.cpu" name="cpu" class="form-control" placeholder="CPU:">
+				<input [(ngModel)]="laptopTemp.cpu" name="cpu" class="form-control" placeholder="CPU:">
 			</div>
 			<div class="form-control mb-4" id="laptopGroup">
-				<input [(ngModel)]="laptop.gpu" name="gpu" class="form-control" placeholder="GPU">
+				<input [(ngModel)]="laptopTemp.gpu" name="gpu" class="form-control" placeholder="GPU">
 			</div>
 			<div class="form-control mb-4" id="laptopGroup">
-				<input [(ngModel)]="laptop.hdd" name="hdd" class="form-control" placeholder="HDD:" >
+				<input [(ngModel)]="laptopTemp.hdd" name="hdd" class="form-control" placeholder="HDD:" >
 			</div>
 			<div class="form-control mb-4" id="laptopGroup">
-				<input [(ngModel)]="laptop.ssd" name="ssd" class="form-control" placeholder="SSD:">
+				<input [(ngModel)]="laptopTemp.ssd" name="ssd" class="form-control" placeholder="SSD:">
 			</div>
 			<div class="form-control mb-4" id="laptopGroup">
-				<input [(ngModel)]="laptop.ram" name="ram" class="form-control" placeholder="RAM:">
+				<input [(ngModel)]="laptopTemp.ram" name="ram" class="form-control" placeholder="RAM:">
 			</div>
 			<div class="float-right">
 				<button class="btn mr-2 float-left">Add Laptop</button>

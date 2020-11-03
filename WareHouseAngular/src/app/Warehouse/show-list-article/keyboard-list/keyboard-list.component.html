@@ -48,7 +48,6 @@
 						</thead>
 						<tbody>
 							<tr *ngFor="let keyboard of listProduct">
-								<td class="hidden"></td>
 								<td>{{keyboard.identifier}}</td>
 								<td>{{keyboard.users}}</td>
 								<td>{{keyboard.brand}}</td>
@@ -57,7 +56,7 @@
 								<td>{{keyboard.location}}</td>
 								<td>{{keyboard.userNumber}}</td>
 								<td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(keyboard)"
-									data-toggle="modal" data-target="#saveOrUpdateModal">
+									data-toggle="modal" data-backdrop="static" data-target="#saveOrUpdateModal">
 									<fa-icon [icon]="faPen"></fa-icon>
 								</button></td>
 							<td><button (click)="deleteProduct(keyboard)" class="btn btn-danger" id="btn-delete">

@@ -8,16 +8,23 @@ import { Laptop } from 'src/app/pcObjects/laptop/laptop';
 })
 export class FormLaptopComponent implements OnInit {
 
-  @Input() laptop : Laptop;
+  @Input() laptop: Laptop;
   @Output() laptopToEmit = new EventEmitter<Laptop>();
+  laptopTemp = new Laptop();
 
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+
+  setLaptop(entity): void {
+    this.laptopTemp = JSON.parse(JSON.stringify(entity));
   }
 
   sendLaptopToParent() {
-    this.laptopToEmit.emit(this.laptop);
-}
+    this.laptopToEmit.emit(this.laptopTemp);
+
+  }
 
 }
