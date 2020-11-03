@@ -23,6 +23,6 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 				@JsonSubTypes.Type(value = Mouse.class, name = "Mouse"),
 				@JsonSubTypes.Type(value = Token.class, name = "Token"),
 				@JsonSubTypes.Type(value = GenericArticle.class, name = "GenericArticle")})
-public class Article extends Product {
+public abstract class Article extends Product {
 
 }
