@@ -15,7 +15,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserWorkstationComponent } from '../user-workstation/user-workstation.component';
-import { CreateWorkstationComponent } from '../create-workstation/create-workstation.component';
 import { AmministrazioneComponent } from '../office/first-floor/amministrazione/amministrazione.component';
 import { DirErreGesComponent } from '../office/first-floor/dir-erre-ges/dir-erre-ges.component';
 import { DirErreLabComponent } from '../office/first-floor/dir-erre-lab/dir-erre-lab.component';
@@ -39,7 +38,6 @@ import { WarehouseModule } from 'src/app/Warehouse/warehouse/warehouse.module';
   declarations: [
     WorkstationWelcomeComponent,
     UserWorkstationComponent,
-    CreateWorkstationComponent,
     Uff2Component,
     ReceptionComponent,
     Uff3Component,
