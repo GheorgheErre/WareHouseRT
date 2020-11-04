@@ -62,12 +62,12 @@ h3 {
 }
 
 .userButton {
-    background: white;
-    color: black;
     border: 1px solid white;
-    border-radius: 10px 10px 0 0;
-    box-shadow: none !important;
-    outline: 0;
+    background: white;
+    border-radius: 20px;
+    width: 200px;
+    height: 31px;
+    padding: 0 10px;
 }
 
 #emptyListMessage{
@@ -99,7 +99,7 @@ h3 {
     border: 1px solid white;
     border-radius: 10px;
 }
-input {
+/*input {
     background: transparent;
     border: none;
     border-bottom: 1px solid white;
@@ -115,7 +115,7 @@ input:focus {
     color: white;
     box-shadow: none !important;
     outline: 0;
-}
+}*/
 
 #modalArticle{
     width: 90%;

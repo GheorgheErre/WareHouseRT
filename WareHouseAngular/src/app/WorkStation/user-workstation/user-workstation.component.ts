@@ -56,6 +56,9 @@ export class UserWorkstationComponent implements OnInit {
   articleType: String;
   service: ServiceService;
 
+  userNumber: string;
+  articleToDelete: Article;
+
   constructor(private router: Router,
     private workstationService: WorkStationService,
     private monitorService: MonitorService,
@@ -88,9 +91,18 @@ export class UserWorkstationComponent implements OnInit {
     })
   }
 
+  assignWorkstation() {
+    this.workstation.user = this.userNumber;
+    this.updateWorkstation();
+  }
+
   disassignWorkstation() {
     this.workstation.user = "";
     this.updateWorkstation();
+  }
+
+  setArticleTodelete(article){
+    this.articleToDelete = article;
   }
 
   // show the list of a selected article form warehouse

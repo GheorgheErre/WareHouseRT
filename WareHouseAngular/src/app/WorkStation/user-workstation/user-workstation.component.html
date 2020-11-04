@@ -16,7 +16,8 @@
                                 <h3>User: {{workstation.user}}</h3>
                             </div>
                             <div class="col">
-                                <button class="userButton">ASSIGN WORKSTATION</button>
+                                <button class="userButton" data-toggle="modal"
+                                    data-target="#assignWorkstationMoadal">ASSIGN WORKSTATION</button>
                             </div>
                             <div class="col">
                                 <button (click)="disassignWorkstation()" class="userButton">DISASSIGN
@@ -117,14 +118,15 @@
                                 <td>{{article.brand}}</td>
                                 <td>{{article.model}}</td>
                                 <td>{{article.serialNumber}}</td>
-                                <td><button (click)="articleDetails(article)" class="btn btn-success" id="btn-delete"
+                                <td><button (click)="articleDetails(article)" class="btn btn-success" id="btn-details"
                                         data-toggle="modal" data-target="#articleDetailsModal">
                                         Details
                                     </button></td>
-                                <td><button (click)="moveToWarehouse(article)" class="btn btn-primary" id="btn-delete">
+                                <td><button (click)="moveToWarehouse(article)" class="btn btn-primary" id="btn-move">
                                         Move to Warehouse
                                     </button></td>
-                                <td><button (click)="deleteArticle(article)" class="btn btn-danger" id="btn-delete">
+                                <td><button (click)="setArticleTodelete(article)" class="btn btn-danger" id="btn-delete"
+                                        data-toggle="modal" data-target="#deleteArticleMoadal">
                                         <fa-icon [icon]="faEraser"></fa-icon>
                                     </button></td>
                             </tr>
@@ -139,6 +141,53 @@
         </div>
     </div>
 </header>
+
+<!--Modal inserimento user number -->
+<div class="modal fade" id="assignWorkstationMoadal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Assign Workstation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)="assignWorkstation()" id="formAssign">
+                    <div class="form-group" id="assignUserInput">
+                        <label for="userNumberInput">User number:</label>
+                        <input [(ngModel)]="userNumber" name="type" id="userNumberInput" class="form-control">
+                    </div>
+                    <div class="form-group float-right">
+                        <button class="btn mr-2 float-left">Assign</button>
+                        <button class="btn float-left" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal eliminazione -->
+<div class="modal fade" id="deleteArticleMoadal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Article</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Delete the selected Article?
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="deleteArticle(articleToDelete)" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!--Modal tabella articoli da magazzino -->
 <div class="modal fade" id="addArticleFromWarehouseModal" role="dialog">
