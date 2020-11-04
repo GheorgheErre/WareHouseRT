@@ -2,114 +2,76 @@
     font-family: Oswald;
     src: url("../../../assets/fonts/Oswald-Regular.ttf");
 }
+
 * {
     font-family: "Oswald", sans-serif;
 }
-body,
-html,
-#header {
+
+header {
     height: 100%;
-}
-h4 {
-    letter-spacing: 4px;
-}
-p {
-    font-size: 15px;
-    letter-spacing: 2px;
-}
-button{
-    border: 1px solid white;
-    background-color: white;
-    color: black;
-    border-radius: 20px;
-    width: 150px;
-    transition: 0.6s;
-}
-button:hover{
-    border: 1px solid #adb5bd;
-    background-color: #adb5bd;
-    color: white;
-    border-radius: 20px;
-    width: 100%;
-    transition: 0.6s;
-}
-#header {
-    background-image: url("../welcome-menu/img/ufficio.jpg");
+    background-image: url("img/ufficio-blured.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+}
+
+h2 {
+    letter-spacing: 5px;
+}
+
+h3 {
+    color: #004fff;
+    letter-spacing: 3px;
+}
+
+#card {
+    border: none;
+}
+
+#btn-enter {
+    border-bottom: 1px solid #004fff;
+    border-left: 1px solid #004fff;
+    color: black;
+    border-radius: 20px;
+    width: 120px;
     transition: 0.6s;
+    position: absolute;
+    bottom: 0;
+    letter-spacing: 3px;
 }
 
-#container {
-    height: 100%;
-    display: flex;
-    flex-direction: rows;
+#btn-enter:hover {
+    border: 1px solid #004fff;
+    background-color: #004fff;
+    -webkit-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
+    color: white;
+    border-radius: 20px;
+    transition: 0.9s;
 }
 
-/*COLONNA WAREHOUSE*/
-#colonna-warehouse {
-    display: flex;
-    flex-direction: column;
-    height: 50%;
-}
-#warehouse-img {
-    height: 200px;
-}
-
-#card-warehouse {
-    border: none;
-    background-color: transparent;
-}
-#card-body-warehouse{
+#warehouse,
+#workstation {
     background-color: white;
-}
-#card-footer-warehouse {
-    background-color: #dee2e6;
-}
-
-/*COLONNA WORKSTATION*/
-#colonna-workstation {
-    display: flex;
-    flex-direction: column;
-    height: 50%;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 20px;
 }
 
-#card-workstation {
-    border: none;
-    background-color: transparent;
-}
-#workstation-img {
-    height: 200px;
-        
-    }
-#card-body-workstation{
-    background-color: white;
-}
-#card-footer-workstation {
-    background-color: #dee2e6;
+#img-warehouse {
+    height: 300px;
+    width: 550px;
+    padding: 5px;
 }
 
-
-/*COLONNA USERS*/
-#colonna-users {
-    display: flex;
-    flex-direction: column;
-    height: 50%;
+#img-workstation {
+    height: 300px;
+    width: 550px;
+    padding: 5px;
 }
 
-#card-users {
-    border: none;
-    background-color: transparent;
+#img {
+    background-color: lightgrey;
+    border: 1px solid lightgrey;
 }
-#users-img {
-    height: 200px;
-        
-    }
-#card-body-users{
-    background-color: white;
-}
-#card-footer-users {
-    background-color: #dee2e6;
-}
-

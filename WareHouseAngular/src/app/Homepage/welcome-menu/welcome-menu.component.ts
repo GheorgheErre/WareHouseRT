@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faWarehouse } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-welcome-menu',
@@ -9,7 +9,7 @@ import { faWarehouse } from '@fortawesome/free-solid-svg-icons';
 })
 export class WelcomeMenuComponent implements OnInit {
 
-  faWarehouse = faWarehouse;
+  faArrowRight = faArrowRight;
   constructor(private router: Router) { }
 
   ngOnInit(): void {

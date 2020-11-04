@@ -1,49 +1,71 @@
-<header id="header">
-    <div class="container" id="container">
-        <div class="row h-100 w-100 align-items-center">
-
-            <div class="col" id="colonna-warehouse">
-                <div class="card" id="card-warehouse">
-                    <img class="card-image-top" id="warehouse-img" src="../../assets/img/warehouse.jpg">
-                    <div class="card-body" id="card-body-warehouse">
-                        <h4 class="card-title">· Warehouse</h4>
-                        <p class="card-text">Visualize and manage all articles stored in Erre Technology Warehouse.</p>
-
+<header>
+    <div class="container h-100">
+        <div class="row h-50 align-items-end">
+            <div class="col">
+                <div id="warehouse">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row h-100 d-flex flex-column">
+                                <div class="col">
+                                    <h2>Warehouse</h2>
+                                    <h3>Visualize and manage all articles stored in Erre Technology Warehouse.</h3>
+                                    <hr>
+                                </div>
+                                <div class="col">
+                                    <button (click)="openWarehouse()" class="btn" id="btn-enter">Enter</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div id="img">
+                                <img id="img-warehouse" src="../../../assets/img/welcome_menu_warehouse.jpg" alt="">
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-footer text-center" id="card-footer-warehouse">
-                        <button (click)="openWarehouse()" class="btn">Warehouse</button>
-                    </div>
+
                 </div>
             </div>
-
-            <div class="col" id="colonna-workstation">
-                <div class="card" id="card-workstation">
-                    <img class="card-image-top" id="workstation-img" src="../../assets/img/workstation.jpg">
-                    <div class="card-body" id="card-body-workstation">
-                        <h4 class="card-title">· Workstation</h4>
-                        <p class="card-text">Visualize all workstations in the office and modify them.</p>
-
+        </div>
+        <div class="row h-50">
+            <div class="col mt-5">
+                <div id="workstation">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row h-100 d-flex flex-column">
+                                <div class="col">
+                                    <h2>Workstation</h2>
+                                    <h3>Visualize all workstations in the office and modify them.</h3>
+                                    <hr>
+                                </div>
+                                <div class="col">
+                                    <button (click)="openWorkstation()" class="btn" id="btn-enter">Enter  </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div id="img">
+                                <img id="img-workstation" src="../../../assets/img/welcome_menu_workstation.jpg" alt="">
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-footer text-center" id="card-footer-workstation">
-                        <button (click)="openWorkstation()" class="btn">Workstation</button>
-                    </div>
+
+
                 </div>
             </div>
-
-            <div class="col" id="colonna-users">
-                <div class="card" id="card-users">
-                    <img class="card-image-top" id="users-img" src="../../assets/img/user.jpg">
-                    <div class="card-body" id="card-body-users">
-                        <h4 class="card-title">· Users</h4>
-                        <p class="card-text">Visualize users and all their personal information.</p>
-
-                    </div>
-                    <div class="card-footer text-center" id="card-footer-users">
-                        <button class="btn">Users</button>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 </header>
+<!--<div class="col">
+    <div class="card">
+        <img class="card-image-top" src="../../assets/img/user.jpg">
+        <div class="card-body">
+            <h4 class="card-title">· Users</h4>
+            <p class="card-text">Visualize users and all their personal information.</p>
+
+        </div>
+        <div class="card-footer text-center">
+            <button class="btn">Users</button>
+        </div>
+    </div>
+</div>
+-->
