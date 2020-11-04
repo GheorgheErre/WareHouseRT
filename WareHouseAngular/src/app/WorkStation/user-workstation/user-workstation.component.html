@@ -96,7 +96,7 @@
                 </div>
             </div>
 
-            <div *ngIf="workstation.articles?.length; else emptyList" class="col mt-1">
+            <div *ngIf="workstation.articles?.length; else emptyShowList" class="col mt-1">
                 <div class="table-responsive">
                     <table id="tabella-workstation" class="table">
                         <thead id="thead">
@@ -132,7 +132,7 @@
                     </table>
                 </div>
             </div>
-            <ng-template #emptyList>
+            <ng-template #emptyShowList>
                 <div id="emptyListMessage">No articles present in this workstation, press "Add article" to add articles
                     to this workstation</div>
             </ng-template>
@@ -142,7 +142,7 @@
 
 <!--Modal tabella articoli da magazzino -->
 <div class="modal fade" id="addArticleFromWarehouseModal" role="dialog">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered" id="modalArticle">
 
         <!-- Modal content-->
         <div class="modal-content" id="modal">
@@ -168,13 +168,15 @@
                         </table>
                     </div>
                     <ng-template #emptyList>
-                        <div id="emptyListMessage">No article present for the {{articleType}} category in the Warehouse.
+                        <div id="emptyShowListMessage">No article present for the {{articleType}} category in the
+                            Warehouse.
                         </div>
                     </ng-template>
                 </div>
 
-                <button data-dismiss="modal"> Chiudi </button>
+
             </div>
+            <div class="modal-footer"><button data-dismiss="modal"> Chiudi </button></div>
         </div>
     </div>
 </div>

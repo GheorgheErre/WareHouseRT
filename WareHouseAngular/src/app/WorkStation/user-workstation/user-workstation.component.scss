@@ -78,6 +78,14 @@ h3 {
     float: center;
 }
 
+#emptyShowListMessage{
+    text-align: center;
+    color: black;
+    font-size: 15px;
+    margin-top: 20px;
+    float: center;
+}
+
 /* Modal */
 #formModal {
     background-color: transparent;
@@ -109,9 +117,13 @@ input:focus {
     outline: 0;
 }
 
+#modalArticle{
+    width: 90%;
+	max-width: 1200px;
+}
+
 #modal {
-    width: auto;
-    height: auto;
+    overflow-x: auto;
 }
 
 

@@ -2,7 +2,7 @@ import { Article } from '../article/article';
 
 export class Workstation {
 
-   officeLocation: String;
+   office: String;
    user: String;
    numero: number;
    articles: Article[]

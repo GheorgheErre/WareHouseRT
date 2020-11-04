@@ -75,7 +75,7 @@ export class UserWorkstationComponent implements OnInit {
   ngOnInit(): void {
     this.workstationService.findByOfficeAndNumero(this.office, this.numero).subscribe(data => {
       if (data === null) {
-        this.workstation.officeLocation = this.office;
+        this.workstation.office = this.office;
         this.workstation.numero = this.numero;
         this.updateWorkstation();
       }

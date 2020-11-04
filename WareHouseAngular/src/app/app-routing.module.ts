@@ -29,7 +29,6 @@ import { ListProductComponent } from './Warehouse/show-list-article/list-product
 import { LoginComponent } from './Homepage/login/login.component';
 import { DashboardComponent } from './Warehouse/dashboard/dashboard.component';
 import { WorkstationWelcomeComponent } from './WorkStation/workstation-welcome/workstation-welcome.component';
-import { CreateWorkstationComponent } from './WorkStation/create-workstation/create-workstation.component';
 import { Uff1GroundFloorComponent } from './WorkStation/office/ground-floor/uff1-ground-floor/uff1-ground-floor.component';
 import { UserWorkstationComponent } from './WorkStation/user-workstation/user-workstation.component';
 import { Uff2Component } from './WorkStation/office/ground-floor/uff2/uff2.component';
@@ -76,7 +75,6 @@ const routes: Routes = [
   {path:"articleCount", component: ArticleCardComponent},
   {path:"productList", component: ListProductComponent},
   {path:"Login", component: LoginComponent},
-  {path:"CreateWorkstation", component: CreateWorkstationComponent},
   {path:"Ufficio1GroundFloor", component: Uff1GroundFloorComponent},
   {path:"Workstation", component: UserWorkstationComponent},
   {path:"Ufficio2GroundFloor", component: Uff2Component},
