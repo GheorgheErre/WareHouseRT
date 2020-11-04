@@ -85,6 +85,7 @@ export class UserWorkstationComponent implements OnInit {
 
   disassignWorkstation(){
     this.workstation.user = "";
+    this.updateWorkstation();
   }
 
   // show the list of a selected article form warehouse
