@@ -61,6 +61,15 @@ h3 {
     }
 }
 
+.userButton {
+    background: white;
+    color: black;
+    border: 1px solid white;
+    border-radius: 10px 10px 0 0;
+    box-shadow: none !important;
+    outline: 0;
+}
+
 #emptyListMessage{
     text-align: center;
     color: white;

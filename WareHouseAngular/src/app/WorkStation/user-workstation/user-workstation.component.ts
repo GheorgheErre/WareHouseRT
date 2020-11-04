@@ -83,8 +83,13 @@ export class UserWorkstationComponent implements OnInit {
     })
   }
 
+  disassignWorkstation(){
+    this.workstation.user = "";
+  }
+
   // show the list of a selected article form warehouse
   showList(article) {
+    this.articleType = article;
     this.chooseService(article);
     this.findAllProduct();
   }
