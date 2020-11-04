@@ -77,14 +77,14 @@ export class UserWorkstationComponent implements OnInit {
       if (data === null) {
         this.workstation.office = this.office;
         this.workstation.numero = this.numero;
+        this.workstation.articles = [];
         this.updateWorkstation();
       }
-      if (data.articles.length > 0) {
+      else{
         this.workstation = this.removeType(data);
+        // this.workstation = data;
       }
-      else {
-        this.workstation = data;
-      }
+    
     })
   }
 
@@ -115,7 +115,7 @@ export class UserWorkstationComponent implements OnInit {
   // aggiungi nuovo articolo alla mia workstation
   addArticleFromWarehouse(article) {
     this.entity = article;
-    this.entity.location = "workstation";
+    this.entity.location = "workstation" + " " +  " " + this.workstation.office + this.workstation.numero;
     this.workstation.articles.push(this.entity);
     this.updateWorkstation();
   }
@@ -124,7 +124,7 @@ export class UserWorkstationComponent implements OnInit {
   addArticleFromOutside(article) {
     //this.chooseService(article);
     this.entity = article;
-    this.entity.location = "workstation";
+    this.entity.location = "workstation" + " " +  " " + this.workstation.office + this.workstation.numero;
     this.entity = this.addType(this.entity);
     this.workstation.articles.push(this.entity);
     this.updateWorkstation();
@@ -167,7 +167,7 @@ export class UserWorkstationComponent implements OnInit {
     this.workstation = this.addType(this.workstation);
     this.workstationService.saveOrUpdate(this.workstation).subscribe(result => {
       console.log("ARTICLE CARICATO CON SUCCESSO")//,
-       // this.reloadPage();
+        this.reloadPage();
     });
   }
 
