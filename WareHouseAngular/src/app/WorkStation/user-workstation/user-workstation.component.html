@@ -15,11 +15,12 @@
                             <div class="col">
                                 <h3>User: {{workstation.user}}</h3>
                             </div>
-                            <div  class="col">
+                            <div class="col">
                                 <button class="userButton">ASSIGN WORKSTATION</button>
                             </div>
                             <div class="col">
-                                <button (click)="disassignWorkstation()" class="userButton">DISASSIGN WORKSTATION</button>
+                                <button (click)="disassignWorkstation()" class="userButton">DISASSIGN
+                                    WORKSTATION</button>
                             </div>
                         </div>
                     </div>
@@ -151,7 +152,7 @@
             </div>
             <div class="modal-body" id="modal-body">
                 <div class="col">
-                    <div>
+                    <div *ngIf="showWarehouseList?.length; else emptyList">
                         <table id="myTable" class="table table-striped">
                             <thead>
                                 <tr>
@@ -166,7 +167,12 @@
                             </tbody>
                         </table>
                     </div>
+                    <ng-template #emptyList>
+                        <div id="emptyListMessage">No article present for the {{articleType}} category in the Warehouse.
+                        </div>
+                    </ng-template>
                 </div>
+
                 <button data-dismiss="modal"> Chiudi </button>
             </div>
         </div>

@@ -74,6 +74,11 @@ export class UserWorkstationComponent implements OnInit {
 
   ngOnInit(): void {
     this.workstationService.findByOfficeAndNumero(this.office, this.numero).subscribe(data => {
+      if (data === null) {
+        this.workstation.officeLocation = this.office;
+        this.workstation.numero = this.numero;
+        this.updateWorkstation();
+      }
       if (data.articles.length > 0) {
         this.workstation = this.removeType(data);
       }
@@ -83,7 +88,7 @@ export class UserWorkstationComponent implements OnInit {
     })
   }
 
-  disassignWorkstation(){
+  disassignWorkstation() {
     this.workstation.user = "";
     this.updateWorkstation();
   }
@@ -125,7 +130,7 @@ export class UserWorkstationComponent implements OnInit {
     this.updateWorkstation();
   }
 
-  prepareForm(articleType){
+  prepareForm(articleType) {
     this.chooseService(articleType);
     this.articleType = articleType;
   }
@@ -161,8 +166,8 @@ export class UserWorkstationComponent implements OnInit {
   updateWorkstation() {
     this.workstation = this.addType(this.workstation);
     this.workstationService.saveOrUpdate(this.workstation).subscribe(result => {
-      console.log("ARTICLE CARICATO CON SUCCESSO"),
-        this.reloadPage();
+      console.log("ARTICLE CARICATO CON SUCCESSO")//,
+       // this.reloadPage();
     });
   }
 
