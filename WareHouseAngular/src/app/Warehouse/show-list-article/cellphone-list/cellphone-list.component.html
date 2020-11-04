@@ -1,16 +1,15 @@
 <header>
-	<div class="container-fluid">
-		<div class="row h-100 d-flex flex-column flex-wrap">
-			<div class="col mt-5">
-				<div class="row h-100 align-items-end">
+    <div class="container">
+        <div class="row h-100 d-flex flex-column flex-wrap">
+            <div class="col mt-5">
+                <div class="row h-100 align-items-end">
 
-					<div class="col-6 mb-2 d-flex flex-row">
+                    <div class="col-6 mb-2 d-flex flex-row">
 
-						<button class="btn mr-2" id="btn-add" (click)="onAddArticleButton()" data-toggle="modal"
-							data-target="#saveOrUpdateModal">
+                        <button class="btn mr-2" id="btn-add" (click)="onAddArticleButton()" data-toggle="modal" data-target="#saveOrUpdateModal">
 							<fa-icon [icon]="faPlus"></fa-icon>
 						</button>
-						<select [(ngModel)]="filtered" class="custom-select" name="filter">
+                        <select [(ngModel)]="filtered" class="custom-select" name="filter">
 							<option selected disabled>Filter by:</option>
 							<option value="identifier">Identifier</option>
 							<option value="model">Model</option>
@@ -18,77 +17,77 @@
 							<option value="location">Location</option>
 							<option value="type">Type</option>
 						</select>
-					</div>
-					<div class="col-6 mb-2 d-flex flex-row">
-						<input class="form-control" type="text" id="myInput" (keyup)="searchFunction()"
-							placeholder="Search by filter...">
-						<div class="custom-control custom-switch d-flex align-items-end ml-2">
-							<input type="checkbox" class="custom-control-input" id="location" name="location"
-								[(ngModel)]="isChecked" (change)="setList()">
-							<label for="location" class="custom-control-label" id="label-all">All</label>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div *ngIf="listProduct?.length; else emptyList" class="table-responsive">
-					<table id="myTable" class="table table-striped">
-						<thead>
-							<tr>
-								<th scope="row">Identifier</th>
-								<th scope="row">Users</th>
-								<th scope="row">Brand</th>
-								<th scope="row">Model</th>
-								<th scope="row">Serial Number</th>
-								<th scope="row">Location</th>
-								<th scope="row">User Number</th>
-								<th scope="row">imeiCode</th>
-								<th scope="row">operator</th>
-								<th scope="row">phoneNumber</th>
-								<th scope="row">rateTipology</th>
-								<th scope="row">Modify</th>
-								<th scope="row">Delete</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr *ngFor="let cellphone of showList">
-								<td>{{cellphone.identifier}}</td>
-								<td>{{cellphone.users}}</td>
-								<td>{{cellphone.brand}}</td>
-								<td>{{cellphone.model}}</td>
-								<td>{{cellphone.serialNumber}}</td>
-								<td>{{cellphone.location}}</td>
-								<td>{{cellphone.userNumber}}</td>
-								<td>{{cellphone.imeiCode}}</td>
-								<td>{{cellphone.operator}}</td>
-								<td>{{cellphone.phoneNumber}}</td>
-								<td>{{cellphone.rateTypology}}</td>
-								<td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(cellphone)"
-									data-toggle="modal" data-target="#saveOrUpdateModal">
+                    </div>
+                    <div class="col-6 mb-2 d-flex flex-row">
+                        <input class="form-control" type="text" id="myInput" (keyup)="searchFunction()" placeholder="Search by filter...">
+                        <div class="custom-control custom-switch d-flex align-items-end ml-2">
+                            <input type="checkbox" class="custom-control-input" id="location" name="location" [(ngModel)]="isChecked" (change)="setList()">
+                            <label for="location" class="custom-control-label" id="label-all">All</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div *ngIf="listProduct?.length; else emptyList" class="table-responsive">
+                    <table id="myTable" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="row">Identifier</th>
+                                <th scope="row">Users</th>
+                                <th scope="row">Brand</th>
+                                <th scope="row">Model</th>
+                                <th scope="row">Serial Number</th>
+                                <th scope="row">Location</th>
+                                <th scope="row">User Number</th>
+                                <th scope="row">imeiCode</th>
+                                <th scope="row">operator</th>
+                                <th scope="row">phoneNumber</th>
+                                <th scope="row">rateTipology</th>
+                                <th scope="row">Modify</th>
+                                <th scope="row">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let cellphone of showList">
+                                <td>{{cellphone.identifier}}</td>
+                                <td>{{cellphone.users}}</td>
+                                <td>{{cellphone.brand}}</td>
+                                <td>{{cellphone.model}}</td>
+                                <td>{{cellphone.serialNumber}}</td>
+                                <td>{{cellphone.location}}</td>
+                                <td>{{cellphone.userNumber}}</td>
+                                <td>{{cellphone.imeiCode}}</td>
+                                <td>{{cellphone.operator}}</td>
+                                <td>{{cellphone.phoneNumber}}</td>
+                                <td>{{cellphone.rateTypology}}</td>
+                                <td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(cellphone)" data-toggle="modal" data-target="#saveOrUpdateModal">
 									<fa-icon [icon]="faPen"></fa-icon>
 								</button></td>
-							<td><button (click)="deleteProduct(cellphone)" class="btn btn-danger" id="btn-delete">
+                                <td><button (click)="deleteProduct(cellphone)" class="btn btn-danger" id="btn-delete">
 									<fa-icon [icon]="faEraser"></fa-icon>
 								</button></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<ng-template #emptyList><div id="emptyListMessage">No Cellphone present in the warehouse, press <fa-icon [icon]="faPlus"></fa-icon> to add a new Cellphone.</div></ng-template>
-			</div>
-		</div>
-	</div>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <ng-template #emptyList>
+                    <div id="emptyListMessage">No Cellphone present in the warehouse, press
+                        <fa-icon [icon]="faPlus"></fa-icon> to add a new Cellphone.</div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
 </header>
-	
-	<!-- Modal -->
-<div class="modal fade" id="saveOrUpdateModal" role="dialog">
-	<div class="modal-dialog modal-dialog-centered">
 
-	
-		<div class="modal-content" id="modal">
-			<div class="modal-body" id="modal-body">
-				<app-form-cellphone [cellphone]="entity" (cellphoneToEmit)="saveOrUpdate($event)"></app-form-cellphone>
-			</div>
-		</div>
-	</div>
+<!-- Modal -->
+<div class="modal fade" id="saveOrUpdateModal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+
+
+        <div class="modal-content" id="modal">
+            <div class="modal-body" id="modal-body">
+                <app-form-cellphone [cellphone]="entity" (cellphoneToEmit)="saveOrUpdate($event)"></app-form-cellphone>
+            </div>
+        </div>
+    </div>
 </div>

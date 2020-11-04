@@ -1,16 +1,15 @@
 <header>
-	<div class="container-fluid">
-		<div class="row h-100 d-flex flex-column flex-wrap">
-			<div class="col mt-5">
-				<div class="row h-100 align-items-end">
+    <div class="container">
+        <div class="row h-100 d-flex flex-column flex-wrap">
+            <div class="col mt-5">
+                <div class="row h-100 align-items-end">
 
-					<div class="col-6 mb-2 d-flex flex-row">
+                    <div class="col-6 mb-2 d-flex flex-row">
 
-						<button class="btn mr-2" id="btn-add" (click)="onAddArticleButton()" data-toggle="modal"
-							data-target="#saveOrUpdateModal">
+                        <button class="btn mr-2" id="btn-add" (click)="onAddArticleButton()" data-toggle="modal" data-target="#saveOrUpdateModal">
 							<fa-icon [icon]="faPlus"></fa-icon>
 						</button>
-						<select [(ngModel)]="filtered" class="custom-select" name="filter">
+                        <select [(ngModel)]="filtered" class="custom-select" name="filter">
 							<option selected disabled>Filter by:</option>
 							<option value="identifier">Identifier</option>
 							<option value="model">Model</option>
@@ -18,71 +17,71 @@
 							<option value="location">Location</option>
 							<option value="type">Type</option>
 						</select>
-					</div>
-					<div class="col-6 mb-2 pl-0 d-flex flex-row">
-						<input class="form-control" type="text" id="myInput" (keyup)="searchFunction()"
-							placeholder="Search by filter...">
-						<div class="custom-control custom-switch d-flex align-items-end ml-2">
-							<input type="checkbox" class="custom-control-input" id="location" name="location"
-								[(ngModel)]="isChecked" (change)="setList()">
-							<label for="location" class="custom-control-label" id="label-all">All</label>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div *ngIf="listProduct?.length; else emptyList" class="table-responsive">
-					<table id="myTable" class="table table-striped">
-						<thead>
-							<tr>
-								<th scope="row">Identifier</th>
-								<th scope="row">Users</th>
-								<th scope="row">Brand</th>
-								<th scope="row">Model</th>
-								<th scope="row">Serial Number</th>
-								<th scope="row">Location</th>
-								<th scope="row">User Number</th>
-								<th scope="row">Type</th>
-								<th scope="row">Modify</th>
-								<th scope="row">Delete</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr *ngFor="let cable of showList">
-								<td class="identifier">{{cable.identifier}}</td>
-								<td>{{cable.users}}</td>
-								<td class="brand">{{cable.brand}}</td>
-								<td class="model">{{cable.model}}</td>
-								<td>{{cable.serialNumber}}</td>
-								<td class="location">{{cable.location}}</td>
-								<td>{{cable.userNumber}}</td>
-								<td class="type">{{cable.type}}</td>
-								<td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(cable)"
-										data-toggle="modal" data-target="#saveOrUpdateModal">
+                    </div>
+                    <div class="col-6 mb-2 pl-0 d-flex flex-row">
+                        <input class="form-control" type="text" id="myInput" (keyup)="searchFunction()" placeholder="Search by filter...">
+                        <div class="custom-control custom-switch d-flex align-items-end ml-2">
+                            <input type="checkbox" class="custom-control-input" id="location" name="location" [(ngModel)]="isChecked" (change)="setList()">
+                            <label for="location" class="custom-control-label" id="label-all">All</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div *ngIf="listProduct?.length; else emptyList" class="table-responsive">
+                    <table id="myTable" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="row">Identifier</th>
+                                <th scope="row">Users</th>
+                                <th scope="row">Brand</th>
+                                <th scope="row">Model</th>
+                                <th scope="row">Serial Number</th>
+                                <th scope="row">Location</th>
+                                <th scope="row">User Number</th>
+                                <th scope="row">Type</th>
+                                <th scope="row">Modify</th>
+                                <th scope="row">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let cable of showList">
+                                <td class="identifier">{{cable.identifier}}</td>
+                                <td>{{cable.users}}</td>
+                                <td class="brand">{{cable.brand}}</td>
+                                <td class="model">{{cable.model}}</td>
+                                <td>{{cable.serialNumber}}</td>
+                                <td class="location">{{cable.location}}</td>
+                                <td>{{cable.userNumber}}</td>
+                                <td class="type">{{cable.type}}</td>
+                                <td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(cable)" data-toggle="modal" data-target="#saveOrUpdateModal">
 										<fa-icon [icon]="faPen"></fa-icon>
 									</button></td>
-								<td><button (click)="deleteProduct(cable)" class="btn btn-danger" id="btn-delete">
+                                <td><button (click)="deleteProduct(cable)" class="btn btn-danger" id="btn-delete">
 										<fa-icon [icon]="faEraser"></fa-icon>
 									</button></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<ng-template #emptyList><div id="emptyListMessage">No cable present in the warehouse, press <fa-icon [icon]="faPlus"></fa-icon> to add a new cable.</div></ng-template>
-			</div>
-		</div>
-	</div>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <ng-template #emptyList>
+                    <div id="emptyListMessage">No cable present in the warehouse, press
+                        <fa-icon [icon]="faPlus"></fa-icon> to add a new cable.</div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
 </header>
 
- <!--Modal-->
+<!--Modal-->
 <div class="modal fade" id="saveOrUpdateModal" role="dialog">
-	<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered">
 
-		
-		<div class="modal-content" id="modal">
-			<div class="modal-body" id="modal-body">
-				<app-form-cable [cable]="entity" (cableToEmit)="saveOrUpdate($event)"></app-form-cable>
-			</div>
-		</div>
-	</div>
-</div> 
+
+        <div class="modal-content" id="modal">
+            <div class="modal-body" id="modal-body">
+                <app-form-cable [cable]="entity" (cableToEmit)="saveOrUpdate($event)"></app-form-cable>
+            </div>
+        </div>
+    </div>
+</div>

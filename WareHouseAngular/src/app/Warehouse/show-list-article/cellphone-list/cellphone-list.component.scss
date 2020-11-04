@@ -2,6 +2,7 @@
     font-family: Poppins;
     src: url("../../../../assets/fonts/Poppins-Light.ttf");
 }
+
 * {
     font-family: "Poppins", sans-serif;
 }
@@ -17,7 +18,9 @@ header {
     background-attachment: fixed;
 }
 
+
 /* Parte sopra la tabella*/
+
 #btn-add {
     background-color: transparent;
     border: 1px solid white;
@@ -27,24 +30,28 @@ header {
     box-shadow: none !important;
     outline: 0;
 }
+
 #btn-add:hover {
     background-color: white;
     border: 1px solid white;
     color: black;
     transition: 0.5s;
 }
+
 #btn-modify,
 #btn-delete {
     border-radius: 10px;
 }
+
 select {
     border-radius: 20px 20px 0 0;
-    background-color: transparent;
-    color: white;
+    background-color: white;
+    color: black;
     box-shadow: none !important;
     outline: 0;
     transition: 0.5s;
 }
+
 select:hover {
     background-color: white;
     transition: 0.5s;
@@ -60,6 +67,7 @@ select:hover {
     box-shadow: none !important;
     outline: 0;
 }
+
 #myInput:focus {
     color: white;
     background: transparent;
@@ -67,54 +75,69 @@ select:hover {
     border-radius: 20px;
     transition: 0.5s;
 }
+
 ::placeholder {
     color: white;
 }
+
 #label-all {
     color: white;
 }
+
+
 /* Tabella */
+
 table {
     background-color: white;
     border-radius: 10px 10px 0 0;
     border: none;
 }
+
 thead {
     border-radius: 20px 20px 0 0;
     border: none;
 }
+
 th {
     border: none;
 }
 
+
 /* Modal */
+
 #modal {
     background-color: transparent;
     color: white;
     border: none;
 }
+
 #modal-header {
     border: none;
     padding: 0px;
 }
+
 #modal-body {
     background-color: black;
     border: none;
     border: 1px solid white;
     border-radius: 10px;
 }
+
 #modal-footer {
     border: none;
 }
+
 h3 {
     letter-spacing: 5px;
     font-size: 20px;
 }
+
 #laptopGroup {
     border: none;
     background-color: transparent;
     color: white;
 }
+
 input {
     background: transparent;
     border: none;
@@ -122,6 +145,7 @@ input {
     border-radius: 0px;
     color: white;
 }
+
 input:focus {
     border: none;
     border: 1px solid white;
@@ -132,22 +156,26 @@ input:focus {
     box-shadow: none !important;
     outline: 0;
 }
+
 span {
     color: white;
 }
+
 button {
     border: 1px solid white;
     border-radius: 20px;
     color: white;
     transition: 0.5s;
 }
+
 button:hover {
     background-color: white;
     color: black;
     border: 1px solid white;
     transition: 0.5s;
 }
-#emptyListMessage{
+
+#emptyListMessage {
     text-align: center;
     color: white;
     font-size: 20px;
