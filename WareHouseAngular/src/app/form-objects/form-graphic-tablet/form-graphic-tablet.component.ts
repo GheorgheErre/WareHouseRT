@@ -8,7 +8,6 @@ import { GraphicTablet } from 'src/app/pcObjects/graficTablet/grafic-tablet';
 })
 export class FormGraphicTabletComponent implements OnInit {
 
-  @Input() graphicTablet: GraphicTablet;
   @Output() graphicTabletToEmit = new EventEmitter<GraphicTablet>();
   graphicTabletTemp = new GraphicTablet();
 
@@ -22,7 +21,7 @@ export class FormGraphicTabletComponent implements OnInit {
   }
 
   sendGraphicTabletToParent() {
-    this.graphicTabletToEmit.emit(this.graphicTablet);
+    this.graphicTabletToEmit.emit(this.graphicTabletTemp);
   }
 
 

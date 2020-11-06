@@ -8,7 +8,6 @@ import { Cpu } from 'src/app/pcObjects/cpu/cpu';
 })
 export class FormCpuComponent implements OnInit {
 
-  @Input() cpu: Cpu;
   @Output() cpuToEmit = new EventEmitter<Cpu>();
 
   cpuTemp = new Cpu();
@@ -22,7 +21,7 @@ export class FormCpuComponent implements OnInit {
   }
 
   sendCpuToParent() {
-    this.cpuToEmit.emit(this.cpu);
+    this.cpuToEmit.emit(this.cpuTemp);
   }
 
 }

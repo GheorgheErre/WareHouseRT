@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormDesktopComponent } from 'src/app/form-objects/form-desktop/form-desktop.component';
 import { Desktop } from 'src/app/pcObjects/desktop/desktop';
 import { DesktopService } from 'src/app/service/service-desktop/desktop-service.service';
+import { WorkStationService } from 'src/app/service/service-workStation/work-station.service';
 import { ProductList } from '../product-list/product-list';
 
 @Component({
@@ -13,8 +14,8 @@ export class DesktopListComponent extends ProductList implements OnInit {
 
   @ViewChild(FormDesktopComponent) formDesktop: FormDesktopComponent;
 
-  constructor(private desktopService: DesktopService) {
-    super(desktopService);
+  constructor(private desktopService: DesktopService, protected workstationService: WorkStationService) {
+    super(desktopService, workstationService);
     this.entity = new Desktop();
   }
 

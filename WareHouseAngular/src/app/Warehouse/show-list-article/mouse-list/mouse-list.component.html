@@ -11,11 +11,13 @@
 							<fa-icon [icon]="faPlus"></fa-icon>
 						</button>
 						<select [(ngModel)]="filtered" class="custom-select" name="filter">
-							<option selected disabled>Filter by:</option>
 							<option value="identifier">Identifier</option>
-							<option value="model">Model</option>
-							<option value="brand">Brand</option>
-							<option value="location">Location</option>
+                            <option value="users">Users</option>
+                            <option value="brand">Brand</option>
+                            <option value="model">Model</option>
+                            <option value="serialNumber">Serial Number</option>
+                            <option value="location">Location</option>
+                            <option value="userNumber">User Number</option>
 							<option value="type">Type</option>
 						</select>
 					</div>
@@ -49,27 +51,30 @@
 						</thead>
 						<tbody>
 							<tr *ngFor="let mouse of showList">
-								<td class="hidden"></td>
-								<td>{{mouse.identifier}}</td>
-								<td>{{mouse.users}}</td>
-								<td>{{mouse.brand}}</td>
-								<td>{{mouse.model}}</td>
-								<td>{{mouse.serialNumber}}</td>
-								<td>{{mouse.location}}</td>
-								<td>{{mouse.userNumber}}</td>
-								<td>{{mouse.type}}</td>
+								<td class="identifier">{{mouse.identifier}}</td>
+                                <td class="users">{{mouse.users}}</td>
+                                <td class="brand">{{mouse.brand}}</td>
+                                <td class="model">{{mouse.model}}</td>
+                                <td class="serialNumber">{{mouse.serialNumber}}</td>
+                                <td class="location">{{mouse.location}}</td>
+                                <td class="userNumber">{{mouse.userNumber}}</td>
+								<td class="type">{{mouse.type}}</td>
 								<td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(mouse)"
-									data-toggle="modal" data-target="#saveOrUpdateModal">
-									<fa-icon [icon]="faPen"></fa-icon>
-								</button></td>
-							<td><button (click)="deleteProduct(mouse)" class="btn btn-danger" id="btn-delete">
-									<fa-icon [icon]="faEraser"></fa-icon>
-								</button></td>
+										data-toggle="modal" data-target="#saveOrUpdateModal">
+										<fa-icon [icon]="faPen"></fa-icon>
+									</button></td>
+									<td><button  (click)="setProductToDelete(mouse)" class="btn btn-danger" id="btn-delete"
+										data-toggle="modal" data-target="#deleteArticleModal">
+											<fa-icon [icon]="faEraser"></fa-icon>
+										</button></td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
-				<ng-template #emptyList><div id="emptyListMessage">No Mouse present in the warehouse, press <fa-icon [icon]="faPlus"></fa-icon> to add a new Mouse.</div></ng-template>
+				<ng-template #emptyList>
+					<div id="emptyListMessage">No Mouse present in the warehouse, press <fa-icon [icon]="faPlus">
+						</fa-icon> to add a new Mouse.</div>
+				</ng-template>
 			</div>
 		</div>
 	</div>
@@ -78,16 +83,33 @@
 
 <div class="modal fade" id="saveOrUpdateModal" role="dialog">
 	<div class="modal-dialog modal-dialog-centered">
-
 		<div class="modal-content" id="modal">
 
-	
+
 			<div class="modal-body" id="modal-body">
-				<app-form-mouse [mouse]="entity" (mouseToEmit)="saveOrUpdate($event)"></app-form-mouse>
+				<app-form-mouse (mouseToEmit)="saveOrUpdate($event)"></app-form-mouse>
 			</div>
-
-
 		</div>
-
 	</div>
+</div>
+
+<!--Modal eliminazione -->
+<div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Mouse</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{deleteMessage}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="deleteProduct(productToDelete)" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

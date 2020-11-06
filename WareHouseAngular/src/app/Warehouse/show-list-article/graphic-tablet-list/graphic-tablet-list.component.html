@@ -13,10 +13,15 @@
 						<select [(ngModel)]="filtered" class="custom-select" name="filter">
 							<option selected disabled>Filter by:</option>
 							<option value="identifier">Identifier</option>
-							<option value="model">Model</option>
-							<option value="brand">Brand</option>
-							<option value="location">Location</option>
-							<option value="type">Type</option>
+                            <option value="users">Users</option>
+                            <option value="brand">Brand</option>
+                            <option value="model">Model</option>
+                            <option value="serialNumber">Serial Number</option>
+                            <option value="location">Location</option>
+                            <option value="userNumber">User Number</option>
+                            <option value="height">Height</option>
+                            <option value="width">Width</option>
+							<option value="length">Length</option>
 						</select>
 					</div>
 					<div class="col-6 mb-2 d-flex flex-row">
@@ -51,24 +56,24 @@
 						</thead>
 						<tbody>
 							<tr *ngFor="let graphicTablet of showList">
-								<td class="hidden"></td>
-								<td>{{graphicTablet.identifier}}</td>
-								<td>{{graphicTablet.users}}</td>
-								<td>{{graphicTablet.brand}}</td>
-								<td>{{graphicTablet.model}}</td>
-								<td>{{graphicTablet.serialNumber}}</td>
-								<td>{{graphicTablet.location}}</td>
-								<td>{{graphicTablet.userNumber}}</td>
-								<td>{{graphicTablet.height}}</td>
-								<td>{{graphicTablet.width}}</td>
-								<td>{{graphicTablet.length}}</td>
+								<td class="identifier">{{graphicTablet.identifier}}</td>
+                                <td class="users">{{graphicTablet.users}}</td>
+                                <td class="brand">{{graphicTablet.brand}}</td>
+                                <td class="model">{{graphicTablet.model}}</td>
+                                <td class="serialNumber">{{graphicTablet.serialNumber}}</td>
+                                <td class="location">{{graphicTablet.location}}</td>
+                                <td class="userNumber">{{graphicTablet.userNumber}}</td>
+								<td class="height">{{graphicTablet.height}}</td>
+								<td class="width">{{graphicTablet.width}}</td>
+								<td class="length">{{graphicTablet.length}}</td>
 								<td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(graphicTablet)"
 									data-toggle="modal" data-target="#saveOrUpdateModal">
 									<fa-icon [icon]="faPen"></fa-icon>
 								</button></td>
-							<td><button (click)="deleteProduct(graphicTablet)" class="btn btn-danger" id="btn-delete">
-									<fa-icon [icon]="faEraser"></fa-icon>
-								</button></td>
+								<td><button  (click)="setProductToDelete(graphicTablet)" class="btn btn-danger" id="btn-delete"
+									data-toggle="modal" data-target="#deleteArticleModal">
+										<fa-icon [icon]="faEraser"></fa-icon>
+									</button></td>
 							</tr>
 						</tbody>
 					</table>
@@ -85,8 +90,29 @@
 
 		<div class="modal-content" id="modal">
 			<div class="modal-body" id="modal-body">
-				<app-form-graphic-tablet [graphicTablet]="entity" (graphicTabletToEmit)="saveOrUpdate($event)"></app-form-graphic-tablet>
+				<app-form-graphic-tablet (graphicTabletToEmit)="saveOrUpdate($event)"></app-form-graphic-tablet>
 			</div>
 		</div>
 	</div>
+</div>
+
+<!--Modal eliminazione -->
+<div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Graphic Tablet</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{deleteMessage}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="deleteProduct(productToDelete)" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

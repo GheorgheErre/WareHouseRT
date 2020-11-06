@@ -8,7 +8,6 @@ import { DockingStation } from 'src/app/pcObjects/dockingStation/docking-station
 })
 export class FormDockingStationComponent implements OnInit {
 
-  @Input() dockingStation: DockingStation;
   @Output() dockingStationToEmit = new EventEmitter<DockingStation>();
 
   dockingStationTemp = new DockingStation();
@@ -23,7 +22,7 @@ export class FormDockingStationComponent implements OnInit {
   }
 
   sendDockingStationToParent() {
-    this.dockingStationToEmit.emit(this.dockingStation);
+    this.dockingStationToEmit.emit(this.dockingStationTemp);
   }
 
 }

@@ -13,10 +13,13 @@
 						<select [(ngModel)]="filtered" class="custom-select" name="filter">
 							<option selected disabled>Filter by:</option>
 							<option value="identifier">Identifier</option>
-							<option value="model">Model</option>
-							<option value="brand">Brand</option>
-							<option value="location">Location</option>
-							<option value="type">Type</option>
+                            <option value="users">Users</option>
+                            <option value="brand">Brand</option>
+                            <option value="model">Model</option>
+                            <option value="serialNumber">Serial Number</option>
+                            <option value="location">Location</option>
+							<option value="userNumber">User Number</option>
+							<option value="capacity">Capacity</option>
 						</select>
 					</div>
 					<div class="col-6 mb-2 d-flex flex-row">
@@ -49,27 +52,27 @@
 						</thead>
 						<tbody>
 							<tr *ngFor="let hdd of showList">
-								<td class="hidden"></td>
-								<td>{{hdd.identifier}}</td>
-								<td>{{hdd.users}}</td>
-								<td>{{hdd.brand}}</td>
-								<td>{{hdd.model}}</td>
-								<td>{{hdd.serialNumber}}</td>
-								<td>{{hdd.location}}</td>
-								<td>{{hdd.userNumber}}</td>
-								<td>{{hdd.capacity}}</td>
+								<td class="identifier">{{hdd.identifier}}</td>
+                                <td class="users">{{hdd.users}}</td>
+                                <td class="brand">{{hdd.brand}}</td>
+                                <td class="model">{{hdd.model}}</td>
+                                <td class="serialNumber">{{hdd.serialNumber}}</td>
+                                <td class="location">{{hdd.location}}</td>
+                                <td class="userNumber">{{hdd.userNumber}}</td>
+								<td class="capacity">{{hdd.capacity}}</td>
 								<td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(hdd)"
 									data-toggle="modal" data-target="#saveOrUpdateModal">
 									<fa-icon [icon]="faPen"></fa-icon>
 								</button></td>
-							<td><button (click)="deleteProduct(hdd)" class="btn btn-danger" id="btn-delete">
-									<fa-icon [icon]="faEraser"></fa-icon>
-								</button></td>
+								<td><button  (click)="setProductToDelete(hdd)" class="btn btn-danger" id="btn-delete"
+									data-toggle="modal" data-target="#deleteArticleModal">
+										<fa-icon [icon]="faEraser"></fa-icon>
+									</button></td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
-				<ng-template #emptyList><div id="emptyListMessage">No Keyboard present in the warehouse, press <fa-icon [icon]="faPlus"></fa-icon> to add a new Keyboard.</div></ng-template>
+				<ng-template #emptyList><div id="emptyListMessage">No HDD present in the warehouse, press <fa-icon [icon]="faPlus"></fa-icon> to add a new HDD.</div></ng-template>
 			</div>
 		</div>
 	</div>
@@ -81,8 +84,29 @@
 
 		<div class="modal-content" id="modal">
 			<div class="modal-body" id="modal-body">
-				<app-form-hdd [hdd]="entity" (hddToEmit)="saveOrUpdate($event)"></app-form-hdd>
+				<app-form-hdd (hddToEmit)="saveOrUpdate($event)"></app-form-hdd>
 			</div>
 		</div>
 	</div>
+</div>
+
+<!--Modal eliminazione -->
+<div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete HDD</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{deleteMessage}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="deleteProduct(productToDelete)" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

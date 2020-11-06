@@ -7,7 +7,7 @@ import { Ssd } from 'src/app/pcObjects/ssd/ssd';
   styleUrls: ['./form-ssd.component.scss']
 })
 export class FormSsdComponent implements OnInit {
-  @Input() ssd: Ssd
+ 
   @Output() ssdToEmit = new EventEmitter<Ssd>();
   ssdTemp = new Ssd();
   constructor() { }
@@ -18,7 +18,7 @@ export class FormSsdComponent implements OnInit {
     this.ssdTemp = JSON.parse(JSON.stringify(entity));
   }
   sendSsdToParent() {
-    this.ssdToEmit.emit(this.ssd);
+    this.ssdToEmit.emit(this.ssdTemp);
   }
 
 }

@@ -3,31 +3,31 @@
 <form (ngSubmit)="sendGpuToParent()" id="formGpu">
 
     <div class="form-control mb-2" id="gpuGroup">
-        <input [(ngModel)]="gpu.users" name="users" class="form-control" placeholder="Users:">
+        <input [(ngModel)]="gpuTemp.users" name="users" class="form-control" placeholder="Users:">
     </div>
     <div class="form-control mb-2" id="gpuGroup">
-        <input [(ngModel)]="gpu.brand" name="brand" class="form-control" placeholder="Brand:">
+        <input [(ngModel)]="gpuTemp.brand" name="brand" class="form-control" placeholder="Brand:">
     </div>
     <div class="form-control mb-2" id="gpuGroup">
-        <input [(ngModel)]="gpu.model" name="model" class="form-control" placeholder="Model:">
+        <input [(ngModel)]="gpuTemp.model" name="model" class="form-control" placeholder="Model:">
     </div>
     <div class="form-control mb-2" id="gpuGroup">
-        <input [(ngModel)]="gpu.serialNumber" name="serialNumber" class="form-control"
+        <input [(ngModel)]="gpuTemp.serialNumber" name="serialNumber" class="form-control"
             placeholder="Serial number:">
     </div>
     <div class="form-control mb-2" id="gpuGroup">
-        <input [(ngModel)]="gpu.userNumber" name="userNumber" class="form-control"
+        <input [(ngModel)]="gpuTemp.userNumber" name="userNumber" class="form-control"
             placeholder="User number:">
     </div>
     <div class="form-control mb-4" id="gpuGroup">
-        <input [(ngModel)]="gpu.memory" name="memory" class="form-control" placeholder="Memory:">
+        <input [(ngModel)]="gpuTemp.memory" name="memory" class="form-control" placeholder="Memory:">
     </div>
 
     <div class="form-control mb-4" id="gpuGroup">
-        <input [(ngModel)]="gpu.baseClock" name="baseClock" class="form-control" placeholder="Base Clock:">
+        <input [(ngModel)]="gpuTemp.baseClock" name="baseClock" class="form-control" placeholder="Base Clock:">
     </div>
     <div class="form-control mb-4" id="gpuGroup">
-        <input [(ngModel)]="gpu.maxBoostClock" name="maxBoostClock" class="form-control" placeholder="Max Boost Clock:">
+        <input [(ngModel)]="gpuTemp.maxBoostClock" name="maxBoostClock" class="form-control" placeholder="Max Boost Clock:">
     </div>
     <div class="float-right">
         <button class="btn mr-2 float-left">Save/Update GPU</button>

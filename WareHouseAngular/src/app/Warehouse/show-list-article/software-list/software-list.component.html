@@ -13,10 +13,13 @@
 						<select [(ngModel)]="filtered" class="custom-select" name="filter">
 							<option selected disabled>Filter by:</option>
 							<option value="identifier">Identifier</option>
-							<option value="model">Model</option>
-							<option value="brand">Brand</option>
-							<option value="location">Location</option>
-							<option value="type">Type</option>
+                            <option value="users">Users</option>
+                            <option value="brand">Brand</option>
+                            <option value="model">Model</option>
+                            <option value="serialNumber">Serial Number</option>
+                            <option value="location">Location</option>
+                            <option value="userNumber">User Number</option>
+                            <option value="productKey">Product Key</option>
 						</select>
 					</div>
 					<div class="col-6 mb-2 d-flex flex-row">
@@ -49,22 +52,23 @@
 						</thead>
 						<tbody>
 							<tr *ngFor="let software of showList">
-								<td>{{software.identifier}}</td>
-								<td>{{software.users}}</td>
-								<td>{{software.brand}}</td>
-								<td>{{software.model}}</td>
-								<td>{{software.serialNumber}}</td>
-								<td>{{software.location}}</td>
-								<td>{{software.userNumber}}</td>
-								<td>{{software.productKey}}</td>
+								<td class="identifier">{{software.identifier}}</td>
+                                <td class="users">{{software.users}}</td>
+                                <td class="brand">{{software.brand}}</td>
+                                <td class="model">{{software.model}}</td>
+                                <td class="serialNumber">{{software.serialNumber}}</td>
+                                <td class="location">{{software.location}}</td>
+                                <td class="userNumber">{{software.userNumber}}</td>
+								<td class="productKey">{{software.productKey}}</td>
 								<!--<td>{{software.associatedComputer.identifier}}</td>-->
 								<td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(software)"
 									data-toggle="modal" data-target="#saveOrUpdateModal">
 									<fa-icon [icon]="faPen"></fa-icon>
 								</button></td>
-							<td><button (click)="deleteProduct(software)" class="btn btn-danger" id="btn-delete">
-									<fa-icon [icon]="faEraser"></fa-icon>
-								</button></td>
+								<td><button  (click)="setProductToDelete(software)" class="btn btn-danger" id="btn-delete"
+									data-toggle="modal" data-target="#deleteArticleModal">
+										<fa-icon [icon]="faEraser"></fa-icon>
+									</button></td>
 							</tr>
 						</tbody>
 					</table>
@@ -78,17 +82,31 @@
 
 <div class="modal fade" id="saveOrUpdateModal" role="dialog">
 	<div class="modal-dialog modal-dialog-centered">
-
 		<div class="modal-content" id="modal">
-
-	
 			<div class="modal-body" id="modal-body">
-				<app-form-software [software]="entity" (softwareToEmit)="saveOrUpdate($event)"></app-form-software>
-
+				<app-form-software (softwareToEmit)="saveOrUpdate($event)"></app-form-software>
 			</div>
-
-
 		</div>
-
 	</div>
+</div>
+
+<!--Modal eliminazione -->
+<div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Software</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{deleteMessage}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="deleteProduct(productToDelete)" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

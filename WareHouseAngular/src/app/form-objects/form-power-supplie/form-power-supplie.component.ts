@@ -7,7 +7,7 @@ import { Powersupplie } from 'src/app/pcObjects/powerSupplie/powersupplie';
   styleUrls: ['./form-power-supplie.component.scss']
 })
 export class FormPowerSupplieComponent implements OnInit {
-  @Input() powerSupplie : Powersupplie 
+  
   @Output() powerSupplieToEmit = new EventEmitter<Powersupplie>();
   powerSupplieTemp=new Powersupplie();
   constructor() { }
@@ -19,6 +19,6 @@ export class FormPowerSupplieComponent implements OnInit {
     this.powerSupplieTemp = JSON.parse(JSON.stringify(entity));
   }
   sendPowersupplieToParent() {
-    this.powerSupplieToEmit.emit(this.powerSupplie);
+    this.powerSupplieToEmit.emit(this.powerSupplieTemp);
 }
 }

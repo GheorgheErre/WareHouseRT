@@ -8,7 +8,6 @@ import { Desktop } from 'src/app/pcObjects/desktop/desktop';
 })
 export class FormDesktopComponent implements OnInit {
 
-  @Input() desktop : Desktop;
   @Output() desktopToEmit = new EventEmitter<Desktop>();
   desktopTemp = new Desktop();
 
@@ -23,7 +22,7 @@ export class FormDesktopComponent implements OnInit {
   }
 
   sendDesktopToParent() {
-    this.desktopToEmit.emit(this.desktop);
+    this.desktopToEmit.emit(this.desktopTemp);
 }
 
 }

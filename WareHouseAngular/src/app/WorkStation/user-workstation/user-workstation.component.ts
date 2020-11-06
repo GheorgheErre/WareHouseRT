@@ -56,6 +56,7 @@ export class UserWorkstationComponent implements OnInit {
   articleType: String;
   service: ServiceService;
 
+  userName: string;
   userNumber: string;
   articleToDelete: Article;
 
@@ -92,12 +93,14 @@ export class UserWorkstationComponent implements OnInit {
   }
 
   assignWorkstation() {
-    this.workstation.user = this.userNumber;
+    this.workstation.userNumber = this.userNumber;
+    this.workstation.userName = this.userName;
     this.updateWorkstation();
   }
 
   disassignWorkstation() {
-    this.workstation.user = "";
+    this.workstation.userName = "";
+    this.workstation.userNumber = "";
     this.updateWorkstation();
   }
 
@@ -134,9 +137,8 @@ export class UserWorkstationComponent implements OnInit {
 
   // add a new article from outside
   addArticleFromOutside(article) {
-    //this.chooseService(article);
     this.entity = article;
-    this.entity.location = "workstation" + " " +  " " + this.workstation.office + this.workstation.numero;
+    this.entity.location = "workstation" + " " +  this.workstation.office + " " + this.workstation.numero;
     this.entity = this.addType(this.entity);
     this.workstation.articles.push(this.entity);
     this.updateWorkstation();

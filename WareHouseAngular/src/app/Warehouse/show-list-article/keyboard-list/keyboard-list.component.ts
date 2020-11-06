@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormKeyboardComponent } from 'src/app/form-objects/form-keyboard/form-keyboard.component';
 import { Keyboard } from 'src/app/pcObjects/keyBoard/key-board';
 import { KeyboardService } from 'src/app/service/service-keyboard/keyboard-service.service';
+import { WorkStationService } from 'src/app/service/service-workStation/work-station.service';
 import { ProductList } from '../product-list/product-list';
 
 @Component({
@@ -13,8 +14,8 @@ export class KeyboardListComponent extends ProductList implements OnInit {
 
   @ViewChild(FormKeyboardComponent) formKeyboard: FormKeyboardComponent;
 
-  constructor(private keyboardService: KeyboardService) {
-    super(keyboardService);
+  constructor(private keyboardService: KeyboardService, protected workstationService: WorkStationService) {
+    super(keyboardService, workstationService);
     this.entity = new Keyboard()
    }
 

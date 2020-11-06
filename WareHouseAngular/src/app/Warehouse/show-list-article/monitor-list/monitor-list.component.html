@@ -14,10 +14,15 @@
 						<select [(ngModel)]="filtered" class="custom-select" name="filter">
 							<option selected disabled>Filter by:</option>
 							<option value="identifier">Identifier</option>
-							<option value="model">Model</option>
-							<option value="brand">Brand</option>
-							<option value="location">Location</option>
-							<option value="type">Type</option>
+                            <option value="users">Users</option>
+                            <option value="brand">Brand</option>
+                            <option value="model">Model</option>
+                            <option value="serialNumber">Serial Number</option>
+                            <option value="location">Location</option>
+                            <option value="userNumber">User Number</option>
+                            <option value="inches">Inches</option>
+                            <option value="frequence">Frequence</option>
+							<option value="resolution">Resolution</option>
 						</select>
 					</div>
 					<div class="col-6 mb-2 d-flex flex-row">
@@ -52,24 +57,24 @@
 						</thead>
 						<tbody>
 							<tr *ngFor="let monitor of showList">
-								<td class="hidden"></td>
-								<td>{{monitor.identifier}}</td>
-								<td>{{monitor.users}}</td>
-								<td>{{monitor.brand}}</td>
-								<td>{{monitor.model}}</td>
-								<td>{{monitor.serialNumber}}</td>
-								<td>{{monitor.location}}</td>
-								<td>{{monitor.userNumber}}</td>
-								<td>{{monitor.inches}}</td>
-								<td>{{monitor.frequence}}</td>
-								<td>{{monitor.resolution}}</td>
+								<td class="identifier">{{monitor.identifier}}</td>
+                                <td class="users">{{monitor.users}}</td>
+                                <td class="brand">{{monitor.brand}}</td>
+                                <td class="model">{{monitor.model}}</td>
+                                <td class="serialNumber">{{monitor.serialNumber}}</td>
+                                <td class="location">{{monitor.location}}</td>
+                                <td class="userNumber">{{monitor.userNumber}}</td>
+								<td class="inches">{{monitor.inches}}</td>
+								<td class="frequence">{{monitor.frequence}}</td>
+								<td class="resolution">{{monitor.resolution}}</td>
 								<td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(monitor)"
 									data-toggle="modal" data-target="#saveOrUpdateModal">
 									<fa-icon [icon]="faPen"></fa-icon>
 								</button></td>
-							<td><button (click)="deleteProduct(monitor)" class="btn btn-danger" id="btn-delete">
-									<fa-icon [icon]="faEraser"></fa-icon>
-								</button></td>
+								<td><button  (click)="setProductToDelete(monitor)" class="btn btn-danger" id="btn-delete"
+									data-toggle="modal" data-target="#deleteArticleModal">
+										<fa-icon [icon]="faEraser"></fa-icon>
+									</button></td>
 							</tr>
 						</tbody>
 					</table>
@@ -88,8 +93,29 @@
 	
 		<div class="modal-content" id="modal">
 			<div class="modal-body" id="modal-body">
-				<app-form-monitor [monitor]="entity" (monitorToEmit)="saveOrUpdate($event)"></app-form-monitor>
+				<app-form-monitor (monitorToEmit)="saveOrUpdate($event)"></app-form-monitor>
 			</div>
 		</div>
 	</div>
+</div>
+
+<!--Modal eliminazione -->
+<div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Monitor</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{deleteMessage}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="deleteProduct(productToDelete)" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

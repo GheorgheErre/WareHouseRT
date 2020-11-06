@@ -13,10 +13,13 @@
 						<select [(ngModel)]="filtered" class="custom-select" name="filter">
 							<option selected disabled>Filter by:</option>
 							<option value="identifier">Identifier</option>
-							<option value="model">Model</option>
-							<option value="brand">Brand</option>
-							<option value="location">Location</option>
-							<option value="type">Type</option>
+                            <option value="users">Users</option>
+                            <option value="brand">Brand</option>
+                            <option value="model">Model</option>
+                            <option value="serialNumber">Serial Number</option>
+                            <option value="location">Location</option>
+                            <option value="userNumber">User Number</option>
+                            <option value="productKey">Product Key</option>
 						</select>
 					</div>
 					<div class="col-6 mb-2 d-flex flex-row">
@@ -49,22 +52,23 @@
 						</thead>
 						<tbody>
 							<tr *ngFor="let operativeSystem of showList">
-								<td>{{operativeSystem.identifier}}</td>
-								<td>{{operativeSystem.users}}</td>
-								<td>{{operativeSystem.brand}}</td>
-								<td>{{operativeSystem.model}}</td>
-								<td>{{operativeSystem.serialNumber}}</td>
-								<td>{{operativeSystem.location}}</td>
-								<td>{{operativeSystem.userNumber}}</td>
-								<td>{{operativeSystem.productKey}}</td>
+								<td class="identifier">{{operativeSystem.identifier}}</td>
+                                <td class="users">{{operativeSystem.users}}</td>
+                                <td class="brand">{{operativeSystem.brand}}</td>
+                                <td class="model">{{operativeSystem.model}}</td>
+                                <td class="serialNumber">{{operativeSystem.serialNumber}}</td>
+                                <td class="location">{{operativeSystem.location}}</td>
+                                <td class="userNumber">{{operativeSystem.userNumber}}</td>
+								<td class="productKey">{{operativeSystem.productKey}}</td>
 								<!--<td>{{operativeSystem.associatedComputer.identifier}}</td>-->
 								<td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(operativeSystem)"
 									data-toggle="modal" data-target="#saveOrUpdateModal">
 									<fa-icon [icon]="faPen"></fa-icon>
 								</button></td>
-							<td><button (click)="deleteProduct(operativeSystem)" class="btn btn-danger" id="btn-delete">
-									<fa-icon [icon]="faEraser"></fa-icon>
-								</button></td>
+								<td><button  (click)="setProductToDelete(operativeSystem)" class="btn btn-danger" id="btn-delete"
+									data-toggle="modal" data-target="#deleteArticleModal">
+										<fa-icon [icon]="faEraser"></fa-icon>
+									</button></td>
 							</tr>
 						</tbody>
 					</table>
@@ -78,18 +82,31 @@
 
 <div class="modal fade" id="saveOrUpdateModal" role="dialog">
 	<div class="modal-dialog modal-dialog-centered">
-
 		<div class="modal-content" id="modal">
-
-		
-
 			<div class="modal-body" id="modal-body">
-				<app-form-operative-system [operativeSystem]="entity" (operativeSystemToEmit)="saveOrUpdate($event)"></app-form-operative-system>
-
+				<app-form-operative-system (operativeSystemToEmit)="saveOrUpdate($event)"></app-form-operative-system>
 			</div>
-
-
 		</div>
-
 	</div>
+</div>
+
+<!--Modal eliminazione -->
+<div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Operative System</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{deleteMessage}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="deleteProduct(productToDelete)" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

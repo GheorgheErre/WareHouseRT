@@ -3,33 +3,33 @@
 <form (ngSubmit)="sendCpuToParent()" id="formCpu">
 
     <div class="form-control mb-2" id="cpuGroup">
-        <input [(ngModel)]="cpu.users" name="users" class="form-control" placeholder="Users:">
+        <input [(ngModel)]="cpuTemp.users" name="users" class="form-control" placeholder="Users:">
     </div>
     <div class="form-control mb-2" id="cpuGroup">
-        <input [(ngModel)]="cpu.brand" name="brand" class="form-control" placeholder="Brand:">
+        <input [(ngModel)]="cpuTemp.brand" name="brand" class="form-control" placeholder="Brand:">
     </div>
     <div class="form-control mb-2" id="cpuGroup">
-        <input [(ngModel)]="cpu.model" name="model" class="form-control" placeholder="Model:">
+        <input [(ngModel)]="cpuTemp.model" name="model" class="form-control" placeholder="Model:">
     </div>
     <div class="form-control mb-2" id="cpuGroup">
-        <input [(ngModel)]="cpu.serialNumber" name="serialNumber" class="form-control"
+        <input [(ngModel)]="cpuTemp.serialNumber" name="serialNumber" class="form-control"
             placeholder="Serial number:">
     </div>
     <div class="form-control mb-2" id="cpuGroup">
-        <input [(ngModel)]="cpu.userNumber" name="userNumber" class="form-control"
+        <input [(ngModel)]="cpuTemp.userNumber" name="userNumber" class="form-control"
             placeholder="User number:">
     </div>
     <div class="form-control mb-4" id="cpuGroup">
-        <input [(ngModel)]="cpu.core" name="core" class="form-control" placeholder="Core:">
+        <input [(ngModel)]="cpuTemp.core" name="core" class="form-control" placeholder="Core:">
     </div>
     <div class="form-control mb-4" id="cpuGroup">
-        <input [(ngModel)]="cpu.threads" name="threads" class="form-control" placeholder="Threads:">
+        <input [(ngModel)]="cpuTemp.threads" name="threads" class="form-control" placeholder="Threads:">
     </div>
     <div class="form-control mb-4" id="cpuGroup">
-        <input [(ngModel)]="cpu.baseClock" name="baseClock" class="form-control" placeholder="Base Clock:">
+        <input [(ngModel)]="cpuTemp.baseClock" name="baseClock" class="form-control" placeholder="Base Clock:">
     </div>
     <div class="form-control mb-4" id="cpuGroup">
-        <input [(ngModel)]="cpu.maxBoostClock" name="maxBoostClock" class="form-control" placeholder="Max Boost Clock:">
+        <input [(ngModel)]="cpuTemp.maxBoostClock" name="maxBoostClock" class="form-control" placeholder="Max Boost Clock:">
     </div>
     <div class="float-right">
         <button class="btn mr-2 float-left">Save/Update CPU</button>

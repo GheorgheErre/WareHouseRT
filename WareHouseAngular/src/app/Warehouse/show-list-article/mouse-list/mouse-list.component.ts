@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormMouseComponent } from 'src/app/form-objects/form-mouse/form-mouse.component';
 import { Mouse } from 'src/app/pcObjects/mouse/mouse';
 import { MouseService } from 'src/app/service/service-mouse/mouse-service.service';
+import { WorkStationService } from 'src/app/service/service-workStation/work-station.service';
 import { ProductList } from '../product-list/product-list';
 
 @Component({
@@ -13,8 +14,8 @@ export class MouseListComponent extends ProductList implements OnInit {
 
   @ViewChild(FormMouseComponent) formMouse: FormMouseComponent;
 
-  constructor(private mouseService: MouseService) {
-    super(mouseService);
+  constructor(private mouseService: MouseService, protected workstationService: WorkStationService) {
+    super(mouseService, workstationService);
     this.entity = new Mouse()
    }
 

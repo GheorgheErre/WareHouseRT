@@ -13,7 +13,7 @@
                                 </h3>
                             </div>
                             <div class="col">
-                                <h3>User: {{workstation.user}}</h3>
+                                <h3>User: {{workstation.userName}} {{workstation.userNumber}}</h3>
                             </div>
                             <div class="col">
                                 <button class="userButton" data-toggle="modal"
@@ -126,7 +126,7 @@
                                         Move to Warehouse
                                     </button></td>
                                 <td><button (click)="setArticleTodelete(article)" class="btn btn-danger" id="btn-delete"
-                                        data-toggle="modal" data-target="#deleteArticleMoadal">
+                                        data-toggle="modal" data-target="#deleteArticleModal">
                                         <fa-icon [icon]="faEraser"></fa-icon>
                                     </button></td>
                             </tr>
@@ -142,7 +142,7 @@
     </div>
 </header>
 
-<!--Modal inserimento user number -->
+<!--Modal inserimento user  -->
 <div class="modal fade" id="assignWorkstationMoadal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -155,8 +155,12 @@
             <div class="modal-body">
                 <form (ngSubmit)="assignWorkstation()" id="formAssign">
                     <div class="form-group" id="assignUserInput">
+                        <label for="userNameInput">User name:</label>
+                        <input [(ngModel)]="userName" name="userName" id="userNameInput" class="form-control">
+                    </div>
+                    <div class="form-group" id="assignUserInput">
                         <label for="userNumberInput">User number:</label>
-                        <input [(ngModel)]="userNumber" name="type" id="userNumberInput" class="form-control">
+                        <input [(ngModel)]="userNumber" name="userNumber" id="userNumberInput" class="form-control">
                     </div>
                     <div class="form-group float-right">
                         <button class="btn mr-2 float-left">Assign</button>
@@ -169,7 +173,7 @@
 </div>
 
 <!--Modal eliminazione -->
-<div class="modal fade" id="deleteArticleMoadal" tabindex="-1" role="dialog">
+<div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -262,40 +266,40 @@
         <div class="modal-content" id="formModal">
             <div class="modal-body" id="formModal-body">
                 <div *ngIf="articleType == 'Cable'">
-                    <app-form-cable [cable]="entity" (cableToEmit)="addArticleFromOutside($event)"></app-form-cable>
+                    <app-form-cable (cableToEmit)="addArticleFromOutside($event)"></app-form-cable>
                 </div>
                 <div *ngIf="articleType == 'Cellphone'">
-                    <app-form-cellphone [cellphone]="entity" (cellphoneToEmit)="addArticleFromOutside($event)">
+                    <app-form-cellphone (cellphoneToEmit)="addArticleFromOutside($event)">
                     </app-form-cellphone>
                 </div>
                 <div *ngIf="articleType == 'Desktop'">
-                    <app-form-desktop [desktop]="entity" (desktopToEmit)="addArticleFromOutside($event)">
+                    <app-form-desktop (desktopToEmit)="addArticleFromOutside($event)">
                     </app-form-desktop>
                 </div>
                 <div *ngIf="articleType == 'DockingStation'">
-                    <app-form-docking-station [dockingStation]="entity"
-                        (dockingStationToEmit)="addArticleFromOutside($event)"></app-form-docking-station>
+                    <app-form-docking-station (dockingStationToEmit)="addArticleFromOutside($event)">
+                    </app-form-docking-station>
                 </div>
                 <div *ngIf="articleType == 'GraphicTablet'">
-                    <app-form-graphic-tablet [graphicTablet]="entity"
-                        (graphicTabletToEmit)="addArticleFromOutside($event)"></app-form-graphic-tablet>
+                    <app-form-graphic-tablet (graphicTabletToEmit)="addArticleFromOutside($event)">
+                    </app-form-graphic-tablet>
                 </div>
                 <div *ngIf="articleType == 'Keyboard'">
-                    <app-form-keyboard [keyboard]="entity" (keyboardToEmit)="addArticleFromOutside($event)">
+                    <app-form-keyboard (keyboardToEmit)="addArticleFromOutside($event)">
                     </app-form-keyboard>
                 </div>
                 <div *ngIf="articleType == 'Laptop'">
-                    <app-form-laptop [laptop]="entity" (laptopToEmit)="addArticleFromOutside($event)"></app-form-laptop>
+                    <app-form-laptop (laptopToEmit)="addArticleFromOutside($event)"></app-form-laptop>
                 </div>
                 <div *ngIf="articleType == 'Monitor'">
-                    <app-form-monitor [monitor]="entity" (monitorToEmit)="addArticleFromOutside($event)">
+                    <app-form-monitor (monitorToEmit)="addArticleFromOutside($event)">
                     </app-form-monitor>
                 </div>
                 <div *ngIf="articleType == 'Mouse'">
-                    <app-form-mouse [mouse]="entity" (mouseToEmit)="addArticleFromOutside($event)"></app-form-mouse>
+                    <app-form-mouse (mouseToEmit)="addArticleFromOutside($event)"></app-form-mouse>
                 </div>
                 <div *ngIf="articleType == 'Token'">
-                    <app-form-token [token]="entity" (tokenToEmit)="addArticleFromOutside($event)"></app-form-token>
+                    <app-form-token (tokenToEmit)="addArticleFromOutside($event)"></app-form-token>
                 </div>
             </div>
         </div>

@@ -7,7 +7,7 @@ import { Software } from 'src/app/pcObjects/software/software';
   styleUrls: ['./form-software.component.scss']
 })
 export class FormSoftwareComponent implements OnInit {
-  @Input() software : Software 
+
   @Output() softwareToEmit = new EventEmitter<Software>();
   softwareTemp=new Software();
   constructor() { }
@@ -18,7 +18,7 @@ export class FormSoftwareComponent implements OnInit {
     this.softwareTemp = JSON.parse(JSON.stringify(entity));
   }
   sendSoftwareToParent() {
-    this.softwareToEmit.emit(this.software);
+    this.softwareToEmit.emit(this.softwareTemp);
 }
 
 }

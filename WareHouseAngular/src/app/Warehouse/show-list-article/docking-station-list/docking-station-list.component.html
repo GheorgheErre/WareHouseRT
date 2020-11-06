@@ -13,10 +13,12 @@
 						<select [(ngModel)]="filtered" class="custom-select" name="filter">
 							<option selected disabled>Filter by:</option>
 							<option value="identifier">Identifier</option>
-							<option value="model">Model</option>
-							<option value="brand">Brand</option>
-							<option value="location">Location</option>
-							<option value="type">Type</option>
+                            <option value="users">Users</option>
+                            <option value="brand">Brand</option>
+                            <option value="model">Model</option>
+                            <option value="serialNumber">Serial Number</option>
+                            <option value="location">Location</option>
+                            <option value="userNumber">User Number</option>
 						</select>
 					</div>
 					<div class="col-6 mb-2 d-flex flex-row">
@@ -48,21 +50,21 @@
 						</thead>
 						<tbody>
 							<tr *ngFor="let dockingStation of showList">
-								<td class="hidden"></td>
-								<td>{{dockingStation.identifier}}</td>
-								<td>{{dockingStation.users}}</td>
-								<td>{{dockingStation.brand}}</td>
-								<td>{{dockingStation.model}}</td>
-								<td>{{dockingStation.serialNumber}}</td>
-								<td>{{dockingStation.location}}</td>
-								<td>{{dockingStation.userNumber}}</td>
+								<td class="identifier">{{dockingStation.identifier}}</td>
+                                <td class="users">{{dockingStation.users}}</td>
+                                <td class="brand">{{dockingStation.brand}}</td>
+                                <td class="model">{{dockingStation.model}}</td>
+                                <td class="serialNumber">{{dockingStation.serialNumber}}</td>
+                                <td class="location">{{dockingStation.location}}</td>
+                                <td class="userNumber">{{dockingStation.userNumber}}</td>
 								<td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(dockingStation)"
 									data-toggle="modal" data-target="#saveOrUpdateModal">
 									<fa-icon [icon]="faPen"></fa-icon>
 								</button></td>
-							<td><button (click)="deleteProduct(dockingStation)" class="btn btn-danger" id="btn-delete">
-									<fa-icon [icon]="faEraser"></fa-icon>
-								</button></td>
+								<td><button  (click)="setProductToDelete(dockingStation)" class="btn btn-danger" id="btn-delete"
+									data-toggle="modal" data-target="#deleteArticleModal">
+										<fa-icon [icon]="faEraser"></fa-icon>
+									</button></td>
 							</tr>
 						</tbody>
 					</table>
@@ -79,8 +81,29 @@
 
 		<div class="modal-content" id="modal">
 			<div class="modal-body" id="modal-body">
-				<app-form-docking-station [dockingStation]="entity" (dockingStationToEmit)="saveOrUpdate($event)"></app-form-docking-station>
+				<app-form-docking-station (dockingStationToEmit)="saveOrUpdate($event)"></app-form-docking-station>
 			</div>
 		</div>
 	</div>
+</div>
+
+<!--Modal eliminazione -->
+<div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Docking Station</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{deleteMessage}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="deleteProduct(productToDelete)" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

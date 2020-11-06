@@ -11,11 +11,17 @@
 						</button>
                         <select [(ngModel)]="filtered" class="custom-select" name="filter">
 							<option selected disabled>Filter by:</option>
-							<option value="identifier">Identifier</option>
-							<option value="model">Model</option>
-							<option value="brand">Brand</option>
-							<option value="location">Location</option>
-							<option value="type">Type</option>
+                            <option value="identifier">Identifier</option>
+                            <option value="users">Users</option>
+                            <option value="brand">Brand</option>
+                            <option value="model">Model</option>
+                            <option value="serialNumber">Serial Number</option>
+                            <option value="location">Location</option>
+                            <option value="userNumber">User Number</option>
+                            <option value="imeiCode">ImieiCode</option>
+                            <option value="operator">Operator</option>
+                            <option value="phoneNumber">Phone Number</option>
+                            <option value="rateTypology">Rate Typology</option>
 						</select>
                     </div>
                     <div class="col-6 mb-2 d-flex flex-row">
@@ -42,30 +48,31 @@
                                 <th scope="row">imeiCode</th>
                                 <th scope="row">operator</th>
                                 <th scope="row">phoneNumber</th>
-                                <th scope="row">rateTipology</th>
+                                <th scope="row">rateTypology</th>
                                 <th scope="row">Modify</th>
                                 <th scope="row">Delete</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let cellphone of showList">
-                                <td>{{cellphone.identifier}}</td>
-                                <td>{{cellphone.users}}</td>
-                                <td>{{cellphone.brand}}</td>
-                                <td>{{cellphone.model}}</td>
-                                <td>{{cellphone.serialNumber}}</td>
-                                <td>{{cellphone.location}}</td>
-                                <td>{{cellphone.userNumber}}</td>
-                                <td>{{cellphone.imeiCode}}</td>
-                                <td>{{cellphone.operator}}</td>
-                                <td>{{cellphone.phoneNumber}}</td>
-                                <td>{{cellphone.rateTypology}}</td>
+                                <td class="identifier">{{cellphone.identifier}}</td>
+                                <td class="users">{{cellphone.users}}</td>
+                                <td class="brand">{{cellphone.brand}}</td>
+                                <td class="model">{{cellphone.model}}</td>
+                                <td class="serialNumber">{{cellphone.serialNumber}}</td>
+                                <td class="location">{{cellphone.location}}</td>
+                                <td class="UserNumber">{{cellphone.userNumber}}</td>
+                                <td class="imieiCode">{{cellphone.imeiCode}}</td>
+                                <td class="operator">{{cellphone.operator}}</td>
+                                <td class="phoneNumber">{{cellphone.phoneNumber}}</td>
+                                <td class="rateTypology">{{cellphone.rateTypology}}</td>
                                 <td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(cellphone)" data-toggle="modal" data-target="#saveOrUpdateModal">
 									<fa-icon [icon]="faPen"></fa-icon>
 								</button></td>
-                                <td><button (click)="deleteProduct(cellphone)" class="btn btn-danger" id="btn-delete">
-									<fa-icon [icon]="faEraser"></fa-icon>
-								</button></td>
+                                <td><button  (click)="setProductToDelete(cellphone)" class="btn btn-danger" id="btn-delete"
+                                    data-toggle="modal" data-target="#deleteArticleModal">
+                                        <fa-icon [icon]="faEraser"></fa-icon>
+                                    </button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -86,7 +93,28 @@
 
         <div class="modal-content" id="modal">
             <div class="modal-body" id="modal-body">
-                <app-form-cellphone [cellphone]="entity" (cellphoneToEmit)="saveOrUpdate($event)"></app-form-cellphone>
+                <app-form-cellphone (cellphoneToEmit)="saveOrUpdate($event)"></app-form-cellphone>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal eliminazione -->
+<div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Cellphone</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{deleteMessage}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="deleteProduct(productToDelete)" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormRamComponent } from 'src/app/form-objects/form-ram/form-ram.component';
 import { Ram } from 'src/app/pcObjects/ram/ram';
 import { RamService } from 'src/app/service/service-ram/ram.service';
+import { WorkStationService } from 'src/app/service/service-workStation/work-station.service';
 import { ProductList } from '../product-list/product-list';
 
 @Component({
@@ -13,8 +14,8 @@ export class RamListComponent extends ProductList implements OnInit {
 
   @ViewChild(FormRamComponent) formRamComponent: FormRamComponent;
 
-  constructor(private ramService: RamService) {
-    super(ramService);
+  constructor(private ramService: RamService, protected workstationService: WorkStationService) {
+    super(ramService, workstationService);
     this.entity = new Ram()
   }
 

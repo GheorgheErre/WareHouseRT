@@ -3,20 +3,20 @@
 <form (ngSubmit)="sendKeyboardToParent()" id="formKeyboard">
 
     <div class="form-control mb-2" id="keyboardGroup">
-        <input [(ngModel)]="keyboard.users" name="users" class="form-control" placeholder="Users:">
+        <input [(ngModel)]="keyboardTemp.users" name="users" class="form-control" placeholder="Users:">
     </div>
     <div class="form-control mb-2" id="keyboardGroup">
-        <input [(ngModel)]="keyboard.brand" name="brand" class="form-control" placeholder="Brand:">
+        <input [(ngModel)]="keyboardTemp.brand" name="brand" class="form-control" placeholder="Brand:">
     </div>
     <div class="form-control mb-2" id="keyboardGroup">
-        <input [(ngModel)]="keyboard.model" name="model" class="form-control" placeholder="Model:">
+        <input [(ngModel)]="keyboardTemp.model" name="model" class="form-control" placeholder="Model:">
     </div>
     <div class="form-control mb-2" id="keyboardGroup">
-        <input [(ngModel)]="keyboard.serialNumber" name="serialNumber" class="form-control"
+        <input [(ngModel)]="keyboardTemp.serialNumber" name="serialNumber" class="form-control"
             placeholder="Serial number:">
     </div>
     <div class="form-control mb-2" id="keyboardGroup">
-        <input [(ngModel)]="keyboard.userNumber" name="userNumber" class="form-control"
+        <input [(ngModel)]="keyboardTemp.userNumber" name="userNumber" class="form-control"
             placeholder="User number:">
     </div>
     <div class="float-right">

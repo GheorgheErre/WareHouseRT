@@ -14,10 +14,13 @@
 						<select [(ngModel)]="filtered" class="custom-select" name="filter">
 							<option selected disabled>Filter by:</option>
 							<option value="identifier">Identifier</option>
-							<option value="model">Model</option>
-							<option value="brand">Brand</option>
-							<option value="location">Location</option>
-							<option value="type">Type</option>
+                            <option value="users">Users</option>
+                            <option value="brand">Brand</option>
+                            <option value="model">Model</option>
+                            <option value="serialNumber">Serial Number</option>
+                            <option value="location">Location</option>
+                            <option value="userNumber">User Number</option>
+							<option value="capacity">Capacity</option>
 						</select>
 					</div>
 					<div class="col-6 mb-2 d-flex flex-row">
@@ -50,21 +53,22 @@
 						</thead>
 						<tbody>
 							<tr *ngFor="let ssd of showList">
-								<td>{{ssd.identifier}}</td>
-								<td>{{ssd.users}}</td>
-								<td>{{ssd.brand}}</td>
-								<td>{{ssd.model}}</td>
-								<td>{{ssd.serialNumber}}</td>
-								<td>{{ssd.location}}</td>
-								<td>{{ssd.userNumber}}</td>
-								<td>{{ssd.capacity}}</td>
+								<td class="identifier">{{ssd.identifier}}</td>
+                                <td class="users">{{ssd.users}}</td>
+                                <td class="brand">{{ssd.brand}}</td>
+                                <td class="model">{{ssd.model}}</td>
+                                <td class="serialNumber">{{ssd.serialNumber}}</td>
+                                <td class="location">{{ssd.location}}</td>
+                                <td class="userNumber">{{ssd.userNumber}}</td>
+								<td class="capacity">{{ssd.capacity}}</td>
 								<td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(ssd)"
 									data-toggle="modal" data-target="#saveOrUpdateModal">
 									<fa-icon [icon]="faPen"></fa-icon>
 								</button></td>
-							<td><button (click)="deleteProduct(ssd)" class="btn btn-danger" id="btn-delete">
-									<fa-icon [icon]="faEraser"></fa-icon>
-								</button></td>
+								<td><button  (click)="setProductToDelete(ssd)" class="btn btn-danger" id="btn-delete"
+									data-toggle="modal" data-target="#deleteArticleModal">
+										<fa-icon [icon]="faEraser"></fa-icon>
+									</button></td>
 							</tr>
 						</tbody>
 					</table>
@@ -76,7 +80,6 @@
 </header>
 
 
- 
 <div class="modal fade" id="saveOrUpdateModal" role="dialog">
 	<div class="modal-dialog modal-dialog-centered">
 
@@ -87,12 +90,30 @@
 			</div>
 
 			<div class="modal-body" id="modal-body">
-				<app-form-ssd [ssd]="entity" (ssdToEmit)="saveOrUpdate($event)"></app-form-ssd>
+				<app-form-ssd (ssdToEmit)="saveOrUpdate($event)"></app-form-ssd>
 
 			</div>
-
-
 		</div>
-
 	</div>
+</div>
+
+<!--Modal eliminazione -->
+<div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete SSD</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{deleteMessage}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="deleteProduct(productToDelete)" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

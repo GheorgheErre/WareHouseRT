@@ -13,10 +13,17 @@
 						<select [(ngModel)]="filtered" class="custom-select" name="filter">
 							<option selected disabled>Filter by:</option>
 							<option value="identifier">Identifier</option>
-							<option value="model">Model</option>
-							<option value="brand">Brand</option>
-							<option value="location">Location</option>
-							<option value="type">Type</option>
+                            <option value="users">Users</option>
+                            <option value="brand">Brand</option>
+                            <option value="model">Model</option>
+                            <option value="serialNumber">Serial Number</option>
+                            <option value="location">Location</option>
+                            <option value="userNumber">User Number</option>
+                            <option value="cpu">CPU</option>
+                            <option value="gpu">GPU</option>
+							<option value="hdd">HDD</option>
+                            <option value="ssd">SSD</option>
+                            <option value="ram">RAM</option>
 						</select>
 					</div>
 					<div class="col-6 mb-2 d-flex flex-row">
@@ -54,24 +61,25 @@
 						<tbody>
 							<tr *ngFor="let desktop of showList">
 								<td class="identifier">{{desktop.identifier}}</td>
-								<td>{{desktop.users}}</td>
-								<td class="brand">{{desktop.brand}}</td>
-								<td class="model">{{desktop.model}}</td>
-								<td>{{desktop.serialNumber}}</td>
-								<td class="location">{{desktop.location}}</td>
-								<td>{{desktop.userNumber}}</td>
-								<td class="cpu">{{desktop.cpu}}</td>
-								<td class="gpu">{{desktop.gpu}}</td>
-								<td class="hdd">{{desktop.hdd}}</td>
-								<td class="ssd">{{desktop.ssd}}</td>
-								<td class="ram">{{desktop.ram}}</td>
+                                <td class="users">{{desktop.users}}</td>
+                                <td class="brand">{{desktop.brand}}</td>
+                                <td class="model">{{desktop.model}}</td>
+                                <td class="serialNumber">{{desktop.serialNumber}}</td>
+                                <td class="location">{{desktop.location}}</td>
+                                <td class="userNumber">{{desktop.userNumber}}</td>
+                                <td class="cpu">{{desktop.cpu}}</td>
+                                <td class="gpu">{{desktop.gpu}}</td>
+                                <td class="hdd">{{desktop.hdd}}</td>
+                                <td class="ssd">{{desktop.ssd}}</td>
+                                <td class="ram">{{desktop.ram}}</td>
 								<td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(desktop)"
 									data-toggle="modal" data-target="#saveOrUpdateModal">
 									<fa-icon [icon]="faPen"></fa-icon>
 								</button></td>
-							<td><button (click)="deleteProduct(desktop)" class="btn btn-danger" id="btn-delete">
-									<fa-icon [icon]="faEraser"></fa-icon>
-								</button></td>
+								<td><button  (click)="setProductToDelete(desktop)" class="btn btn-danger" id="btn-delete"
+									data-toggle="modal" data-target="#deleteArticleModal">
+										<fa-icon [icon]="faEraser"></fa-icon>
+									</button></td>
 							</tr>
 						</tbody>
 					</table>
@@ -89,8 +97,29 @@
 		
 		<div class="modal-content" id="modal">
 			<div class="modal-body" id="modal-body">
-				<app-form-desktop [desktop]="entity" (desktopToEmit)="saveOrUpdate($event)"></app-form-desktop>
+				<app-form-desktop (desktopToEmit)="saveOrUpdate($event)"></app-form-desktop>
 			</div>
 		</div>
 	</div>
+</div>
+
+<!--Modal eliminazione -->
+<div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Desktop</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{deleteMessage}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="deleteProduct(productToDelete)" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

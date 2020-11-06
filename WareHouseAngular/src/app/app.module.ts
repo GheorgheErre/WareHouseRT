@@ -18,11 +18,15 @@ import { HomepageModule } from './Homepage/homepage/homepage.module';
 import { WarehouseModule } from './Warehouse/warehouse/warehouse.module';
 import { PopperDirective } from './popper.directive';
 import { WorkstationModule } from './WorkStation/workstation/workstation.module';
+import { HistoricModule } from './Historic/historic/historic.module';
+import { LogComponent } from './Historic/log/log.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    PopperDirective
+    PopperDirective,
+    LogComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,8 @@ import { WorkstationModule } from './WorkStation/workstation/workstation.module'
     FontAwesomeModule,
     HomepageModule,
     WarehouseModule,
-    WorkstationModule
+    WorkstationModule,
+    HistoricModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

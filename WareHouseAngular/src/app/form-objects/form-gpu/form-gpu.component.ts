@@ -8,7 +8,6 @@ import { Gpu } from 'src/app/pcObjects/gpu/gpu';
 })
 export class FormGpuComponent implements OnInit {
 
-  @Input() gpu : Gpu;
   @Output() gpuToEmit = new EventEmitter<Gpu>();
   gpuTemp = new Gpu();
 
@@ -22,7 +21,7 @@ export class FormGpuComponent implements OnInit {
   }
 
   sendGpuToParent() {
-    this.gpuToEmit.emit(this.gpu);
+    this.gpuToEmit.emit(this.gpuTemp);
 }
 
 }

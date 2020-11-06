@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { faPlus,faPen,faEraser } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faPen, faEraser } from '@fortawesome/free-solid-svg-icons';
 import { Article } from 'src/app/pcObjects/article/article';
 import { Product } from 'src/app/pcObjects/product/product';
+import { WorkStationService } from 'src/app/service/service-workStation/work-station.service';
 import { ServiceService } from 'src/app/service/service.service';
 
 @Component({
@@ -12,15 +13,17 @@ export abstract class ProductList {
 
   faEraser = faEraser;
   faPen = faPen;
-  faPlus  = faPlus;
+  faPlus = faPlus;
   listProduct: any;
   wareHouseListProduct: Product[];
   showList: Product[];
   entity: Product;
-  filtered : String;
-  isChecked : any;
+  filtered: String;
+  isChecked: any;
+  productToDelete: Product;
+  deleteMessage: String = "";
 
-  constructor(protected service: ServiceService) { }
+  constructor(protected service: ServiceService, protected workstationService: WorkStationService) { }
 
   ngOnInit(): void {
   }
@@ -42,11 +45,36 @@ export abstract class ProductList {
     });
   }
 
+  setProductToDelete(product) {
+    this.productToDelete = product;
+    if(this.belongsWorkstation()){
+      this.deleteMessage = "This article is linked to a workstation. Delete the selected Article?"
+    }
+    else{
+      this.deleteMessage = "Delete the selected Article?"
+    }
+  }
+
   deleteProduct(product: Product) {
+    if(this.belongsWorkstation()){
+      this.findWorkstation(product);
+    }
     this.service.delete(product).subscribe(result => {
       console.log("ARTICLE ELIMINATO CON SUCCESSO"),
         this.reloadPage();
     });
+  }
+
+  findWorkstation(product: Product) {
+    let location = product.location.split(" ");
+    let office = location[1];
+    let numero = location[2];
+    this.workstationService.findByOfficeAndNumero(office, numero).subscribe(data => {
+      data.articles = data.articles.filter((a) => a.identifier != product.identifier);
+      this.workstationService.saveOrUpdate(data).subscribe(result => {
+        console.log("ARTICLE ELIMINATO CON SUCCESSO")
+      });
+    })
   }
 
   reloadPage() {
@@ -54,13 +82,21 @@ export abstract class ProductList {
     window.location.reload();
   }
 
-  setList(){
-    if(this.isChecked){
+  setList() {
+    if (this.isChecked) {
       this.showList = this.listProduct;
     }
-    else{
+    else {
       this.showList = this.wareHouseListProduct;
     }
+  }
+
+  //check if a product belongs to a workstation or not
+  belongsWorkstation() {
+    if (this.productToDelete.location.includes("workstation")) {
+      return true;
+    }
+    return false;
   }
 
   searchFunction() {
@@ -78,7 +114,7 @@ export abstract class ProductList {
         } else {
           tr[i].style.display = "none";
         }
-      }       
+      }
     }
   }
 

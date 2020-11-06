@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormCellphoneComponent } from 'src/app/form-objects/form-cellphone/form-cellphone.component';
 import { Cellphone } from 'src/app/pcObjects/cellphone/cellphone';
 import { CellphoneService } from 'src/app/service/service-cellphone/cellphone-service.service';
+import { WorkStationService } from 'src/app/service/service-workStation/work-station.service';
 import { ProductList } from '../product-list/product-list';
 
 @Component({
@@ -13,8 +14,8 @@ export class CellphoneListComponent extends ProductList implements OnInit {
 
   @ViewChild(FormCellphoneComponent) formCellphone: FormCellphoneComponent;
 
-  constructor(private cellphoneService: CellphoneService) { 
-    super(cellphoneService);
+  constructor(private cellphoneService: CellphoneService, protected workstationService: WorkStationService) { 
+    super(cellphoneService, workstationService);
     this.entity = new Cellphone();
   }
 

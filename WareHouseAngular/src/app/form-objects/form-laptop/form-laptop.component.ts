@@ -8,7 +8,6 @@ import { Laptop } from 'src/app/pcObjects/laptop/laptop';
 })
 export class FormLaptopComponent implements OnInit {
 
-  @Input() laptop: Laptop;
   @Output() laptopToEmit = new EventEmitter<Laptop>();
   laptopTemp = new Laptop();
 

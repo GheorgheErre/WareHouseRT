@@ -11,11 +11,18 @@
 						</button>
                         <select [(ngModel)]="filtered" class="custom-select" name="filter">
 							<option selected disabled>Filter by:</option>
-							<option value="identifier">Identifier</option>
-							<option value="model">Model</option>
-							<option value="brand">Brand</option>
-							<option value="location">Location</option>
-							<option value="type">Type</option>
+                            <option value="identifier">Identifier</option>
+                            <option value="users">Users</option>
+                            <option value="brand">Brand</option>
+                            <option value="model">Model</option>
+                            <option value="serialNumber">Serial Number</option>
+                            <option value="location">Location</option>
+                            <option value="userNumber">User Number</option>
+                            <option value="cpu">CPU</option>
+                            <option value="gpu">GPU</option>
+							<option value="hdd">HDD</option>
+                            <option value="ssd">SSD</option>
+                            <option value="ram">RAM</option>
 						</select>
                     </div>
                     <div class="col-6 mb-2 d-flex flex-row">
@@ -51,12 +58,12 @@
                         <tbody>
                             <tr *ngFor="let laptop of showList">
                                 <td class="identifier">{{laptop.identifier}}</td>
-                                <td>{{laptop.users}}</td>
+                                <td class="users">{{laptop.users}}</td>
                                 <td class="brand">{{laptop.brand}}</td>
                                 <td class="model">{{laptop.model}}</td>
-                                <td>{{laptop.serialNumber}}</td>
+                                <td class="serialNumber">{{laptop.serialNumber}}</td>
                                 <td class="location">{{laptop.location}}</td>
-                                <td>{{laptop.userNumber}}</td>
+                                <td class="userNumber">{{laptop.userNumber}}</td>
                                 <td class="cpu">{{laptop.cpu}}</td>
                                 <td class="gpu">{{laptop.gpu}}</td>
                                 <td class="hdd">{{laptop.hdd}}</td>
@@ -65,9 +72,10 @@
                                 <td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(laptop)" data-toggle="modal" data-target="#saveOrUpdateModal">
 										<fa-icon [icon]="faPen"></fa-icon>
 									</button></td>
-                                <td><button (click)="deleteProduct(laptop)" class="btn btn-danger" id="btn-delete">
-										<fa-icon [icon]="faEraser"></fa-icon>
-									</button></td>
+                                    <td><button  (click)="setProductToDelete(laptop)" class="btn btn-danger" id="btn-delete"
+                                        data-toggle="modal" data-target="#deleteArticleModal">
+                                            <fa-icon [icon]="faEraser"></fa-icon>
+                                        </button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -88,7 +96,28 @@
         <!-- Modal content-->
         <div class="modal-content" id="modal">
             <div class="modal-body" id="modal-body">
-                <app-form-laptop [laptop]="entity" (laptopToEmit)="saveOrUpdate($event)"></app-form-laptop>
+                <app-form-laptop (laptopToEmit)="saveOrUpdate($event)"></app-form-laptop>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal eliminazione -->
+<div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Laptop</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{deleteMessage}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="deleteProduct(productToDelete)" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

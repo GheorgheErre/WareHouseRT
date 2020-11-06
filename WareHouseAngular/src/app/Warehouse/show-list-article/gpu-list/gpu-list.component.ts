@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGpuComponent } from 'src/app/form-objects/form-gpu/form-gpu.component';
 import { Gpu } from 'src/app/pcObjects/gpu/gpu';
 import { GpuService } from 'src/app/service/service-gpu/gpu.service';
+import { WorkStationService } from 'src/app/service/service-workStation/work-station.service';
 import { ProductList } from '../product-list/product-list';
 
 @Component({
@@ -13,8 +14,8 @@ export class GpuListComponent extends ProductList implements OnInit {
 
   @ViewChild(FormGpuComponent) formGpu: FormGpuComponent;
 
-  constructor(private gpuService: GpuService) {
-    super(gpuService);
+  constructor(private gpuService: GpuService, protected workstationService: WorkStationService) {
+    super(gpuService, workstationService);
     this.entity = new Gpu();
   }
 

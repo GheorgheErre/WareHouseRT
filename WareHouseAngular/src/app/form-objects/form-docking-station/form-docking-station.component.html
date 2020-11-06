@@ -3,20 +3,20 @@
 <form (ngSubmit)="sendDockingStationToParent()" id="formDockingStation">
 
     <div class="form-control mb-2" id="dockingStationGroup">
-        <input [(ngModel)]="dockingStation.users" name="users" class="form-control" placeholder="Users:">
+        <input [(ngModel)]="dockingStationTemp.users" name="users" class="form-control" placeholder="Users:">
     </div>
     <div class="form-control mb-2" id="dockingStationGroup">
-        <input [(ngModel)]="dockingStation.brand" name="brand" class="form-control" placeholder="Brand:">
+        <input [(ngModel)]="dockingStationTemp.brand" name="brand" class="form-control" placeholder="Brand:">
     </div>
     <div class="form-control mb-2" id="dockingStationGroup">
-        <input [(ngModel)]="dockingStation.model" name="model" class="form-control" placeholder="Model:">
+        <input [(ngModel)]="dockingStationTemp.model" name="model" class="form-control" placeholder="Model:">
     </div>
     <div class="form-control mb-2" id="dockingStationGroup">
-        <input [(ngModel)]="dockingStation.serialNumber" name="serialNumber" class="form-control"
+        <input [(ngModel)]="dockingStationTemp.serialNumber" name="serialNumber" class="form-control"
             placeholder="Serial number:">
     </div>
     <div class="form-control mb-2" id="dockingStationGroup">
-        <input [(ngModel)]="dockingStation.userNumber" name="userNumber" class="form-control"
+        <input [(ngModel)]="dockingStationTemp.userNumber" name="userNumber" class="form-control"
             placeholder="User number:">
     </div>
     <div class="float-right">

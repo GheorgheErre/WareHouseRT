@@ -13,10 +13,12 @@
 						<select [(ngModel)]="filtered" class="custom-select" name="filter">
 							<option selected disabled>Filter by:</option>
 							<option value="identifier">Identifier</option>
-							<option value="model">Model</option>
-							<option value="brand">Brand</option>
-							<option value="location">Location</option>
-							<option value="type">Type</option>
+                            <option value="users">Users</option>
+                            <option value="brand">Brand</option>
+                            <option value="model">Model</option>
+                            <option value="serialNumber">Serial Number</option>
+                            <option value="location">Location</option>
+                            <option value="userNumber">User Number</option>
 						</select>
 					</div>
 					<div class="col-6 mb-2 d-flex flex-row">
@@ -48,18 +50,19 @@
 						</thead>
 						<tbody>
 							<tr *ngFor="let keyboard of showList">
-								<td>{{keyboard.identifier}}</td>
-								<td>{{keyboard.users}}</td>
-								<td>{{keyboard.brand}}</td>
-								<td>{{keyboard.model}}</td>
-								<td>{{keyboard.serialNumber}}</td>
-								<td>{{keyboard.location}}</td>
-								<td>{{keyboard.userNumber}}</td>
+								<td class="identifier">{{keyboard.identifier}}</td>
+                                <td class="users">{{keyboard.users}}</td>
+                                <td class="brand">{{keyboard.brand}}</td>
+                                <td class="model">{{keyboard.model}}</td>
+                                <td class="serialNumber">{{keyboard.serialNumber}}</td>
+                                <td class="location">{{keyboard.location}}</td>
+                                <td class="userNumber">{{keyboard.userNumber}}</td>
 								<td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(keyboard)"
 									data-toggle="modal" data-backdrop="static" data-target="#saveOrUpdateModal">
 									<fa-icon [icon]="faPen"></fa-icon>
 								</button></td>
-							<td><button (click)="deleteProduct(keyboard)" class="btn btn-danger" id="btn-delete">
+							<td><button  (click)="setProductToDelete(keyboard)" class="btn btn-danger" id="btn-delete"
+								data-toggle="modal" data-target="#deleteArticleModal">
 									<fa-icon [icon]="faEraser"></fa-icon>
 								</button></td>
 							</tr>
@@ -79,8 +82,29 @@
 
 		<div class="modal-content" id="modal">
 			<div class="modal-body" id="modal-body">
-				<app-form-keyboard [keyboard]="entity" (keyboardToEmit)="saveOrUpdate($event)"></app-form-keyboard>
+				<app-form-keyboard (keyboardToEmit)="saveOrUpdate($event)"></app-form-keyboard>
 			</div>
 		</div>
 	</div>
+</div>
+
+<!--Modal eliminazione -->
+<div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Keyboard</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{deleteMessage}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="deleteProduct(productToDelete)" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

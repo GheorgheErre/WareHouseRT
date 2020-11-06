@@ -13,10 +13,14 @@
 						<select [(ngModel)]="filtered" class="custom-select" name="filter">
 							<option selected disabled>Filter by:</option>
 							<option value="identifier">Identifier</option>
-							<option value="model">Model</option>
-							<option value="brand">Brand</option>
-							<option value="location">Location</option>
-							<option value="type">Type</option>
+                            <option value="users">Users</option>
+                            <option value="brand">Brand</option>
+                            <option value="model">Model</option>
+                            <option value="serialNumber">Serial Number</option>
+                            <option value="location">Location</option>
+                            <option value="userNumber">User Number</option>
+							<option value="watts">Watts</option>
+							<option value="energyRating">Energy Rating</option>
 						</select>
 					</div>
 					<div class="col-6 mb-2 d-flex flex-row">
@@ -50,24 +54,24 @@
 						</thead>
 						<tbody>
 							<tr *ngFor="let powerSupplie of showList">
-								<td>{{powerSupplie.identifier}}</td>
-								<td>{{powerSupplie.users}}</td>
-								<td>{{powerSupplie.brand}}</td>
-								<td>{{powerSupplie.model}}</td>
-								<td>{{powerSupplie.serialNumber}}</td>
-								<td>{{powerSupplie.location}}</td>
-								<td>{{powerSupplie.userNumber}}</td>
-								<td>{{powerSupplie.watts}}</td>
-								<td>{{powerSupplie.energyRating}}</td>
+								<td class="identifier">{{powerSupplie.identifier}}</td>
+                                <td class="users">{{powerSupplie.users}}</td>
+                                <td class="brand">{{powerSupplie.brand}}</td>
+                                <td class="model">{{powerSupplie.model}}</td>
+                                <td class="serialNumber">{{powerSupplie.serialNumber}}</td>
+                                <td class="location">{{powerSupplie.location}}</td>
+                                <td class="userNumber">{{powerSupplie.userNumber}}</td>
+								<td class="watts">{{powerSupplie.watts}}</td>
+								<td class="energyRating">{{powerSupplie.energyRating}}</td>
 								<td><button class="btn btn-success" id="btn-modify"
 										(click)="onUpdateButton(powerSupplie)" data-toggle="modal"
 										data-target="#saveOrUpdateModal">
 										<fa-icon [icon]="faPen"></fa-icon>
 									</button></td>
-								<td><button (click)="deleteProduct(powerSupplie)" class="btn btn-danger"
-										id="btn-delete">
-										<fa-icon [icon]="faEraser"></fa-icon>
-									</button></td>
+									<td><button  (click)="setProductToDelete(powerSupplie)" class="btn btn-danger" id="btn-delete"
+										data-toggle="modal" data-target="#deleteArticleModal">
+											<fa-icon [icon]="faEraser"></fa-icon>
+										</button></td>
 							</tr>
 						</tbody>
 					</table>
@@ -87,9 +91,29 @@
 
 		<div class="modal-content" id="modal">
 			<div class="modal-body" id="modal-body">
-				<app-form-power-supplie [powerSupplie]="entity" (powerSupplieToEmit)="saveOrUpdate($event)"></app-form-power-supplie>
+				<app-form-power-supplie (powerSupplieToEmit)="saveOrUpdate($event)"></app-form-power-supplie>
 			</div>
 		</div>
-
 	</div>
+</div>
+
+<!--Modal eliminazione -->
+<div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Power Supplie</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{deleteMessage}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="deleteProduct(productToDelete)" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

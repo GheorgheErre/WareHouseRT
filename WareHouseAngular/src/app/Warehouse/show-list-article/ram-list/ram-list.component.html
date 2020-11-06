@@ -13,10 +13,14 @@
 						<select [(ngModel)]="filtered" class="custom-select" name="filter">
 							<option selected disabled>Filter by:</option>
 							<option value="identifier">Identifier</option>
-							<option value="model">Model</option>
-							<option value="brand">Brand</option>
-							<option value="location">Location</option>
-							<option value="type">Type</option>
+                            <option value="users">Users</option>
+                            <option value="brand">Brand</option>
+                            <option value="model">Model</option>
+                            <option value="serialNumber">Serial Number</option>
+                            <option value="location">Location</option>
+                            <option value="userNumber">User Number</option>
+                            <option value="capacity">Capacity</option>
+							<option value="frequencies">Frequencies</option>
 						</select>
 					</div>
 					<div class="col-6 mb-2 d-flex flex-row">
@@ -50,33 +54,37 @@
 						</thead>
 						<tbody>
 							<tr *ngFor="let ram of showList">
-								<td>{{ram.identifier}}</td>
-								<td>{{ram.users}}</td>
-								<td>{{ram.brand}}</td>
-								<td>{{ram.model}}</td>
-								<td>{{ram.serialNumber}}</td>
-								<td>{{ram.location}}</td>
-								<td>{{ram.userNumber}}</td>
-								<td>{{ram.capacity}}</td>
-								<td>{{ram.frequencies}}</td>
+								<td class="identifier">{{ram.identifier}}</td>
+                                <td class="users">{{ram.users}}</td>
+                                <td class="brand">{{ram.brand}}</td>
+                                <td class="model">{{ram.model}}</td>
+                                <td class="serialNumber">{{ram.serialNumber}}</td>
+                                <td class="location">{{ram.location}}</td>
+                                <td class="userNumber">{{ram.userNumber}}</td>
+								<td class="capacity">{{ram.capacity}}</td>
+								<td class="frequencies">{{ram.frequencies}}</td>
 								<td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(ram)"
-									data-toggle="modal" data-target="#saveOrUpdateModal">
-									<fa-icon [icon]="faPen"></fa-icon>
-								</button></td>
-							<td><button (click)="deleteProduct(ram)" class="btn btn-danger" id="btn-delete">
-									<fa-icon [icon]="faEraser"></fa-icon>
-								</button></td>
+										data-toggle="modal" data-target="#saveOrUpdateModal">
+										<fa-icon [icon]="faPen"></fa-icon>
+									</button></td>
+									<td><button  (click)="setProductToDelete(ram)" class="btn btn-danger" id="btn-delete"
+										data-toggle="modal" data-target="#deleteArticleModal">
+											<fa-icon [icon]="faEraser"></fa-icon>
+										</button></td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
-				<ng-template #emptyList><div id="emptyListMessage">No RAM present in the warehouse, press <fa-icon [icon]="faPlus"></fa-icon> to add a new RAM.</div></ng-template>
+				<ng-template #emptyList>
+					<div id="emptyListMessage">No RAM present in the warehouse, press <fa-icon [icon]="faPlus">
+						</fa-icon> to add a new RAM.</div>
+				</ng-template>
 			</div>
 		</div>
 	</div>
 </header>
 
- Modal 
+<!--Modal-->
 <div class="modal fade" id="saveOrUpdateModal" role="dialog">
 	<div class="modal-dialog modal-dialog-centered">
 
@@ -85,13 +93,30 @@
 			<div class="modal-header" id="modal-header">
 				<h3 class="modal-title">Add a new article:</h3>
 			</div>
-
 			<div class="modal-body" id="modal-body">
-				<app-form-ram [ram]="entity" (ramToEmit)="saveOrUpdate($event)"></app-form-ram>
+				<app-form-ram (ramToEmit)="saveOrUpdate($event)"></app-form-ram>
 			</div>
-
-
 		</div>
-
 	</div>
+</div>
+
+<!--Modal eliminazione -->
+<div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete RAM</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{deleteMessage}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="deleteProduct(productToDelete)" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

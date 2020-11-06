@@ -3,36 +3,36 @@
 <form (ngSubmit)="sendDesktopToParent()" id="formDesktop">
 
     <div class="form-control mb-2" id="desktopGroup">
-        <input [(ngModel)]="desktop.users" name="users" class="form-control" placeholder="Users:">
+        <input [(ngModel)]="desktopTemp.users" name="users" class="form-control" placeholder="Users:">
     </div>
     <div class="form-control mb-2" id="desktopGroup">
-        <input [(ngModel)]="desktop.brand" name="brand" class="form-control" placeholder="Brand:">
+        <input [(ngModel)]="desktopTemp.brand" name="brand" class="form-control" placeholder="Brand:">
     </div>
     <div class="form-control mb-2" id="desktopGroup">
-        <input [(ngModel)]="desktop.model" name="model" class="form-control" placeholder="Model:">
+        <input [(ngModel)]="desktopTemp.model" name="model" class="form-control" placeholder="Model:">
     </div>
     <div class="form-control mb-2" id="desktopGroup">
-        <input [(ngModel)]="desktop.serialNumber" name="serialNumber" class="form-control"
+        <input [(ngModel)]="desktopTemp.serialNumber" name="serialNumber" class="form-control"
             placeholder="Serial number:">
     </div>
     <div class="form-control mb-2" id="desktopGroup">
-        <input [(ngModel)]="desktop.userNumber" name="userNumber" class="form-control"
+        <input [(ngModel)]="desktopTemp.userNumber" name="userNumber" class="form-control"
             placeholder="User number:">
     </div>
     <div class="form-control mb-4" id="desktopGroup">
-        <input [(ngModel)]="desktop.cpu" name="cpu" class="form-control" placeholder="CPU:">
+        <input [(ngModel)]="desktopTemp.cpu" name="cpu" class="form-control" placeholder="CPU:">
     </div>
     <div class="form-control mb-4" id="desktopGroup">
-        <input [(ngModel)]="desktop.gpu" name="gpu" class="form-control" placeholder="GPU">
+        <input [(ngModel)]="desktopTemp.gpu" name="gpu" class="form-control" placeholder="GPU">
     </div>
     <div class="form-control mb-4" id="desktopGroup">
-        <input [(ngModel)]="desktop.hdd" name="hdd" class="form-control" placeholder="HDD:">
+        <input [(ngModel)]="desktopTemp.hdd" name="hdd" class="form-control" placeholder="HDD:">
     </div>
     <div class="form-control mb-4" id="desktopGroup">
-        <input [(ngModel)]="desktop.ssd" name="ssd" class="form-control" placeholder="SSD:">
+        <input [(ngModel)]="desktopTemp.ssd" name="ssd" class="form-control" placeholder="SSD:">
     </div>
     <div class="form-control mb-4" id="desktopGroup">
-        <input [(ngModel)]="desktop.ram" name="ram" class="form-control" placeholder="RAM:">
+        <input [(ngModel)]="desktopTemp.ram" name="ram" class="form-control" placeholder="RAM:">
     </div>
     <div class="float-right">
         <button class="btn mr-2 float-left">Save/Update desktop</button>

@@ -8,7 +8,6 @@ import { OperativeSystem } from 'src/app/pcObjects/operativeSystem/operative-sys
 })
 export class FormOperativeSystemComponent implements OnInit {
 
-  @Input() operativeSystem : OperativeSystem 
   @Output() operativeSystemToEmit = new EventEmitter<OperativeSystem>();
   operativeSystemTemp = new OperativeSystem();
 
@@ -21,6 +20,6 @@ export class FormOperativeSystemComponent implements OnInit {
     this.operativeSystemTemp = JSON.parse(JSON.stringify(entity));
   }
   sendOperativeSystemToParent() {
-    this.operativeSystemToEmit.emit(this.operativeSystem);
+    this.operativeSystemToEmit.emit(this.operativeSystemTemp);
 }
 }

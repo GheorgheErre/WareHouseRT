@@ -15,6 +15,14 @@ header {
     background-position: center center;
 }
 
+main {
+    height: 100%;
+    background-image: url("img/ufficio-blured.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
 h2 {
     letter-spacing: 5px;
 }
@@ -52,7 +60,8 @@ h3 {
 }
 
 #warehouse,
-#workstation {
+#workstation,
+#historic {
     background-color: white;
     border: 1px solid white;
     border-radius: 20px;
@@ -66,6 +75,12 @@ h3 {
 }
 
 #img-workstation {
+    height: 300px;
+    width: 550px;
+    padding: 5px;
+}
+
+#img-historic {
     height: 300px;
     width: 550px;
     padding: 5px;

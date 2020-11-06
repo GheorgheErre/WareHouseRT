@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/cor
 import { FormCableComponent } from 'src/app/form-objects/form-cable/form-cable.component';
 import { Cable } from 'src/app/pcObjects/cable/cable';
 import { CableService } from 'src/app/service/service-cable/cable.service';
+import { WorkStationService } from 'src/app/service/service-workStation/work-station.service';
 import { ProductList } from '../product-list/product-list';
 
 @Component({
@@ -13,8 +14,8 @@ export class CableListComponent extends ProductList implements OnInit {
 
   @ViewChild(FormCableComponent) formCable: FormCableComponent;
 
-  constructor(private cableService: CableService) {
-    super(cableService);
+  constructor(private cableService: CableService, protected workstationService: WorkStationService) {
+    super(cableService, workstationService);
     this.entity = new Cable();
   }
 

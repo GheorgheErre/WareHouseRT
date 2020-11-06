@@ -8,7 +8,6 @@ import { Ram } from 'src/app/pcObjects/ram/ram';
 })
 export class FormRamComponent implements OnInit {
 
-  @Input() ram: Ram;
   @Output() ramToEmit = new EventEmitter<Ram>();
   ramTemp=new Ram();
 
@@ -20,6 +19,6 @@ export class FormRamComponent implements OnInit {
     this.ramTemp = JSON.parse(JSON.stringify(entity));
   }
   sendRamToParent() {
-    this.ramToEmit.emit(this.ram);
+    this.ramToEmit.emit(this.ramTemp);
   }
 }

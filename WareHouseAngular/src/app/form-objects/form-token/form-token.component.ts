@@ -9,7 +9,6 @@ import { Token } from 'src/app/pcObjects/token/token';
 })
 export class FormTokenComponent implements OnInit {
 
-  @Input() token: Token;
   @Output() tokenToEmit = new EventEmitter<Token>();
   tokenTemp = new Token();
   constructor() { }
@@ -21,6 +20,6 @@ export class FormTokenComponent implements OnInit {
     this.tokenTemp = JSON.parse(JSON.stringify(entity));
   }
   sendTokenToParent() {
-    this.tokenToEmit.emit(this.token);
+    this.tokenToEmit.emit(this.tokenTemp);
   }
 }
