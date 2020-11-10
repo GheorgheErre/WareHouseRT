@@ -20,7 +20,9 @@ public class WorkStation {
 	
 	private int numero;
 
-	private String user;
+	private String userName;
+	
+	private String userNumber;
 
 	@DBRef
 	private List<Article> articles;
@@ -48,14 +50,7 @@ public class WorkStation {
 	public void setArticles(List<Article> articles) {
 		this.articles = articles;
 	}
-
-	public String getUser() {
-		return user;
-	}
-
-	public void setUser(String user) {
-		this.user = user;
-	}
+	
 
 	public int getNumero() {
 		return numero;
@@ -63,6 +58,22 @@ public class WorkStation {
 
 	public void setNumero(int numero) {
 		this.numero = numero;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getUserNumber() {
+		return userNumber;
+	}
+
+	public void setUserNumber(String userNumber) {
+		this.userNumber = userNumber;
 	}
 
 }
