@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import WareHouseRT.WareHouseRT.beans.Cellphone;
-import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
+import WareHouseRT.WareHouseRT.beans.DockingStation;
+import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.CellphoneService;
 import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
+import WareHouseRT.WareHouseRT.service.HistoricMovementsService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -26,15 +28,20 @@ public class CellphoneController {
 	@Autowired
 	private HistoricDeleteService deleteService;
 
+	@Autowired
+	private HistoricMovementsService movementsService;
+	
 	@PostMapping("/saveOrUpdateCellphone")
-	public void saveOrUpdate(@RequestBody Cellphone cellphone) {
-		service.saveOrUpdate(cellphone);
+	public void saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
+		String tipoAzione="Aggiunta Prodotto";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((Cellphone) historicRequest.getProduct());
 	}
 	
 	@PostMapping("/deleteCellphone")
-	public void delete(@RequestBody DeleteRequest deleteRequest) {
-		deleteService.save(deleteRequest);
-		service.delete((Cellphone) deleteRequest.getProduct());
+	public void delete(@RequestBody HistoricRequest historicRequest) {
+		deleteService.save(historicRequest);
+		service.delete((Cellphone) historicRequest.getProduct());
 	}
 	
 	
@@ -52,5 +59,12 @@ public class CellphoneController {
 	public long count() {
 		return service.count();
 	}
-
+	
+	@PostMapping("/moveCellphone")
+	public void move(@RequestBody  HistoricRequest historicRequest){
+		
+		String tipoAzione="Movimento Prodotto";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((Cellphone) historicRequest.getProduct());
+	};
 }

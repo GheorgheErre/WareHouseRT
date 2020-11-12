@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.Software;
-import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
+import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
+import WareHouseRT.WareHouseRT.service.HistoricMovementsService;
 import WareHouseRT.WareHouseRT.service.SoftwareService;
 
 @RestController
@@ -28,13 +29,18 @@ public class SoftwareController {
 	@Autowired
 	private HistoricDeleteService deleteService;
 	
+	@Autowired
+	private HistoricMovementsService movementsService;
+	
 	@PostMapping("/saveOrUpdateSoftware")
-	public void saveOrUpdate(@RequestBody Software software) {
-		service.saveOrUpdate(software);
+	public void saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
+		String tipoAzione="Aggiunta Prodotto";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((Software) historicRequest.getProduct());
 	}
 	
 	@PostMapping("/deleteSoftware")
-	public void delete(@RequestBody DeleteRequest deleteRequest) {
+	public void delete(@RequestBody HistoricRequest deleteRequest) {
 		deleteService.save(deleteRequest);
 		service.delete((Software) deleteRequest.getProduct());
 	}

@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import WareHouseRT.WareHouseRT.beans.Desktop;
-import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
+import WareHouseRT.WareHouseRT.beans.DockingStation;
+import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.DesktopService;
 import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
+import WareHouseRT.WareHouseRT.service.HistoricMovementsService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -26,13 +28,18 @@ public class DesktopController {
 	@Autowired
 	private HistoricDeleteService deleteService;
 	
+	@Autowired
+	private HistoricMovementsService movementsService;
+	
 	@PostMapping("/saveOrUpdateDesktop")
-	public void saveOrUpdate(@RequestBody Desktop desktop) {
-		service.saveOrUpdate(desktop);
+	public void saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
+		String tipoAzione="Aggiunta Prodotto";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((Desktop) historicRequest.getProduct());
 	}
 	
 	@PostMapping("/deleteDesktop")
-	public void delete(@RequestBody DeleteRequest deleteRequest) {
+	public void delete(@RequestBody HistoricRequest deleteRequest) {
 		deleteService.save(deleteRequest);
 		service.delete((Desktop) deleteRequest.getProduct());
 	}
@@ -50,4 +57,14 @@ public class DesktopController {
 	public long count() {
 		return service.count();
 	}
+	
+	@PostMapping("/moveDesktop")
+	public void move(@RequestBody  HistoricRequest historicRequest){
+		
+		String tipoAzione="Movimento Prodotto";
+		
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((Desktop) historicRequest.getProduct());
+	};
+
 }

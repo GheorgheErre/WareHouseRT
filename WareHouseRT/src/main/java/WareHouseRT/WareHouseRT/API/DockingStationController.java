@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.HistoricDelete;
 import WareHouseRT.WareHouseRT.beans.HistoricMovements;
-import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
+import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.DockingStationService;
 import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
 import WareHouseRT.WareHouseRT.service.HistoricMovementsService;
@@ -37,19 +37,16 @@ public class DockingStationController {
 	private HistoricMovementsService movementsService;
 
 	@PostMapping("/saveOrUpdateDockingStation")
-	public void save(@RequestBody DockingStation dockingStation) {
-		service.saveOrUpdate(dockingStation);
-		HistoricMovements recordMove= new HistoricMovements();
-		recordMove.setDate(new Date());
-		recordMove.setProduct(dockingStation);
-		recordMove.setAction("tipoAzione");
-		movementsService.save(recordMove);
+	public void saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
+		String tipoAzione="Aggiunta Prodotto";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((DockingStation) historicRequest.getProduct());
 	}
 	
 	@PostMapping("/deleteDockingStation")
-	public void delete(@RequestBody DeleteRequest deleteRequest) {
-		deleteService.save(deleteRequest);
-		service.delete((DockingStation) deleteRequest.getProduct());
+	public void delete(@RequestBody HistoricRequest historicRequest) {
+		deleteService.save(historicRequest);
+		service.delete((DockingStation) historicRequest.getProduct());
 	}
 	
 	@GetMapping("/findDockingStation")
@@ -68,15 +65,12 @@ public class DockingStationController {
 	}
 	
 	@PostMapping("/moveDockingStation")
-	public void move(@RequestBody DockingStation dockingStation){
+	public void move(@RequestBody  HistoricRequest historicRequest){
 		
-		service.saveOrUpdate(dockingStation);
+		String tipoAzione="Movimento Prodotto";
 		
-		HistoricMovements recordMove= new HistoricMovements();
-		recordMove.setDate(new Date());
-		recordMove.setProduct(dockingStation);
-		recordMove.setAction("tipoAzione");
-		movementsService.save(recordMove);
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((DockingStation) historicRequest.getProduct());
 	};
 
 }

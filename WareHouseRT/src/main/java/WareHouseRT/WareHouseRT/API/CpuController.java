@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import WareHouseRT.WareHouseRT.beans.CPU;
-import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
+import WareHouseRT.WareHouseRT.beans.DockingStation;
+import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.CpuService;
 import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
+import WareHouseRT.WareHouseRT.service.HistoricMovementsService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -27,14 +29,19 @@ public class CpuController {
 
 	@Autowired
 	private HistoricDeleteService deleteService;
+	@Autowired
+	private HistoricMovementsService movementsService;
 
 	@PostMapping("/saveOrUpdateCpu")
-	public void saveOrUpdate(@RequestBody CPU cpu) {
-		service.saveOrUpdate(cpu);
+	public void saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
+	
+		String tipoAzione="Aggiunta Prodotto";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((CPU) historicRequest.getProduct());
 	}
 	
 	@PostMapping("/deleteCpu")
-	public void delete(@RequestBody DeleteRequest deleteRequest) {
+	public void delete(@RequestBody HistoricRequest deleteRequest) {
 		deleteService.save(deleteRequest);
 		service.delete((CPU) deleteRequest.getProduct());
 	}

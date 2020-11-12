@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.HDD;
-import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
+import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.HDDService;
 import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
+import WareHouseRT.WareHouseRT.service.HistoricMovementsService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -27,13 +29,19 @@ public class HddController {
 	@Autowired
 	private HistoricDeleteService deleteService;
 	
+	@Autowired
+	private HistoricMovementsService movementsService;
+	
 	@PostMapping("/saveOrUpdateHdd")
-	public void saveOrUpdate(@RequestBody HDD hdd) {
-		service.saveOrUpdate(hdd);
+	public void saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
+	
+		String tipoAzione="Aggiunta Prodotto";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((HDD) historicRequest.getProduct());
 	}
 	
 	@PostMapping("/deleteHdd")
-	public void delete(@RequestBody DeleteRequest deleteRequest) {
+	public void delete(@RequestBody HistoricRequest deleteRequest) {
 		deleteService.save(deleteRequest);
 		service.delete((HDD) deleteRequest.getProduct());
 	}

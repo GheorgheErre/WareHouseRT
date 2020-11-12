@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.Laptop;
-import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
+import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
+import WareHouseRT.WareHouseRT.service.HistoricMovementsService;
 import WareHouseRT.WareHouseRT.service.LaptopService;
 
 @RestController
@@ -27,13 +29,18 @@ public class LaptopController {
 	@Autowired
 	private HistoricDeleteService deleteService;
 	
+	@Autowired
+	private HistoricMovementsService movementsService;
+	
 	@PostMapping("/saveOrUpdateLaptop")
-	public void saveOrUpdate(@RequestBody Laptop  laptop) {
-		service.saveOrUpdate(laptop);
+	public void saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
+		String tipoAzione="Aggiunta Prodotto";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((Laptop) historicRequest.getProduct());
 	}
 	
 	@PostMapping("/deleteLaptop")
-	public void delete(@RequestBody DeleteRequest deleteRequest) {
+	public void delete(@RequestBody HistoricRequest deleteRequest) {
 		deleteService.save(deleteRequest);
 		service.delete((Laptop) deleteRequest.getProduct());
 	}
@@ -54,4 +61,12 @@ public class LaptopController {
 	}
 
 
+	@PostMapping("/moveLaptop")
+	public void move(@RequestBody  HistoricRequest historicRequest){
+		
+		String tipoAzione="Movimento Prodotto";
+		
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((Laptop) historicRequest.getProduct());
+	};	
 }

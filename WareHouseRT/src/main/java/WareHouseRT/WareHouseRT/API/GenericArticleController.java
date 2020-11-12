@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.GenericArticle;
-import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
+import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.GenericArticleService;
 import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
+import WareHouseRT.WareHouseRT.service.HistoricMovementsService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -24,14 +26,19 @@ public class GenericArticleController {
 	private GenericArticleService service;
 	@Autowired
 	private HistoricDeleteService deleteService;
+	@Autowired
+	private HistoricMovementsService movementsService;
+
 	
 	@PostMapping("/saveOrUpdateGenericArticle")
-	public void saveOrUpdate(@RequestBody GenericArticle genericArticle) {
-		service.saveOrUpdate(genericArticle);
+	public void saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
+		String tipoAzione="Aggiunta Prodotto";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((GenericArticle) historicRequest.getProduct());
 	}
 	
 	@PostMapping("/deleteGenericArticle")
-	public void delete(@RequestBody DeleteRequest deleteRequest) {
+	public void delete(@RequestBody HistoricRequest deleteRequest) {
 		deleteService.save(deleteRequest);
 
 		service.delete((GenericArticle) deleteRequest.getProduct());
@@ -50,4 +57,15 @@ public class GenericArticleController {
 	public long count() {
 		return service.count();
 	}
+	
+	@PostMapping("/moveGenericArticle")
+	public void move(@RequestBody  HistoricRequest historicRequest){
+		
+		String tipoAzione="Movimento Prodotto";
+		
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((GenericArticle) historicRequest.getProduct());
+	};
+
+	
 }

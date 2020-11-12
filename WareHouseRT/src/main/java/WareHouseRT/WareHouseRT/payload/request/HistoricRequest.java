@@ -2,7 +2,7 @@ package WareHouseRT.WareHouseRT.payload.request;
 
 import WareHouseRT.WareHouseRT.beans.Product;
 
-public class DeleteRequest {
+public class HistoricRequest {
 
 	private Product product;
 	private String note;

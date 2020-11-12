@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import WareHouseRT.WareHouseRT.beans.Cable;
-import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
+import WareHouseRT.WareHouseRT.beans.DockingStation;
+import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.CableService;
 import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
+import WareHouseRT.WareHouseRT.service.HistoricMovementsService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -26,17 +28,22 @@ public class CableController {
 	@Autowired
 	private HistoricDeleteService deleteService;
 
+	@Autowired
+	private HistoricMovementsService movementsService;
+
 	@PostMapping("/saveOrUpdateCable")
-	public void saveOrUpdate(@RequestBody Cable cable) {
-		service.saveOrUpdate(cable);
+	public void saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
+
+		String tipoAzione = "Aggiunta Prodotto";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((Cable) historicRequest.getProduct());
 	}
 
 	@PostMapping("/deleteCable")
-	public void delete(@RequestBody DeleteRequest deleteRequest) {
-		deleteService.save(deleteRequest);
-		service.delete((Cable) deleteRequest.getProduct());
+	public void delete(@RequestBody HistoricRequest historicRequest) {
+		deleteService.save(historicRequest);
+		service.delete((Cable) historicRequest.getProduct());
 	}
-	
 
 	@GetMapping("/findCable")
 	public Optional<Cable> findByID(@RequestBody Cable cable) {
@@ -53,4 +60,12 @@ public class CableController {
 		return service.count();
 	}
 
+	@PostMapping("/moveCable")
+	public void move(@RequestBody  HistoricRequest historicRequest){
+		
+		String tipoAzione="Movimento Prodotto";
+		
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((Cable) historicRequest.getProduct());
+	};
 }

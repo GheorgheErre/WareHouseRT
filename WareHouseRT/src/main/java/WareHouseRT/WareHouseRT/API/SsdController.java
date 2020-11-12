@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.SSD;
-import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
+import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
+import WareHouseRT.WareHouseRT.service.HistoricMovementsService;
 import WareHouseRT.WareHouseRT.service.SsdService;
 
 @RestController
@@ -28,13 +29,18 @@ public class SsdController {
 	@Autowired
 	private HistoricDeleteService deleteService;
 	
+	@Autowired
+	private HistoricMovementsService movementsService;
+	
 	@PostMapping("/saveOrUpdateSsd")
-	public void saveOrUpdate(@RequestBody SSD ssd) {
-		service.saveOrUpdate(ssd);
+	public void saveOrUpdate(@RequestBody  HistoricRequest historicRequest) {
+		String tipoAzione="Aggiunta Prodotto";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((SSD) historicRequest.getProduct());
 	}
 
 	@PostMapping("/deleteSsd")
-	public void delete(@RequestBody DeleteRequest deleteRequest) {
+	public void delete(@RequestBody HistoricRequest deleteRequest) {
 		deleteService.save(deleteRequest);
 		service.delete((SSD) deleteRequest.getProduct());
 	}

@@ -15,6 +15,9 @@ public class HistoricMovements extends Historic {
 	private long id;
 	
 	private String action;
+	
+	@DBRef
+	private Product product;
 
 	public String getAction() {
 		return action;
@@ -24,8 +27,7 @@ public class HistoricMovements extends Historic {
 		this.action = action;
 	}
 
-	@DBRef
-	private Product product;
+
 
 	public long getId() {
 		return id;

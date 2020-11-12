@@ -50,4 +50,7 @@ public class WorkStationController {
 	public long count() {
 		return service.count();
 	}
+	
+	
 }
+
