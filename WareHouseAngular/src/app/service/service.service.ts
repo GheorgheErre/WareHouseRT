@@ -38,8 +38,7 @@ export abstract class ServiceService {
 
   }
 
-  public delete(product: Product) {
-   let note="provissima";
+  public delete(product: Product, note: String) {
 
    let json=Object.assign({}, {
         "product" : product

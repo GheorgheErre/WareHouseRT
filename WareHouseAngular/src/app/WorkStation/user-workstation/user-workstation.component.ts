@@ -41,6 +41,7 @@ export class UserWorkstationComponent implements OnInit {
   workstation = new Workstation();
   showWarehouseList: Article[];
   entity: Article;
+  note: String;
 
   laptop: Laptop = new Laptop();
   desktop: Desktop = new Desktop();
@@ -154,7 +155,7 @@ export class UserWorkstationComponent implements OnInit {
     this.chooseService(article.articleType);
     this.entity = this.addType(article);
    
-    this.service.delete(this.entity).subscribe(result => {
+    this.service.delete(this.entity, this.note).subscribe(result => {
       console.log("ARTICLE ELIMINATO CON SUCCESSO")
     });
     this.workstation.articles = this.workstation.articles.filter((a) => a.identifier != article.identifier);

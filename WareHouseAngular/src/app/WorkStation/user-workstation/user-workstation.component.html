@@ -183,11 +183,17 @@
                 </button>
             </div>
             <div class="modal-body">
-                Delete the selected Article?
-            </div>
-            <div class="modal-footer">
-                <button type="button" (click)="deleteArticle(articleToDelete)" class="btn btn-danger">Delete</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <form (ngSubmit)="deleteArticle(articleToDelete)" id="formLaptopDelete">
+                    Delete the selected Article?
+                    <div>
+                        <textarea [(ngModel)]="note" name="note" id="note" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group float-right">
+                        <button class="btn mr-2 float-left btn btn-danger">Delete</button>
+                        <button type="button" class="btn float-left btn btn-secondary"
+                            data-dismiss="modal">Close</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

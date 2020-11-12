@@ -6,11 +6,12 @@
 
                     <div class="col-6 mb-2 d-flex flex-row">
 
-                        <button class="btn mr-2" id="btn-add" data-toggle="modal" (click)="onAddArticleButton()" data-target="#saveOrUpdateModal">
-							<fa-icon [icon]="faPlus"></fa-icon>
-						</button>
+                        <button class="btn mr-2" id="btn-add" data-toggle="modal" (click)="onAddArticleButton()"
+                            data-target="#saveOrUpdateModal">
+                            <fa-icon [icon]="faPlus"></fa-icon>
+                        </button>
                         <select [(ngModel)]="filtered" class="custom-select" name="filter">
-							<option selected disabled>Filter by:</option>
+                            <option selected disabled>Filter by:</option>
                             <option value="identifier">Identifier</option>
                             <option value="users">Users</option>
                             <option value="brand">Brand</option>
@@ -20,15 +21,17 @@
                             <option value="userNumber">User Number</option>
                             <option value="cpu">CPU</option>
                             <option value="gpu">GPU</option>
-							<option value="hdd">HDD</option>
+                            <option value="hdd">HDD</option>
                             <option value="ssd">SSD</option>
                             <option value="ram">RAM</option>
-						</select>
+                        </select>
                     </div>
                     <div class="col-6 mb-2 d-flex flex-row">
-                        <input class="form-control" type="text" id="myInput" (keyup)="searchFunction()" placeholder="Search by filter...">
+                        <input class="form-control" type="text" id="myInput" (keyup)="searchFunction()"
+                            placeholder="Search by filter...">
                         <div class="custom-control custom-switch d-flex align-items-end ml-2">
-                            <input type="checkbox" class="custom-control-input" id="location" name="location" [(ngModel)]="isChecked" (change)="setList()">
+                            <input type="checkbox" class="custom-control-input" id="location" name="location"
+                                [(ngModel)]="isChecked" (change)="setList()">
                             <label for="location" class="custom-control-label" id="label-all">All</label>
                         </div>
                     </div>
@@ -69,13 +72,14 @@
                                 <td class="hdd">{{laptop.hdd}}</td>
                                 <td class="ssd">{{laptop.ssd}}</td>
                                 <td class="ram">{{laptop.ram}}</td>
-                                <td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(laptop)" data-toggle="modal" data-target="#saveOrUpdateModal">
-										<fa-icon [icon]="faPen"></fa-icon>
-									</button></td>
-                                    <td><button  (click)="setProductToDelete(laptop)" class="btn btn-danger" id="btn-delete"
+                                <td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(laptop)"
+                                        data-toggle="modal" data-target="#saveOrUpdateModal">
+                                        <fa-icon [icon]="faPen"></fa-icon>
+                                    </button></td>
+                                <td><button (click)="setProductToDelete(laptop)" class="btn btn-danger" id="btn-delete"
                                         data-toggle="modal" data-target="#deleteArticleModal">
-                                            <fa-icon [icon]="faEraser"></fa-icon>
-                                        </button></td>
+                                        <fa-icon [icon]="faEraser"></fa-icon>
+                                    </button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -107,17 +111,23 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Delete Laptop</h5>
+                <h5 class="modal-title">Delete Product</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                {{deleteMessage}}
-            </div>
-            <div class="modal-footer">
-                <button type="button" (click)="deleteProduct(productToDelete)" class="btn btn-danger">Delete</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <form (ngSubmit)="deleteProduct(productToDelete)" id="formLaptopDelete">
+                    {{deleteMessage}} Insert a note here.
+                    <div>
+                        <textarea [(ngModel)]="note" name="note" id="note" class="form-control"></textarea>
+                    </div>
+
+                    <div class="form-group float-right">
+                        <button  class="btn mr-2 float-left btn btn-danger">Delete</button>
+                        <button type="button" class="btn float-left btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

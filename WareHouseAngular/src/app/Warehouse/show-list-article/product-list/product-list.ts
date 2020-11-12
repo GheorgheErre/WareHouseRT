@@ -18,6 +18,7 @@ export abstract class ProductList {
   wareHouseListProduct: Product[];
   showList: Product[];
   entity: Product;
+  note: String;
   filtered: String;
   isChecked: any;
   productToDelete: Product;
@@ -59,8 +60,7 @@ export abstract class ProductList {
     if(this.belongsWorkstation()){
       this.findWorkstation(product);
     }
-    let note="prova";
-    this.service.delete(product).subscribe(result => {
+    this.service.delete(product, this.note).subscribe(result => {
       console.log("ARTICLE ELIMINATO CON SUCCESSO"),
         this.reloadPage();
     });
