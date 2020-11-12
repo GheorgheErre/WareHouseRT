@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import WareHouseRT.WareHouseRT.beans.Desktop;
+import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
 import WareHouseRT.WareHouseRT.service.DesktopService;
+import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -21,6 +23,8 @@ public class DesktopController {
 
 	@Autowired
 	private DesktopService service;
+	@Autowired
+	private HistoricDeleteService deleteService;
 	
 	@PostMapping("/saveOrUpdateDesktop")
 	public void saveOrUpdate(@RequestBody Desktop desktop) {
@@ -28,8 +32,9 @@ public class DesktopController {
 	}
 	
 	@PostMapping("/deleteDesktop")
-	public void delete(@RequestBody Desktop desktop) {
-		service.delete(desktop);
+	public void delete(@RequestBody DeleteRequest deleteRequest) {
+		deleteService.save(deleteRequest);
+		service.delete((Desktop) deleteRequest.getProduct());
 	}
 	
 	@GetMapping("/findDesktop")

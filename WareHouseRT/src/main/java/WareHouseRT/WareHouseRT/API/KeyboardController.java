@@ -12,14 +12,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import WareHouseRT.WareHouseRT.beans.Keyboard;
+import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
+import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
 import WareHouseRT.WareHouseRT.service.KeyboardService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api")
 public class KeyboardController {
+	
 	@Autowired
 	private KeyboardService service;
+	
+	@Autowired
+	private HistoricDeleteService deleteService;
 
 	@PostMapping("/saveOrUpdateKeyboard")
 	public void saveOrUpdate(@RequestBody Keyboard keyboard) {
@@ -27,8 +33,9 @@ public class KeyboardController {
 	}
 	
 	@PostMapping("/deleteKeyboard")
-	public void delete(@RequestBody Keyboard keyboard) {
-		service.delete(keyboard);
+	public void delete(@RequestBody DeleteRequest deleteRequest) {
+		deleteService.save(deleteRequest);
+		service.delete((Keyboard) deleteRequest.getProduct());
 	}
 	
 	@GetMapping("/findKeyboard")

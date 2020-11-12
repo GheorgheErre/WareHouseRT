@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import WareHouseRT.WareHouseRT.beans.Cellphone;
+import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
 import WareHouseRT.WareHouseRT.service.CellphoneService;
+import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -20,6 +22,9 @@ import WareHouseRT.WareHouseRT.service.CellphoneService;
 public class CellphoneController {
 	@Autowired
 	private CellphoneService service;
+	
+	@Autowired
+	private HistoricDeleteService deleteService;
 
 	@PostMapping("/saveOrUpdateCellphone")
 	public void saveOrUpdate(@RequestBody Cellphone cellphone) {
@@ -27,8 +32,9 @@ public class CellphoneController {
 	}
 	
 	@PostMapping("/deleteCellphone")
-	public void delete(@RequestBody Cellphone cellphone) {
-		service.delete(cellphone);
+	public void delete(@RequestBody DeleteRequest deleteRequest) {
+		deleteService.save(deleteRequest);
+		service.delete((Cellphone) deleteRequest.getProduct());
 	}
 	
 	

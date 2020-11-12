@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import WareHouseRT.WareHouseRT.beans.GPU;
+import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
 import WareHouseRT.WareHouseRT.service.GpuService;
+import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -22,14 +24,18 @@ public class GpuController {
 	@Autowired
 	private GpuService service;
 
+	@Autowired
+	private HistoricDeleteService deleteService;
+	
 	@PostMapping("/saveOrUpdateGpu")
 	public void saveOrUpdate(@RequestBody GPU gpu) {
 		service.saveOrUpdate(gpu);
 	}
 
 	@PostMapping("/deleteGpu")
-	public void delete(@RequestBody GPU gpu) {
-		service.delete(gpu);
+	public void delete(@RequestBody DeleteRequest deleteRequest) {
+		deleteService.save(deleteRequest);
+		service.delete((GPU) deleteRequest.getProduct());
 	}
 
 	@GetMapping("/findGpu")

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import WareHouseRT.WareHouseRT.beans.Mouse;
+import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
+import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
 import WareHouseRT.WareHouseRT.service.MouseService;
 
 @RestController
@@ -21,6 +23,8 @@ public class MouseController {
 	
 	@Autowired
 	private MouseService service;
+	@Autowired
+	private HistoricDeleteService deleteService;
 	
 	@PostMapping("/saveOrUpdateMouse")
 	public void saveOrUpdate(@RequestBody Mouse mouse) {
@@ -28,8 +32,9 @@ public class MouseController {
 	}
 	
 	@PostMapping("/deleteMouse")
-	public void delete(@RequestBody Mouse mouse) {
-		service.delete(mouse);
+	public void delete(@RequestBody DeleteRequest deleteRequest) {
+		deleteService.save(deleteRequest);
+		service.delete((Mouse) deleteRequest.getProduct());
 	}
 	
 	@GetMapping("/findMouse")

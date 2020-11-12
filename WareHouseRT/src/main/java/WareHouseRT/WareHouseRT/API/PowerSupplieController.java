@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import WareHouseRT.WareHouseRT.beans.PowerSupplie;
+import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
+import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
 import WareHouseRT.WareHouseRT.service.PowerSupplieService;
 
 @RestController
@@ -21,6 +23,9 @@ public class PowerSupplieController {
 
 	@Autowired
 	private PowerSupplieService service;
+	
+	@Autowired
+	private HistoricDeleteService deleteService;
 
 	@PostMapping("/saveOrUpdatePowerSupplie")
 	public void saveOrUpdate(@RequestBody PowerSupplie powerSupplie) {
@@ -28,8 +33,9 @@ public class PowerSupplieController {
 	}
 	
 	@PostMapping("/deletePowerSupplie")
-	public void delete(@RequestBody PowerSupplie powerSupplie) {
-		service.delete(powerSupplie);
+	public void delete(@RequestBody DeleteRequest deleteRequest) {
+		deleteService.save(deleteRequest);
+		service.delete((PowerSupplie) deleteRequest.getProduct());
 	}
 	
 	@GetMapping("/findPowerSupplie")

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import WareHouseRT.WareHouseRT.beans.RAM;
+import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
+import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
 import WareHouseRT.WareHouseRT.service.RamService;
 
 @RestController
@@ -21,6 +23,9 @@ public class RamController {
 
 	@Autowired
 	private RamService service;
+	
+	@Autowired
+	private HistoricDeleteService deleteService;
 
 	@PostMapping("/saveOrUpdateRam")
 	public void saveOrUpdate(@RequestBody RAM ram) {
@@ -28,8 +33,9 @@ public class RamController {
 	}
 	
 	@PostMapping("/deleteRam")
-	public void delete(@RequestBody RAM ram) {
-		service.delete(ram);
+	public void delete(@RequestBody DeleteRequest deleteRequest) {
+		deleteService.save(deleteRequest);
+		service.delete((RAM) deleteRequest.getProduct());
 	}
 	
 	@GetMapping("/findRam")

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import WareHouseRT.WareHouseRT.beans.Laptop;
+import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
+import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
 import WareHouseRT.WareHouseRT.service.LaptopService;
 
 @RestController
@@ -22,14 +24,18 @@ public class LaptopController {
 	@Autowired
 	private LaptopService service;
 	
+	@Autowired
+	private HistoricDeleteService deleteService;
+	
 	@PostMapping("/saveOrUpdateLaptop")
 	public void saveOrUpdate(@RequestBody Laptop  laptop) {
 		service.saveOrUpdate(laptop);
 	}
 	
 	@PostMapping("/deleteLaptop")
-	public void delete(@RequestBody Laptop laptop) {
-		service.delete(laptop);
+	public void delete(@RequestBody DeleteRequest deleteRequest) {
+		deleteService.save(deleteRequest);
+		service.delete((Laptop) deleteRequest.getProduct());
 	}
 	
 	@GetMapping("/findLaptop")

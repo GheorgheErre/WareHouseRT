@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import WareHouseRT.WareHouseRT.beans.GenericArticle;
+import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
 import WareHouseRT.WareHouseRT.service.GenericArticleService;
+import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -20,15 +22,19 @@ import WareHouseRT.WareHouseRT.service.GenericArticleService;
 public class GenericArticleController {
 	@Autowired
 	private GenericArticleService service;
-
+	@Autowired
+	private HistoricDeleteService deleteService;
+	
 	@PostMapping("/saveOrUpdateGenericArticle")
 	public void saveOrUpdate(@RequestBody GenericArticle genericArticle) {
 		service.saveOrUpdate(genericArticle);
 	}
 	
 	@PostMapping("/deleteGenericArticle")
-	public void delete(@RequestBody GenericArticle genericArticle) {
-		service.delete(genericArticle);
+	public void delete(@RequestBody DeleteRequest deleteRequest) {
+		deleteService.save(deleteRequest);
+
+		service.delete((GenericArticle) deleteRequest.getProduct());
 	}
 	
 	@GetMapping("/findGenericArticle")

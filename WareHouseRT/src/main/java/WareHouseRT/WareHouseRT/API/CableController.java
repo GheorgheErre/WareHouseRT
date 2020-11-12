@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import WareHouseRT.WareHouseRT.beans.Cable;
+import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
 import WareHouseRT.WareHouseRT.service.CableService;
+import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -21,6 +23,8 @@ public class CableController {
 
 	@Autowired
 	private CableService service;
+	@Autowired
+	private HistoricDeleteService deleteService;
 
 	@PostMapping("/saveOrUpdateCable")
 	public void saveOrUpdate(@RequestBody Cable cable) {
@@ -28,8 +32,9 @@ public class CableController {
 	}
 
 	@PostMapping("/deleteCable")
-	public void delete(@RequestBody Cable cable) {
-		service.delete(cable);
+	public void delete(@RequestBody DeleteRequest deleteRequest) {
+		deleteService.save(deleteRequest);
+		service.delete((Cable) deleteRequest.getProduct());
 	}
 	
 

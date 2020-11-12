@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.Software;
+import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
+import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
 import WareHouseRT.WareHouseRT.service.SoftwareService;
 
 @RestController
@@ -21,15 +24,19 @@ import WareHouseRT.WareHouseRT.service.SoftwareService;
 public class SoftwareController {
 	@Autowired
 	private SoftwareService service;
-
+	
+	@Autowired
+	private HistoricDeleteService deleteService;
+	
 	@PostMapping("/saveOrUpdateSoftware")
 	public void saveOrUpdate(@RequestBody Software software) {
 		service.saveOrUpdate(software);
 	}
 	
 	@PostMapping("/deleteSoftware")
-	public void delete(@RequestBody Software software) {
-		service.delete(software);
+	public void delete(@RequestBody DeleteRequest deleteRequest) {
+		deleteService.save(deleteRequest);
+		service.delete((Software) deleteRequest.getProduct());
 	}
 	
 	@GetMapping("/findSoftware")

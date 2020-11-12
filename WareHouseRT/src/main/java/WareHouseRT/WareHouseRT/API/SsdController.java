@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.SSD;
+import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
+import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
 import WareHouseRT.WareHouseRT.service.SsdService;
 
 @RestController
@@ -21,15 +24,19 @@ public class SsdController {
 
 	@Autowired
 	private SsdService service;
-
+	
+	@Autowired
+	private HistoricDeleteService deleteService;
+	
 	@PostMapping("/saveOrUpdateSsd")
 	public void saveOrUpdate(@RequestBody SSD ssd) {
 		service.saveOrUpdate(ssd);
 	}
 
 	@PostMapping("/deleteSsd")
-	public void delete(@RequestBody SSD ssd) {
-		service.delete(ssd);
+	public void delete(@RequestBody DeleteRequest deleteRequest) {
+		deleteService.save(deleteRequest);
+		service.delete((SSD) deleteRequest.getProduct());
 	}
 
 	@GetMapping("/findSsd")

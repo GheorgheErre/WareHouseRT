@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import WareHouseRT.WareHouseRT.beans.GraphicTablet;
+import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
 import WareHouseRT.WareHouseRT.service.GraphicTabletService;
+import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -23,14 +25,18 @@ public class GraphicTabletController {
 	@Autowired
 	private GraphicTabletService service;
 
+	@Autowired
+	private HistoricDeleteService deleteService;
+	
 	@PostMapping("/saveOrUpdateGraphicTablet")
 	public void saveOrUpdate(@RequestBody GraphicTablet graphicTablet) {
 		service.saveOrUpdate(graphicTablet);
 	}
 	
 	@PostMapping("/deleteGraphicTablet")
-	public void delete(@RequestBody GraphicTablet graphicTablet) {
-		service.delete(graphicTablet);
+	public void delete(@RequestBody DeleteRequest deleteRequest) {
+		deleteService.save(deleteRequest);
+		service.delete((GraphicTablet) deleteRequest.getProduct());
 	}
 	
 	@GetMapping("/findGraphicTablet")

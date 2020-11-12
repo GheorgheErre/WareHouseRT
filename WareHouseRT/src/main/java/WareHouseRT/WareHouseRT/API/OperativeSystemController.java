@@ -12,23 +12,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import WareHouseRT.WareHouseRT.beans.OperativeSystem;
+import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
+import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
 import WareHouseRT.WareHouseRT.service.OperativeSystemService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api")
 public class OperativeSystemController {
+	
 	@Autowired
 	private OperativeSystemService service;
-
+	
+	@Autowired
+	private HistoricDeleteService deleteService;
+	
 	@PostMapping("/saveOrUpdateOperativeSystem")
 	public void saveOrUpdate(@RequestBody OperativeSystem operativeSystem) {
 		service.saveOrUpdate(operativeSystem);
 	}
 	
 	@PostMapping("/deleteOperativeSystem")
-	public void delete(@RequestBody OperativeSystem operativeSystem) {
-		service.delete(operativeSystem);
+	public void delete(@RequestBody DeleteRequest deleteRequest) {
+		deleteService.save(deleteRequest);
+		service.delete((OperativeSystem) deleteRequest.getProduct());
 	}
 	
 	@GetMapping("/findOperativeSystem")
