@@ -59,6 +59,7 @@ export abstract class ProductList {
     if(this.belongsWorkstation()){
       this.findWorkstation(product);
     }
+    let note="prova";
     this.service.delete(product).subscribe(result => {
       console.log("ARTICLE ELIMINATO CON SUCCESSO"),
         this.reloadPage();

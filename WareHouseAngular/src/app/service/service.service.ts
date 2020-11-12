@@ -39,7 +39,9 @@ export abstract class ServiceService {
   }
 
   public delete(product: Product) {
-    return this.http.post<Product>(this.deleteUrl, product);
+   let note="provissima";
+    return this.http.post<Product>(this.deleteUrl, {product, note});
+    
   }
 
   public count(): Observable<any> {

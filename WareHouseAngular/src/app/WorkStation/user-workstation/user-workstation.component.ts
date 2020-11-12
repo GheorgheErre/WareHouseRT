@@ -153,6 +153,7 @@ export class UserWorkstationComponent implements OnInit {
   deleteArticle(article) {
     this.chooseService(article.articleType);
     this.entity = this.addType(article);
+   
     this.service.delete(this.entity).subscribe(result => {
       console.log("ARTICLE ELIMINATO CON SUCCESSO")
     });

@@ -18,7 +18,7 @@ import { HomepageModule } from './Homepage/homepage/homepage.module';
 import { WarehouseModule } from './Warehouse/warehouse/warehouse.module';
 import { PopperDirective } from './popper.directive';
 import { WorkstationModule } from './WorkStation/workstation/workstation.module';
-import { HistoricModule } from './Historic/historic/historic.module';
+import { HistoricModule } from './Historic/historic-module/historic.module';
 import { LogComponent } from './Historic/log/log.component';
 
 
