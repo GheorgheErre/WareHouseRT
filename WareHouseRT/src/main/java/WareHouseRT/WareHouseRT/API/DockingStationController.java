@@ -13,9 +13,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.HistoricDelete;
 import WareHouseRT.WareHouseRT.beans.HistoricMovements;
+import WareHouseRT.WareHouseRT.payload.request.DeleteRequest;
 import WareHouseRT.WareHouseRT.service.DockingStationService;
 import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
 import WareHouseRT.WareHouseRT.service.HistoricMovementsService;
@@ -44,14 +47,9 @@ public class DockingStationController {
 	}
 	
 	@PostMapping("/deleteDockingStation")
-	public void delete(@RequestBody DockingStation dockingStation, String string) {
-		HistoricDelete recordDelete= new HistoricDelete();
-		recordDelete.setProduct(dockingStation);
-		//da settare in FrontEnd prima di conferma eliminazione
-		recordDelete.setNote(string);
-		recordDelete.setDate(new Date());
-		deleteService.save(recordDelete);
-		service.delete(dockingStation);
+	public void delete(@RequestBody DeleteRequest deleteRequest) {
+		deleteService.save(deleteRequest);
+		service.delete((DockingStation) deleteRequest.getProduct());
 	}
 	
 	@GetMapping("/findDockingStation")
