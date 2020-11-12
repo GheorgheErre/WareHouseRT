@@ -40,9 +40,20 @@ export abstract class ServiceService {
 
   public delete(product: Product) {
    let note="provissima";
-    return this.http.post<Product>(this.deleteUrl, {product, note});
+
+   let json=Object.assign({}, {
+        "product" : product
+      }, {
+        "note": note
+      });
+
     
+      return this.http.post<Product>(this.deleteUrl, json);
+
   }
+   
+  
+
 
   public count(): Observable<any> {
 
