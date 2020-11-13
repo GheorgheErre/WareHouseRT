@@ -14,7 +14,8 @@ export abstract class ServiceService {
   protected deleteUrl: string;
   protected countUrl: string;
   protected updateUrl: string;
-
+  protected moveToWarehouseUrl: string;
+  protected moveFromWarehouseUrl: string;
  
 
   constructor(protected http?: HttpClient) {
@@ -27,6 +28,15 @@ export abstract class ServiceService {
       "note": note
     });
     return this.http.post<Product>(this.saveOrUpdateUrl, json);
+  }
+
+  public moveToWareHouse(product: Product, note: String) {
+    let json=Object.assign({}, {
+      "product" : product
+    }, {
+      "note": note
+    });
+    return this.http.post<Product>(this.moveToWarehouseUrl, json);
   }
 
   

@@ -122,7 +122,7 @@
                                         data-toggle="modal" data-target="#articleDetailsModal">
                                         Details
                                     </button></td>
-                                <td><button (click)="moveToWarehouse(article)" class="btn btn-primary" id="btn-move">
+                                <td><button (click)="setArticleToMove(article)" class="btn btn-primary" id="btn-move" data-toggle="modal" data-target="#moveToWarehouseModal">
                                         Move to Warehouse
                                     </button></td>
                                 <td><button (click)="setArticleTodelete(article)" class="btn btn-danger" id="btn-delete"
@@ -260,6 +260,34 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+    </div>
+</div>
+
+<!--Modal move to warehouse confirmation -->
+<div class="modal fade" id="moveToWarehouseModal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+
+        <!-- Modal content-->
+        <div class="modal-content" id="modal">
+
+            <div class="modal-header" id="modal-header">
+                <h3 class="modal-title">Move article:</h3>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)="moveToWarehouse()" id="formLaptopDelete">
+                    Move the selected Article to warehouse?
+                    <div>
+                        <textarea [(ngModel)]="note" name="note" id="note" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group float-right">
+                        <button class="btn mr-2 float-left btn btn-danger">Move</button>
+                        <button type="button" class="btn float-left btn btn-secondary"
+                            data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+
         </div>
     </div>
 </div>

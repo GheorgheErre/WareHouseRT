@@ -109,6 +109,11 @@ export class UserWorkstationComponent implements OnInit {
     this.articleToDelete = article;
   }
 
+  setArticleToMove(article){
+    this.chooseService(article.articleType);
+    this.entity = article;
+  }
+
   // show the list of a selected article form warehouse
   showList(article) {
     this.articleType = article;
@@ -163,16 +168,15 @@ export class UserWorkstationComponent implements OnInit {
   }
 
   // move article from workstation to warehouse
-  moveToWarehouse(article) {
-    this.chooseService(article.articleType);
-    this.entity = this.addType(article);
+  moveToWarehouse() {
+    this.entity = this.addType(this.entity);
     this.entity.location = "magazzino";
 
-    this.service.saveOrUpdate(this.entity, this.note).subscribe(result => {
+    this.service.moveToWareHouse(this.entity, this.note).subscribe(result => {
       console.log("ARTICLE CARICATO CON SUCCESSO")
     });
 
-    this.workstation.articles = this.workstation.articles.filter((a) => a.identifier != article.identifier);
+    this.workstation.articles = this.workstation.articles.filter((a) => a.identifier != this.entity.identifier);
     this.updateWorkstation();
   }
 
