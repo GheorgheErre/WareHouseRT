@@ -20,8 +20,13 @@ export abstract class ServiceService {
   constructor(protected http?: HttpClient) {
   }
 
-  public saveOrUpdate(product: Product) {
-    return this.http.post<Product>(this.saveOrUpdateUrl, product);
+  public saveOrUpdate(product: Product, note: String) {
+    let json=Object.assign({}, {
+      "product" : product
+    }, {
+      "note": note
+    });
+    return this.http.post<Product>(this.saveOrUpdateUrl, json);
   }
 
   
@@ -46,7 +51,6 @@ export abstract class ServiceService {
         "note": note
       });
 
-    
       return this.http.post<Product>(this.deleteUrl, json);
 
   }

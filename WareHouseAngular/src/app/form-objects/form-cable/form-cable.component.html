@@ -21,6 +21,9 @@
         <div class="form-control mb-4" id="cableGroup">
             <input [(ngModel)]="cableTemp.type" name="type" class="form-control" placeholder="Type:">
         </div>
+        <div>
+            <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control"></textarea>
+        </div>
         <div class="float-right">
             <button class="btn mr-2 float-left">Add Cable</button>
             <button class="btn float-left" data-dismiss="modal">Close</button>

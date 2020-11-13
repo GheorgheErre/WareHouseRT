@@ -168,7 +168,7 @@ export class UserWorkstationComponent implements OnInit {
     this.entity = this.addType(article);
     this.entity.location = "magazzino";
 
-    this.service.saveOrUpdate(this.entity).subscribe(result => {
+    this.service.saveOrUpdate(this.entity, this.note).subscribe(result => {
       console.log("ARTICLE CARICATO CON SUCCESSO")
     });
 

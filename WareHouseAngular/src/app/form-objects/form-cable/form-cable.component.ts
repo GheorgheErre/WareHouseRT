@@ -8,8 +8,9 @@ import { Cable } from 'src/app/pcObjects/cable/cable';
 })
 export class FormCableComponent implements OnInit {
 
-  @Output() cableToEmit = new EventEmitter<Cable>();
+  @Output() cableToEmit = new EventEmitter<{product:Cable, note:String}>();
   cableTemp = new Cable();
+  noteTemp: String;
 
   constructor() { }
 
@@ -21,7 +22,7 @@ export class FormCableComponent implements OnInit {
   }
 
   sendCableToParent() {
-    this.cableToEmit.emit(this.cableTemp);
+    this.cableToEmit.emit({product:this.cableTemp, note:this.noteTemp});
 }
 
 }
