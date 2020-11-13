@@ -17,7 +17,8 @@ export class MonitorService extends ServiceService{
     super.countUrl = 'http://localhost:8080/api/countMonitor';
     super.getByIDUrl = 'http://localhost:8080/api/findMonitor';
     super.deleteUrl = 'http://localhost:8080/api/deleteMonitor';
-
+    super.moveToWarehouseUrl = 'http://localhost:8080/api/moveMonitorToWarehouse';
+    super.moveFromWarehouseUrl = 'http://localhost:8080/api/moveMonitorFromWarehouse';
   }
 
 

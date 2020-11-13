@@ -185,8 +185,8 @@
             <div class="modal-body">
                 <form (ngSubmit)="deleteArticle(articleToDelete)" id="formLaptopDelete">
                     Delete the selected Article?
-                    <div>
-                        <textarea [(ngModel)]="note" name="note" id="note" class="form-control"></textarea>
+                    <div class="mb-4">
+                        <textarea [(ngModel)]="note" name="note" id="note" class="form-control" placeholder="Add note:"></textarea>
                     </div>
                     <div class="form-group float-right">
                         <button class="btn mr-2 float-left btn btn-danger">Delete</button>
@@ -277,8 +277,8 @@
             <div class="modal-body">
                 <form (ngSubmit)="moveToWarehouse()" id="formLaptopDelete">
                     Move the selected Article to warehouse?
-                    <div>
-                        <textarea [(ngModel)]="note" name="note" id="note" class="form-control"></textarea>
+                    <div class="mb-4">
+                        <textarea [(ngModel)]="note" name="note" id="note" class="form-control" placeholder="Add note:"></textarea>
                     </div>
                     <div class="form-group float-right">
                         <button class="btn mr-2 float-left btn btn-danger">Move</button>

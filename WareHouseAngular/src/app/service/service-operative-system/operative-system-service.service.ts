@@ -17,7 +17,8 @@ export class OperativeSystemService extends ServiceService{
     super.countUrl = 'http://localhost:8080/api/countOperativeSystem';
     super.getByIDUrl = 'http://localhost:8080/api/findOperativeSystem';
     super.deleteUrl = 'http://localhost:8080/api/deleteOperativeSystem';
-
+    super.moveToWarehouseUrl = 'http://localhost:8080/api/moveOperativeSystemToWarehouse';
+    super.moveFromWarehouseUrl = 'http://localhost:8080/api/moveOperativeSystemFromWarehouse';
   }
 
 

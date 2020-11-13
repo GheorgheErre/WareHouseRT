@@ -8,8 +8,7 @@ import { ServiceService } from '../service.service';
   providedIn: 'root'
 })
 export class CableService extends ServiceService{
-   moveToWarehouseUrl: string;
-   moveFromWarehouseUrl: string;
+
 
 
   constructor(protected http: HttpClient) {

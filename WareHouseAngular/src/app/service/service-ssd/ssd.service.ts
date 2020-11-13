@@ -17,6 +17,8 @@ export class SsdService extends ServiceService{
     super.countUrl = 'http://localhost:8080/api/countSsd';
     super.getByIDUrl = 'http://localhost:8080/api/findSsd';
     super.deleteUrl = 'http://localhost:8080/api/deleteSsd';
+    super.moveToWarehouseUrl = 'http://localhost:8080/api/moveSsdToWarehouse';
+    super.moveFromWarehouseUrl = 'http://localhost:8080/api/moveSsdFromWarehouse';
   }
 
 }
