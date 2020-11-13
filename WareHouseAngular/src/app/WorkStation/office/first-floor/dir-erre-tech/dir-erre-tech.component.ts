@@ -10,7 +10,7 @@ export class DirErreTechComponent extends WorkstationInSession implements  OnIni
 
   title="Direzione Erre Technology";
   workstationInSession="dir-erre-tech";
-  coords=["119,139 171,191 148,215 125,194 114,204 102,193 114,182 94,163 "];
+  coords=["119,139 171,191 149,215 125,193 115,203 103,192 113,181 95,163 "];
 
   constructor() {
     super();
