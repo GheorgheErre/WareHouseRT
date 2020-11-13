@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import WareHouseRT.WareHouseRT.beans.Cable;
 import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.GenericArticle;
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
@@ -38,10 +39,10 @@ public class GenericArticleController {
 	}
 	
 	@PostMapping("/deleteGenericArticle")
-	public void delete(@RequestBody HistoricRequest deleteRequest) {
-		deleteService.save(deleteRequest);
-
-		service.delete((GenericArticle) deleteRequest.getProduct());
+	public void delete(@RequestBody HistoricRequest historicRequest) {
+		deleteService.save(historicRequest);
+		movementsService.updateMovementsOfProduct(historicRequest);
+		service.delete((GenericArticle) historicRequest.getProduct());
 	}
 	
 	@GetMapping("/findGenericArticle")
@@ -58,14 +59,21 @@ public class GenericArticleController {
 		return service.count();
 	}
 	
-	@PostMapping("/moveGenericArticle")
-	public void move(@RequestBody  HistoricRequest historicRequest){
+
+	@PostMapping("/moveGenericArticleToWarehouse")
+	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
-		String tipoAzione="Movimento Prodotto";
-		
+		String tipoAzione="Movimento Prodotto verso Magazzino";
 		movementsService.save(historicRequest, tipoAzione);
 		service.saveOrUpdate((GenericArticle) historicRequest.getProduct());
 	};
-
+	
+	@PostMapping("/moveGenericArticleFromWarehouse")
+	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
+		
+		String tipoAzione="Movimento Prodotto verso Workstation";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((GenericArticle) historicRequest.getProduct());
+	};
 	
 }

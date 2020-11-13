@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import WareHouseRT.WareHouseRT.beans.Cable;
 import WareHouseRT.WareHouseRT.beans.Desktop;
 import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
@@ -39,9 +40,11 @@ public class DesktopController {
 	}
 	
 	@PostMapping("/deleteDesktop")
-	public void delete(@RequestBody HistoricRequest deleteRequest) {
-		deleteService.save(deleteRequest);
-		service.delete((Desktop) deleteRequest.getProduct());
+	public void delete(@RequestBody HistoricRequest historicRequest) {
+		deleteService.save(historicRequest);
+		movementsService.updateMovementsOfProduct(historicRequest);
+
+		service.delete((Desktop) historicRequest.getProduct());
 	}
 	
 	@GetMapping("/findDesktop")
@@ -58,13 +61,22 @@ public class DesktopController {
 		return service.count();
 	}
 	
-	@PostMapping("/moveDesktop")
-	public void move(@RequestBody  HistoricRequest historicRequest){
+
+	@PostMapping("/moveDesktopToWarehouse")
+	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
-		String tipoAzione="Movimento Prodotto";
-		
+		String tipoAzione="Movimento Prodotto verso Magazzino";
 		movementsService.save(historicRequest, tipoAzione);
 		service.saveOrUpdate((Desktop) historicRequest.getProduct());
 	};
+	
+	@PostMapping("/moveDesktopFromWarehouse")
+	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
+		
+		String tipoAzione="Movimento Prodotto verso Workstation";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((Desktop) historicRequest.getProduct());
+	};
+	
 
 }

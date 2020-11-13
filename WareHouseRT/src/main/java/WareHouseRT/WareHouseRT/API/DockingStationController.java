@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import WareHouseRT.WareHouseRT.beans.Cable;
 import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.HistoricDelete;
 import WareHouseRT.WareHouseRT.beans.HistoricMovements;
@@ -46,6 +47,7 @@ public class DockingStationController {
 	@PostMapping("/deleteDockingStation")
 	public void delete(@RequestBody HistoricRequest historicRequest) {
 		deleteService.save(historicRequest);
+		movementsService.updateMovementsOfProduct(historicRequest);
 		service.delete((DockingStation) historicRequest.getProduct());
 	}
 	
@@ -64,11 +66,18 @@ public class DockingStationController {
 		return service.count();
 	}
 	
-	@PostMapping("/moveDockingStation")
-	public void move(@RequestBody  HistoricRequest historicRequest){
+	@PostMapping("/moveDockingStationToWarehouse")
+	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
-		String tipoAzione="Movimento Prodotto";
+		String tipoAzione="Movimento Prodotto verso Magazzino";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((DockingStation) historicRequest.getProduct());
+	};
+	
+	@PostMapping("/moveDockingStationFromWarehouse")
+	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
+		String tipoAzione="Movimento Prodotto verso Workstation";
 		movementsService.save(historicRequest, tipoAzione);
 		service.saveOrUpdate((DockingStation) historicRequest.getProduct());
 	};

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import WareHouseRT.WareHouseRT.beans.Cable;
 import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.Mouse;
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
@@ -40,9 +41,10 @@ public class MouseController {
 	}
 	
 	@PostMapping("/deleteMouse")
-	public void delete(@RequestBody HistoricRequest deleteRequest) {
-		deleteService.save(deleteRequest);
-		service.delete((Mouse) deleteRequest.getProduct());
+	public void delete(@RequestBody HistoricRequest historicRequest) {
+		deleteService.save(historicRequest);
+		movementsService.updateMovementsOfProduct(historicRequest);
+		service.delete((Mouse) historicRequest.getProduct());
 	}
 	
 	@GetMapping("/findMouse")
@@ -60,11 +62,18 @@ public class MouseController {
 		return service.count();
 	}
 
-	@PostMapping("/moveMouse")
-	public void move(@RequestBody  HistoricRequest historicRequest){
+	@PostMapping("/moveMouseToWarehouse")
+	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
-		String tipoAzione="Movimento Prodotto";
+		String tipoAzione="Movimento Prodotto verso Magazzino";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((Mouse) historicRequest.getProduct());
+	};
+	
+	@PostMapping("/moveMouseFromWarehouse")
+	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
+		String tipoAzione="Movimento Prodotto verso Workstation";
 		movementsService.save(historicRequest, tipoAzione);
 		service.saveOrUpdate((Mouse) historicRequest.getProduct());
 	};

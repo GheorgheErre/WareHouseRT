@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import WareHouseRT.WareHouseRT.beans.Cable;
 import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.GPU;
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
@@ -33,16 +34,18 @@ public class GpuController {
 	private HistoricMovementsService movementsService;
 	
 	@PostMapping("/saveOrUpdateGpu")
-	public void saveOrUpdate(@RequestBody GPU gpu) {
-		service.saveOrUpdate(gpu);
+	public void saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
+		String tipoAzione = "Aggiunta Prodotto";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((GPU) historicRequest.getProduct());
 	}
 
 	@PostMapping("/deleteGpu")
 	public void delete(@RequestBody HistoricRequest historicRequest) {
 	
-		String tipoAzione="Aggiunta Prodotto";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((GPU) historicRequest.getProduct());
+		deleteService.save(historicRequest);
+		movementsService.updateMovementsOfProduct(historicRequest);
+		service.delete((GPU) historicRequest.getProduct());
 	}
 
 	@GetMapping("/findGpu")
@@ -59,4 +62,21 @@ public class GpuController {
 	public long count() {
 		return service.count();
 	}
+	
+
+	@PostMapping("/moveCableToWarehouse")
+	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
+		
+		String tipoAzione="Movimento Prodotto verso Magazzino";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((GPU) historicRequest.getProduct());
+	};
+	
+	@PostMapping("/moveCableFromWarehouse")
+	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
+		
+		String tipoAzione="Movimento Prodotto verso Workstation";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((GPU) historicRequest.getProduct());
+	};
 }

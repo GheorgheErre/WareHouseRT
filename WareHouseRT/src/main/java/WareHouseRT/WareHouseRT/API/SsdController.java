@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import WareHouseRT.WareHouseRT.beans.Cable;
 import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.SSD;
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
@@ -40,9 +41,10 @@ public class SsdController {
 	}
 
 	@PostMapping("/deleteSsd")
-	public void delete(@RequestBody HistoricRequest deleteRequest) {
-		deleteService.save(deleteRequest);
-		service.delete((SSD) deleteRequest.getProduct());
+	public void delete(@RequestBody HistoricRequest historicRequest) {
+		deleteService.save(historicRequest);
+		movementsService.updateMovementsOfProduct(historicRequest);
+		service.delete((SSD) historicRequest.getProduct());
 	}
 
 	@GetMapping("/findSsd")
@@ -59,5 +61,21 @@ public class SsdController {
 	public long count() {
 		return service.count();
 	}
+
+	@PostMapping("/moveSsdToWarehouse")
+	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
+		
+		String tipoAzione="Movimento Prodotto verso Magazzino";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((SSD) historicRequest.getProduct());
+	};
+	
+	@PostMapping("/moveSsdFromWarehouse")
+	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
+		
+		String tipoAzione="Movimento Prodotto verso Workstation";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((SSD) historicRequest.getProduct());
+	};
 
 }

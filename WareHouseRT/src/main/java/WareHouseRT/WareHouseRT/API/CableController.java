@@ -69,8 +69,8 @@ public class CableController {
 		service.saveOrUpdate((Cable) historicRequest.getProduct());
 	};
 	
-	@PostMapping("/moveCableToWorkstation")
-	public void moveToWorkstation(@RequestBody HistoricRequest historicRequest){
+	@PostMapping("/moveCableFromWarehouse")
+	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Workstation";
 		movementsService.save(historicRequest, tipoAzione);

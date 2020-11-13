@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import WareHouseRT.WareHouseRT.beans.Cable;
 import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.OperativeSystem;
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
@@ -40,9 +41,10 @@ public class OperativeSystemController {
 	}
 	
 	@PostMapping("/deleteOperativeSystem")
-	public void delete(@RequestBody HistoricRequest deleteRequest) {
-		deleteService.save(deleteRequest);
-		service.delete((OperativeSystem) deleteRequest.getProduct());
+	public void delete(@RequestBody HistoricRequest historicRequest) {
+		deleteService.save(historicRequest);
+		movementsService.updateMovementsOfProduct(historicRequest);
+		service.delete((OperativeSystem) historicRequest.getProduct());
 	}
 	
 	@GetMapping("/findOperativeSystem")
@@ -59,4 +61,20 @@ public class OperativeSystemController {
 	public long count() {
 		return service.count();
 	}
+	
+	@PostMapping("/moveOperativeSystemToWarehouse")
+	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
+		
+		String tipoAzione="Movimento Prodotto verso Magazzino";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((OperativeSystem) historicRequest.getProduct());
+	};
+	
+	@PostMapping("/moveOperativeSystemFromWarehouse")
+	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
+		
+		String tipoAzione="Movimento Prodotto verso Workstation";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((OperativeSystem) historicRequest.getProduct());
+	};
 }

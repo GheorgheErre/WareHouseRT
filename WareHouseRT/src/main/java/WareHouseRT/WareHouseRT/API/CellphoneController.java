@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import WareHouseRT.WareHouseRT.beans.Cable;
 import WareHouseRT.WareHouseRT.beans.Cellphone;
 import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
@@ -41,6 +42,7 @@ public class CellphoneController {
 	@PostMapping("/deleteCellphone")
 	public void delete(@RequestBody HistoricRequest historicRequest) {
 		deleteService.save(historicRequest);
+		movementsService.updateMovementsOfProduct(historicRequest);
 		service.delete((Cellphone) historicRequest.getProduct());
 	}
 	
@@ -59,12 +61,20 @@ public class CellphoneController {
 	public long count() {
 		return service.count();
 	}
-	
-	@PostMapping("/moveCellphone")
-	public void move(@RequestBody  HistoricRequest historicRequest){
+	@PostMapping("/moveCellphoneToWarehouse")
+	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
-		String tipoAzione="Movimento Prodotto";
+		String tipoAzione="Movimento Prodotto verso Magazzino";
 		movementsService.save(historicRequest, tipoAzione);
 		service.saveOrUpdate((Cellphone) historicRequest.getProduct());
 	};
+	
+	@PostMapping("/moveCellphoneFromWarehouse")
+	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
+		
+		String tipoAzione="Movimento Prodotto verso Workstation";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((Cellphone) historicRequest.getProduct());
+	};
+	
 }

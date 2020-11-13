@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import WareHouseRT.WareHouseRT.beans.Cable;
 import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.Monitor;
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
@@ -40,9 +41,10 @@ public class MonitorController {
 	}
 	
 	@PostMapping("/deleteMonitor")
-	public void delete(@RequestBody HistoricRequest deleteRequest) {
-		deleteService.save(deleteRequest);
-		service.delete((Monitor) deleteRequest.getProduct());
+	public void delete(@RequestBody HistoricRequest historicRequest) {
+		deleteService.save(historicRequest);
+		movementsService.updateMovementsOfProduct(historicRequest);
+		service.delete((Monitor) historicRequest.getProduct());
 	}
 	
 	@GetMapping("/findMonitor")
@@ -60,12 +62,20 @@ public class MonitorController {
 		return service.count();
 	}
 
-	@PostMapping("/moveMonitor")
-	public void move(@RequestBody  HistoricRequest historicRequest){
+	@PostMapping("/moveMonitorToWarehouse")
+	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
-		String tipoAzione="Movimento Prodotto";
-		
+		String tipoAzione="Movimento Prodotto verso Magazzino";
 		movementsService.save(historicRequest, tipoAzione);
 		service.saveOrUpdate((Monitor) historicRequest.getProduct());
 	};
+	
+	@PostMapping("/moveMonitorFromWarehouse")
+	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
+		
+		String tipoAzione="Movimento Prodotto verso Workstation";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((Monitor) historicRequest.getProduct());
+	};
+	
 }

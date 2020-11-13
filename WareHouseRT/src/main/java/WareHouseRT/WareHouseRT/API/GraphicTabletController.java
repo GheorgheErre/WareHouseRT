@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import WareHouseRT.WareHouseRT.beans.Cable;
 import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.GPU;
 import WareHouseRT.WareHouseRT.beans.GraphicTablet;
@@ -43,9 +44,10 @@ public class GraphicTabletController {
 	}
 	
 	@PostMapping("/deleteGraphicTablet")
-	public void delete(@RequestBody HistoricRequest deleteRequest) {
-		deleteService.save(deleteRequest);
-		service.delete((GraphicTablet) deleteRequest.getProduct());
+	public void delete(@RequestBody HistoricRequest historicRequest) {
+		deleteService.save(historicRequest);
+		movementsService.updateMovementsOfProduct(historicRequest);
+		service.delete((GraphicTablet) historicRequest.getProduct());
 	}
 	
 	@GetMapping("/findGraphicTablet")
@@ -62,12 +64,19 @@ public class GraphicTabletController {
 	public long count() {
 		return service.count();
 	}
+
+	@PostMapping("/moveGraphicTabletToWarehouse")
+	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
+		
+		String tipoAzione="Movimento Prodotto verso Magazzino";
+		movementsService.save(historicRequest, tipoAzione);
+		service.saveOrUpdate((GraphicTablet) historicRequest.getProduct());
+	};
 	
-	@PostMapping("/moveGraphicTablet")
-	public void move(@RequestBody  HistoricRequest historicRequest){
+	@PostMapping("/moveGraphicTabletFromWarehouse")
+	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
-		String tipoAzione="Movimento Prodotto";
-		
+		String tipoAzione="Movimento Prodotto verso Workstation";
 		movementsService.save(historicRequest, tipoAzione);
 		service.saveOrUpdate((GraphicTablet) historicRequest.getProduct());
 	};
