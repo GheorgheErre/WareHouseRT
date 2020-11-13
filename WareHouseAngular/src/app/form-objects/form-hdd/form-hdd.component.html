@@ -19,8 +19,11 @@
         <input [(ngModel)]="hddTemp.userNumber" name="userNumber" class="form-control"
             placeholder="User number:">
     </div>
-    <div class="form-control mb-4" id="hddGroup">
+    <div class="form-control mb-2" id="hddGroup">
         <input [(ngModel)]="hddTemp.capacity" name="capacity" class="form-control" placeholder="Capacity:">
+    </div>
+    <div class="form-control mb-4" id="hddGroup">
+        <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control" placeholder="Add note:"></textarea>
     </div>
     <div class="float-right">
         <button class="btn mr-2 float-left">Save/Update hdd</button>

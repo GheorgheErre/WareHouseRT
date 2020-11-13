@@ -8,9 +8,9 @@ import { DockingStation } from 'src/app/pcObjects/dockingStation/docking-station
 })
 export class FormDockingStationComponent implements OnInit {
 
-  @Output() dockingStationToEmit = new EventEmitter<DockingStation>();
-
+  @Output() dockingStationToEmit = new EventEmitter<{product:DockingStation, note:String}>();
   dockingStationTemp = new DockingStation();
+  noteTemp: String;
 
   constructor() { }
 
@@ -22,7 +22,7 @@ export class FormDockingStationComponent implements OnInit {
   }
 
   sendDockingStationToParent() {
-    this.dockingStationToEmit.emit(this.dockingStationTemp);
+    this.dockingStationToEmit.emit({product:this.dockingStationTemp, note:this.noteTemp});
   }
 
 }

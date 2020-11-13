@@ -18,12 +18,15 @@
         <div class="form-control mb-2" id="powerSupplieGroup">
             <input [(ngModel)]="powerSupplieTemp.userNumber" name="userNumber" class="form-control" placeholder="User number:">
         </div>
-        <div class="form-control mb-4" id="powerSupplieGroup">
+        <div class="form-control mb-2" id="powerSupplieGroup">
             <input [(ngModel)]="powerSupplieTemp.watts" name="watts" class="form-control" placeholder="Watts:">
         </div>
-        <div class="form-control mb-4" id="powerSupplieGroup">
+        <div class="form-control mb-2" id="powerSupplieGroup">
             <input [(ngModel)]="powerSupplieTemp.energyRating" name="energyRating" class="form-control"
                 placeholder="Energy Rating:">
+        </div>
+        <div class="form-control mb-4" id="powerSupplieGroup">
+            <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control" placeholder="Add note:"></textarea>
         </div>
         <div class="float-right">
             <button class="btn mr-2 float-left">Save/Update Power Supplie</button>

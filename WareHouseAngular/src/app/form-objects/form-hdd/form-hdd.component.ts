@@ -8,9 +8,9 @@ import { Hdd } from 'src/app/pcObjects/hdd/hdd';
 })
 export class FormHddComponent implements OnInit {
 
-  @Output() hddToEmit = new EventEmitter<Hdd>();
-
+  @Output() hddToEmit = new EventEmitter<{product:Hdd, note:String}>();
   hddTemp = new Hdd();
+  noteTemp: String;
 
   constructor() { }
 
@@ -22,7 +22,7 @@ export class FormHddComponent implements OnInit {
   }
 
   sendHddToParent() {
-    this.hddToEmit.emit(this.hddTemp);
+    this.hddToEmit.emit({product:this.hddTemp, note:this.noteTemp});
 }
 
 }

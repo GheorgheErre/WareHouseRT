@@ -18,14 +18,17 @@
         <div class="form-control mb-2" id="graphicTabletGroup">
             <input [(ngModel)]="graphicTabletTemp.userNumber" name="userNumber" class="form-control" placeholder="User number:">
         </div>
-        <div class="form-control mb-4" id="graphicTabletGroup">
+        <div class="form-control mb-2" id="graphicTabletGroup">
             <input [(ngModel)]="graphicTabletTemp.height" name="height" class="form-control" placeholder="Heigth:">
         </div>
-        <div class="form-control mb-4" id="graphicTabletGroup">
+        <div class="form-control mb-2" id="graphicTabletGroup">
             <input [(ngModel)]="graphicTabletTemp.width" name="width" class="form-control" placeholder="Width:">
         </div>
-        <div class="form-control mb-4" id="graphicTabletGroup">
+        <div class="form-control mb-2" id="graphicTabletGroup">
             <input [(ngModel)]="graphicTabletTemp.length" name="length" class="form-control" placeholder="Length:">
+        </div>
+        <div class="form-control mb-4" id="graphicTabletGroup">
+            <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control" placeholder="Add note:"></textarea>
         </div>
         <div class="float-right">
             <button class="btn mr-2 float-left">Save/Update Graphic Tablet</button>

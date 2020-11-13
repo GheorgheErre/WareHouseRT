@@ -8,8 +8,10 @@ import { Ssd } from 'src/app/pcObjects/ssd/ssd';
 })
 export class FormSsdComponent implements OnInit {
  
-  @Output() ssdToEmit = new EventEmitter<Ssd>();
+  @Output() ssdToEmit = new EventEmitter<{product:Ssd, note:String}>();
   ssdTemp = new Ssd();
+  noteTemp: String;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -18,7 +20,7 @@ export class FormSsdComponent implements OnInit {
     this.ssdTemp = JSON.parse(JSON.stringify(entity));
   }
   sendSsdToParent() {
-    this.ssdToEmit.emit(this.ssdTemp);
+    this.ssdToEmit.emit({product:this.ssdTemp, note:this.noteTemp});
   }
 
 }

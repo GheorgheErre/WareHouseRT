@@ -8,9 +8,9 @@ import { Keyboard } from 'src/app/pcObjects/keyBoard/key-board';
 })
 export class FormKeyboardComponent implements OnInit {
 
-  @Output() keyboardToEmit = new EventEmitter<Keyboard>();
-
+  @Output() keyboardToEmit = new EventEmitter<{product:Keyboard, note:String}>();
   keyboardTemp = new Keyboard();
+  noteTemp: String;
 
   constructor() {
    }
@@ -23,7 +23,7 @@ export class FormKeyboardComponent implements OnInit {
   }
 
   sendKeyboardToParent() {
-    this.keyboardToEmit.emit(this.keyboardTemp);
+    this.keyboardToEmit.emit({product:this.keyboardTemp, note:this.noteTemp});
 }
 
 }

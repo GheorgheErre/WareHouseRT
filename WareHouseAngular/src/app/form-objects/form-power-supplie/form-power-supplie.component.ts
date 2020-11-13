@@ -8,8 +8,10 @@ import { Powersupplie } from 'src/app/pcObjects/powerSupplie/powersupplie';
 })
 export class FormPowerSupplieComponent implements OnInit {
   
-  @Output() powerSupplieToEmit = new EventEmitter<Powersupplie>();
+  @Output() powerSupplieToEmit = new EventEmitter<{product:Powersupplie, note:String}>();
   powerSupplieTemp=new Powersupplie();
+  noteTemp: String;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -19,6 +21,6 @@ export class FormPowerSupplieComponent implements OnInit {
     this.powerSupplieTemp = JSON.parse(JSON.stringify(entity));
   }
   sendPowersupplieToParent() {
-    this.powerSupplieToEmit.emit(this.powerSupplieTemp);
+    this.powerSupplieToEmit.emit({product:this.powerSupplieTemp, note:this.noteTemp});
 }
 }
