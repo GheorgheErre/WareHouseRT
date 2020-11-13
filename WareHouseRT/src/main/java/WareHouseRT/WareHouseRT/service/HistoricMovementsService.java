@@ -28,6 +28,7 @@ public class HistoricMovementsService {
 		HistoricMovements recordMove= new HistoricMovements();	
 		recordMove.setDate(new Date());
 		recordMove.setProduct(historicRequest.getProduct());
+		recordMove.setNote(historicRequest.getNote());
 		recordMove.setAction(tipoAzione);
 		recordMove.setId(sequenceService.getNextSequence(HistoricMovements.SEQUENCE_NAME));
 		repo.save(recordMove);
