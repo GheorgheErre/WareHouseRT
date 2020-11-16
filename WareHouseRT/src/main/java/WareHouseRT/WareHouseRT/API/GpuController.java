@@ -64,7 +64,7 @@ public class GpuController {
 	}
 	
 
-	@PostMapping("/moveCableToWarehouse")
+	@PostMapping("/moveGpuToWarehouse")
 	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Magazzino";
@@ -72,7 +72,7 @@ public class GpuController {
 		service.saveOrUpdate((GPU) historicRequest.getProduct());
 	};
 	
-	@PostMapping("/moveCableFromWarehouse")
+	@PostMapping("/moveGpuFromWarehouse")
 	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Workstation";
