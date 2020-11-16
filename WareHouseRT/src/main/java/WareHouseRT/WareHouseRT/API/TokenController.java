@@ -68,7 +68,7 @@ public class TokenController {
 		service.saveOrUpdate((Token) historicRequest.getProduct());
 	};
 	
-	@PostMapping("/moveCableFromWarehouse")
+	@PostMapping("/moveTokenFromWarehouse")
 	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Workstation";

@@ -64,7 +64,7 @@ public class HddController {
 		return service.count();
 	}
 
-	@PostMapping("/moveCableToWarehouse")
+	@PostMapping("/moveHddToWarehouse")
 	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Magazzino";
@@ -72,7 +72,7 @@ public class HddController {
 		service.saveOrUpdate((HDD) historicRequest.getProduct());
 	};
 	
-	@PostMapping("/moveCableFromWarehouse")
+	@PostMapping("/moveHddFromWarehouse")
 	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Workstation";
