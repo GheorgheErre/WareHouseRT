@@ -63,14 +63,14 @@ public class CpuController {
 		return service.count();
 	}
 	
-	@PostMapping("/moveCableToWarehouse")
+	@PostMapping("/moveCpuToWarehouse")
 	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		String tipoAzione="Movimento Prodotto verso Magazzino";
 		movementsService.save(historicRequest, tipoAzione);
 		service.saveOrUpdate((CPU) historicRequest.getProduct());
 	};
 	
-	@PostMapping("/moveCableFromWarehouse")
+	@PostMapping("/moveCpuFromWarehouse")
 	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		String tipoAzione="Movimento Prodotto verso Workstation";
 		movementsService.save(historicRequest, tipoAzione);
