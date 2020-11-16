@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faPlus, faPen, faEraser } from '@fortawesome/free-solid-svg-icons';
 import { HistoricDeleteService } from 'src/app/service/historic-delete-service/historic-delete.service';
 
 @Component({
@@ -8,7 +9,12 @@ import { HistoricDeleteService } from 'src/app/service/historic-delete-service/h
 })
 export class HistoricDeleteListComponent implements OnInit {
 
+  faEraser = faEraser;
+  faPen = faPen;
+  faPlus = faPlus;
+
   historicList: any;
+  selectedNote; String;
 
   constructor(private historicDeleteService: HistoricDeleteService) { }
 
@@ -21,5 +27,9 @@ export class HistoricDeleteListComponent implements OnInit {
     this.historicDeleteService.findAll().subscribe(list => {
       this.historicList = list;
     })
+  }
+
+  setNoteInModal(note){
+    this.selectedNote = note;
   }
 }
