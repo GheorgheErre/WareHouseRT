@@ -14,12 +14,16 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { HistoricWelcomeComponent } from '../historic-welcome/historic-welcome.component';
+import { HistoricMovementCountComponent } from '../historic-movements/historic-movement-count/historic-movement-count.component';
+import { HistoricDeleteCountComponent } from '../historic-delete/historic-delete-count/historic-delete-count.component';
 
 
 
 @NgModule({
   declarations: [
-    HistoricWelcomeComponent
+    HistoricWelcomeComponent,
+    HistoricMovementCountComponent,
+    HistoricDeleteCountComponent
   ],
   imports: [
     CommonModule,
