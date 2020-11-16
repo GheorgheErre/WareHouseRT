@@ -14,8 +14,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { HistoricWelcomeComponent } from '../historic-welcome/historic-welcome.component';
-import { HistoricMovementCountComponent } from '../historic-movements/historic-movement-count/historic-movement-count.component';
-import { HistoricDeleteCountComponent } from '../historic-delete/historic-delete-count/historic-delete-count.component';
 import { HistoricDeleteListComponent } from '../historic-delete/historic-delete-list/historic-delete-list.component';
 import { HistoricMovementsListComponent } from '../historic-movements/historic-movements-list/historic-movements-list.component';
 
@@ -24,8 +22,6 @@ import { HistoricMovementsListComponent } from '../historic-movements/historic-m
 @NgModule({
   declarations: [
     HistoricWelcomeComponent,
-    HistoricMovementCountComponent,
-    HistoricDeleteCountComponent,
     HistoricDeleteListComponent,
     HistoricMovementsListComponent
   ],

@@ -23,5 +23,7 @@ export class WelcomeMenuComponent implements OnInit {
     this.router.navigate(["/WorkstationWelcome"])
   }
 
-
+  openHistoric(){
+    this.router.navigate(["/HistoryWelcome"])
+  }
 }
