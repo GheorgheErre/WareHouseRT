@@ -43,6 +43,7 @@ import { DirErreLabComponent } from './WorkStation/office/first-floor/dir-erre-l
 import { UffLabComponent } from './WorkStation/office/first-floor/uff-lab/uff-lab.component';
 import { UffProComponent } from './WorkStation/office/first-floor/uff-pro/uff-pro.component';
 import { DirErreTechComponent } from './WorkStation/office/first-floor/dir-erre-tech/dir-erre-tech.component';
+import { HistoricWelcomeComponent } from './Historic/historic-welcome/historic-welcome.component';
 
 
 
@@ -88,7 +89,8 @@ const routes: Routes = [
   {path:"HRSales", component: HrAndSalesComponent},
   {path:"DirezioneErreLab", component: DirErreLabComponent},
   {path:"UfficioLab", component: UffLabComponent},
-  {path:"UfficioPro", component: UffProComponent}
+  {path:"UfficioPro", component: UffProComponent},
+  {path:"HistoryWelcome", component: HistoricWelcomeComponent}
 ] ;
 
 @NgModule({

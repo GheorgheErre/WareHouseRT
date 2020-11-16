@@ -13,11 +13,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { HistoricWelcomeComponent } from '../historic-welcome/historic-welcome.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    HistoricWelcomeComponent
+  ],
   imports: [
     CommonModule,
     BrowserModule,

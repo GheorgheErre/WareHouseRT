@@ -20,13 +20,17 @@ import { PopperDirective } from './popper.directive';
 import { WorkstationModule } from './WorkStation/workstation/workstation.module';
 import { HistoricModule } from './Historic/historic-module/historic.module';
 import { LogComponent } from './Historic/log/log.component';
+import { HistoricMovementCountComponent } from './Historic/historic-movements/historic-movement-count/historic-movement-count.component';
+import { HistoricDeleteCountComponent } from './Historic/historic-delete/historic-delete-count/historic-delete-count.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PopperDirective,
-    LogComponent
+    LogComponent,
+    HistoricMovementCountComponent,
+    HistoricDeleteCountComponent
   ],
   imports: [
     BrowserModule,
