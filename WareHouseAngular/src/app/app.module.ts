@@ -26,8 +26,7 @@ import { LogComponent } from './Historic/log/log.component';
   declarations: [
     AppComponent,
     PopperDirective,
-    LogComponent
-  ],
+    LogComponent  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
