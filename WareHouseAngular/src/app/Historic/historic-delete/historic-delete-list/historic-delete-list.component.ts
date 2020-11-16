@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HistoricDeleteService } from 'src/app/service/historic-delete-service/historic-delete.service';
 
 @Component({
   selector: 'app-historic-delete-list',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoricDeleteListComponent implements OnInit {
 
-  constructor() { }
+  historicList: any;
+
+  constructor(private historicDeleteService: HistoricDeleteService) { }
 
   ngOnInit(): void {
+    this.findAllProduct();
   }
 
+
+  findAllProduct(): void {
+    this.historicDeleteService.findAll().subscribe(list => {
+      this.historicList = list;
+    })
+  }
 }
