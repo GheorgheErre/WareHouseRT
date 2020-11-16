@@ -14,5 +14,7 @@ export class TokenService extends ServiceService {
     super.countUrl = 'http://localhost:8080/api/countToken';
     super.getByIDUrl = 'http://localhost:8080/api/findToken';
     super.deleteUrl = 'http://localhost:8080/api/deleteToken';
+    super.moveToWarehouseUrl = 'http://localhost:8080/api/moveTokenToWarehouse';
+    super.moveFromWarehouseUrl = 'http://localhost:8080/api/moveTokenFromWarehouse';
   }
 }

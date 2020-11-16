@@ -18,8 +18,11 @@
         <div class="form-control mb-2" id="mouseGroup">
             <input [(ngModel)]="mouseTemp.userNumber" name="userNumber" class="form-control" placeholder="User number:">
         </div>
-        <div class="form-control mb-4" id="mouseGroup">
+        <div class="form-control mb-2" id="mouseGroup">
             <input [(ngModel)]="mouseTemp.type" name="type" class="form-control" placeholder="Type:">
+        </div>
+        <div class="form-control mb-4" id="mouseGroup">
+            <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control" placeholder="Add note:"></textarea>
         </div>
         <div class="float-right">
             <button class="btn mr-2 float-left">Save/Update mouse</button>

@@ -8,9 +8,9 @@ import { Monitor } from 'src/app/pcObjects/monitor/monitor';
 })
 export class FormMonitorComponent implements OnInit {
 
-  @Input() monitor : Monitor;
-  @Output() monitorToEmit = new EventEmitter<Monitor>();
+  @Output() monitorToEmit = new EventEmitter<{product:Monitor, note:String}>();
   monitorTemp = new Monitor();
+  noteTemp: String;
 
   constructor() { }
 
@@ -21,7 +21,7 @@ export class FormMonitorComponent implements OnInit {
     this.monitorTemp = JSON.parse(JSON.stringify(entity));
   }
   sendMonitorToParent() {
-    this.monitorToEmit.emit(this.monitorTemp);
+    this.monitorToEmit.emit({product:this.monitorTemp, note:this.noteTemp});
 }
 
 }

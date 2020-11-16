@@ -18,7 +18,8 @@ export class CellphoneService extends ServiceService{
     super.getByIDUrl = 'http://localhost:8080/api/findCellphone';
     super.deleteUrl = 'http://localhost:8080/api/deleteCellphone';
     super.countUrl = 'http://localhost:8080/api/countCellphone';
-
+    super.moveToWarehouseUrl = 'http://localhost:8080/api/moveCellphoneToWarehouse';
+    super.moveFromWarehouseUrl = 'http://localhost:8080/api/moveCellphoneFromWarehouse';
   }
 
 

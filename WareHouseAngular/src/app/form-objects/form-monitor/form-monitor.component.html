@@ -18,14 +18,17 @@
         <div class="form-control mb-2" id="monitorGroup">
             <input [(ngModel)]="monitorTemp.userNumber" name="userNumber" class="form-control" placeholder="User number:">
         </div>
-        <div class="form-control mb-4" id="monitorGroup">
+        <div class="form-control mb-2" id="monitorGroup">
             <input [(ngModel)]="monitorTemp.inches" name="inches" class="form-control" placeholder="Inches:">
         </div>
-        <div class="form-control mb-4" id="monitorGroup">
+        <div class="form-control mb-2" id="monitorGroup">
             <input [(ngModel)]="monitorTemp.frequence" name="frequence" class="form-control" placeholder="Frequence:">
         </div>
-        <div class="form-control mb-4" id="monitorGroup">
+        <div class="form-control mb-2" id="monitorGroup">
             <input [(ngModel)]="monitorTemp.resolution" name="resolution" class="form-control" placeholder="Resolution:">
+        </div>
+        <div class="form-control mb-4" id="monitorGroup">
+            <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control" placeholder="Add note:"></textarea>
         </div>
         <div class="float-right">
             <button class="btn mr-2 float-left">Save/Update monitor</button>

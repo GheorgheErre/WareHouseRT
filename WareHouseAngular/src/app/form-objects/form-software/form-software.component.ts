@@ -8,8 +8,10 @@ import { Software } from 'src/app/pcObjects/software/software';
 })
 export class FormSoftwareComponent implements OnInit {
 
-  @Output() softwareToEmit = new EventEmitter<Software>();
+  @Output() softwareToEmit = new EventEmitter<{product:Software, note:String}>();
   softwareTemp=new Software();
+  noteTemp: String;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -18,7 +20,7 @@ export class FormSoftwareComponent implements OnInit {
     this.softwareTemp = JSON.parse(JSON.stringify(entity));
   }
   sendSoftwareToParent() {
-    this.softwareToEmit.emit(this.softwareTemp);
+    this.softwareToEmit.emit({product:this.softwareTemp, note:this.noteTemp});
 }
 
 }

@@ -14,22 +14,28 @@ export abstract class ServiceService {
   protected deleteUrl: string;
   protected countUrl: string;
   protected updateUrl: string;
+  protected moveToWarehouseUrl: string;
+  protected moveFromWarehouseUrl: string;
 
- 
 
   constructor(protected http?: HttpClient) {
   }
 
   public saveOrUpdate(product: Product, note: String) {
-    let json=Object.assign({}, {
-      "product" : product
-    }, {
-      "note": note
-    });
+    let json = this.addNote(product, note);
     return this.http.post<Product>(this.saveOrUpdateUrl, json);
   }
 
-  
+  public moveToWareHouse(product: Product, note: String) {
+    let json = this.addNote(product, note);
+    return this.http.post<Product>(this.moveToWarehouseUrl, json);
+  }
+
+  public moveFromWareHouse(product: Product, note: String) {
+    let json = this.addNote(product, note);
+    return this.http.post<Product>(this.moveFromWarehouseUrl, json);
+  }
+
   public findAll(): Observable<any> {
 
     return this.http.get(this.getListUrl);
@@ -37,26 +43,17 @@ export abstract class ServiceService {
   }
 
   public findByID(id: string): Observable<any> {
-    let params = new HttpParams().set("id",id);
+    let params = new HttpParams().set("id", id);
 
-    return this.http.get<Product[]>(this.getByIDUrl, {params: params});
+    return this.http.get<Product[]>(this.getByIDUrl, { params: params });
 
   }
 
   public delete(product: Product, note: String) {
-
-   let json=Object.assign({}, {
-        "product" : product
-      }, {
-        "note": note
-      });
-
-      return this.http.post<Product>(this.deleteUrl, json);
+    let json = this.addNote(product, note);
+    return this.http.post<Product>(this.deleteUrl, json);
 
   }
-   
-  
-
 
   public count(): Observable<any> {
 
@@ -64,4 +61,13 @@ export abstract class ServiceService {
 
   }
 
+  //construct a json that includes the product and the note, to send to the server
+  public addNote(product: Product, note: String) {
+    let json = Object.assign({}, {
+      "product": product
+    }, {
+      "note": note
+    });
+    return json;
+  }
 }

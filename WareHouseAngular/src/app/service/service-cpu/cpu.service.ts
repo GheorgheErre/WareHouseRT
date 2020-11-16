@@ -17,6 +17,8 @@ export class CpuService extends ServiceService{
     super.countUrl = 'http://localhost:8080/api/countCpu';
     super.getByIDUrl = 'http://localhost:8080/api/findCpu';
     super.deleteUrl = 'http://localhost:8080/api/deleteCpu';
+    super.moveToWarehouseUrl = 'http://localhost:8080/api/moveCpuToWarehouse';
+    super.moveFromWarehouseUrl = 'http://localhost:8080/api/moveCpuFromWarehouse';
   }
 
 

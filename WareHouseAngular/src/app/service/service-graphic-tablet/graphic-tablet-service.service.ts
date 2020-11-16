@@ -16,6 +16,8 @@ export class GraphicTabletService  extends ServiceService{
     super.countUrl = 'http://localhost:8080/api/countGraphicTablet';
     super.getByIDUrl = 'http://localhost:8080/api/findGraphicTablet';
     super.deleteUrl = 'http://localhost:8080/api/deleteGraphicTablet';
+    super.moveToWarehouseUrl = 'http://localhost:8080/api/moveGraphicTabletToWarehouse';
+    super.moveFromWarehouseUrl = 'http://localhost:8080/api/moveGraphicTabletFromWarehouse';
   }
 
  

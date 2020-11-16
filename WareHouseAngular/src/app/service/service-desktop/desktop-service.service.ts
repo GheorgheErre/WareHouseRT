@@ -18,6 +18,8 @@ export class DesktopService extends ServiceService{
     super.countUrl = 'http://localhost:8080/api/countDesktop';
     super.getByIDUrl = 'http://localhost:8080/api/findDesktop';
     super.deleteUrl = 'http://localhost:8080/api/deleteDesktop';
+    super.moveToWarehouseUrl = 'http://localhost:8080/api/moveDesktopToWarehouse';
+    super.moveFromWarehouseUrl = 'http://localhost:8080/api/moveDesktopFromWarehouse';
   }
 
   

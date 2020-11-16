@@ -8,8 +8,9 @@ import { Cellphone } from 'src/app/pcObjects/cellphone/cellphone';
 })
 export class FormCellphoneComponent implements OnInit {
 
-  @Output() cellphoneToEmit = new EventEmitter<Cellphone>();
+  @Output() cellphoneToEmit = new EventEmitter<{product:Cellphone, note:String}>();
   cellphoneTemp = new Cellphone();
+  noteTemp: String;
 
   constructor() { }
 
@@ -21,7 +22,7 @@ export class FormCellphoneComponent implements OnInit {
   }
 
   sendCellphoneToParent() {
-    this.cellphoneToEmit.emit(this.cellphoneTemp);
+    this.cellphoneToEmit.emit({product:this.cellphoneTemp, note:this.noteTemp});
   }
 
 }

@@ -19,20 +19,23 @@
 				<input [(ngModel)]="laptopTemp.userNumber" name="userNumber" class="form-control"
 					placeholder="User number:">
 			</div>
-			<div class="form-control mb-4" id="laptopGroup">
+			<div class="form-control mb-2" id="laptopGroup">
 				<input [(ngModel)]="laptopTemp.cpu" name="cpu" class="form-control" placeholder="CPU:">
 			</div>
-			<div class="form-control mb-4" id="laptopGroup">
+			<div class="form-control mb-2" id="laptopGroup">
 				<input [(ngModel)]="laptopTemp.gpu" name="gpu" class="form-control" placeholder="GPU">
 			</div>
-			<div class="form-control mb-4" id="laptopGroup">
+			<div class="form-control mb-2" id="laptopGroup">
 				<input [(ngModel)]="laptopTemp.hdd" name="hdd" class="form-control" placeholder="HDD:" >
 			</div>
-			<div class="form-control mb-4" id="laptopGroup">
+			<div class="form-control mb-2" id="laptopGroup">
 				<input [(ngModel)]="laptopTemp.ssd" name="ssd" class="form-control" placeholder="SSD:">
 			</div>
-			<div class="form-control mb-4" id="laptopGroup">
+			<div class="form-control mb-2" id="laptopGroup">
 				<input [(ngModel)]="laptopTemp.ram" name="ram" class="form-control" placeholder="RAM:">
+			</div>
+			<div class="form-control mb-4" id="laptopGroup">
+				<textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control" placeholder="Add note:"></textarea>
 			</div>
 			<div class="float-right">
 				<button class="btn mr-2 float-left">Add Laptop</button>

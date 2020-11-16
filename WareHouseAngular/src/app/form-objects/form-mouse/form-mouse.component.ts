@@ -8,8 +8,9 @@ import { Mouse } from 'src/app/pcObjects/mouse/mouse';
 })
 export class FormMouseComponent implements OnInit {
 
-  @Output() mouseToEmit = new EventEmitter<Mouse>();
+  @Output() mouseToEmit = new EventEmitter<{product:Mouse, note:String}>();
   mouseTemp = new Mouse();
+  noteTemp: String;
   
   constructor() { }
 
@@ -19,7 +20,7 @@ export class FormMouseComponent implements OnInit {
     this.mouseTemp = JSON.parse(JSON.stringify(entity));
   }
   sendMouseToParent() {
-    this.mouseToEmit.emit(this.mouseTemp);
+    this.mouseToEmit.emit({product:this.mouseTemp, note:this.noteTemp});
 }
 
 }

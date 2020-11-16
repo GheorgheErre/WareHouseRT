@@ -8,8 +8,9 @@ import { Laptop } from 'src/app/pcObjects/laptop/laptop';
 })
 export class FormLaptopComponent implements OnInit {
 
-  @Output() laptopToEmit = new EventEmitter<Laptop>();
+  @Output() laptopToEmit = new EventEmitter<{product:Laptop, note:String}>();
   laptopTemp = new Laptop();
+  noteTemp: String;
 
   constructor() { }
 
@@ -22,7 +23,7 @@ export class FormLaptopComponent implements OnInit {
   }
 
   sendLaptopToParent() {
-    this.laptopToEmit.emit(this.laptopTemp);
+    this.laptopToEmit.emit({product:this.laptopTemp, note:this.noteTemp});
 
   }
 

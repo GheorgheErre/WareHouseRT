@@ -15,6 +15,7 @@ export class LaptopService  extends ServiceService{
     super.countUrl = 'http://localhost:8080/api/countLaptop';
     super.getByIDUrl = 'http://localhost:8080/api/findLaptop';
     super.deleteUrl = 'http://localhost:8080/api/deleteLaptop';
-
+    super.moveToWarehouseUrl = 'http://localhost:8080/api/moveLaptopToWarehouse';
+    super.moveFromWarehouseUrl = 'http://localhost:8080/api/moveLaptopFromWarehouse';
   }
 }

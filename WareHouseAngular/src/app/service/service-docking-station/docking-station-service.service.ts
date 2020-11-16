@@ -17,6 +17,8 @@ export class DockingStationService extends ServiceService{
     super.countUrl = 'http://localhost:8080/api/countDockingStation';
     super.getByIDUrl = 'http://localhost:8080/api/findDockingStation';
     super.deleteUrl = 'http://localhost:8080/api/deleteDockingStation';
+    super.moveToWarehouseUrl = 'http://localhost:8080/api/moveDockingStationToWarehouse';
+    super.moveFromWarehouseUrl = 'http://localhost:8080/api/moveDockingStationFromWarehouse';
   }
 
 

@@ -17,6 +17,8 @@ export class GpuService extends ServiceService{
     super.countUrl = 'http://localhost:8080/api/countGpu';
     super.getByIDUrl = 'http://localhost:8080/api/findGpu';
     super.deleteUrl = 'http://localhost:8080/api/deleteGpu';
+    super.moveToWarehouseUrl = 'http://localhost:8080/api/moveGpuToWarehouse';
+    super.moveFromWarehouseUrl = 'http://localhost:8080/api/moveGpuFromWarehouse';
   }
 
 }

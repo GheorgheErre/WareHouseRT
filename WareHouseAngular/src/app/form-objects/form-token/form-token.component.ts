@@ -9,8 +9,10 @@ import { Token } from 'src/app/pcObjects/token/token';
 })
 export class FormTokenComponent implements OnInit {
 
-  @Output() tokenToEmit = new EventEmitter<Token>();
+  @Output() tokenToEmit = new EventEmitter<{product:Token, note:String}>();
   tokenTemp = new Token();
+  noteTemp: String;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -20,6 +22,6 @@ export class FormTokenComponent implements OnInit {
     this.tokenTemp = JSON.parse(JSON.stringify(entity));
   }
   sendTokenToParent() {
-    this.tokenToEmit.emit(this.tokenTemp);
+    this.tokenToEmit.emit({product:this.tokenTemp, note:this.noteTemp});
   }
 }

@@ -16,6 +16,8 @@ export class HddService extends ServiceService{
     super.countUrl = 'http://localhost:8080/api/countHdd';
     super.getByIDUrl = 'http://localhost:8080/api/findHdd';
     super.deleteUrl = 'http://localhost:8080/api/deleteHdd';
+    super.moveToWarehouseUrl = 'http://localhost:8080/api/moveHddToWarehouse';
+    super.moveFromWarehouseUrl = 'http://localhost:8080/api/moveHddFromWarehouse';
    }
 
 }
