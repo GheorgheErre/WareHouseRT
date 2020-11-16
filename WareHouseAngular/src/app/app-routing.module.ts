@@ -44,6 +44,8 @@ import { UffLabComponent } from './WorkStation/office/first-floor/uff-lab/uff-la
 import { UffProComponent } from './WorkStation/office/first-floor/uff-pro/uff-pro.component';
 import { DirErreTechComponent } from './WorkStation/office/first-floor/dir-erre-tech/dir-erre-tech.component';
 import { HistoricWelcomeComponent } from './Historic/historic-welcome/historic-welcome.component';
+import { HistoricDeleteListComponent } from './Historic/historic-delete/historic-delete-list/historic-delete-list.component';
+import { HistoricMovementsListComponent } from './Historic/historic-movements/historic-movements-list/historic-movements-list.component';
 
 
 
@@ -90,7 +92,9 @@ const routes: Routes = [
   {path:"DirezioneErreLab", component: DirErreLabComponent},
   {path:"UfficioLab", component: UffLabComponent},
   {path:"UfficioPro", component: UffProComponent},
-  {path:"HistoryWelcome", component: HistoricWelcomeComponent}
+  {path:"HistoryWelcome", component: HistoricWelcomeComponent},
+  {path:"HistoricDelete", component: HistoricDeleteListComponent},
+  {path:"HistoricMovements", component: HistoricMovementsListComponent}
 ] ;
 
 @NgModule({
