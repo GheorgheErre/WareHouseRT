@@ -119,45 +119,9 @@ a {
 
 header {
     background-image: url("img/warehousehome-blured.jpg");
+    height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-}
-
-button {
-    color: white;
-    border-bottom: 1px solid white;
-    border-radius: 0px;
-    transition: 0.5s;
-    width: auto;
-    letter-spacing: 5px;
-    margin-right: 10px;
-}
-
-button:hover {
-    background-color: white;
-    color: black;
-    transition: 0.5s;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-span {
-    font-size: 20px;
-    letter-spacing: 5px;
-}
-
-a {
-    border: 1px solid white;
-    border-radius: 50%;
-    color: white;
-    transition: 0.5s;
-}
-
-a:hover {
-    border: 1px solid black;
-    background-color: black;
-    transition: 0.5s;
-    color: white;
 }
