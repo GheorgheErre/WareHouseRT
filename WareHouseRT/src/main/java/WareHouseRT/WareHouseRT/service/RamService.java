@@ -21,21 +21,21 @@ public class RamService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public void saveOrUpdate(RAM entity) {
+	public RAM saveOrUpdate(RAM entity) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			update(entity);
+			return update(entity);
 		} else
-			save(entity);
+			return save(entity);
 	}
 	
-	public void save(RAM ram) {
+	public RAM save(RAM ram) {
 		ram.setId(sequenceService.getNextSequence(RAM.SEQUENCE_NAME));
 		ram.setIdentifier(createIdentifier.createIdentifier("RAM"));
-		repo.save(ram);
+		return repo.save(ram);
 	}
 	
-	public void update(RAM entity) {
-		repo.save(entity);
+	public RAM update(RAM entity) {
+		return repo.save(entity);
 	}
 	
 	public void delete(RAM entity) {

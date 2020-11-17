@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import WareHouseRT.WareHouseRT.beans.Cable;
+
 import WareHouseRT.WareHouseRT.beans.Cellphone;
-import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.CellphoneService;
 import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
@@ -33,10 +32,14 @@ public class CellphoneController {
 	private HistoricMovementsService movementsService;
 	
 	@PostMapping("/saveOrUpdateCellphone")
-	public void saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
+	public Cellphone saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
 		String tipoAzione="Aggiunta Prodotto";
+		
+		Cellphone c = service.saveOrUpdate((Cellphone) historicRequest.getProduct());
+		historicRequest.setProduct(c);
+		
 		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Cellphone) historicRequest.getProduct());
+		return c;
 	}
 	
 	@PostMapping("/deleteCellphone")

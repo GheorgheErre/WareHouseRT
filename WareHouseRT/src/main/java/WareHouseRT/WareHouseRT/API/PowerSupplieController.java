@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import WareHouseRT.WareHouseRT.beans.Cable;
-import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.PowerSupplie;
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
@@ -34,10 +32,14 @@ public class PowerSupplieController {
 	private HistoricMovementsService movementsService;
 	
 	@PostMapping("/saveOrUpdatePowerSupplie")
-	public void saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
+	public PowerSupplie saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
 		String tipoAzione="Aggiunta Prodotto";
+		
+		PowerSupplie p = service.saveOrUpdate((PowerSupplie) historicRequest.getProduct());
+		historicRequest.setProduct(p);
+		
 		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((PowerSupplie) historicRequest.getProduct());
+		return p;
 	}
 	
 	@PostMapping("/deletePowerSupplie")

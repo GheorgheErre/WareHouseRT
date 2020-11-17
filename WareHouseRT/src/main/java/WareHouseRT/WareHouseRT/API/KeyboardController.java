@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import WareHouseRT.WareHouseRT.beans.Cable;
-import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.Keyboard;
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
@@ -33,11 +31,14 @@ public class KeyboardController {
 	private HistoricMovementsService movementsService;
 
 	@PostMapping("/saveOrUpdateKeyboard")
-	public void saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
-	
+	public Keyboard saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
 		String tipoAzione="Aggiunta Prodotto";
+		
+		Keyboard k = service.saveOrUpdate((Keyboard) historicRequest.getProduct());
+		historicRequest.setProduct(k);
+		
 		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Keyboard) historicRequest.getProduct());
+		return k;
 	}
 	
 	@PostMapping("/deleteKeyboard")

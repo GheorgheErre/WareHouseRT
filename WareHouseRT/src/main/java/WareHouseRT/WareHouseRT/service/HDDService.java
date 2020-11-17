@@ -21,21 +21,21 @@ public class HDDService{
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public void saveOrUpdate(HDD entity) {
+	public HDD saveOrUpdate(HDD entity) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			update(entity);
+			return update(entity);
 		} else
-			save(entity);
+			return save(entity);
 	}
 	
-	public void save(HDD hdd) {
+	public HDD save(HDD hdd) {
 		hdd.setId(sequenceService.getNextSequence(HDD.SEQUENCE_NAME));
 		hdd.setIdentifier(createIdentifier.createIdentifier("HDD"));
-		repo.save(hdd);
+		return repo.save(hdd);
 	}
 	
-	public void update(HDD entity) {
-		repo.save(entity);
+	public HDD update(HDD entity) {
+		return repo.save(entity);
 	}
 	
 	public void delete(HDD entity) {

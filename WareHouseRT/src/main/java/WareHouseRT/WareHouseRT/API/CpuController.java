@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import WareHouseRT.WareHouseRT.beans.CPU;
-import WareHouseRT.WareHouseRT.beans.Cable;
-import WareHouseRT.WareHouseRT.beans.DockingStation;
+
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.CpuService;
 import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
@@ -34,11 +32,15 @@ public class CpuController {
 	private HistoricMovementsService movementsService;
 
 	@PostMapping("/saveOrUpdateCpu")
-	public void saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
-	
+	public CPU saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
 		String tipoAzione="Aggiunta Prodotto";
+		
+		CPU c = service.saveOrUpdate((CPU) historicRequest.getProduct());
+		historicRequest.setProduct(c);
+		
 		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((CPU) historicRequest.getProduct());
+		return c;
+		
 	}
 	
 	@PostMapping("/deleteCpu")

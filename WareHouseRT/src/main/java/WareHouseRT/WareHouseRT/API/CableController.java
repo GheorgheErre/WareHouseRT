@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import WareHouseRT.WareHouseRT.beans.Cable;
-import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.CableService;
 import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
@@ -32,11 +31,15 @@ public class CableController {
 	private HistoricMovementsService movementsService;
 
 	@PostMapping("/saveOrUpdateCable")
-	public void saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
-
+	public Cable saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
 		String tipoAzione = "Aggiunta Prodotto";
+		
+		Cable c = service.saveOrUpdate((Cable) historicRequest.getProduct());
+		historicRequest.setProduct(c);
+		
 		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Cable) historicRequest.getProduct());
+		return c;
+		
 	}
 
 	@PostMapping("/deleteCable")

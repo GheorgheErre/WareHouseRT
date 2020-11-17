@@ -21,19 +21,19 @@ public class CellphoneService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public void saveOrUpdate(Cellphone entity) {
+	public Cellphone saveOrUpdate(Cellphone entity) {
 		if(repo.findById(entity.getId()).isPresent()) {
-			update(entity);
+			return update(entity);
 		}
 		else
-			save(entity);
+			return save(entity);
 	}
 
 	
-	public void save(Cellphone cell) {
+	public Cellphone save(Cellphone cell) {
 		cell.setId(sequenceService.getNextSequence(Cellphone.SEQUENCE_NAME));
 		cell.setIdentifier(createIdentifier.createIdentifier("CEL"));
-		repo.save(cell);
+		return repo.save(cell);
 		
 	}
 
@@ -42,8 +42,8 @@ public class CellphoneService {
 		repo.delete(entity);
 	}
 	
-	public void update(Cellphone newCell) {
-		repo.save(newCell);
+	public Cellphone update(Cellphone newCell) {
+		return repo.save(newCell);
 	}
 
 	public Optional<Cellphone> findByID(long id) {

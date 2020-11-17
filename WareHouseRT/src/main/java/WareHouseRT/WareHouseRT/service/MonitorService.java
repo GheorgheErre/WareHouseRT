@@ -21,22 +21,22 @@ public class MonitorService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public void saveOrUpdate(Monitor entity) {
+	public Monitor saveOrUpdate(Monitor entity) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			update(entity);
+			return update(entity);
 		} else
-			save(entity);
+			return save(entity);
 	}
 	
-	public void save(Monitor monitor) {
+	public Monitor save(Monitor monitor) {
 		monitor.setId(sequenceService.getNextSequence(Monitor.SEQUENCE_NAME));
 		monitor.setIdentifier(createIdentifier.createIdentifier("MON"));
-		repo.save(monitor);
+		return repo.save(monitor);
 		
 	}
 	
-	public void update(Monitor entity) {
-		repo.save(entity);
+	public Monitor update(Monitor entity) {
+		return repo.save(entity);
 	}
 
 	

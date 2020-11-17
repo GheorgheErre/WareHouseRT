@@ -21,22 +21,22 @@ public class KeyboardService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public void saveOrUpdate(Keyboard entity) {
+	public Keyboard saveOrUpdate(Keyboard entity) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			update(entity);
+			return update(entity);
 		} else
-			save(entity);
+			return save(entity);
 	}
 
-	public void save(Keyboard keyboard) {
+	public Keyboard save(Keyboard keyboard) {
 		keyboard.setId(sequenceService.getNextSequence(Keyboard.SEQUENCE_NAME));
 		keyboard.setIdentifier(createIdentifier.createIdentifier("KEY"));
-		repo.save(keyboard);
+		return repo.save(keyboard);
 
 	}
 	
-	public void update(Keyboard entity) {
-		repo.save(entity);
+	public Keyboard update(Keyboard entity) {
+		return repo.save(entity);
 	}
 
 	public void delete(Keyboard entity) {

@@ -21,22 +21,22 @@ public class MouseService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 
-	public void saveOrUpdate(Mouse entity) {
+	public Mouse saveOrUpdate(Mouse entity) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			update(entity);
+			return update(entity);
 		} else
-			save(entity);
+			return save(entity);
 	}
 
-	public void save(Mouse mouse) {
+	public Mouse save(Mouse mouse) {
 		mouse.setId(sequenceService.getNextSequence(Mouse.SEQUENCE_NAME));
 		mouse.setIdentifier(createIdentifier.createIdentifier("MOU"));
-		repo.save(mouse);
+		return repo.save(mouse);
 
 	}
 
-	public void update(Mouse entity) {
-		repo.save(entity);
+	public Mouse update(Mouse entity) {
+		return repo.save(entity);
 	}
 
 	public void delete(Mouse entity) {

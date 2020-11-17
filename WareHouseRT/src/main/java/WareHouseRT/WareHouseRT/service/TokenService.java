@@ -21,21 +21,21 @@ public class TokenService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public void saveOrUpdate(Token entity) {
+	public Token saveOrUpdate(Token entity) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			update(entity);
+			return update(entity);
 		} else
-			save(entity);
+			return save(entity);
 	}
 	
-	public void save(Token token) {
+	public Token save(Token token) {
 		token.setId(sequenceService.getNextSequence(Token.SEQUENCE_NAME));
 		token.setIdentifier(createIdentifier.createIdentifier("TKN"));
-		repo.save(token);
+		return repo.save(token);
 	}
 	
-	public void update(Token entity) {
-		repo.save(entity);
+	public Token update(Token entity) {
+		return repo.save(entity);
 	}
 	
 	public void delete(Token entity) {

@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import WareHouseRT.WareHouseRT.beans.Cable;
-import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.Monitor;
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
@@ -34,10 +32,14 @@ public class MonitorController {
 	private HistoricMovementsService movementsService;
 	
 	@PostMapping("/saveOrUpdateMonitor")
-	public void saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
+	public Monitor saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
 		String tipoAzione="Aggiunta Prodotto";
+		
+		Monitor m = service.saveOrUpdate((Monitor) historicRequest.getProduct());
+		historicRequest.setProduct(m);
+		
 		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Monitor) historicRequest.getProduct());
+		return m;
 	}
 	
 	@PostMapping("/deleteMonitor")

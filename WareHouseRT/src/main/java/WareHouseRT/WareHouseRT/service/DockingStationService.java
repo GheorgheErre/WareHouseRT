@@ -21,23 +21,23 @@ public class DockingStationService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public void saveOrUpdate(DockingStation entity) {
+	public DockingStation saveOrUpdate(DockingStation entity) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			update(entity);
+			return update(entity);
 		} else
-			save(entity);
+			return save(entity);
 	}
 
 
-	public void save(DockingStation dockingStation) {
+	public DockingStation save(DockingStation dockingStation) {
 		dockingStation.setId(sequenceService.getNextSequence(DockingStation.SEQUENCE_NAME));
 		dockingStation.setIdentifier(createIdentifier.createIdentifier("DKS"));
-		repo.save(dockingStation);
+		return repo.save(dockingStation);
 
 	}
 	
-	public void update(DockingStation dockingStation) {
-		repo.save(dockingStation);
+	public DockingStation update(DockingStation dockingStation) {
+		return repo.save(dockingStation);
 
 	}
 	

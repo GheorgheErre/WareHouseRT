@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import WareHouseRT.WareHouseRT.beans.Cable;
-import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.Token;
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
@@ -34,8 +31,14 @@ public class TokenController {
 	private HistoricDeleteService deleteService;
 	
 	@PostMapping("/saveOrUpdateToken")
-	public void saveOrUpdate(@RequestBody Token token) {
-		service.saveOrUpdate(token);
+	public Token saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
+		String tipoAzione = "Aggiunta Prodotto";
+		
+		Token t = service.saveOrUpdate((Token) historicRequest.getProduct());
+		historicRequest.setProduct(t);
+		
+		movementsService.save(historicRequest, tipoAzione);
+		return t;
 	}
 
 	@PostMapping("/deleteToken")

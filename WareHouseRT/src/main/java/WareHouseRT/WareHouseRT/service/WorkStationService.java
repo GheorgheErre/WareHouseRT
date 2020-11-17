@@ -17,6 +17,7 @@ import WareHouseRT.WareHouseRT.beans.Monitor;
 import WareHouseRT.WareHouseRT.beans.Mouse;
 import WareHouseRT.WareHouseRT.beans.Token;
 import WareHouseRT.WareHouseRT.beans.WorkStation;
+import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.repository.WorkStationRepository;
 
 @Service
@@ -50,14 +51,12 @@ public class WorkStationService {
 
 	@Autowired
 	private CreateIdentifierService createIdentifier;
+	
+	@Autowired
+	private HistoricMovementsService movementsService;
 
 	public void saveOrUpdate(WorkStation entity) {
 
-		if (entity.getArticles() != null) {
-			for (Article article : entity.getArticles()) {
-				saveOrUpdateArticle(article);
-			}
-		}
 
 		if (repo.findById(entity.getId()).isPresent()) {
 			update(entity);
@@ -86,9 +85,6 @@ public class WorkStationService {
 		return repo.findByOfficeAndNumero(office, numero);
 	}
 	
-//	public WorkStation findWorkstation(int numero) {
-//		return repo.findByNumero(numero);
-//	}
 
 	public List<WorkStation> findAll() {
 		return repo.findAll();
@@ -99,40 +95,4 @@ public class WorkStationService {
 		return repo.count();
 	}
 
-	public void saveOrUpdateArticle(Article article) {
-
-		switch (article.getClass().getSimpleName()) {
-
-		case "Laptop":
-			laptopService.saveOrUpdate((Laptop) article);
-			break;
-		case "Desktop":
-			desktopService.saveOrUpdate((Desktop) article);
-			break;
-		case "Keyboard":
-			keyboardService.saveOrUpdate((Keyboard) article);
-			break;
-		case "Monitor":
-			monitorService.saveOrUpdate((Monitor) article);
-			break;
-		case "Mouse":
-			mouseService.saveOrUpdate((Mouse) article);
-			break;
-		case "Cable":
-			cableService.saveOrUpdate((Cable) article);
-			break;
-		case "Cellphone":
-			cellphoneService.saveOrUpdate((Cellphone) article);
-			break;
-		case "DockingStation":
-			dockingStationService.saveOrUpdate((DockingStation) article);
-			break;
-		case "GraphicTablet":
-			graphicTabletService.saveOrUpdate((GraphicTablet) article);
-			break;
-		case "Token":
-			tokenService.saveOrUpdate((Token) article);
-			break;
-		}
-	}
 }

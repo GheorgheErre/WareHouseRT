@@ -21,22 +21,22 @@ public class GraphicTabletService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public void saveOrUpdate(GraphicTablet entity) {
+	public GraphicTablet saveOrUpdate(GraphicTablet entity) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			update(entity);
+			return update(entity);
 		} else
-			save(entity);
+			return save(entity);
 	}
 
-	public void save(GraphicTablet graphicTablet) {
+	public GraphicTablet save(GraphicTablet graphicTablet) {
 		graphicTablet.setId(sequenceService.getNextSequence(GraphicTablet.SEQUENCE_NAME));
 		graphicTablet.setIdentifier(createIdentifier.createIdentifier("GFT"));
-		repo.save(graphicTablet);
+		return repo.save(graphicTablet);
 		
 	}
 	
-	public void update(GraphicTablet entity) {
-		repo.save(entity);
+	public GraphicTablet update(GraphicTablet entity) {
+		return repo.save(entity);
 	}
 	
 	public void delete(GraphicTablet entity) {

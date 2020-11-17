@@ -20,21 +20,21 @@ public class PowerSupplieService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public void saveOrUpdate(PowerSupplie entity) {
+	public PowerSupplie saveOrUpdate(PowerSupplie entity) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			update(entity);
+			return update(entity);
 		} else
-			save(entity);
+			return save(entity);
 	}
 	
-	public void save(PowerSupplie powerSupplie) {
+	public PowerSupplie save(PowerSupplie powerSupplie) {
 		powerSupplie.setId(sequenceService.getNextSequence(PowerSupplie.SEQUENCE_NAME));
 		powerSupplie.setIdentifier(createIdentifier.createIdentifier("POW"));
-		repo.save(powerSupplie);
+		return repo.save(powerSupplie);
 	}
 	
-	public void update(PowerSupplie entity) {
-		repo.save(entity);
+	public PowerSupplie update(PowerSupplie entity) {
+		return repo.save(entity);
 	}
 	
 	public void delete(PowerSupplie entity) {

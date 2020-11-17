@@ -28,9 +28,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 				@JsonSubTypes.Type(value = HDD.class, name = "Hdd"),
 				@JsonSubTypes.Type(value = OperativeSystem.class, name = "OperativeSystem"),
 				@JsonSubTypes.Type(value = PowerSupplie.class, name = "PowerSupplie"),
-				@JsonSubTypes.Type(value = RAM.class, name = "RAM"),
+				@JsonSubTypes.Type(value = RAM.class, name = "Ram"),
 				@JsonSubTypes.Type(value = Software.class, name = "Software"),
-				@JsonSubTypes.Type(value = SSD.class, name = "SSD"),
+				@JsonSubTypes.Type(value = SSD.class, name = "Ssd"),
 				@JsonSubTypes.Type(value = GenericArticle.class, name = "GenericArticle")})
 public abstract class Product {
 	

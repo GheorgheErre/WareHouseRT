@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import WareHouseRT.WareHouseRT.beans.Cable;
-import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.GPU;
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.GpuService;
@@ -34,10 +32,15 @@ public class GpuController {
 	private HistoricMovementsService movementsService;
 	
 	@PostMapping("/saveOrUpdateGpu")
-	public void saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
+	public GPU saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
 		String tipoAzione = "Aggiunta Prodotto";
+
+		GPU g = service.saveOrUpdate((GPU) historicRequest.getProduct());
+		historicRequest.setProduct(g);
+		
 		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((GPU) historicRequest.getProduct());
+		return g;
+
 	}
 
 	@PostMapping("/deleteGpu")

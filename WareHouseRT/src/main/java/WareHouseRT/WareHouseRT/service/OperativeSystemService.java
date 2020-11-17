@@ -21,22 +21,22 @@ public class OperativeSystemService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public void saveOrUpdate(OperativeSystem entity) {
+	public OperativeSystem saveOrUpdate(OperativeSystem entity) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			update(entity);
+			return update(entity);
 		} else
-			save(entity);
+			return save(entity);
 	}
 
-	public void save(OperativeSystem operativeSystem) {
+	public OperativeSystem save(OperativeSystem operativeSystem) {
 		operativeSystem.setId(sequenceService.getNextSequence(OperativeSystem.SEQUENCE_NAME));
 		operativeSystem.setIdentifier(createIdentifier.createIdentifier("OPS"));
-		repo.save(operativeSystem);
+		return repo.save(operativeSystem);
 
 	}
 	
-	public void update(OperativeSystem entity) {
-		repo.save(entity);
+	public OperativeSystem update(OperativeSystem entity) {
+		return repo.save(entity);
 	}
 	
 	public void delete(OperativeSystem entity) {

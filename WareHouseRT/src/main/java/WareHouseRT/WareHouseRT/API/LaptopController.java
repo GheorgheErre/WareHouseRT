@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import WareHouseRT.WareHouseRT.beans.Cable;
-import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.Laptop;
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
@@ -34,10 +32,14 @@ public class LaptopController {
 	private HistoricMovementsService movementsService;
 	
 	@PostMapping("/saveOrUpdateLaptop")
-	public void saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
+	public Laptop saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
 		String tipoAzione="Aggiunta Prodotto";
+		
+		Laptop l = service.saveOrUpdate((Laptop) historicRequest.getProduct());
+		historicRequest.setProduct(l);
+		
 		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Laptop) historicRequest.getProduct());
+		return l;
 	}
 	
 	@PostMapping("/deleteLaptop")

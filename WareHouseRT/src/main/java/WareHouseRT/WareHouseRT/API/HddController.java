@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import WareHouseRT.WareHouseRT.beans.Cable;
-import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.HDD;
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.HDDService;
@@ -34,11 +32,14 @@ public class HddController {
 	private HistoricMovementsService movementsService;
 	
 	@PostMapping("/saveOrUpdateHdd")
-	public void saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
-	
+	public HDD saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
 		String tipoAzione="Aggiunta Prodotto";
+
+		HDD h = service.saveOrUpdate((HDD) historicRequest.getProduct());
+		historicRequest.setProduct(h);
+		
 		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((HDD) historicRequest.getProduct());
+		return h;
 	}
 	
 	@PostMapping("/deleteHdd")

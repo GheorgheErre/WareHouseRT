@@ -21,21 +21,21 @@ public class CpuService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public void saveOrUpdate(CPU entity) {
+	public CPU saveOrUpdate(CPU entity) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			update(entity);
+			return update(entity);
 		} else
-			save(entity);
+			return save(entity);
 	}
 
-	public void save(CPU cpu) {
+	public CPU save(CPU cpu) {
 		cpu.setId(sequenceService.getNextSequence(CPU.SEQUENCE_NAME));
 		cpu.setIdentifier(createIdentifier.createIdentifier("CPU"));
-		repo.save(cpu);
+		return repo.save(cpu);
 	}
 	
-	public void update(CPU newCpu) {
-		repo.save(newCpu);
+	public CPU update(CPU newCpu) {
+		return repo.save(newCpu);
 	}
 
 	public void delete(CPU entity) {

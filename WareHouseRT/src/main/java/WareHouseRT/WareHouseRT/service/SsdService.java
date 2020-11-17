@@ -20,22 +20,22 @@ public class SsdService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public void saveOrUpdate(SSD entity) {
+	public SSD saveOrUpdate(SSD entity) {
 		if (repo.findById(entity.getId()).isPresent() && entity.getId() != 0) {
-			update(entity);
+			return update(entity);
 		} else
-			save(entity);
+			return save(entity);
 	}
 
 
-	public void save(SSD ssd) {
+	public SSD save(SSD ssd) {
 		ssd.setId(sequenceService.getNextSequence(SSD.SEQUENCE_NAME));
 		ssd.setIdentifier(createIdentifier.createIdentifier("SSD"));
-		repo.save(ssd);
+		return repo.save(ssd);
 	}
 	
-	public void update(SSD entity) {
-		repo.save(entity);
+	public SSD update(SSD entity) {
+		return repo.save(entity);
 	}
 	
 	public void delete(SSD entity) {

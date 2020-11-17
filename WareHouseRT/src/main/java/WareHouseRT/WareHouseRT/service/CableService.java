@@ -21,17 +21,17 @@ public class CableService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 
-	public void saveOrUpdate(Cable entity) {
+	public Cable saveOrUpdate(Cable entity) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			update(entity);
+			return update(entity);
 		} else
-			save(entity);
+			return save(entity);
 	}
 
-	public void save(Cable cable) {
+	public Cable save(Cable cable) {
 		cable.setId(sequenceService.getNextSequence(Cable.SEQUENCE_NAME));
 		cable.setIdentifier(createIdentifier.createIdentifier("CBL"));
-		repo.save(cable);
+		return repo.save(cable);
 
 	}
 
@@ -39,8 +39,8 @@ public class CableService {
 		repo.delete(entity);
 	}
 
-	public void update(Cable newCable) {
-		repo.save(newCable);
+	public Cable update(Cable newCable) {
+		return repo.save(newCable);
 	}
 
 	public Optional<Cable> findByID(long id) {

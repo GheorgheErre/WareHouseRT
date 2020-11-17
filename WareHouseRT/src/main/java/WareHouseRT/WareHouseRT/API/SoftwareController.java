@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import WareHouseRT.WareHouseRT.beans.Cable;
-import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.Software;
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
@@ -34,10 +31,14 @@ public class SoftwareController {
 	private HistoricMovementsService movementsService;
 	
 	@PostMapping("/saveOrUpdateSoftware")
-	public void saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
+	public Software saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
 		String tipoAzione="Aggiunta Prodotto";
+
+		Software s = service.saveOrUpdate((Software) historicRequest.getProduct());
+		historicRequest.setProduct(s);
+		
 		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Software) historicRequest.getProduct());
+		return s;
 	}
 	
 	@PostMapping("/deleteSoftware")

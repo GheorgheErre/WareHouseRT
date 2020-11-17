@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import WareHouseRT.WareHouseRT.beans.Cable;
 import WareHouseRT.WareHouseRT.beans.Desktop;
-import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.DesktopService;
 import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
@@ -33,10 +31,14 @@ public class DesktopController {
 	private HistoricMovementsService movementsService;
 	
 	@PostMapping("/saveOrUpdateDesktop")
-	public void saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
+	public Desktop saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
 		String tipoAzione="Aggiunta Prodotto";
+		
+		Desktop d = service.saveOrUpdate((Desktop) historicRequest.getProduct());
+		historicRequest.setProduct(d);
+		
 		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Desktop) historicRequest.getProduct());
+		return d;
 	}
 	
 	@PostMapping("/deleteDesktop")
