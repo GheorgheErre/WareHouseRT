@@ -129,7 +129,9 @@ export class UserWorkstationComponent implements OnInit {
   }
 
   articleDetails(article) {
-    this.entity = article;
+    let detailsArticleString = JSON.stringify(article);
+    this.entity = JSON.parse(detailsArticleString)
+    delete this.entity.id;
   }
 
 

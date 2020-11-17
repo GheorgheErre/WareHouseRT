@@ -37,7 +37,10 @@
                         <tr *ngFor="let historic of historicList">
                             <td>{{historic.date}}</td>
                             <td>Elimination</td>
-                            <td class="identifier">{{historic.product.identifier}}</td>
+                            <td (click)="setDetailsProductInModal(historic.product)" data-toggle="modal"
+                                data-target="#productDetailsModal" style="cursor:pointer" class="identifier">
+                                {{historic.product.identifier}}
+                                <span class="tooltiptext">Product Details</span></td>
                             <td><button (click)="setNoteInModal(historic.note)" class="btn btn-primary" id="btn-note"
                                     data-toggle="modal" data-target="#noteModal">
                                     <fa-icon [icon]="faPen"></fa-icon>
@@ -49,6 +52,8 @@
         </div>
     </div>
 </header>
+
+<!--MODAL FOR NOTE-->
 <div class="modal fade" id="noteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -67,6 +72,29 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal details article -->
+<div class="modal fade" id="productDetailsModal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+
+        <!-- Modal content-->
+        <div class="modal-content" id="modal">
+
+            <div class="modal-header" id="modal-header">
+                <h3 class="modal-title">PRODUCT DETAILS:</h3>
+            </div>
+            <table id="myTable" class="table table-striped">
+                <thead>
+                <tbody>
+                    <tr *ngFor="let item of selectedProduct | keyvalue">
+                        <td>{{item.key}}</td>
+                        <td>{{item.value}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

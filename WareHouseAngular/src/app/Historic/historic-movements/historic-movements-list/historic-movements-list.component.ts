@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faPlus, faPen, faEraser } from '@fortawesome/free-solid-svg-icons';
+import { Product } from 'src/app/pcObjects/product/product';
 import { HistoricMovementsService } from 'src/app/service/historic-movements-service/historic-movements.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class HistoricMovementsListComponent implements OnInit {
   faPlus = faPlus;
 
   historicList: any;
-  selectedNote; String;
+  selectedNote: String;
+  selectedProduct;
   filtered: String;
 
   constructor(private historicMovementsService: HistoricMovementsService) { }
@@ -31,6 +33,19 @@ export class HistoricMovementsListComponent implements OnInit {
 
   setNoteInModal(note){
     this.selectedNote = note;
+  }
+
+  setDetailsProductInModal(product){
+    this.selectedProduct = this.removeType(product);
+    delete this.selectedProduct.id;
+   
+  }
+
+
+  removeType(json) {
+    let productJSONString = JSON.stringify(json);
+    productJSONString = productJSONString.split("@type").join("articleType");
+    return JSON.parse(productJSONString);
   }
 
   searchFunction() {

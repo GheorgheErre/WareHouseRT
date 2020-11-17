@@ -15,6 +15,7 @@ export class HistoricDeleteListComponent implements OnInit {
 
   historicList: any;
   selectedNote; String;
+  selectedProduct;
   filtered: String;
 
   constructor(private historicDeleteService: HistoricDeleteService) { }
@@ -32,6 +33,17 @@ export class HistoricDeleteListComponent implements OnInit {
 
   setNoteInModal(note){
     this.selectedNote = note;
+  }
+
+  setDetailsProductInModal(product){
+    this.selectedProduct = this.removeType(product);
+    delete this.selectedProduct.id;
+  }
+
+  removeType(json) {
+    let productJSONString = JSON.stringify(json);
+    productJSONString = productJSONString.split("@type").join("articleType");
+    return JSON.parse(productJSONString);
   }
 
   searchFunction() {
