@@ -1,6 +1,7 @@
 package WareHouseRT.WareHouseRT.service;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,10 +25,22 @@ public class HistoricDeleteService {
 
 		HistoricDelete recordDelete = new HistoricDelete();
 
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		DateTimeFormatter newFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+		LocalDate todayDate = LocalDate.now();
+
+		String formattedDate = todayDate.format(formatter);
+		
+		LocalDate date = LocalDate.parse(formattedDate, formatter);
+		String dateString = date.format(newFormatter);
+		date = LocalDate.parse(dateString, newFormatter);
+
+
 		recordDelete.setId(sequenceService.getNextSequence(HistoricDelete.SEQUENCE_NAME));
 		recordDelete.setProduct(deleteRequest.getProduct());
 		recordDelete.setNote(deleteRequest.getNote());
-		recordDelete.setDate(new Date());
+		recordDelete.setDate(date);
 
 		repo.save(recordDelete);
 	}
