@@ -1,6 +1,7 @@
+<div id="backgroundImg"></div>
 <header id="header">
     <div class="container" id="container">
-        <div class="row h-100 align-items-center">
+        <div id="rowLogoStart" class="row h-100 align-items-center">
             <div class="col-xl-2 col-lg-2 col-md-2 p-0">
                 <a href=""><img src="../../assets/img/Logo Erre.png" alt="" id="logo"></a>
             </div>
@@ -8,12 +9,15 @@
                 <h1 id="line-1">ERRE TECHNOLOGY WAREHOUSE<h5>You desire. We design.</h5>
                 </h1>
                 <hr class="trans--grow hr">
-                <a *ngIf="!loggedIn" href="#main" id="bottone-start" class="btn">START NOW</a>
-                <a *ngIf="loggedIn" href="/WelcomeMenu" id="bottone-start" class="btn">START NOW</a>
+                <a *ngIf="!loggedIn"  id="bottone-start" class="btn">START NOW</a>
+                <a *ngIf="loggedIn" href="/WelcomeMenu" id="bottone-start-logged" class="btn">START NOW</a>
+              
             </div>
+            
         </div>
+        <login></login>
     </div>
 </header>
-<main id="main">
+<!--<main id="main">
     <login></login>
-</main>
+</main>-->

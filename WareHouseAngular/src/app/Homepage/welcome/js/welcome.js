@@ -5,6 +5,8 @@ jQuery(document).ready(function ($) {
     }, 275);
 });
 
+
+
 //Anchor con transizione
 $(document).ready(function () {
     // Add smooth scrolling to all links
@@ -28,5 +30,45 @@ $(document).ready(function () {
                 window.location.hash = hash;
             });
         } // End if
+    });
+});
+
+$(document).ready(function () {
+
+
+    $("#bottone-start").on("click", function () {
+
+        $("#backgroundImg").css({
+            "filter": "blur(8px)",
+            'transition': 'all 1s ease-out',
+            '-webkit-transition': 'all 1s ease-out',
+            '-moz-transition': 'all 1s ease-out',
+            '-o-transition': 'all 1s ease-out'
+        });
+    
+        
+        $("#rowLogoStart").css({
+            "opacity": "0",
+            'visibility' :'hidden',
+            'transition': 'all 1s ease-out',
+            '-webkit-transition': 'all 1s ease-out',
+            '-moz-transition': 'all 1s ease-out',
+            '-o-transition': 'all 1s ease-out',
+            
+        });
+      
+
+        $("#containerLogin").css({
+            'visibility':'visible',
+            "opacity": "100%",
+            'transition': 'all 1s ease-out',
+            '-webkit-transition': 'all 1s ease-out',
+            '-moz-transition': 'all 1s ease-out',
+            '-o-transition': 'all 1s ease-out'
+        });
+        $("header").css({
+            
+         
+        });
     });
 });
