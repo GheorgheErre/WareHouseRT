@@ -5,6 +5,23 @@
                 <h1 id="title">Deleted History</h1>
             </div>
         </div>
+
+        <div class="col mt-5">
+            <div class="row h-100 align-items-end">
+
+                <div class="col-6 mb-2 d-flex flex-row">
+                    <select [(ngModel)]="filtered" class="custom-select" name="filter">
+                        <option selected disabled>Filter by:</option>
+                        <option value="identifier">Identifier</option>
+                    </select>
+                </div>
+                <div class="col-6 mb-2 pl-0 d-flex flex-row">
+                    <input class="form-control" type="text" id="myInput" (keyup)="searchFunction()"
+                        placeholder="Search by filter...">
+                </div>
+            </div>
+        </div>
+
         <div class="row h-100">
             <div class="col">
                 <table id="myTable" class="table table-striped">
@@ -20,7 +37,7 @@
                         <tr *ngFor="let historic of historicList">
                             <td>{{historic.date}}</td>
                             <td>Elimination</td>
-                            <td>{{historic.product.identifier}}</td>
+                            <td class="identifier">{{historic.product.identifier}}</td>
                             <td><button (click)="setNoteInModal(historic.note)" class="btn btn-primary" id="btn-note"
                                     data-toggle="modal" data-target="#noteModal">
                                     <fa-icon [icon]="faPen"></fa-icon>
