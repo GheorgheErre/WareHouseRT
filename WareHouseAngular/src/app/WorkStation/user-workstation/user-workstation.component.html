@@ -300,40 +300,40 @@
         <div class="modal-content" id="formModal">
             <div class="modal-body" id="formModal-body">
                 <div *ngIf="articleType == 'Cable'">
-                    <app-form-cable (cableToEmit)="addArticleFromOutside($event)"></app-form-cable>
+                    <app-form-cable (cableToEmit)="addArticleFromOutside($event, 'Cable')"></app-form-cable>
                 </div>
                 <div *ngIf="articleType == 'Cellphone'">
-                    <app-form-cellphone (cellphoneToEmit)="addArticleFromOutside($event)">
+                    <app-form-cellphone (cellphoneToEmit)="addArticleFromOutside($event, 'Cellphone')">
                     </app-form-cellphone>
                 </div>
                 <div *ngIf="articleType == 'Desktop'">
-                    <app-form-desktop (desktopToEmit)="addArticleFromOutside($event)">
+                    <app-form-desktop (desktopToEmit)="addArticleFromOutside($event, 'Desktop')">
                     </app-form-desktop>
                 </div>
                 <div *ngIf="articleType == 'DockingStation'">
-                    <app-form-docking-station (dockingStationToEmit)="addArticleFromOutside($event)">
+                    <app-form-docking-station (dockingStationToEmit)="addArticleFromOutside($event, 'DockingStation')">
                     </app-form-docking-station>
                 </div>
                 <div *ngIf="articleType == 'GraphicTablet'">
-                    <app-form-graphic-tablet (graphicTabletToEmit)="addArticleFromOutside($event)">
+                    <app-form-graphic-tablet (graphicTabletToEmit)="addArticleFromOutside($event, 'GraphicTablet')">
                     </app-form-graphic-tablet>
                 </div>
                 <div *ngIf="articleType == 'Keyboard'">
-                    <app-form-keyboard (keyboardToEmit)="addArticleFromOutside($event)">
+                    <app-form-keyboard (keyboardToEmit)="addArticleFromOutside($event, 'Keyboard')">
                     </app-form-keyboard>
                 </div>
                 <div *ngIf="articleType == 'Laptop'">
-                    <app-form-laptop (laptopToEmit)="addArticleFromOutside($event)"></app-form-laptop>
+                    <app-form-laptop (laptopToEmit)="addArticleFromOutside($event, 'Laptop')"></app-form-laptop>
                 </div>
                 <div *ngIf="articleType == 'Monitor'">
-                    <app-form-monitor (monitorToEmit)="addArticleFromOutside($event)">
+                    <app-form-monitor (monitorToEmit)="addArticleFromOutside($event, 'Monitor')">
                     </app-form-monitor>
                 </div>
                 <div *ngIf="articleType == 'Mouse'">
-                    <app-form-mouse (mouseToEmit)="addArticleFromOutside($event)"></app-form-mouse>
+                    <app-form-mouse (mouseToEmit)="addArticleFromOutside($event, 'Mouse')"></app-form-mouse>
                 </div>
                 <div *ngIf="articleType == 'Token'">
-                    <app-form-token (tokenToEmit)="addArticleFromOutside($event)"></app-form-token>
+                    <app-form-token (tokenToEmit)="addArticleFromOutside($event, 'Token')"></app-form-token>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-export class Product {
+export  abstract class Product {
     identifier: String
     users: String
     brand: String
@@ -6,4 +6,8 @@ export class Product {
     serialNumber: String
     location: String
     userNumber: String
+
+    public abstract toJSON(): Product;
 }
+
+

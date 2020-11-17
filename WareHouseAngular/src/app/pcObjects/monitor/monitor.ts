@@ -8,7 +8,8 @@ export class Monitor extends Article {
 
     public toJSON(): Monitor {
         return Object.assign({}, {
-            "@type" : 'Monitor'
+            "@type": 'Monitor'
           }, this);
       }
+
 }

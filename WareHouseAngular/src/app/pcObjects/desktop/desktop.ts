@@ -4,7 +4,7 @@ export class Desktop extends Computer{
 
     public toJSON(): Desktop {
         return Object.assign({}, {
-            "@type" : 'Desktop'
+            "@type": 'Desktop'
           }, this);
       }
 }

@@ -5,7 +5,8 @@ export class Mouse extends Article{
 
     public toJSON(): Mouse {
         return Object.assign({}, {
-            "@type" : 'Mouse'
+            "@type": 'Mouse'
           }, this);
       }
+
 }

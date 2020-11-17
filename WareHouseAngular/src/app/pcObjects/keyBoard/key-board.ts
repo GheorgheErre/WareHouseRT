@@ -4,7 +4,7 @@ export class Keyboard extends Article{
 
     public toJSON(): Keyboard {
         return Object.assign({}, {
-            "@type" : 'Keyboard'
+            "@type": 'Keyboard'
           }, this);
       }
 }

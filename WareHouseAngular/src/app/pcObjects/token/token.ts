@@ -4,7 +4,8 @@ export class Token extends Article{
 
     public toJSON(): Token {
         return Object.assign({}, {
-            "@type" : 'Token'
+            "@type": 'Tokrn'
           }, this);
       }
+
 }

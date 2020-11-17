@@ -6,4 +6,9 @@ export class Cpu extends Component {
     baseClock: string;
     maxBoostClock: string;
 
+    public toJSON(): Cpu {
+        return Object.assign({}, {
+            "@type": 'Cpu'
+          }, this);
+      }
 }

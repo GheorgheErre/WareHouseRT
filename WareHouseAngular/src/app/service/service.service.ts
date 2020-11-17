@@ -21,7 +21,7 @@ export abstract class ServiceService {
   constructor(protected http?: HttpClient) {
   }
 
-  public saveOrUpdate(product: Product, note: String) {
+  public saveOrUpdate(product: Product, note: String) : Observable<Product> {
     let json = this.addNote(product, note);
     return this.http.post<Product>(this.saveOrUpdateUrl, json);
   }

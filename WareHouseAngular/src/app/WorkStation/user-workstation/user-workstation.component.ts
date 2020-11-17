@@ -137,17 +137,28 @@ export class UserWorkstationComponent implements OnInit {
   addArticleFromWarehouse(article) {
     this.entity = article;
     this.entity.location = "workstation" + " " +  " " + this.workstation.office + this.workstation.numero;
+
+    this.service.moveFromWareHouse(this.entity, this.note).subscribe(result => {
+      console.log("ARTICLE SPOSTATO DA WAREHOUSE CON SUCCESSO")
+    });
+
     this.workstation.articles.push(this.entity);
     this.updateWorkstation();
   }
 
   // add a new article from outside
-  addArticleFromOutside(article) {
-    this.entity = article;
+  addArticleFromOutside(article, articleType) {
+    this.chooseService(articleType);
+    this.entity = article.product;
+    this.note = article.note;
     this.entity.location = "workstation" + " " +  this.workstation.office + " " + this.workstation.numero;
     this.entity = this.addType(this.entity);
-    this.workstation.articles.push(this.entity);
-    this.updateWorkstation();
+
+    this.service.saveOrUpdate(this.entity, this.note).subscribe(result => {
+      console.log("ARTICLE CARICATO CON SUCCESSO");
+      this.workstation.articles.push(result);
+      this.updateWorkstation();
+    }); 
   }
 
   prepareForm(articleType) {
@@ -173,7 +184,7 @@ export class UserWorkstationComponent implements OnInit {
     this.entity.location = "magazzino";
 
     this.service.moveToWareHouse(this.entity, this.note).subscribe(result => {
-      console.log("ARTICLE CARICATO CON SUCCESSO")
+      console.log("ARTICLE SPOSTATO IN WAREHOUSE CON SUCCESSO")
     });
 
     this.workstation.articles = this.workstation.articles.filter((a) => a.identifier != this.entity.identifier);

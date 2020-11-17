@@ -4,7 +4,7 @@ export class DockingStation extends Article{
 
     public toJSON(): DockingStation {
         return Object.assign({}, {
-            "@type" : 'DockingStation'
+            "@type": 'DockingStation'
           }, this);
       }
 }

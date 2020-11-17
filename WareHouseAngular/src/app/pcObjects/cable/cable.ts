@@ -6,7 +6,7 @@ export class Cable extends Article {
 
     public toJSON(): Cable {
         return Object.assign({}, {
-            "@type" : 'Cable'
+            "@type": 'Cable'
           }, this);
       }
 }
