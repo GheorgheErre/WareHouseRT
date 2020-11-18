@@ -4,26 +4,22 @@ h3 {
     font-size: 20px;
 }
 
-#laptopGroup {
-    border: none;
-    background-color: transparent;
-    color: black;
-}
+
 
 input {
-    background: transparent;
+    background-color: transparent;
     border: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid transparent;
     border-radius: 0px;
     color: white;
 }
 input:focus {
     border: none;
-    border: 1px solid black;
+    border: 1px solid white;
     transition: 0.5s;
     border-radius: 20px;
-    background-color: transparent;
-    color: white;
+    background-color: white;
+    color: black;
     box-shadow: none !important;
     outline: 0;
 }
