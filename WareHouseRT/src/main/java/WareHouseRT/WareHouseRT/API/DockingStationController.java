@@ -45,7 +45,6 @@ public class DockingStationController {
 	@PostMapping("/deleteDockingStation")
 	public void delete(@RequestBody HistoricRequest historicRequest) {
 		deleteService.save(historicRequest);
-		movementsService.updateMovementsOfProduct(historicRequest);
 		service.delete((DockingStation) historicRequest.getProduct());
 	}
 	

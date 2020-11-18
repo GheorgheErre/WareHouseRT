@@ -45,7 +45,6 @@ public class CableController {
 	@PostMapping("/deleteCable")
 	public void delete(@RequestBody HistoricRequest historicRequest) {
 		deleteService.save(historicRequest);
-		movementsService.updateMovementsOfProduct(historicRequest);
 		service.delete((Cable) historicRequest.getProduct());
 	}
 

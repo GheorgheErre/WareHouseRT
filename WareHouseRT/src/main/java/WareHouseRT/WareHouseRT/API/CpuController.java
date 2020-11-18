@@ -46,7 +46,6 @@ public class CpuController {
 	@PostMapping("/deleteCpu")
 	public void delete(@RequestBody HistoricRequest historicRequest) {
 		deleteService.save(historicRequest);
-		movementsService.updateMovementsOfProduct(historicRequest);
 		service.delete((CPU) historicRequest.getProduct());
 	}
 	

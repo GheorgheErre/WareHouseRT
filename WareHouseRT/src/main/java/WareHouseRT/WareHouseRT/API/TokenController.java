@@ -44,7 +44,6 @@ public class TokenController {
 	@PostMapping("/deleteToken")
 	public void delete(@RequestBody HistoricRequest historicRequest) {
 		deleteService.save(historicRequest);
-		movementsService.updateMovementsOfProduct(historicRequest);
 		service.delete((Token) historicRequest.getProduct());
 	}
 

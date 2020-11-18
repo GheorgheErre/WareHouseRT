@@ -45,7 +45,6 @@ public class RamController {
 	@PostMapping("/deleteRam")
 	public void delete(@RequestBody HistoricRequest historicRequest) {
 		deleteService.save(historicRequest);
-		movementsService.updateMovementsOfProduct(historicRequest);
 		service.delete((RAM) historicRequest.getProduct());
 	}
 	

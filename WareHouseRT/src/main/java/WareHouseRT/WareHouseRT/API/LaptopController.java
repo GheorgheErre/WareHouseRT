@@ -45,7 +45,6 @@ public class LaptopController {
 	@PostMapping("/deleteLaptop")
 	public void delete(@RequestBody HistoricRequest historicRequest) {
 		deleteService.save(historicRequest);
-		movementsService.updateMovementsOfProduct(historicRequest);
 		service.delete((Laptop) historicRequest.getProduct());
 	}
 	

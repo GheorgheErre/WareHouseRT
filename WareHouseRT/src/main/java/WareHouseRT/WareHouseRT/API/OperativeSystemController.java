@@ -45,7 +45,7 @@ public class OperativeSystemController {
 	@PostMapping("/deleteOperativeSystem")
 	public void delete(@RequestBody HistoricRequest historicRequest) {
 		deleteService.save(historicRequest);
-		movementsService.updateMovementsOfProduct(historicRequest);
+		//movementsService.updateMovementsOfProduct(historicRequest);
 		service.delete((OperativeSystem) historicRequest.getProduct());
 	}
 	

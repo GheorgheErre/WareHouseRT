@@ -44,7 +44,6 @@ public class SoftwareController {
 	@PostMapping("/deleteSoftware")
 	public void delete(@RequestBody HistoricRequest historicRequest) {
 		deleteService.save(historicRequest);
-		movementsService.updateMovementsOfProduct(historicRequest);
 		service.delete((Software) historicRequest.getProduct());
 	}
 	

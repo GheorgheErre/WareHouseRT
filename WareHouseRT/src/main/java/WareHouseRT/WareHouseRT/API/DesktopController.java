@@ -44,8 +44,6 @@ public class DesktopController {
 	@PostMapping("/deleteDesktop")
 	public void delete(@RequestBody HistoricRequest historicRequest) {
 		deleteService.save(historicRequest);
-		movementsService.updateMovementsOfProduct(historicRequest);
-
 		service.delete((Desktop) historicRequest.getProduct());
 	}
 	

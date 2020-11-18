@@ -45,7 +45,6 @@ public class MonitorController {
 	@PostMapping("/deleteMonitor")
 	public void delete(@RequestBody HistoricRequest historicRequest) {
 		deleteService.save(historicRequest);
-		movementsService.updateMovementsOfProduct(historicRequest);
 		service.delete((Monitor) historicRequest.getProduct());
 	}
 	

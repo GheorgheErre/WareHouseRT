@@ -47,7 +47,6 @@ public class GpuController {
 	public void delete(@RequestBody HistoricRequest historicRequest) {
 	
 		deleteService.save(historicRequest);
-		movementsService.updateMovementsOfProduct(historicRequest);
 		service.delete((GPU) historicRequest.getProduct());
 	}
 

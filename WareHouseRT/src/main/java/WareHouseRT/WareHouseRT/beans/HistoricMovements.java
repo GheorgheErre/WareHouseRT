@@ -16,7 +16,7 @@ public class HistoricMovements extends Historic {
 	
 	private String action;
 	
-	@DBRef
+	
 	private Product product;
 
 	public String getAction() {

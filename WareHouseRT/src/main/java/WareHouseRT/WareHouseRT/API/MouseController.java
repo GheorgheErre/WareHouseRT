@@ -45,7 +45,6 @@ public class MouseController {
 	@PostMapping("/deleteMouse")
 	public void delete(@RequestBody HistoricRequest historicRequest) {
 		deleteService.save(historicRequest);
-		movementsService.updateMovementsOfProduct(historicRequest);
 		service.delete((Mouse) historicRequest.getProduct());
 	}
 	

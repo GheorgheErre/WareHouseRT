@@ -41,7 +41,6 @@ public class GenericArticleController {
 	@PostMapping("/deleteGenericArticle")
 	public void delete(@RequestBody HistoricRequest historicRequest) {
 		deleteService.save(historicRequest);
-		movementsService.updateMovementsOfProduct(historicRequest);
 		service.delete((GenericArticle) historicRequest.getProduct());
 	}
 	

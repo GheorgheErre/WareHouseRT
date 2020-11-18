@@ -67,17 +67,17 @@ public class HistoricMovementsService {
 
 	}
 
-	public void updateMovementsOfProduct(HistoricRequest historicRequest) {
-		
-		List<HistoricMovements> movementsList = repo.findByProduct(historicRequest.getProduct());
-		Optional<HistoricDelete> historicDelete =deleteRepo.findByProduct(historicRequest.getProduct());
-		
-		for (HistoricMovements historicMovements : movementsList) {
-			
-			historicMovements.setProduct(historicDelete.get().getProduct());
-			this.update(historicMovements);
-		}
-
-	}
+//	public void updateMovementsOfProduct(HistoricRequest historicRequest) {
+//		
+//		List<HistoricMovements> movementsList = repo.findByProduct(historicRequest.getProduct());
+//		Optional<HistoricDelete> historicDelete =deleteRepo.findByProduct(historicRequest.getProduct());
+//		
+//		for (HistoricMovements historicMovements : movementsList) {
+//			
+//			historicMovements.setProduct(historicDelete.get().getProduct());
+//			this.update(historicMovements);
+//		}
+//
+//	}
 
 }

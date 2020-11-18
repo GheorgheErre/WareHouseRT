@@ -44,7 +44,6 @@ public class KeyboardController {
 	@PostMapping("/deleteKeyboard")
 	public void delete(@RequestBody HistoricRequest historicRequest) {
 		deleteService.save(historicRequest);
-		movementsService.updateMovementsOfProduct(historicRequest);
 		service.delete((Keyboard) historicRequest.getProduct());
 	}
 	

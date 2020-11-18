@@ -45,7 +45,6 @@ public class SsdController {
 	@PostMapping("/deleteSsd")
 	public void delete(@RequestBody HistoricRequest historicRequest) {
 		deleteService.save(historicRequest);
-		movementsService.updateMovementsOfProduct(historicRequest);
 		service.delete((SSD) historicRequest.getProduct());
 	}
 

@@ -45,7 +45,6 @@ public class PowerSupplieController {
 	@PostMapping("/deletePowerSupplie")
 	public void delete(@RequestBody HistoricRequest historicRequest) {
 		deleteService.save(historicRequest);
-		movementsService.updateMovementsOfProduct(historicRequest);
 		service.delete((PowerSupplie) historicRequest.getProduct());
 	}
 	

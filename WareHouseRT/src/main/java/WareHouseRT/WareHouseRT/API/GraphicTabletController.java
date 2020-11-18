@@ -46,7 +46,6 @@ public class GraphicTabletController {
 	@PostMapping("/deleteGraphicTablet")
 	public void delete(@RequestBody HistoricRequest historicRequest) {
 		deleteService.save(historicRequest);
-		movementsService.updateMovementsOfProduct(historicRequest);
 		service.delete((GraphicTablet) historicRequest.getProduct());
 	}
 	
