@@ -1,23 +1,19 @@
-<div id="backgroundImg"></div>
-<header id="header">
-    <div class="container" id="container">
-        <div id="rowLogoStart" class="row h-100 align-items-center">
-            <div class="col-xl-2 col-lg-2 col-md-2 p-0">
+<main>
+    <div class="container h-100" *ngIf="!login" [@openLogin]>
+        <div class="row h-100 align-items-center">
+            <div class="col-auto align-self-center">
                 <a href=""><img src="../../assets/img/Logo Erre.png" alt="" id="logo"></a>
             </div>
-            <div class="col-10 p-0">
-                <h1 id="line-1">ERRE TECHNOLOGY WAREHOUSE<h5>You desire. We design.</h5>
+            <div class="col align-self-center">
+                <h1>ERRE TECHNOLOGY WAREHOUSE
+                    <h5>You desire. We design.</h5>
                 </h1>
                 <hr class="trans--grow hr">
-                <a *ngIf="!loggedIn"  id="bottone-start" class="btn">START NOW</a>
-                <a *ngIf="loggedIn" href="/WelcomeMenu" id="bottone-start-logged" class="btn">START NOW</a>
-              
+                <button *ngIf="!loggedIn" (click)="openLogin()" class="btn btn-start">START NOW</button>
+                <button *ngIf="loggedIn" href="/WelcomeMenu" class="btn btn-start-logged">START NOW</button>
             </div>
-            
+
         </div>
-        <login></login>
     </div>
-</header>
-<!--<main id="main">
-    <login></login>
-</main>-->
+    <login *ngIf="login" [@openLogin]></login>
+</main>

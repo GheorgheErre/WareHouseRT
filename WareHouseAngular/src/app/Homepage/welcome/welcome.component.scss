@@ -2,83 +2,70 @@
     font-family: Oswald;
     src: url("../../../assets/fonts/Oswald-Regular.ttf");
 }
+
 * {
     font-family: "Oswald", sans-serif;
 }
-html,
-body {
-    height: 100%;
-    overflow-y: hidden;
-}
-h5 {
+
+h1 {
+    font-size: 35px;
+    letter-spacing: 10px;
     color: black;
 }
-#backgroundImg {
+
+h5 {
+    color: #004fff;
+}
+
+main {
     height: 100%;
     background-image: url("../welcome/img/ufficio.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-   
 }
-header{
-    position: absolute;
-    top: 37.5%;
-    left: 25%;
-    opacity: 100%;
-    
 
-}
-#container {
-    height: 100%;
-}
-#main {
-    height: 100%;
-    background-image: url("../welcome/img/ufficio-blured.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
+
 /*logo dentro all'header */
+
 #logo {
     height: 150px;
     text-align: center;
 }
-/*scritte dentro al header*/
-#line-1 {
-    font-size: 35px;
-    letter-spacing: 8px;
-    color: black;
-}
+
 
 /* HR line welcome */
+
 .hr {
-    margin-left: 0; /* fa partire l'hr da sinistra verso destra*/
+    margin-left: 0;
+    /* fa partire l'hr da sinistra verso destra*/
     padding: 1px 0;
     background-color: black;
     border: none;
 }
+
 .trans--grow {
     transition: width 1s ease-out;
     width: 0%;
 }
+
 .grow {
-    width: 85%;
+    width: 90%;
 }
 
+
 /* Bottone start */
-#bottone-start, #bottone-start-logged {
-    border-radius: 20px;
-    border: 2px solid black;
-    background-color: transparent;
-    width: 150px;
+
+.btn-start,
+.btn-start-logged {
+    box-shadow: 1px 1px 2px #004fff;
     transition: 0.5s;
-    font-size: 15px;
+    letter-spacing: 2px;
 }
-#bottone-start, #bottone-start-logged:hover {
-    background-color: black;
-    border-color: black;
+
+.btn-start:hover,
+.btn-start-logged:hover {
+    background-color: #004fff;
     color: white;
     transition: 0.5s;
-    overflow: hidden;
 }

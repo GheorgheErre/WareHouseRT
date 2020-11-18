@@ -2,21 +2,7 @@
     font-family: Poppins;
     src: url("../../../assets/fonts/Poppins-Light.ttf");
 }
+
 * {
     font-family: "Poppins", sans-serif;
-}
-body,
-html{
-    height: 100%;
-   
-}
-
-#containerLogin{
-    
-    height: 100%;
-    visibility: hidden;
-    opacity: 0;
-    position: absolute;
-    bottom: 100%;
-    right: 4%;
 }
