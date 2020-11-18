@@ -1,5 +1,5 @@
 <header>
-    <div class="container justify-content-center">
+    <div *ngIf="historicList?.length; else emptyList" class="container justify-content-center">
         <div class="row h-100 justify-content-center">
             <div class="col align-self-center text-center">
                 <h1 id="title">Movement History</h1>
@@ -50,8 +50,21 @@
                     </tbody>
                 </table>
             </div>
+
         </div>
     </div>
+    <ng-template #emptyList>
+        <div class="container h-100 justify-content-center">
+            <div class="row h-50 ">
+                <div id="emptyListMessage" class="col mt-5">Movement History</div> 
+             </div>
+            <div class="row h-50 ">
+               <div id="emptyListMessage" class="col ">No movement registered in history.</div> 
+            </div>
+            
+        </div>
+
+    </ng-template>
 </header>
 
 <!--MODAL FOR NOTE-->
