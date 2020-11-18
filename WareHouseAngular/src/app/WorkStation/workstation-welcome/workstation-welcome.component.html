@@ -1,4 +1,5 @@
-<header id="ground_floor">
+
+<main  id="first_floor">
     <nav class="navbar">
         <div class="container-fluid">
             <div class="row w-100">
@@ -9,18 +10,18 @@
 
                 </div>
                 <div class="col-10 ">
-                    <a href="#ground_floor" id="btn-switch_floor" class="btn float-right ml-3" placement="left" ngbTooltip="ground floor">
-                        <fa-icon [icon]="faArrowUp"></fa-icon>
-                    </a>
-                    <a href="#first_floor" id="btn-switch_floor" class="btn float-right" placement="left" ngbTooltip="first floor">
-                        <fa-icon [icon]="faArrowDown"></fa-icon>
-                    </a>
+                    <button *ngIf="selectedFloor === 'first'" (click)="setFloorImage('ground')" id="btn-switch_floor" class="btn float-right ml-3" placement="left">
+                        Ground Floor
+                    </button>
+                    <button *ngIf="selectedFloor === 'ground'" (click)="setFloorImage('first')" id="btn-switch_floor" class="btn float-right" placement="left">
+                        First Floor
+                    </button>
 
                 </div>
             </div>
         </div>
     </nav>
-    <div class="container-fluid">
+    <div *ngIf="selectedFloor === 'ground'" [@inOutAnimation] class="container-fluid">
         <div class="row h-100 align-items-center">
             <div class="col-2">
                 <div class="row">
@@ -56,10 +57,9 @@
             </div>
         </div>
     </div>
-</header>
 
-<main id="first_floor">
-    <div class="container-fluid h-100">
+
+    <div *ngIf="selectedFloor === 'first'" [@inOutAnimation] class="container-fluid">
         <div class="row h-100 align-items-center">
             <div class="col-2">
                 <div class="row">
