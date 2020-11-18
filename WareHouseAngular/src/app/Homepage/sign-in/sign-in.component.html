@@ -1,39 +1,40 @@
 <form (ngSubmit)="loginUser()" #loginform="ngForm">
-    <div class="row">
-        <div class="col mb-5 d-flex flex-row">
-            <img src="../../assets/img/Logo Erre.png" class="pr-3">
-            <span id="span-signin">Sign in</span>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col mb-5 d-flex flex-row">
+                <img src="../../assets/img/Logo Erre.png" class="pr-3">
+                <span id="span-signin">Sign in</span>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <span>Hello, already a <span id="user-span">user</span>?</span>
+        <div class="row">
+            <div class="col">
+                <span>Hello, already a <span id="user-span">user</span>?</span>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col mb-3">
-            <span>Enter <span id="now-span">now</span> in your account!</span>
+        <div class="row">
+            <div class="col mb-3">
+                <span>Enter <span id="now-span">now</span> in your account!</span>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col mb-2">
-            <input type="text" placeholder="Username | E-mail:" name="username" [(ngModel)]="user.username" />
+        <div class="row">
+            <div class="col mb-2">
+                <input type="text" placeholder="Username | E-mail:" name="username" [(ngModel)]="user.username" autocomplete="off" />
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col mb-2">
-            <input type="password" placeholder="Password:" name="password"
-                [(ngModel)]="user.password" />
+        <div class="row">
+            <div class="col mb-2">
+                <input type="password" placeholder="Password:" name="password" [(ngModel)]="user.password" />
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col mb-4">
-           <a href="SignUp" (click)="openSignUp()">Are you new here? sign up now!</a>
+        <div class="row">
+            <div class="col mb-4">
+                <a href="SignUp" (click)="openSignUp()">Are you new here? sign up now! </a>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <button type="submit" class="btn">Sign in</button>
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="btn">Sign in</button>
+            </div>
         </div>
     </div>
     <small class="text-danger">{{errorMessage}}</small>
