@@ -1,42 +1,55 @@
 <div>
     <h3>ADD CPU</h3>
-<form (ngSubmit)="sendCpuToParent()" id="formCpu">
+    <form autocomplete="off" (ngSubmit)="sendCpuToParent()" id="formCpu" class="form-group" #form="ngForm">
 
-    <div class="form-control mb-2" id="cpuGroup">
-        <input [(ngModel)]="cpuTemp.users" name="users" class="form-control" placeholder="Users:">
-    </div>
-    <div class="form-control mb-2" id="cpuGroup">
-        <input [(ngModel)]="cpuTemp.brand" name="brand" class="form-control" placeholder="Brand:">
-    </div>
-    <div class="form-control mb-2" id="cpuGroup">
-        <input [(ngModel)]="cpuTemp.model" name="model" class="form-control" placeholder="Model:">
-    </div>
-    <div class="form-control mb-2" id="cpuGroup">
-        <input [(ngModel)]="cpuTemp.serialNumber" name="serialNumber" class="form-control"
-            placeholder="Serial number:">
-    </div>
-    <div class="form-control mb-2" id="cpuGroup">
-        <input [(ngModel)]="cpuTemp.userNumber" name="userNumber" class="form-control"
-            placeholder="User number:">
-    </div>
-    <div class="form-control mb-4" id="cpuGroup">
-        <input [(ngModel)]="cpuTemp.core" name="core" class="form-control" placeholder="Core:">
-    </div>
-    <div class="form-control mb-4" id="cpuGroup">
-        <input [(ngModel)]="cpuTemp.threads" name="threads" class="form-control" placeholder="Threads:">
-    </div>
-    <div class="form-control mb-4" id="cpuGroup">
-        <input [(ngModel)]="cpuTemp.baseClock" name="baseClock" class="form-control" placeholder="Base Clock:">
-    </div>
-    <div class="form-control mb-2" id="cpuGroup">
-        <input [(ngModel)]="cpuTemp.maxBoostClock" name="maxBoostClock" class="form-control" placeholder="Max Boost Clock:">
-    </div>
-    <div class="form-control mb-4" id="cpuGroup">
-        <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control" placeholder="Add note:"></textarea>
-    </div>
-    <div class="float-right">
-        <button class="btn mr-2 float-left">Save/Update CPU</button>
-        <button class="btn float-left" data-dismiss="modal">Close</button>
-    </div>
-</form>
+        <div class="form-group mb-2 ">
+            <input [(ngModel)]="cpuTemp.users" name="users" class="form-control" placeholder="Users:">
+        </div>
+        <div class="form-group mb-2 ">
+            <input required [(ngModel)]="cpuTemp.brand" name="brand" class="form-control" placeholder="Brand:"
+                #brand="ngModel">
+            <div *ngIf="brand.invalid &&(brand.dirty || brand.touched)" class="alert alert-danger mt-2" role="alert">
+                <div *ngIf="brand.errors.required">
+                    Brand is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group mb-2 ">
+            <input [(ngModel)]="cpuTemp.model" name="model" class="form-control" placeholder="Model:">
+        </div>
+        <div class="form-group mb-2 ">
+            <input required [(ngModel)]="cpuTemp.serialNumber" name="serialNumber" class="form-control"
+                placeholder="Serial number:" #serialNumber="ngModel">
+            <div *ngIf="serialNumber.invalid &&(serialNumber.dirty || serialNumber.touched)"
+                class="alert alert-danger  mt-2" role="alert">
+                <div *ngIf="serialNumber.errors.required">
+                    Serial Number is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group mb-2 ">
+            <input [(ngModel)]="cpuTemp.userNumber" name="userNumber" class="form-control" placeholder="User number:">
+        </div>
+        <div class="form-group mb-4 ">
+            <input [(ngModel)]="cpuTemp.core" name="core" class="form-control" placeholder="Core:">
+        </div>
+        <div class="form-group mb-4 ">
+            <input [(ngModel)]="cpuTemp.threads" name="threads" class="form-control" placeholder="Threads:">
+        </div>
+        <div class="form-group mb-4 ">
+            <input [(ngModel)]="cpuTemp.baseClock" name="baseClock" class="form-control" placeholder="Base Clock:">
+        </div>
+        <div class="form-group mb-2 ">
+            <input [(ngModel)]="cpuTemp.maxBoostClock" name="maxBoostClock" class="form-control"
+                placeholder="Max Boost Clock:">
+        </div>
+        <div class="form-group mb-4 ">
+            <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control"
+                placeholder="Add note:"></textarea>
+        </div>
+        <div class="float-right">
+            <button [disabled]="form.invalid" class="btn mr-2 float-left">Save/Update CPU</button>
+            <button class="btn float-left" data-dismiss="modal">Close</button>
+        </div>
+    </form>
 </div>

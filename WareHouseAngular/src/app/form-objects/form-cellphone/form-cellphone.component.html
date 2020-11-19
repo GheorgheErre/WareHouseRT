@@ -1,40 +1,56 @@
 <div>
     <h3>ADD CELLPHONE</h3>
-    <form (ngSubmit)="sendCellphoneToParent()" id="formCellphone">
+    <form autocomplete="off" (ngSubmit)="sendCellphoneToParent()" class="form-group" id="formCellphone" #form="ngForm">
 
-        <div class="form-control mb-2" id="cellphoneGroup">
+        <div class="form-group mb-2 cellphoneGroup">
             <input [(ngModel)]="cellphoneTemp.users" name="users" class="form-control" placeholder="Users:">
         </div>
-        <div class="form-control mb-2" id="cellphoneGroup">
-            <input [(ngModel)]="cellphoneTemp.brand" name="brand" class="form-control" placeholder="Brand:">
+        <div class="form-group mb-2 cellphoneGroup">
+            <input required [(ngModel)]="cellphoneTemp.brand" name="brand" class="form-control" placeholder="Brand:"
+                #brand="ngModel">
+            <div *ngIf="brand.invalid &&(brand.dirty || brand.touched)" class="alert alert-danger mt-2" role="alert">
+                <div *ngIf="brand.errors.required">
+                    Brand is required.
+                </div>
+            </div>
         </div>
-        <div class="form-control mb-2" id="cellphoneGroup">
+        <div class="form-group mb-2 cellphoneGroup">
             <input [(ngModel)]="cellphoneTemp.model" name="model" class="form-control" placeholder="Model:">
         </div>
-        <div class="form-control mb-2" id="cellphoneGroup">
-            <input [(ngModel)]="cellphoneTemp.serialNumber" name="serialNumber" class="form-control"
-                placeholder="Serial number:">
+        <div class="form-group mb-2 cellphoneGroup">
+            <input required [(ngModel)]="cellphoneTemp.serialNumber" name="serialNumber" class="form-control"
+                placeholder="Serial number:" #serialNumber="ngModel">
+            <div *ngIf="serialNumber.invalid &&(serialNumber.dirty || serialNumber.touched)"
+                class="alert alert-danger  mt-2" role="alert">
+                <div *ngIf="serialNumber.errors.required">
+                    Serial Number is required.
+                </div>
+            </div>
         </div>
-        <div class="form-control mb-2" id="cellphoneGroup">
-            <input [(ngModel)]="cellphoneTemp.userNumber" name="userNumber" class="form-control" placeholder="User number:">
+        <div class="form-group mb-2 cellphoneGroup">
+            <input [(ngModel)]="cellphoneTemp.userNumber" name="userNumber" class="form-control"
+                placeholder="User number:">
         </div>
-        <div class="form-control mb-4" id="cellphoneGroup">
+        <div class="form-group mb-4 cellphoneGroup">
             <input [(ngModel)]="cellphoneTemp.imeiCode" name="imeiCode" class="form-control" placeholder="IMieiCode:">
         </div>
-        <div class="form-control mb-4" id="cellphoneGroup">
+        <div class="form-group mb-4 cellphoneGroup">
             <input [(ngModel)]="cellphoneTemp.operator" name="operator" class="form-control" placeholder="Operator:">
         </div>
-        <div class="form-control mb-4" id="cellphoneGroup">
-            <input [(ngModel)]="cellphoneTemp.phoneNumber" name="phoneNumber" class="form-control" placeholder="Phone Number:">
+        <div class="form-group mb-4 cellphoneGroup">
+            <input [(ngModel)]="cellphoneTemp.phoneNumber" name="phoneNumber" class="form-control"
+                placeholder="Phone Number:">
         </div>
-        <div class="form-control mb-2" id="cellphoneGroup">
-            <input [(ngModel)]="cellphoneTemp.rateTypology" name="type" class="form-control" placeholder="Rate Typology:">
+        <div class="form-group mb-2 cellphoneGroup">
+            <input [(ngModel)]="cellphoneTemp.rateTypology" name="type" class="form-control"
+                placeholder="Rate Typology:">
         </div>
-    <div class="form-control mb-4" id="cellphoneGroup">
-        <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control" placeholder="Add note:"></textarea>
-    </div>
+        <div class="form-group mb-4 cellphoneGroup">
+            <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control"
+                placeholder="Add note:"></textarea>
+        </div>
         <div class="float-right">
-            <button class="btn mr-2 float-left">Save/Update cellphone</button>
+            <button [disabled]="form.invalid" class="btn mr-2 float-left">Save/Update cellphone</button>
             <button class="btn float-left" data-dismiss="modal">Close</button>
         </div>
     </form>

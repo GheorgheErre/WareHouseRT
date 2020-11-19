@@ -1,37 +1,70 @@
 <div>
     <h3>ADD MONITOR</h3>
-    <form (ngSubmit)="sendMonitorToParent()" id="formMonitor">
+    <form autocomplete="off" (ngSubmit)="sendMonitorToParent()" id="formMonitor" class="form-group" #form="ngForm">
 
-        <div class="form-control mb-2" id="monitorGroup">
+        <div class="form-group mb-2">
             <input [(ngModel)]="monitorTemp.users" name="users" class="form-control" placeholder="Users:">
         </div>
-        <div class="form-control mb-2" id="monitorGroup">
-            <input [(ngModel)]="monitorTemp.brand" name="brand" class="form-control" placeholder="Brand:">
+        <div class="form-group mb-2">
+            <input required [(ngModel)]="monitorTemp.brand" name="brand" class="form-control" placeholder="Brand:"
+                #brand="ngModel">
+            <div *ngIf="brand.invalid &&(brand.dirty || brand.touched)" class="alert alert-danger mt-2" role="alert">
+                <div *ngIf="brand.errors.required">
+                    Brand is required.
+                </div>
+            </div>
         </div>
-        <div class="form-control mb-2" id="monitorGroup">
+        <div class="form-group mb-2">
             <input [(ngModel)]="monitorTemp.model" name="model" class="form-control" placeholder="Model:">
         </div>
-        <div class="form-control mb-2" id="monitorGroup">
-            <input [(ngModel)]="monitorTemp.serialNumber" name="serialNumber" class="form-control"
-                placeholder="Serial number:">
+        <div class="form-group mb-2">
+            <input required [(ngModel)]="monitorTemp.serialNumber" name="serialNumber" class="form-control"
+                placeholder="Serial number:" #serialNumber="ngModel">
+            <div *ngIf="serialNumber.invalid &&(serialNumber.dirty || serialNumber.touched)"
+                class="alert alert-danger  mt-2" role="alert">
+                <div *ngIf="serialNumber.errors.required">
+                    Serial Number is required.
+                </div>
+            </div>
         </div>
-        <div class="form-control mb-2" id="monitorGroup">
-            <input [(ngModel)]="monitorTemp.userNumber" name="userNumber" class="form-control" placeholder="User number:">
+        <div class="form-group mb-2">
+            <input [(ngModel)]="monitorTemp.userNumber" name="userNumber" class="form-control"
+                placeholder="User number:">
         </div>
-        <div class="form-control mb-2" id="monitorGroup">
-            <input [(ngModel)]="monitorTemp.inches" name="inches" class="form-control" placeholder="Inches:">
+        <div class="form-group mb-2">
+            <input pattern="^[0-9]*$" [(ngModel)]="monitorTemp.inches" name="inches" class="form-control"
+                placeholder="Inches:" #inches="ngModel">
+            <div *ngIf="inches.invalid &&(inches.dirty || inches.touched)" class="alert alert-danger  mt-2"
+                role="alert">
+                <div *ngIf="inches.errors.pattern">
+                    Only integer Number are allowed.
+                </div>
+            </div>
         </div>
-        <div class="form-control mb-2" id="monitorGroup">
-            <input [(ngModel)]="monitorTemp.frequence" name="frequence" class="form-control" placeholder="Frequence:">
+        <div class="form-group mb-2">
+            <input [(ngModel)]="monitorTemp.frequence" name="frequence" class="form-control" placeholder="Frequence:"
+                #frequence="ngModel">
+            <div *ngIf="frequence.invalid &&(frequence.dirty || frequence.touched)" class="alert alert-danger  mt-2" role="alert">
+                <div *ngIf="frequence.errors.pattern">
+                    Only integer Number are allowed.
+                </div>
+            </div>>
         </div>
-        <div class="form-control mb-2" id="monitorGroup">
-            <input [(ngModel)]="monitorTemp.resolution" name="resolution" class="form-control" placeholder="Resolution:">
+        <div class="form-group mb-2">
+            <input [(ngModel)]="monitorTemp.resolution" name="resolution" class="form-control"
+                placeholder="Resolution:" #gpu="ngModel">
+                <div *ngIf="resolution.invalid &&(resolution.dirty || resolution.touched)" class="alert alert-danger  mt-2" role="alert">
+                    <div *ngIf="resolution.errors.pattern">
+                        Only integer Number are allowed.
+                    </div>
+                </div>>
         </div>
-        <div class="form-control mb-4" id="monitorGroup">
-            <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control" placeholder="Add note:"></textarea>
+        <div class="form-group mb-4">
+            <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control"
+                placeholder="Add note:"></textarea>
         </div>
         <div class="float-right">
-            <button class="btn mr-2 float-left">Save/Update monitor</button>
+            <button [disabled]="form.invalid" class="btn mr-2 float-left">Save/Update monitor</button>
             <button class="btn float-left" data-dismiss="modal">Close</button>
         </div>
     </form>

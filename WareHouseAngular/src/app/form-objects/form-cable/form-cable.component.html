@@ -1,31 +1,45 @@
 <div>
     <h3>ADD CABLE</h3>
-    <form (ngSubmit)="sendCableToParent()" id="formCable">
+    <form autocomplete="off" (ngSubmit)="sendCableToParent()" class="form-group" id="formCable" #form="ngForm">
 
-        <div class="form-control mb-2" id="cableGroup">
+        <div class="form-group mb-2 cableGroup">
             <input [(ngModel)]="cableTemp.users" name="users" class="form-control" placeholder="Users:">
         </div>
-        <div class="form-control mb-2" id="cableGroup">
+        <div class="form-group mb-2 cableGroup">
             <input [(ngModel)]="cableTemp.brand" name="brand" class="form-control" placeholder="Brand:">
         </div>
-        <div class="form-control mb-2" id="cableGroup">
+        <div class="form-group mb-2 cableGroup">
             <input [(ngModel)]="cableTemp.model" name="model" class="form-control" placeholder="Model:">
         </div>
-        <div class="form-control mb-2" id="cableGroup">
-            <input [(ngModel)]="cableTemp.serialNumber" name="serialNumber" class="form-control"
-                placeholder="Serial number:">
+        <div class="form-group mb-2 cableGroup">
+            <input required [(ngModel)]="cableTemp.serialNumber" name="serialNumber" class="form-control"
+                placeholder="Serial number:" #serialNumber="ngModel">
+            <div *ngIf="serialNumber.invalid &&(serialNumber.dirty || serialNumber.touched)"
+                class="alert alert-danger  mt-2" role="alert">
+                <div *ngIf="serialNumber.errors.required">
+                    Serial Number is required.
+                </div>
+            </div>
         </div>
-        <div class="form-control mb-2" id="cableGroup">
+        <div class="form-group mb-2 cableGroup">
             <input [(ngModel)]="cableTemp.userNumber" name="userNumber" class="form-control" placeholder="User number:">
         </div>
-        <div class="form-control mb-2" id="cableGroup">
-            <input [(ngModel)]="cableTemp.type" name="type" class="form-control" placeholder="Type:">
+        <div class="form-group mb-2 cableGroup">
+            <input required [(ngModel)]="cableTemp.type" name="type" class="form-control" placeholder="Type:"  #type="ngModel">
+
+            <div *ngIf="type.invalid &&(type.dirty || type.touched)" class="alert alert-danger  mt-2"
+				role="alert">
+				<div *ngIf="type.errors.required">
+					Type is required.
+				</div>
+			</div>
         </div>
-        <div class="form-control mb-4" id="cableGroup">
-            <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control" placeholder="Add note:"></textarea>
+        <div class="form-group mb-4 cableGroup">
+            <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control"
+                placeholder="Add note:"></textarea>
         </div>
         <div class="float-right">
-            <button class="btn mr-2 float-left">Add Cable</button>
+            <button [disabled]="form.invalid" class="btn mr-2 float-left">Add Cable</button>
             <button class="btn float-left" data-dismiss="modal">Close</button>
         </div>
     </form>
