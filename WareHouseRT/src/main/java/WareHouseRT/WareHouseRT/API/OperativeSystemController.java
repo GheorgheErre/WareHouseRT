@@ -33,13 +33,7 @@ public class OperativeSystemController {
 	
 	@PostMapping("/saveOrUpdateOperativeSystem")
 	public OperativeSystem saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
-		String tipoAzione="Aggiunta Prodotto";
-		
-		OperativeSystem o = service.saveOrUpdate((OperativeSystem) historicRequest.getProduct());
-		historicRequest.setProduct(o);
-		
-		movementsService.save(historicRequest, tipoAzione);
-		return o;
+		return service.saveOrUpdate((OperativeSystem) historicRequest.getProduct(), historicRequest.getNote());
 	}
 	
 	@PostMapping("/deleteOperativeSystem")
@@ -68,15 +62,15 @@ public class OperativeSystemController {
 	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Magazzino";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((OperativeSystem) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((OperativeSystem) historicRequest.getProduct());
 	};
 	
 	@PostMapping("/moveOperativeSystemFromWarehouse")
 	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Workstation";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((OperativeSystem) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((OperativeSystem) historicRequest.getProduct());
 	};
 }

@@ -32,13 +32,7 @@ public class TokenController {
 	
 	@PostMapping("/saveOrUpdateToken")
 	public Token saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
-		String tipoAzione = "Aggiunta Prodotto";
-		
-		Token t = service.saveOrUpdate((Token) historicRequest.getProduct());
-		historicRequest.setProduct(t);
-		
-		movementsService.save(historicRequest, tipoAzione);
-		return t;
+		return service.saveOrUpdate((Token) historicRequest.getProduct(), historicRequest.getNote());
 	}
 
 	@PostMapping("/deleteToken")
@@ -66,16 +60,16 @@ public class TokenController {
 	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Magazzino";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Token) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((Token) historicRequest.getProduct());
 	};
 	
 	@PostMapping("/moveTokenFromWarehouse")
 	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Workstation";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Token) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((Token) historicRequest.getProduct());
 	};
 
 }

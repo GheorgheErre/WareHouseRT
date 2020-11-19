@@ -8,10 +8,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import WareHouseRT.WareHouseRT.beans.HistoricDelete;
 import WareHouseRT.WareHouseRT.beans.HistoricMovements;
-import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
-import WareHouseRT.WareHouseRT.repository.HistoricDeleteRepository;
+import WareHouseRT.WareHouseRT.beans.Product;
 import WareHouseRT.WareHouseRT.repository.HistoricMovementsRepository;
 
 @Service
@@ -20,13 +18,12 @@ public class HistoricMovementsService {
 	@Autowired
 	private HistoricMovementsRepository repo;
 
-	@Autowired
-	private HistoricDeleteRepository deleteRepo;
+
 
 	@Autowired
 	private SequenceGeneratorService sequenceService;
 
-	public void save(HistoricRequest historicRequest, String tipoAzione) {
+	public void save(Product product, String note, String tipoAzione) {
 
 		HistoricMovements recordMove = new HistoricMovements();
 
@@ -43,8 +40,8 @@ public class HistoricMovementsService {
 
 		
 		recordMove.setDate(date);
-		recordMove.setProduct(historicRequest.getProduct());
-		recordMove.setNote(historicRequest.getNote());
+		recordMove.setProduct(product);
+		recordMove.setNote(note);
 		recordMove.setAction(tipoAzione);
 		recordMove.setId(sequenceService.getNextSequence(HistoricMovements.SEQUENCE_NAME));
 		repo.save(recordMove);

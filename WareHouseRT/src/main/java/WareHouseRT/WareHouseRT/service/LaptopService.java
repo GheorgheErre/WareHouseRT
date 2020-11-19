@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import WareHouseRT.WareHouseRT.beans.Laptop;
 import WareHouseRT.WareHouseRT.repository.LaptopRepository;
 
@@ -20,21 +21,36 @@ public class LaptopService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public Laptop saveOrUpdate(Laptop entity) {
+	@Autowired
+	private HistoricMovementsService movementsService;
+	
+	public Laptop saveOrUpdate(Laptop entity, String note) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			return update(entity);
+			return update(entity, note);
 		} else
-			return save(entity);
+			return save(entity, note);
 	}
 	
-	public Laptop save(Laptop laptop) {
+	public Laptop save(Laptop laptop, String note) {
+		String tipoAzione = "Aggiunta Prodotto";
 		laptop.setId(sequenceService.getNextSequence(Laptop.SEQUENCE_NAME));
 		laptop.setIdentifier(createIdentifier.createIdentifier("LPT"));
-		return repo.save(laptop);
+		Laptop l = repo.save(laptop);
+		movementsService.save(l, note, tipoAzione);
+		
+		return l;
 	}
 	
-	public Laptop update(Laptop entity) {
-		return repo.save(entity);
+	public Laptop update(Laptop entity, String note) {
+		String tipoAzione = "Modifica Prodotto";
+		Laptop l = repo.save(entity);
+		movementsService.save(l, note, tipoAzione);
+		
+		return l;
+	}
+	
+	public void changeLocation(Laptop l) {
+		repo.save(l);
 	}
 	
 	public void delete(Laptop entity) {

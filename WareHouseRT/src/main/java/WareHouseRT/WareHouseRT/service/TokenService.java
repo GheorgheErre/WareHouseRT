@@ -21,21 +21,36 @@ public class TokenService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public Token saveOrUpdate(Token entity) {
+	@Autowired
+	private HistoricMovementsService movementsService;
+	
+	public Token saveOrUpdate(Token entity, String note) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			return update(entity);
+			return update(entity, note);
 		} else
-			return save(entity);
+			return save(entity, note);
 	}
 	
-	public Token save(Token token) {
+	public Token save(Token token, String note) {
+		String tipoAzione = "Aggiunta Prodotto";
 		token.setId(sequenceService.getNextSequence(Token.SEQUENCE_NAME));
 		token.setIdentifier(createIdentifier.createIdentifier("TKN"));
-		return repo.save(token);
+		Token t = repo.save(token);
+		movementsService.save(t, note, tipoAzione);
+		
+		return t;
 	}
 	
-	public Token update(Token entity) {
-		return repo.save(entity);
+	public Token update(Token entity, String note) {
+		String tipoAzione = "Modifica Prodotto";
+		Token t = repo.save(entity);
+		movementsService.save(t, note, tipoAzione);
+		
+		return t;
+	}
+	
+	public void changeLocation(Token t) {
+		repo.save(t);
 	}
 	
 	public void delete(Token entity) {

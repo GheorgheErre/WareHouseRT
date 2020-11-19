@@ -21,22 +21,41 @@ public class GenericArticleService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public void saveOrUpdate(GenericArticle entity) {
+	@Autowired
+	private HistoricMovementsService movementsService;
+	
+	public GenericArticle saveOrUpdate(GenericArticle entity, String note) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			update(entity);
+			return update(entity, note);
 		} else
-			save(entity);
+			return save(entity, note);
 	}
 
-	public void save(GenericArticle genericArticle) {
+	public GenericArticle save(GenericArticle genericArticle, String note) {
+		String tipoAzione = "Aggiunta Prodotto";
 		genericArticle.setId(sequenceService.getNextSequence(GenericArticle.SEQUENCE_NAME));
 		genericArticle.setIdentifier(createIdentifier.createIdentifier("ART"));
-		repo.save(genericArticle);
+		GenericArticle g = repo.save(genericArticle);
+		
+		movementsService.save(g, note, tipoAzione);
+		
+		return g;
+
 		
 	}
 	
-	public void update(GenericArticle entity) {
-		repo.save(entity);
+	public GenericArticle update(GenericArticle entity, String note) {
+		String tipoAzione = "Modifica Prodotto";
+		GenericArticle g = repo.save(entity);
+		
+		movementsService.save(g, note, tipoAzione);
+		
+		return g;
+
+	}
+	
+	public void changeLocation(GenericArticle g) {
+		repo.save(g);
 	}
 	
 	public void delete(GenericArticle entity) {

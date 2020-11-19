@@ -21,24 +21,40 @@ public class DockingStationService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public DockingStation saveOrUpdate(DockingStation entity) {
+	@Autowired
+	private HistoricMovementsService movementsService;
+	
+	public DockingStation saveOrUpdate(DockingStation entity, String note) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			return update(entity);
+			return update(entity, note);
 		} else
-			return save(entity);
+			return save(entity, note);
 	}
 
 
-	public DockingStation save(DockingStation dockingStation) {
+	public DockingStation save(DockingStation dockingStation, String note) {
+		String tipoAzione = "Aggiunta Prodotto";
 		dockingStation.setId(sequenceService.getNextSequence(DockingStation.SEQUENCE_NAME));
 		dockingStation.setIdentifier(createIdentifier.createIdentifier("DKS"));
-		return repo.save(dockingStation);
+
+		DockingStation d = repo.save(dockingStation);
+		movementsService.save(d, note, tipoAzione);
+		
+		return d;
 
 	}
 	
-	public DockingStation update(DockingStation dockingStation) {
-		return repo.save(dockingStation);
+	public DockingStation update(DockingStation dockingStation, String note) {
+		String tipoAzione = "Modifica Prodotto";
+		DockingStation d = repo.save(dockingStation);
+		movementsService.save(d, note, tipoAzione);
+		
+		return d;
 
+	}
+	
+	public void changeLocation(DockingStation d) {
+		repo.save(d);
 	}
 	
 	public void delete(DockingStation entity) {

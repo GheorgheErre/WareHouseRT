@@ -33,13 +33,7 @@ public class RamController {
 	
 	@PostMapping("/saveOrUpdateRam")
 	public RAM saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
-		String tipoAzione="Aggiunta Prodotto";
-	
-		RAM r = service.saveOrUpdate((RAM) historicRequest.getProduct());
-		historicRequest.setProduct(r);
-		
-		movementsService.save(historicRequest, tipoAzione);
-		return r;
+		return service.saveOrUpdate((RAM) historicRequest.getProduct(), historicRequest.getNote());
 	}
 	
 	@PostMapping("/deleteRam")
@@ -67,16 +61,16 @@ public class RamController {
 	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Magazzino";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((RAM) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((RAM) historicRequest.getProduct());
 	};
 	
 	@PostMapping("/moveRamFromWarehouse")
 	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Workstation";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((RAM) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((RAM) historicRequest.getProduct());
 	};
 	
 }

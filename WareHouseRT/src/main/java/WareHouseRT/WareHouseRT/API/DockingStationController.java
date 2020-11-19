@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import WareHouseRT.WareHouseRT.beans.DockingStation;
 
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
@@ -33,13 +32,7 @@ public class DockingStationController {
 
 	@PostMapping("/saveOrUpdateDockingStation")
 	public DockingStation saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
-		String tipoAzione="Aggiunta Prodotto";
-		
-		DockingStation d = service.saveOrUpdate((DockingStation) historicRequest.getProduct());
-		historicRequest.setProduct(d);
-		
-		movementsService.save(historicRequest, tipoAzione);
-		return d;
+		return service.saveOrUpdate((DockingStation) historicRequest.getProduct(), historicRequest.getNote());
 	}
 	
 	@PostMapping("/deleteDockingStation")
@@ -67,16 +60,16 @@ public class DockingStationController {
 	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Magazzino";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((DockingStation) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((DockingStation) historicRequest.getProduct());
 	};
 	
 	@PostMapping("/moveDockingStationFromWarehouse")
 	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Workstation";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((DockingStation) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((DockingStation) historicRequest.getProduct());
 	};
 
 }

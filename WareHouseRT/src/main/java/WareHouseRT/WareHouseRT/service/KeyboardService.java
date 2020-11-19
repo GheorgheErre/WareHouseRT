@@ -21,22 +21,39 @@ public class KeyboardService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public Keyboard saveOrUpdate(Keyboard entity) {
+	@Autowired
+	private HistoricMovementsService movementsService;
+	
+	public Keyboard saveOrUpdate(Keyboard entity, String note) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			return update(entity);
+			return update(entity, note);
 		} else
-			return save(entity);
+			return save(entity, note);
 	}
 
-	public Keyboard save(Keyboard keyboard) {
+	public Keyboard save(Keyboard keyboard, String note) {
+		String tipoAzione = "Aggiunta Prodotto";
 		keyboard.setId(sequenceService.getNextSequence(Keyboard.SEQUENCE_NAME));
 		keyboard.setIdentifier(createIdentifier.createIdentifier("KEY"));
-		return repo.save(keyboard);
+		Keyboard k = repo.save(keyboard);
+		
+		movementsService.save(k, note, tipoAzione);
+		
+		return k;
 
 	}
 	
-	public Keyboard update(Keyboard entity) {
-		return repo.save(entity);
+	public Keyboard update(Keyboard entity, String note) {
+		String tipoAzione = "Aggiunta Prodotto";
+		Keyboard k = repo.save(entity);
+		
+		movementsService.save(k, note, tipoAzione);
+		
+		return k;
+	}
+	
+	public void changeLocation(Keyboard k) {
+		repo.save(k);
 	}
 
 	public void delete(Keyboard entity) {

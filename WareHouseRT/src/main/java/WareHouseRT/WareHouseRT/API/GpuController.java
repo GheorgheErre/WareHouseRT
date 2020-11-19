@@ -33,14 +33,7 @@ public class GpuController {
 	
 	@PostMapping("/saveOrUpdateGpu")
 	public GPU saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
-		String tipoAzione = "Aggiunta Prodotto";
-
-		GPU g = service.saveOrUpdate((GPU) historicRequest.getProduct());
-		historicRequest.setProduct(g);
-		
-		movementsService.save(historicRequest, tipoAzione);
-		return g;
-
+		return service.saveOrUpdate((GPU) historicRequest.getProduct(), historicRequest.getNote());
 	}
 
 	@PostMapping("/deleteGpu")
@@ -70,15 +63,15 @@ public class GpuController {
 	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Magazzino";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((GPU) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((GPU) historicRequest.getProduct());
 	};
 	
 	@PostMapping("/moveGpuFromWarehouse")
 	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Workstation";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((GPU) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((GPU) historicRequest.getProduct());
 	};
 }

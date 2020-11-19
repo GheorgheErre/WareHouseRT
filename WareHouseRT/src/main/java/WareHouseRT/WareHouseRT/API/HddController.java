@@ -33,13 +33,7 @@ public class HddController {
 	
 	@PostMapping("/saveOrUpdateHdd")
 	public HDD saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
-		String tipoAzione="Aggiunta Prodotto";
-
-		HDD h = service.saveOrUpdate((HDD) historicRequest.getProduct());
-		historicRequest.setProduct(h);
-		
-		movementsService.save(historicRequest, tipoAzione);
-		return h;
+		return service.saveOrUpdate((HDD) historicRequest.getProduct(), historicRequest.getNote());
 	}
 	
 	@PostMapping("/deleteHdd")
@@ -68,15 +62,15 @@ public class HddController {
 	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Magazzino";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((HDD) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((HDD) historicRequest.getProduct());
 	};
 	
 	@PostMapping("/moveHddFromWarehouse")
 	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Workstation";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((HDD) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((HDD) historicRequest.getProduct());
 	};
 }

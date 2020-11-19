@@ -20,23 +20,38 @@ public class MouseService {
 
 	@Autowired
 	private CreateIdentifierService createIdentifier;
+	
+	@Autowired
+	private HistoricMovementsService movementsService;
 
-	public Mouse saveOrUpdate(Mouse entity) {
+	public Mouse saveOrUpdate(Mouse entity, String note) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			return update(entity);
+			return update(entity, note);
 		} else
-			return save(entity);
+			return save(entity, note);
 	}
 
-	public Mouse save(Mouse mouse) {
+	public Mouse save(Mouse mouse, String note) {
+		String tipoAzione = "Aggiunta Prodotto";
 		mouse.setId(sequenceService.getNextSequence(Mouse.SEQUENCE_NAME));
 		mouse.setIdentifier(createIdentifier.createIdentifier("MOU"));
-		return repo.save(mouse);
+		Mouse m = repo.save(mouse);
+		movementsService.save(m, note, tipoAzione);
+		
+		return m;
 
 	}
 
-	public Mouse update(Mouse entity) {
-		return repo.save(entity);
+	public Mouse update(Mouse entity, String note) {
+		String tipoAzione = "Modifica Prodotto";
+		Mouse m = repo.save(entity);
+		movementsService.save(m, note, tipoAzione);
+		
+		return m;
+	}
+	
+	public void changeLocation(Mouse m) {
+		repo.save(m);
 	}
 
 	public void delete(Mouse entity) {

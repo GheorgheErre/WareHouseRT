@@ -33,13 +33,7 @@ public class MouseController {
 	
 	@PostMapping("/saveOrUpdateMouse")
 	public Mouse saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
-		String tipoAzione="Aggiunta Prodotto";
-		
-		Mouse m = service.saveOrUpdate((Mouse) historicRequest.getProduct());
-		historicRequest.setProduct(m);
-		
-		movementsService.save(historicRequest, tipoAzione);
-		return m;
+		return service.saveOrUpdate((Mouse) historicRequest.getProduct(), historicRequest.getNote());
 	}
 	
 	@PostMapping("/deleteMouse")
@@ -67,16 +61,16 @@ public class MouseController {
 	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Magazzino";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Mouse) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((Mouse) historicRequest.getProduct());
 	};
 	
 	@PostMapping("/moveMouseFromWarehouse")
 	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Workstation";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Mouse) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((Mouse) historicRequest.getProduct());
 	};
 	
 }

@@ -33,13 +33,7 @@ public class MonitorController {
 	
 	@PostMapping("/saveOrUpdateMonitor")
 	public Monitor saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
-		String tipoAzione="Aggiunta Prodotto";
-		
-		Monitor m = service.saveOrUpdate((Monitor) historicRequest.getProduct());
-		historicRequest.setProduct(m);
-		
-		movementsService.save(historicRequest, tipoAzione);
-		return m;
+		return service.saveOrUpdate((Monitor) historicRequest.getProduct(), historicRequest.getNote());
 	}
 	
 	@PostMapping("/deleteMonitor")
@@ -67,16 +61,16 @@ public class MonitorController {
 	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Magazzino";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Monitor) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((Monitor) historicRequest.getProduct());
 	};
 	
 	@PostMapping("/moveMonitorFromWarehouse")
 	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Workstation";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Monitor) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((Monitor) historicRequest.getProduct());
 	};
 	
 }

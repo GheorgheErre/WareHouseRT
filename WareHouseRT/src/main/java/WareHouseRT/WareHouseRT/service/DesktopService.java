@@ -20,21 +20,36 @@ public class DesktopService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public Desktop saveOrUpdate(Desktop entity) {
+	@Autowired
+	private HistoricMovementsService movementsService;
+	
+	public Desktop saveOrUpdate(Desktop entity, String note) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			return update(entity);
+			return update(entity, note);
 		} else
-			return save(entity);
+			return save(entity, note);
 	}
 
-	public Desktop save(Desktop desktop) {
+	public Desktop save(Desktop desktop, String note) {
+		String tipoAzione = "Aggiunta Prodotto";
 		desktop.setId(sequenceService.getNextSequence(Desktop.SEQUENCE_NAME));
 		desktop.setIdentifier(createIdentifier.createIdentifier("DSK"));
-		return repo.save(desktop);
+		Desktop d = repo.save(desktop);
+		movementsService.save(d, note, tipoAzione);
+		
+		return d;
 	}
 	
-	public Desktop update(Desktop entity) {
-		return repo.save(entity);
+	public Desktop update(Desktop entity, String note) {
+		String tipoAzione = "Modifica Prodotto";
+		Desktop d = repo.save(entity);
+		movementsService.save(d, note, tipoAzione);
+		
+		return d;
+	}
+	
+	public void changeLocation(Desktop d) {
+		repo.save(d);
 	}
 	
 	public void delete(Desktop entity) {

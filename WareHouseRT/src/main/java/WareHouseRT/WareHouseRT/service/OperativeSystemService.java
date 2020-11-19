@@ -21,22 +21,37 @@ public class OperativeSystemService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public OperativeSystem saveOrUpdate(OperativeSystem entity) {
+	@Autowired
+	private HistoricMovementsService movementsService;
+	
+	public OperativeSystem saveOrUpdate(OperativeSystem entity, String note) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			return update(entity);
+			return update(entity, note);
 		} else
-			return save(entity);
+			return save(entity, note);
 	}
 
-	public OperativeSystem save(OperativeSystem operativeSystem) {
+	public OperativeSystem save(OperativeSystem operativeSystem, String note) {
+		String tipoAzione = "Aggiunta Prodotto";
 		operativeSystem.setId(sequenceService.getNextSequence(OperativeSystem.SEQUENCE_NAME));
 		operativeSystem.setIdentifier(createIdentifier.createIdentifier("OPS"));
-		return repo.save(operativeSystem);
+		OperativeSystem o = repo.save(operativeSystem);
+		movementsService.save(o, note, tipoAzione);
+		
+		return o;
 
 	}
 	
-	public OperativeSystem update(OperativeSystem entity) {
-		return repo.save(entity);
+	public OperativeSystem update(OperativeSystem entity, String note) {
+		String tipoAzione = "Modifica Prodotto";
+		OperativeSystem o = repo.save(entity);
+		movementsService.save(o, note, tipoAzione);
+		
+		return o;
+	}
+	
+	public void changeLocation(OperativeSystem o) {
+		repo.save(o);
 	}
 	
 	public void delete(OperativeSystem entity) {

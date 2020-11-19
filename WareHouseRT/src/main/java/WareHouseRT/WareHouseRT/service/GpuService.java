@@ -20,21 +20,36 @@ public class GpuService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public GPU saveOrUpdate(GPU entity) {
+	@Autowired
+	private HistoricMovementsService movementsService;
+	
+	public GPU saveOrUpdate(GPU entity, String note) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			return update(entity);
+			return update(entity, note);
 		} else
-			return save(entity);
+			return save(entity, note);
 	}
 
-	public GPU save(GPU gpu) {
+	public GPU save(GPU gpu, String note) {
+		String tipoAzione = "Aggiunta Prodotto";
 		gpu.setId(sequenceService.getNextSequence(GPU.SEQUENCE_NAME));
 		createIdentifier.createIdentifier("GPU");
-		return repo.save(gpu);
+		GPU g = repo.save(gpu);
+		movementsService.save(g, note, tipoAzione);
+		
+		return g;
 	}
 	
-	public GPU update(GPU gpu) {
-		return repo.save(gpu);
+	public GPU update(GPU gpu, String note) {
+		String tipoAzione = "Modifica Prodotto";
+		GPU g = repo.save(gpu);
+		movementsService.save(g, note, tipoAzione);
+		
+		return g;
+	}
+	
+	public void changeLocation(GPU g) {
+		repo.save(g);
 	}
 	
 	public void delete(GPU entity) {

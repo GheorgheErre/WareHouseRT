@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import WareHouseRT.WareHouseRT.beans.Cable;
-import WareHouseRT.WareHouseRT.beans.DockingStation;
 import WareHouseRT.WareHouseRT.beans.GenericArticle;
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.GenericArticleService;
@@ -32,10 +30,8 @@ public class GenericArticleController {
 
 	
 	@PostMapping("/saveOrUpdateGenericArticle")
-	public void saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
-		String tipoAzione="Aggiunta Prodotto";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((GenericArticle) historicRequest.getProduct());
+	public GenericArticle saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
+		return service.saveOrUpdate((GenericArticle) historicRequest.getProduct(), historicRequest.getNote());
 	}
 	
 	@PostMapping("/deleteGenericArticle")
@@ -63,16 +59,16 @@ public class GenericArticleController {
 	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Magazzino";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((GenericArticle) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((GenericArticle) historicRequest.getProduct());
 	};
 	
 	@PostMapping("/moveGenericArticleFromWarehouse")
 	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Workstation";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((GenericArticle) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((GenericArticle) historicRequest.getProduct());
 	};
 	
 }

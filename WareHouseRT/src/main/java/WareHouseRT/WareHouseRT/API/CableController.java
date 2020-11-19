@@ -32,13 +32,9 @@ public class CableController {
 
 	@PostMapping("/saveOrUpdateCable")
 	public Cable saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
-		String tipoAzione = "Aggiunta Prodotto";
 		
-		Cable c = service.saveOrUpdate((Cable) historicRequest.getProduct());
-		historicRequest.setProduct(c);
-		
-		movementsService.save(historicRequest, tipoAzione);
-		return c;
+		return service.saveOrUpdate((Cable) historicRequest.getProduct(), historicRequest.getNote());
+	
 		
 	}
 
@@ -67,16 +63,16 @@ public class CableController {
 	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Magazzino";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Cable) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((Cable) historicRequest.getProduct());
 	};
 	
 	@PostMapping("/moveCableFromWarehouse")
 	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Workstation";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Cable) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((Cable) historicRequest.getProduct());
 	};
 	
 }

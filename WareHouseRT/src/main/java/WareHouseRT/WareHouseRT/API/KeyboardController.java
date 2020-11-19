@@ -32,13 +32,7 @@ public class KeyboardController {
 
 	@PostMapping("/saveOrUpdateKeyboard")
 	public Keyboard saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
-		String tipoAzione="Aggiunta Prodotto";
-		
-		Keyboard k = service.saveOrUpdate((Keyboard) historicRequest.getProduct());
-		historicRequest.setProduct(k);
-		
-		movementsService.save(historicRequest, tipoAzione);
-		return k;
+		return service.saveOrUpdate((Keyboard) historicRequest.getProduct(), historicRequest.getNote());
 	}
 	
 	@PostMapping("/deleteKeyboard")
@@ -66,16 +60,16 @@ public class KeyboardController {
 	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Magazzino";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Keyboard) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((Keyboard) historicRequest.getProduct());
 	};
 	
 	@PostMapping("/moveKeyboardFromWarehouse")
 	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Workstation";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Keyboard) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((Keyboard) historicRequest.getProduct());
 	};
 
 }

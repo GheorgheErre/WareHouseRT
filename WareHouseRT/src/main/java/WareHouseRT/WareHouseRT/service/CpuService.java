@@ -21,21 +21,39 @@ public class CpuService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public CPU saveOrUpdate(CPU entity) {
+	@Autowired
+	private HistoricMovementsService movementsService;
+	
+	public CPU saveOrUpdate(CPU entity, String note) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			return update(entity);
+			return update(entity, note);
 		} else
-			return save(entity);
+			return save(entity, note);
 	}
 
-	public CPU save(CPU cpu) {
+	public CPU save(CPU cpu, String note) {
+		String tipoAzione = "Aggiunta Prodotto";
 		cpu.setId(sequenceService.getNextSequence(CPU.SEQUENCE_NAME));
 		cpu.setIdentifier(createIdentifier.createIdentifier("CPU"));
-		return repo.save(cpu);
+		
+		CPU c = repo.save(cpu);
+		movementsService.save(c, note, tipoAzione);
+		
+		return c;
+		
 	}
 	
-	public CPU update(CPU newCpu) {
-		return repo.save(newCpu);
+	public CPU update(CPU newCpu, String note) {
+		String tipoAzione = "Modifica Prodotto";
+		
+		CPU c = repo.save(newCpu);
+		movementsService.save(c, note, tipoAzione);
+		
+		return c;
+	}
+	
+	public void changeLocation(CPU c) {
+		repo.save(c);
 	}
 
 	public void delete(CPU entity) {

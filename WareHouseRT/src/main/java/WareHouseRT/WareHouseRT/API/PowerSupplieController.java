@@ -33,13 +33,7 @@ public class PowerSupplieController {
 	
 	@PostMapping("/saveOrUpdatePowerSupplie")
 	public PowerSupplie saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
-		String tipoAzione="Aggiunta Prodotto";
-		
-		PowerSupplie p = service.saveOrUpdate((PowerSupplie) historicRequest.getProduct());
-		historicRequest.setProduct(p);
-		
-		movementsService.save(historicRequest, tipoAzione);
-		return p;
+		return service.saveOrUpdate((PowerSupplie) historicRequest.getProduct(), historicRequest.getNote());
 	}
 	
 	@PostMapping("/deletePowerSupplie")
@@ -67,16 +61,16 @@ public class PowerSupplieController {
 	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Magazzino";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((PowerSupplie) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((PowerSupplie) historicRequest.getProduct());
 	};
 	
 	@PostMapping("/movePowerSupplieFromWarehouse")
 	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Workstation";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((PowerSupplie) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((PowerSupplie) historicRequest.getProduct());
 	};
 
 }

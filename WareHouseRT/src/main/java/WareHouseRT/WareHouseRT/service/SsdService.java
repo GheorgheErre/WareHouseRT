@@ -20,22 +20,37 @@ public class SsdService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public SSD saveOrUpdate(SSD entity) {
+	@Autowired
+	private HistoricMovementsService movementsService;
+	
+	public SSD saveOrUpdate(SSD entity, String note) {
 		if (repo.findById(entity.getId()).isPresent() && entity.getId() != 0) {
-			return update(entity);
+			return update(entity, note);
 		} else
-			return save(entity);
+			return save(entity, note);
 	}
 
 
-	public SSD save(SSD ssd) {
+	public SSD save(SSD ssd, String note) {
+		String tipoAzione = "Aggiunta Prodotto";
 		ssd.setId(sequenceService.getNextSequence(SSD.SEQUENCE_NAME));
 		ssd.setIdentifier(createIdentifier.createIdentifier("SSD"));
-		return repo.save(ssd);
+		SSD s = repo.save(ssd);
+		movementsService.save(s, note, tipoAzione);
+		
+		return s;
 	}
 	
-	public SSD update(SSD entity) {
-		return repo.save(entity);
+	public SSD update(SSD entity, String note) {
+		String tipoAzione = "Modifica Prodotto";
+		SSD s = repo.save(entity);
+		movementsService.save(s, note, tipoAzione);
+		
+		return s;
+	}
+	
+	public void changeLocation(SSD s) {
+		repo.save(s);
 	}
 	
 	public void delete(SSD entity) {

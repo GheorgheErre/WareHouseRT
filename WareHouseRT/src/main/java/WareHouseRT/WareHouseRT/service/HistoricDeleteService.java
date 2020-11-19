@@ -21,7 +21,7 @@ public class HistoricDeleteService {
 	@Autowired
 	private SequenceGeneratorService sequenceService;
 
-	public void save(HistoricRequest deleteRequest) {
+	public HistoricDelete save(HistoricRequest deleteRequest) {
 
 		HistoricDelete recordDelete = new HistoricDelete();
 
@@ -42,7 +42,7 @@ public class HistoricDeleteService {
 		recordDelete.setNote(deleteRequest.getNote());
 		recordDelete.setDate(date);
 
-		repo.save(recordDelete);
+		return repo.save(recordDelete);
 	}
 
 	public void delete(HistoricDelete entity) {

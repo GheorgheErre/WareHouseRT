@@ -21,22 +21,37 @@ public class MonitorService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public Monitor saveOrUpdate(Monitor entity) {
+	@Autowired
+	private HistoricMovementsService movementsService;
+	
+	public Monitor saveOrUpdate(Monitor entity, String note) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			return update(entity);
+			return update(entity, note);
 		} else
-			return save(entity);
+			return save(entity, note);
 	}
 	
-	public Monitor save(Monitor monitor) {
+	public Monitor save(Monitor monitor, String note) {
+		String tipoAzione = "Aggiunta Prodotto";
 		monitor.setId(sequenceService.getNextSequence(Monitor.SEQUENCE_NAME));
 		monitor.setIdentifier(createIdentifier.createIdentifier("MON"));
-		return repo.save(monitor);
+		Monitor m = repo.save(monitor);
+		movementsService.save(m, note, tipoAzione);
+		
+		return m;
 		
 	}
 	
-	public Monitor update(Monitor entity) {
-		return repo.save(entity);
+	public Monitor update(Monitor entity, String note) {
+		String tipoAzione = "Modifica Prodotto";
+		Monitor m = repo.save(entity);
+		movementsService.save(m, note, tipoAzione);
+		
+		return m;
+	}
+	
+	public void changeLocation(Monitor m) {
+		repo.save(m);
 	}
 
 	

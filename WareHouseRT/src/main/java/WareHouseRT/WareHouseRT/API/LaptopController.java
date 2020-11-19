@@ -33,13 +33,7 @@ public class LaptopController {
 	
 	@PostMapping("/saveOrUpdateLaptop")
 	public Laptop saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
-		String tipoAzione="Aggiunta Prodotto";
-		
-		Laptop l = service.saveOrUpdate((Laptop) historicRequest.getProduct());
-		historicRequest.setProduct(l);
-		
-		movementsService.save(historicRequest, tipoAzione);
-		return l;
+		return service.saveOrUpdate((Laptop) historicRequest.getProduct(), historicRequest.getNote());
 	}
 	
 	@PostMapping("/deleteLaptop")
@@ -68,16 +62,16 @@ public class LaptopController {
 	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Magazzino";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Laptop) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((Laptop) historicRequest.getProduct());
 	};
 	
 	@PostMapping("/moveLaptopFromWarehouse")
 	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Workstation";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Laptop) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((Laptop) historicRequest.getProduct());
 	};
 		
 }

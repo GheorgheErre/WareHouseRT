@@ -21,21 +21,38 @@ public class HDDService{
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public HDD saveOrUpdate(HDD entity) {
+	@Autowired
+	private HistoricMovementsService movementsService;
+	
+	public HDD saveOrUpdate(HDD entity, String note) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			return update(entity);
+			return update(entity, note);
 		} else
-			return save(entity);
+			return save(entity, note);
 	}
 	
-	public HDD save(HDD hdd) {
+	public HDD save(HDD hdd, String note) {
+		String tipoAzione = "Aggiunta Prodotto";
 		hdd.setId(sequenceService.getNextSequence(HDD.SEQUENCE_NAME));
 		hdd.setIdentifier(createIdentifier.createIdentifier("HDD"));
-		return repo.save(hdd);
+		HDD h = repo.save(hdd);
+		
+		movementsService.save(h, note, tipoAzione);
+
+		return h;
 	}
 	
-	public HDD update(HDD entity) {
-		return repo.save(entity);
+	public HDD update(HDD entity, String note) {
+		String tipoAzione = "Modifica Prodotto";
+		HDD h = repo.save(entity);
+		
+		movementsService.save(h, note, tipoAzione);
+
+		return h;
+	}
+	
+	public void changeLocation(HDD h) {
+		repo.save(h);
 	}
 	
 	public void delete(HDD entity) {

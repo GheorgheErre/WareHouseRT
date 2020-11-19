@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import WareHouseRT.WareHouseRT.beans.CPU;
-
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.CpuService;
 import WareHouseRT.WareHouseRT.service.HistoricDeleteService;
@@ -33,13 +32,7 @@ public class CpuController {
 
 	@PostMapping("/saveOrUpdateCpu")
 	public CPU saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
-		String tipoAzione="Aggiunta Prodotto";
-		
-		CPU c = service.saveOrUpdate((CPU) historicRequest.getProduct());
-		historicRequest.setProduct(c);
-		
-		movementsService.save(historicRequest, tipoAzione);
-		return c;
+		return service.saveOrUpdate((CPU) historicRequest.getProduct(), historicRequest.getNote());
 		
 	}
 	
@@ -67,14 +60,14 @@ public class CpuController {
 	@PostMapping("/moveCpuToWarehouse")
 	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		String tipoAzione="Movimento Prodotto verso Magazzino";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((CPU) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((CPU) historicRequest.getProduct());
 	};
 	
 	@PostMapping("/moveCpuFromWarehouse")
 	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		String tipoAzione="Movimento Prodotto verso Workstation";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((CPU) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((CPU) historicRequest.getProduct());
 	};
 }

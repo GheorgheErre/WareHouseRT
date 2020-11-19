@@ -33,13 +33,7 @@ public class SsdController {
 	
 	@PostMapping("/saveOrUpdateSsd")
 	public SSD saveOrUpdate(@RequestBody  HistoricRequest historicRequest) {
-		String tipoAzione="Aggiunta Prodotto";
-
-		SSD s = service.saveOrUpdate((SSD) historicRequest.getProduct());
-		historicRequest.setProduct(s);
-		
-		movementsService.save(historicRequest, tipoAzione);
-		return s;
+		return service.saveOrUpdate((SSD) historicRequest.getProduct(), historicRequest.getNote());
 	}
 
 	@PostMapping("/deleteSsd")
@@ -67,16 +61,16 @@ public class SsdController {
 	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Magazzino";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((SSD) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((SSD) historicRequest.getProduct());
 	};
 	
 	@PostMapping("/moveSsdFromWarehouse")
 	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Workstation";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((SSD) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((SSD) historicRequest.getProduct());
 	};
 
 }

@@ -33,14 +33,7 @@ public class GraphicTabletController {
 	
 	@PostMapping("/saveOrUpdateGraphicTablet")
 	public GraphicTablet saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
-		String tipoAzione="Aggiunta Prodotto";
-
-		GraphicTablet g = service.saveOrUpdate((GraphicTablet) historicRequest.getProduct());
-		historicRequest.setProduct(g);
-		
-		movementsService.save(historicRequest, tipoAzione);
-		return g;
-
+		return service.saveOrUpdate((GraphicTablet) historicRequest.getProduct(), historicRequest.getNote());
 	}
 	
 	@PostMapping("/deleteGraphicTablet")
@@ -68,15 +61,15 @@ public class GraphicTabletController {
 	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Magazzino";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((GraphicTablet) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((GraphicTablet) historicRequest.getProduct());
 	};
 	
 	@PostMapping("/moveGraphicTabletFromWarehouse")
 	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Workstation";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((GraphicTablet) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((GraphicTablet) historicRequest.getProduct());
 	};
 }

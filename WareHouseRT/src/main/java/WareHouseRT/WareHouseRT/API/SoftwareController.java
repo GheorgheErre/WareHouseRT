@@ -32,13 +32,7 @@ public class SoftwareController {
 	
 	@PostMapping("/saveOrUpdateSoftware")
 	public Software saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
-		String tipoAzione="Aggiunta Prodotto";
-
-		Software s = service.saveOrUpdate((Software) historicRequest.getProduct());
-		historicRequest.setProduct(s);
-		
-		movementsService.save(historicRequest, tipoAzione);
-		return s;
+		return service.saveOrUpdate((Software) historicRequest.getProduct(), historicRequest.getNote());
 	}
 	
 	@PostMapping("/deleteSoftware")
@@ -66,16 +60,16 @@ public class SoftwareController {
 	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Magazzino";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Software) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((Software) historicRequest.getProduct());
 	};
 	
 	@PostMapping("/moveSoftwareFromWarehouse")
 	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Workstation";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Software) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((Software) historicRequest.getProduct());
 	};
 
 }

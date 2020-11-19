@@ -21,21 +21,36 @@ public class RamService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public RAM saveOrUpdate(RAM entity) {
+	@Autowired
+	private HistoricMovementsService movementsService;
+	
+	public RAM saveOrUpdate(RAM entity, String note) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			return update(entity);
+			return update(entity, note);
 		} else
-			return save(entity);
+			return save(entity, note);
 	}
 	
-	public RAM save(RAM ram) {
+	public RAM save(RAM ram, String note) {
+		String tipoAzione = "Aggiunta Prodotto";
 		ram.setId(sequenceService.getNextSequence(RAM.SEQUENCE_NAME));
 		ram.setIdentifier(createIdentifier.createIdentifier("RAM"));
-		return repo.save(ram);
+		RAM r = repo.save(ram);
+		movementsService.save(r, note, tipoAzione);
+		
+		return r;
 	}
 	
-	public RAM update(RAM entity) {
-		return repo.save(entity);
+	public RAM update(RAM entity, String note) {
+		String tipoAzione = "Modifica Prodotto";
+		RAM r = repo.save(entity);
+		movementsService.save(r, note, tipoAzione);
+		
+		return r;
+	}
+	
+	public void changeLocation(RAM r) {
+		repo.save(r);
 	}
 	
 	public void delete(RAM entity) {

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import WareHouseRT.WareHouseRT.beans.Cellphone;
 import WareHouseRT.WareHouseRT.payload.request.HistoricRequest;
 import WareHouseRT.WareHouseRT.service.CellphoneService;
@@ -33,13 +32,8 @@ public class CellphoneController {
 	
 	@PostMapping("/saveOrUpdateCellphone")
 	public Cellphone saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
-		String tipoAzione="Aggiunta Prodotto";
 		
-		Cellphone c = service.saveOrUpdate((Cellphone) historicRequest.getProduct());
-		historicRequest.setProduct(c);
-		
-		movementsService.save(historicRequest, tipoAzione);
-		return c;
+	return service.saveOrUpdate((Cellphone) historicRequest.getProduct(), historicRequest.getNote());
 	}
 	
 	@PostMapping("/deleteCellphone")
@@ -67,16 +61,16 @@ public class CellphoneController {
 	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Magazzino";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Cellphone) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((Cellphone) historicRequest.getProduct());
 	};
 	
 	@PostMapping("/moveCellphoneFromWarehouse")
 	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Workstation";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Cellphone) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((Cellphone) historicRequest.getProduct());
 	};
 	
 }

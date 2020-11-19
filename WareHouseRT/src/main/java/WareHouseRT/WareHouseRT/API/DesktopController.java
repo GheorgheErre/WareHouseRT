@@ -32,13 +32,7 @@ public class DesktopController {
 	
 	@PostMapping("/saveOrUpdateDesktop")
 	public Desktop saveOrUpdate(@RequestBody HistoricRequest historicRequest) {
-		String tipoAzione="Aggiunta Prodotto";
-		
-		Desktop d = service.saveOrUpdate((Desktop) historicRequest.getProduct());
-		historicRequest.setProduct(d);
-		
-		movementsService.save(historicRequest, tipoAzione);
-		return d;
+		return service.saveOrUpdate((Desktop) historicRequest.getProduct(), historicRequest.getNote());
 	}
 	
 	@PostMapping("/deleteDesktop")
@@ -66,16 +60,16 @@ public class DesktopController {
 	public void moveToWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Magazzino";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Desktop) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((Desktop) historicRequest.getProduct());
 	};
 	
 	@PostMapping("/moveDesktopFromWarehouse")
 	public void moveFromWarehouse(@RequestBody HistoricRequest historicRequest){
 		
 		String tipoAzione="Movimento Prodotto verso Workstation";
-		movementsService.save(historicRequest, tipoAzione);
-		service.saveOrUpdate((Desktop) historicRequest.getProduct());
+		movementsService.save(historicRequest.getProduct(), historicRequest.getNote(), tipoAzione);
+		service.changeLocation((Desktop) historicRequest.getProduct());
 	};
 	
 

@@ -20,21 +20,36 @@ public class PowerSupplieService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public PowerSupplie saveOrUpdate(PowerSupplie entity) {
+	@Autowired
+	private HistoricMovementsService movementsService;
+	
+	public PowerSupplie saveOrUpdate(PowerSupplie entity, String note) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			return update(entity);
+			return update(entity, note);
 		} else
-			return save(entity);
+			return save(entity, note);
 	}
 	
-	public PowerSupplie save(PowerSupplie powerSupplie) {
+	public PowerSupplie save(PowerSupplie powerSupplie, String note) {
+		String tipoAzione = "Aggiunta Prodotto";
 		powerSupplie.setId(sequenceService.getNextSequence(PowerSupplie.SEQUENCE_NAME));
 		powerSupplie.setIdentifier(createIdentifier.createIdentifier("POW"));
-		return repo.save(powerSupplie);
+		PowerSupplie p = repo.save(powerSupplie);
+		movementsService.save(p, note, tipoAzione);
+		
+		return p;
 	}
 	
-	public PowerSupplie update(PowerSupplie entity) {
-		return repo.save(entity);
+	public PowerSupplie update(PowerSupplie entity, String note) {
+		String tipoAzione = "Aggiunta Prodotto";
+		PowerSupplie p = repo.save(entity);
+		movementsService.save(p, note, tipoAzione);
+		
+		return p;
+	}
+	
+	public void changeLocation(PowerSupplie p) {
+		repo.save(p);
 	}
 	
 	public void delete(PowerSupplie entity) {

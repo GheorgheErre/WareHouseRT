@@ -21,27 +21,46 @@ public class CableService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 
-	public Cable saveOrUpdate(Cable entity) {
+	@Autowired
+	private HistoricMovementsService movementsService;
+	
+
+	public Cable saveOrUpdate(Cable entity, String note) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			return update(entity);
+			return update(entity, note);
 		} else
-			return save(entity);
+			return save(entity, note);
 	}
 
-	public Cable save(Cable cable) {
+	public Cable save(Cable cable, String note) {
+		String tipoAzione = "Aggiunta Prodotto";
+
 		cable.setId(sequenceService.getNextSequence(Cable.SEQUENCE_NAME));
 		cable.setIdentifier(createIdentifier.createIdentifier("CBL"));
-		return repo.save(cable);
+		Cable c = repo.save(cable);
+		movementsService.save(c, note, tipoAzione);
+		
+		return c;
 
+	}
+	
+	public Cable update(Cable newCable, String note) {
+		String tipoAzione = "Modifica Prodotto";
+		
+		Cable c = repo.save(newCable);
+		movementsService.save(c, note, tipoAzione);
+		
+		return c;
+	}
+	
+	public void changeLocation(Cable c) {
+		repo.save(c);
 	}
 
 	public void delete(Cable entity) {
 		repo.delete(entity);
 	}
 
-	public Cable update(Cable newCable) {
-		return repo.save(newCable);
-	}
 
 	public Optional<Cable> findByID(long id) {
 		return repo.findById(id);
@@ -55,5 +74,6 @@ public class CableService {
 
 		return repo.count();
 	}
+	
 
 }

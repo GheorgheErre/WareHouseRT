@@ -20,22 +20,37 @@ public class SoftwareService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public Software saveOrUpdate(Software entity) {
+	@Autowired
+	private HistoricMovementsService movementsService;
+	
+	public Software saveOrUpdate(Software entity, String note) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			return update(entity);
+			return update(entity, note);
 		} else
-			return save(entity);
+			return save(entity, note);
 	}
 
-	public Software save(Software software) {
+	public Software save(Software software, String note) {
+		String tipoAzione = "Aggiunta Prodotto";
 		software.setId(sequenceService.getNextSequence(Software.SEQUENCE_NAME));
 		software.setIdentifier(createIdentifier.createIdentifier("SFT"));
-		return repo.save(software);
+		Software s = repo.save(software);
+		movementsService.save(s, note, tipoAzione);
+		
+		return s;
 		
 	}
 	
-	public Software update(Software entity) {
-		return repo.save(entity);
+	public Software update(Software entity, String note) {
+		String tipoAzione = "Modifica Prodotto";
+		Software s = repo.save(entity);
+		movementsService.save(s, note, tipoAzione);
+		
+		return s;
+	}
+	
+	public void changeLocation(Software s) {
+		repo.save(s);
 	}
 	
 	public void delete(Software entity) {

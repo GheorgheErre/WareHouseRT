@@ -21,22 +21,37 @@ public class GraphicTabletService {
 	@Autowired
 	private CreateIdentifierService createIdentifier;
 	
-	public GraphicTablet saveOrUpdate(GraphicTablet entity) {
+	@Autowired
+	private HistoricMovementsService movementsService;
+	
+	public GraphicTablet saveOrUpdate(GraphicTablet entity, String note) {
 		if (repo.findById(entity.getId()).isPresent()) {
-			return update(entity);
+			return update(entity, note);
 		} else
-			return save(entity);
+			return save(entity, note);
 	}
 
-	public GraphicTablet save(GraphicTablet graphicTablet) {
+	public GraphicTablet save(GraphicTablet graphicTablet, String note) {
+		String tipoAzione = "Aggiunta Prodotto";
 		graphicTablet.setId(sequenceService.getNextSequence(GraphicTablet.SEQUENCE_NAME));
 		graphicTablet.setIdentifier(createIdentifier.createIdentifier("GFT"));
-		return repo.save(graphicTablet);
+		GraphicTablet g = repo.save(graphicTablet);
+		movementsService.save(g, note, tipoAzione);
+		
+		return g;
 		
 	}
 	
-	public GraphicTablet update(GraphicTablet entity) {
-		return repo.save(entity);
+	public GraphicTablet update(GraphicTablet entity, String note) {
+		String tipoAzione = "Modifica Prodotto";
+		GraphicTablet g = repo.save(entity);
+		movementsService.save(g, note, tipoAzione);
+		
+		return g;
+	}
+	
+	public void changeLocation(GraphicTablet g) {
+		repo.save(g);
 	}
 	
 	public void delete(GraphicTablet entity) {
