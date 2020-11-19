@@ -37,18 +37,16 @@ export class SignInComponent implements OnInit {
  loginUser(){
    this.authenticationService.authenticate(this.user.username, this.user.password).subscribe(
      data => { 
+       if(data.accessToken != null){
      this.tokenStorage.saveToken(data.accessToken);
      this.tokenStorage.saveUser(data);
      this.isLoginFailed = false;
      this.isLoggedIn = true;
      this.roles = this.tokenStorage.getUser().roles;
      this.router.navigate(['/WelcomeMenu']);
-   },
-     err => {
-              this.errorMessage = err.error.message
-             this.isLoginFailed = true;
- }
-   )
+       }
+       else this.errorMessage = "Invalid username/password";
+   })
 }
 
 reloadPage() {
