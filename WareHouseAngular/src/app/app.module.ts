@@ -20,13 +20,15 @@ import { PopperDirective } from './popper.directive';
 import { WorkstationModule } from './WorkStation/workstation/workstation.module';
 import { HistoricModule } from './Historic/historic-module/historic.module';
 import { LogComponent } from './Historic/log/log.component';
+import { BollaComponent } from './DDT/bolla/bolla.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PopperDirective,
-    LogComponent  ],
+    LogComponent,
+    BollaComponent  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
