@@ -79,8 +79,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="modal-body" id="modal-body">
+                <div *ngIf="selectedNote !== null" class="modal-body" id="modal-body">
                     {{selectedNote}}
+                </div>
+                <div *ngIf="selectedNote === null" class="modal-body" id="modal-body">
+                    No note written for this movement.
                 </div>
             </div>
             <div class="modal-footer">
