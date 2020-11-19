@@ -107,7 +107,7 @@ public class UserController {
 	}
 
 	@PostMapping("/authenticate")
-	public ResponseEntity<?> generateToken(@RequestBody LoginRequest loginRequest) throws Exception {
+	public ResponseEntity<?> generateToken(@RequestBody LoginRequest loginRequest) {
 		try {
 			Authentication authentication = new UsernamePasswordAuthenticationToken(loginRequest.getUsername(),
 					loginRequest.getPassword());
@@ -115,7 +115,7 @@ public class UserController {
 			authenticationManager.authenticate(authentication);
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 		} catch (Exception ex) {
-			throw new Exception("inavalid username/password");
+			return ResponseEntity.ok(new JwtResponse());
 		}
 		String token = jwtUtil.generateToken(loginRequest.getUsername());
 
