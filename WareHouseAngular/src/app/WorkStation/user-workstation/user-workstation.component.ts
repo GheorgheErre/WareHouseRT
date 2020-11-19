@@ -138,7 +138,7 @@ export class UserWorkstationComponent implements OnInit {
   // aggiungi nuovo articolo alla mia workstation
   addArticleFromWarehouse(article) {
     this.entity = article;
-    this.entity.location = "workstation" + " " +  " " + this.workstation.office + this.workstation.numero;
+    this.entity.location = "workstation" + " " +  this.workstation.office + " " + this.workstation.numero;
 
     this.service.moveFromWareHouse(this.entity, this.note).subscribe(result => {
       console.log("ARTICLE SPOSTATO DA WAREHOUSE CON SUCCESSO")
