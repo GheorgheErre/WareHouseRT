@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faArrowUp, faArrowDown, faArrowLeft} from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faArrowDown, faArrowLeft, faHome} from '@fortawesome/free-solid-svg-icons';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 
@@ -37,6 +37,7 @@ export class WorkstationWelcomeComponent implements OnInit {
   faArrowLeft = faArrowLeft;
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;
+  faHome = faHome;
   selectedFloor = "ground";
 
  

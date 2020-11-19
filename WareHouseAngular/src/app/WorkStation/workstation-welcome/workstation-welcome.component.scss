@@ -14,61 +14,54 @@ body {
 
 header {
     height: 100%;
-    background-image: url("img/workstation-welcomeCopia.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
 }
 
 main {
     height: 100%;
-    background-image: url("img/workstation-welcomeCopia1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
 }
 
-button {
-    border-bottom: 1px solid #004fff;
-    border-left: 1px solid #004fff;
-    border-right: 1px solid lightgrey;
-    border-top: 1px solid lightgrey;
-    color: black;
-    border-radius: 20px;
-    transition: 0.5s;
-    letter-spacing: 3px;
-}
-
-button:hover {
-    background: white;
-    color: #004fff;
-    border: 1px solid #004fff;
-    border-radius: 20px;
-    transition: 0.5s;
-}
-
-span {
-    color: #004fff;
-    font-size: 30px;
+h2 {
     letter-spacing: 5px;
-    border: 1px solid white;
-    background-color: white;
-    box-shadow: 10px 5px 5px #004fff;
-    border-radius: 10px;
+    background-color: #74b9ff;
+    color: white;
+    border-radius: 5px;
     padding: 10px;
 }
 
+span {
+    margin-left: 60px;
+    letter-spacing: 5px;
+    font-size: 30px;
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
 #img-piani {
-    border: 1px solid black;
-    border-radius: 10px;
     height: 700px;
 }
 
 #logo {
     height: 70px;
 }
+
+.btn-home,
+.btn-floor {
+    box-shadow: 1px 1px 2px black;
+    letter-spacing: 3px;
+}
+
+.btn-home:hover,
+.btn-floor:hover {
+    background-color: whitesmoke;
+}
+
+.btn-office {
+    box-shadow: 1px 1px 2px #0984e3;
+    letter-spacing: 3px;
+    color: black;
+}
+
+
 /*
 #btn-back,
 #btn-switch_floor {

@@ -1,57 +1,53 @@
-
-<main  id="first_floor">
-    <nav class="navbar">
+<main id="first_floor">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <div class="row w-100">
-                <div class="col-2">
-                    <a href="WelcomeMenu" id=btn-back class="btn">
-                        <fa-icon [icon]="faArrowLeft"></fa-icon>
+            <div class="row w-100 d-flex flex-row">
+                <div class="col">
+                    <a href="WelcomeMenu" class="btn btn-home">
+                        <fa-icon [icon]="faHome"></fa-icon>
                     </a>
-
-                </div>
-                <div class="col-10 ">
-                    <button *ngIf="selectedFloor === 'first'" (click)="setFloorImage('ground')" id="btn-switch_floor" class="btn float-right ml-3" placement="left">
+                    <button *ngIf="selectedFloor === 'first'" (click)="setFloorImage('ground')" id="btn-switch_floor" class="btn btn-floor ml-3" placement="left">
                         Ground Floor
                     </button>
-                    <button *ngIf="selectedFloor === 'ground'" (click)="setFloorImage('first')" id="btn-switch_floor" class="btn float-right" placement="left">
+                    <button *ngIf="selectedFloor === 'ground'" (click)="setFloorImage('first')" id="btn-switch_floor" class="btn btn-floor ml-3" placement="left">
                         First Floor
                     </button>
-
                 </div>
             </div>
         </div>
     </nav>
     <div *ngIf="selectedFloor === 'ground'" [@inOutAnimation] class="container-fluid">
         <div class="row h-100 align-items-center">
-            <div class="col-2">
+            <div class="col-3">
                 <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/Ufficio2GroundFloor')" class="btn  mb-3">Uff. tec. 2</button>
+                    <div class="col mb-3 text-center">
+                        <h2>Choose an office and click it to visualize the workstations.</h2>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/Reception')" class="btn mb-3">Reception</button>
+                    <div class="col mb-3 text-center">
+                        <button (click)="goToOffice('/Ufficio2GroundFloor')" class="btn btn-office">Uff. tec. 2</button>
+                    </div>
+                    <div class="col mb-3 text-center">
+                        <button (click)="goToOffice('/Reception')" class="btn btn-office">Reception</button>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/Ufficio3GroundFloor')" class="btn mb-3">Uff. tec. 3</button>
+                    <div class="col mb-3 text-center">
+                        <button (click)="goToOffice('/Ufficio3GroundFloor')" class="btn btn-office">Uff. tec. 3</button>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/Ufficio1GroundFloor')" class="btn mb-3">Uff. tec. 1</button>
+                    <div class="col text-center">
+                        <button (click)="goToOffice('/Ufficio1GroundFloor')" class="btn btn-office">Uff. tec. 1</button>
                     </div>
                 </div>
             </div>
-            <div class="col-10">
+            <div class="col">
                 <div class="row d-flex flex-column">
                     <div class="col mb-5">
                         <span>Ground floor</span>
                     </div>
                     <div class="col">
-                        <img class="img-fluid" id="img-piani" src="../../../assets/img/b__piano_terra.png">
+                        <img class="img-fluid" id="img-piani" src="../../../assets/img/__piano_terra.png">
                     </div>
                 </div>
             </div>
@@ -61,64 +57,65 @@
 
     <div *ngIf="selectedFloor === 'first'" [@inOutAnimation] class="container-fluid">
         <div class="row h-100 align-items-center">
-            <div class="col-2">
+            <div class="col-3">
                 <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/DirezioneErreGes')" class="btn mb-3">Dir. Erre
+                    <div class="col mb-3 text-center">
+                        <h2>Choose an office and click it to visualize the workstations.</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3 text-center">
+                        <button (click)="goToOffice('/DirezioneErreGes')" class="btn btn-office">Dir. Erre
                                 Ges</button>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/Amministrazione')" class="btn mb-3">Amministrazione</button>
+                    <div class="col mb-3 text-center">
+                        <button (click)="goToOffice('/DirezioneErrePro')" class="btn btn-office">Dir. Erre Pro</button>
                     </div>
+
                 </div>
                 <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/DirezioneErreTech')" class="btn mb-3">Dir. Erre
+                    <div class="col mb-3 text-center">
+                        <button (click)="goToOffice('/DirezioneErreTech')" class="btn btn-office">Dir. Erre
                                 Tech</button>
                     </div>
+                    <div class="col mb-3 text-center">
+                        <button (click)="goToOffice('/DirezioneErreLab')" class="btn btn-office">Dir. Erre
+                                Lab</button>
+                    </div>
+
                 </div>
                 <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/Ufficio1FirstFloor')" class="btn mb-3">Uff.1</button>
+                    <div class="col mb-3 text-center">
+                        <button (click)="goToOffice('/Ufficio1FirstFloor')" class="btn btn-office">Ufficio 1</button>
+                    </div>
+                    <div class="col mb-3 text-center">
+                        <button (click)="goToOffice('/HRSales')" class="btn btn-office">HR and Sales</button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <button (click)="goToOffice('/DirezioneErrePro')" class="btn mb-3">Dir. Erre Pro</button>
+                        <button (click)="goToOffice('/UfficioPro')" class="btn btn-office">Uff. tec. Erre Pro</button>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/HRSales')" class="btn mb-3">HR and Sales</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/DirezioneErreLab')" class="btn mb-3 ">Dir. Erre
+
+                    <div class="col mb-3 text-center">
+                        <button (click)="goToOffice('/UfficioLab')" class="btn btn-office">Uff. tec. Erre
                                 Lab</button>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/UfficioLab')" class="btn mb-3">Uff. tec. Erre
-                                Lab</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <button (click)="goToOffice('/UfficioPro')" class="btn">Uff. tec. Erre Pro</button>
+
+                    <div class="col mb-3">
+                        <button (click)="goToOffice('/Amministrazione')" class="btn btn-office">Amministrazione</button>
                     </div>
                 </div>
             </div>
-            <div class="col-10">
+            <div class="col">
                 <div class="row d-flex flex-column">
                     <div class="col mb-5">
                         <span>First floor</span>
                     </div>
                     <div class="col">
-                        <img class="img-fluid" id="img-piani" src="../../../assets/img/b__primo_piano.png">
+                        <img class="img-fluid" id="img-piani" src="../../../assets/img/__primo_piano.png">
                     </div>
                 </div>
             </div>
