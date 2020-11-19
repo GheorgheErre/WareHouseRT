@@ -10,7 +10,7 @@
                 </h1>
                 <hr class="trans--grow hr">
                 <button *ngIf="!loggedIn" (click)="openLogin()" class="btn btn-start">START NOW</button>
-                <button *ngIf="loggedIn" href="/WelcomeMenu" class="btn btn-start-logged">START NOW</button>
+                <button *ngIf="loggedIn" onclick="location.href = '/WelcomeMenu';" class="btn btn-start-logged">START NOW</button>
             </div>
 
         </div>
