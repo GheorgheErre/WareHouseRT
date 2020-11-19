@@ -15,7 +15,7 @@ public class Monitor extends Article {
 	
 	private int inches;
 	private int frequence;
-	private int resolution;
+	private String resolution;
 	
 	public long getId() {
 		return id;
@@ -35,10 +35,10 @@ public class Monitor extends Article {
 	public void setFrequence(int frequence) {
 		this.frequence = frequence;
 	}
-	public int getResolution() {
+	public String getResolution() {
 		return resolution;
 	}
-	public void setResolution(int resolution) {
+	public void setResolution(String resolution) {
 		this.resolution = resolution;
 	}
 	
