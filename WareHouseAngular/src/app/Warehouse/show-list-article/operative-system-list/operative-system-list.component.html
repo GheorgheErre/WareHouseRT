@@ -1,6 +1,6 @@
 <header>
 	<div class="container">
-		<div class="row h-100 d-flex flex-column flex-wrap">
+		<div  *ngIf="showList?.length; else emptyList" class="row h-100 d-flex flex-column flex-wrap">
 			<div class="col mt-5">
 				<div class="row h-100 align-items-end">
 
@@ -34,7 +34,7 @@
 				</div>
 			</div>
 			<div class="col">
-				<div *ngIf="showList?.length; else emptyList" class="table-responsive">
+				<div class="table-responsive">
 					<table id="myTable" class="table table-striped">
 						<thead>
 							<tr>
@@ -73,9 +73,21 @@
 						</tbody>
 					</table>
 				</div>
-				<ng-template #emptyList><div id="emptyListMessage">No Operative System present in the warehouse, press <fa-icon [icon]="faPlus"></fa-icon> to add a new Operative System.</div></ng-template>
 			</div>
 		</div>
+		<ng-template #emptyList>
+            <div class="container h-100 justify-content-center">
+                <div class="row h-100">
+                    <div id="emptyListMessage" class="col mt-5">
+                        No Operative System present in the warehouse, press
+                        <button class="btn mr-2" id="btn-add" data-toggle="modal" (click)="onAddArticleButton()"
+                            data-target="#saveOrUpdateModal">
+                            <fa-icon [icon]="faPlus"></fa-icon>
+                        </button> to add a new Operative System.</div>
+                </div>
+
+            </div>
+        </ng-template>
 	</div>
 </header>
 
