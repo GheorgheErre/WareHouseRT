@@ -31,10 +31,22 @@
             <input [(ngModel)]="cpuTemp.userNumber" name="userNumber" class="form-control" placeholder="User number:">
         </div>
         <div class="form-group mb-4 ">
-            <input [(ngModel)]="cpuTemp.core" name="core" class="form-control" placeholder="Core:">
+            <input pattern="((\d+\.?\d*)|(\.\d+))" [(ngModel)]="cpuTemp.core" name="core" class="form-control"
+                placeholder="Core:" #core="ngModel">
+            <div *ngIf="core.invalid &&(core.dirty || core.touched)" class="alert alert-danger  mt-2" role="alert">
+                <div *ngIf="core.errors.pattern">
+                    Only Number are allowed.
+                </div>
+            </div>
         </div>
         <div class="form-group mb-4 ">
-            <input [(ngModel)]="cpuTemp.threads" name="threads" class="form-control" placeholder="Threads:">
+            <input pattern="((\d+\.?\d*)|(\.\d+))" [(ngModel)]="cpuTemp.threads" name="threads" class="form-control"
+                placeholder="Threads:" #threads="ngModel">
+            <div *ngIf="threads.invalid &&(threads.dirty || threads.touched)" class="alert alert-danger  mt-2" role="alert">
+                <div *ngIf="threads.errors.pattern">
+                    Only Number are allowed.
+                </div>
+            </div>
         </div>
         <div class="form-group mb-4 ">
             <input [(ngModel)]="cpuTemp.baseClock" name="baseClock" class="form-control" placeholder="Base Clock:">
