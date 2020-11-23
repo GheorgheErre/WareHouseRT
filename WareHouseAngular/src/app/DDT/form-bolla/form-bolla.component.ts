@@ -104,7 +104,7 @@ export class FormBollaComponent implements OnInit {
   incrementaDDT(){
     this.ddtService.incrementaDDT().subscribe(result => {
       console.log("DDT INCREMENTATO CON SUCCESSO");
-      this.bolla.numeroDDt = result.numero;
+      this.bolla.numeroDDT = result.numero;
       this.bolla.anno = result.anno;
     })
   }

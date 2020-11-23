@@ -5,7 +5,7 @@ import { Recipient } from '../recipient/recipient';
 
 export class Bolla {
 
-    numeroDDt : number;
+    numeroDDT : number;
     anno : number;
     recipient : Recipient;
     cause : String;

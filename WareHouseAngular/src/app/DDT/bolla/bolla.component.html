@@ -13,37 +13,37 @@
       <p class="font-weight-bold m-0">ERRE TECHNOLOGY GROUP SRL</p>
       <p class="m-0">CORSO VITTORIO EMANUELE II 74 - 10121 - TORINO (TO)</p>
       <p class="m-0">P.iva 11037020010 - C.F. 11037020010</p>
-      <p class="mt-4 font-weight-bold">DOCUMENTO DI TRASPORTO nr. 42/2020 del 02/10/2020</p>
+      <p class="mt-4 font-weight-bold">DOCUMENTO DI TRASPORTO nr. {{bolla.numeroDDT}} / {{bolla.anno}} del </p>
     </div>
   </div>
   <hr>
   <div class="row">
     <div class="col">
       <h6>DESTINATARIO</h6>
-      <p class="font-weight-bold m-0">PININFARINA SPA</p>
-      <p class="font-weight-bold m-0">VIA NAZIONALE 30 </p>
-      <p class="font-weight-bold m-0">10020 Cambiano (TO)</p>
-      <p class="font-weight-bold mt-2">P.IVA/CF 00489110015</p>
+      <p class="font-weight-bold m-0">{{bolla.recipient.name}}</p>
+      <p class="font-weight-bold m-0">{{bolla.recipient.address.via}}</p>
+      <p class="font-weight-bold m-0">{{bolla.recipient.address.cap}} {{bolla.recipient.address.comune}} {{bolla.recipient.address.provincia}}</p>
+      <p class="font-weight-bold mt-2">P.IVA/CF {{bolla.recipient.pIva}}</p>
     </div>
     <div class="col">
       <h6>CAUSALE DEL TRASPORTO</h6>
-      <p>P.USO</p>
+      <p>{{bolla.cause}}</p>
       <div class="row">
         <div class="col">
           <h6>NUMERO COLLI</h6>
-          <p class="font-weight-bold">1</p>
+          <p class="font-weight-bold">{{bolla.merchandise.nColli}}</p>
         </div>
         <div class="col">
           <h6>PESO</h6>
-          <p class="font-weight-bold">1</p>
+          <p class="font-weight-bold">{{bolla.merchandise.weight}}</p>
         </div>
         <div class="col">
           <h6>TRASPORTO</h6>
-          <p class="font-weight-bold">1</p>
+          <p class="font-weight-bold">{{bolla.merchandise.transport}}</p>
         </div>
       </div>
       <h6>ANNOTAZIONI</h6>
-      <p class="font-weight-bold">C/A MONTEVERDE Giuseppe</p>
+      <p class="font-weight-bold">{{bolla.annotazioni}}</p>
 
     </div>
   </div>
@@ -58,21 +58,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="font-weight-bold">HP ZBOOK 15 32 GB Ram - UTENTE 67 S/N CND5020JZH</td>
+
+          <tr *ngFor="let product of bolla.goods">
+
+            <td class="font-weight-bold">{{product.brand}} {{product.model}} {{product.serialNumber}}</td>
             <td class="font-weight-bold">1</td>
 
           </tr>
-          <tr>
-
-            <td class="font-weight-bold">TASTIERA LOGITECH K120 - P/N 820-006545 1</td>
-            <td class="font-weight-bold">1</td>
-          </tr>
-          <tr>
-
-            <td class="font-weight-bold">MONITOR PHILIPS 24" S/N ZV0A1548006723</td>
-            <td class="font-weight-bold">1</td>
-          </tr>
+         
         </tbody>
       </table>
     </div>
@@ -94,7 +87,7 @@
   <hr>
   <div class="row">
     <div class="col">
-      Documento di trasporto nr. 42/2020 del 02/10/2020 - 1 / 1
+      DOCUMENTO DI TRASPORTO nr. {{bolla.numeroDDT}}/{{bolla.anno}} del 
     </div>
     <div id="sideFooter" class="col">
       <p class="font-weight-bold m-0">ERRE TECHNOLOGY GROUP SRL</p>
