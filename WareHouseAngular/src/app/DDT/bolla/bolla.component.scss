@@ -6,7 +6,8 @@
 
 * {
   font-family: "Oswald", sans-serif;
-  
+  font-size: 10px;
+  color: rgb(88, 88, 88);
 }
 
 #imgLogo{
@@ -21,18 +22,16 @@
 }
 
 #tableProduct{
-  min-height: 500px;
+  min-height: 450px;
 }
 
-#sideHeader{
-  text-align: right;
-  font-size: 10px;
 
-}
-#sideFooter{
-  text-align: right;
-  font-size: 10px;
-}
+td, th  {   
+    
+  
+    padding: 5px;
+       
+   }
 .btn-pdf {
     background: teal;
     padding: 5px;
@@ -51,6 +50,8 @@
   
   #pdfSink{
     max-width: 700px;
+    padding-left: 30px;
+    padding-right: 30px;
   
   }
   
