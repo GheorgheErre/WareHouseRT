@@ -3,55 +3,103 @@
 <button class="btn-pdf" (click)="htmlToPdf()">Download PDF</button>
 
 
-<div id="pdfSink">
-<div class="left">
+<div class="container" id="pdfSink">
 
-<h6 class="link">Github: https://github.com/amirping</h6>
-<h6 class="link">LinkedIn: https://www.linkedin.com/in/med-amir-saadallah/</h6>
+  <div class="row pt-4">
+    <div class="col">
+      <img id="imgLogo" src="../../../assets/img/erretechnologygroup.png">
+    </div>
+    <div id="sideHeader" class="col">
+      <p class="font-weight-bold m-0">ERRE TECHNOLOGY GROUP SRL</p>
+      <p class="m-0">CORSO VITTORIO EMANUELE II 74 - 10121 - TORINO (TO)</p>
+      <p class="m-0">P.iva 11037020010 - C.F. 11037020010</p>
+      <p class="mt-4 font-weight-bold">DOCUMENTO DI TRASPORTO nr. 42/2020 del 02/10/2020</p>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <h6>DESTINATARIO</h6>
+      <p class="font-weight-bold m-0">PININFARINA SPA</p>
+      <p class="font-weight-bold m-0">VIA NAZIONALE 30 </p>
+      <p class="font-weight-bold m-0">10020 Cambiano (TO)</p>
+      <p class="font-weight-bold mt-2">P.IVA/CF 00489110015</p>
+    </div>
+    <div class="col">
+      <h6>CAUSALE DEL TRASPORTO</h6>
+      <p>P.USO</p>
+      <div class="row">
+        <div class="col">
+          <h6>NUMERO COLLI</h6>
+          <p class="font-weight-bold">1</p>
+        </div>
+        <div class="col">
+          <h6>PESO</h6>
+          <p class="font-weight-bold">1</p>
+        </div>
+        <div class="col">
+          <h6>TRASPORTO</h6>
+          <p class="font-weight-bold">1</p>
+        </div>
+      </div>
+      <h6>ANNOTAZIONI</h6>
+      <p class="font-weight-bold">C/A MONTEVERDE Giuseppe</p>
 
-</div>
-<div class="stuff">
-  <br><br>
-  <h1>Resume</h1>
-  <h2>Emily</h2>
-  <hr />
-  <br>
-  <p class="head">Interests</p>
-  <ul>
-    <li>Drawing</li>
-    <li>Photography</li>
-    <li>Design</li>
-    <li>Programming</li>
-    <li>Computer Science</li>
-  </ul>
-  <p class="head">Skills</p>
-  <ul>
-    <li>Angular</li>
-    <li>Js PDF</li>
-    <li>NodeJs</li>
-  </ul>
-   <p class="head">Education</p>
-  <ul>
-    <a href="http://www.wiltonhighschool.org/pages/Wilton_High_School">
-      <li>Wilton High School</li>
-    </a>
-    <!--Link-->
-    <a href="https://www.silvermineart.org/">
-      <li>Silvermine School of Arts</li>
-    </a>
-    <li>Codeacademy</li>
-  </ul>
-  <p class="head">Experience</p>
-  <ul>
-    <li>Student Technology Intern for Wilton School District</li>
-    <li>Babysitter</li>
-  </ul>
-  <p class="head">Extracurriculars</p>
-  <ul>
-    <li>Recycling Club</li>
-    <li>Gardening Club</li>
-    <li>Book Club</li>
-  </ul>
-</div>
-</div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div id="tableProduct" class="col">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">DESCRIZIONE</th>
+            <th scope="col">QUANTITA'</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="font-weight-bold">HP ZBOOK 15 32 GB Ram - UTENTE 67 S/N CND5020JZH</td>
+            <td class="font-weight-bold">1</td>
 
+          </tr>
+          <tr>
+
+            <td class="font-weight-bold">TASTIERA LOGITECH K120 - P/N 820-006545 1</td>
+            <td class="font-weight-bold">1</td>
+          </tr>
+          <tr>
+
+            <td class="font-weight-bold">MONITOR PHILIPS 24" S/N ZV0A1548006723</td>
+            <td class="font-weight-bold">1</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <h6> DATA E FIRMA MITTENTE</h6>
+    </div>
+    <div class="col">
+      <h6> DATA E FIRMA CORRIERE</h6>
+    </div>
+    <div class="col">
+      <h6> DATA E FIRMA DESTINATARIO</h6>
+    </div>
+
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      Documento di trasporto nr. 42/2020 del 02/10/2020 - 1 / 1
+    </div>
+    <div id="sideFooter" class="col">
+      <p class="font-weight-bold m-0">ERRE TECHNOLOGY GROUP SRL</p>
+      <p class="m-0">www.erretechnology.com - erre@erretechnology.com</p>
+      <p class="m-0">tel: 01119742900 - fax: 01119837800</p>
+    </div>
+  </div>
+</div>
