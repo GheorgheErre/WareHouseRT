@@ -5,16 +5,15 @@ import { Recipient } from '../recipient/recipient';
 
 export class Bolla {
 
+    numeroDDt : number;
+    anno : number;
     recipient : Recipient;
     cause : String;
     merchandise : Merchandise;
     annotazioni : String;
     goods: Product[];
     //goods : Good[];
-
-    //per quanto riguarlda la data usiamo le pipe di angular
-    date;
-
+    
     constructor() {
 
     }

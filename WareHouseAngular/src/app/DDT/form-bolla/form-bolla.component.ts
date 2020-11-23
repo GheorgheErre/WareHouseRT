@@ -1,3 +1,4 @@
+import { trigger, transition, style, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Address } from 'src/app/pcObjects/ddt/address/address';
@@ -7,6 +8,7 @@ import { Recipient } from 'src/app/pcObjects/ddt/recipient/recipient';
 import { Product } from 'src/app/pcObjects/product/product';
 import { CableService } from 'src/app/service/service-cable/cable.service';
 import { CellphoneService } from 'src/app/service/service-cellphone/cellphone-service.service';
+import { DdtService } from 'src/app/service/service-ddt/ddt.service';
 import { DesktopService } from 'src/app/service/service-desktop/desktop-service.service';
 import { DockingStationService } from 'src/app/service/service-docking-station/docking-station-service.service';
 import { GraphicTabletService } from 'src/app/service/service-graphic-tablet/graphic-tablet-service.service';
@@ -20,7 +22,30 @@ import { ServiceService } from 'src/app/service/service.service';
 @Component({
   selector: 'app-form-bolla',
   templateUrl: './form-bolla.component.html',
-  styleUrls: ['./form-bolla.component.scss']
+  styleUrls: ['./form-bolla.component.scss'],
+  animations: [
+    trigger(
+      'openBolla', 
+      [
+        transition(
+          ':enter', 
+          [
+            style({ height: 0, opacity: 0 }),
+            animate('0.5s ease-out', 
+                    style({ height: 0, opacity: 1 }))
+          ]
+        ),
+        transition(
+          ':leave', 
+          [
+            style({ height: 0, opacity: 1 }),
+            animate('0.5s ease-in', 
+                    style({ height: 0, opacity: 0 }))
+          ]
+        )
+      ]
+    )
+  ]
 })
 export class FormBollaComponent implements OnInit {
 
@@ -30,10 +55,12 @@ export class FormBollaComponent implements OnInit {
   address: Address = new Address();
   cause: String;
   annotazioni: String;
-  goods: Product[];
+  goods: Product[] = [];
   service: ServiceService;
   showProductList: Product[];
   productType: String;
+  bollaCreata : boolean = false;
+  note: String;
 
   constructor(private router: Router,
     private monitorService: MonitorService,
@@ -45,7 +72,8 @@ export class FormBollaComponent implements OnInit {
     private graphicTabletService: GraphicTabletService,
     private tokenService: TokenService,
     private mouseService: MouseService,
-    private dockingStationService: DockingStationService) {
+    private dockingStationService: DockingStationService,
+    private ddtService: DdtService) {
   }
 
   ngOnInit(): void {
@@ -63,16 +91,35 @@ export class FormBollaComponent implements OnInit {
     })
   }
 
+
   addProductToBolla(product) {
+    product.location = "Presso" + " " + this.recipient.name;
+    this.service.saveOrUpdate(product, this.note).subscribe(result => {
+      console.log("ARTICLE CARICATO CON SUCCESSO");
+    }); 
     this.goods.push(product);
+    this.merchandise.nColli++;
   }
 
+  incrementaDDT(){
+    this.ddtService.incrementaDDT().subscribe(result => {
+      console.log("DDT INCREMENTATO CON SUCCESSO");
+      this.bolla.numeroDDt = result.numero;
+      this.bolla.anno = result.anno;
+    })
+  }
+
+
   creaBolla() {
+    this.incrementaDDT();
+
     this.recipient.address = this.address;
     this.bolla.recipient = this.recipient;
     this.bolla.merchandise = this.merchandise;
     this.bolla.goods = this.goods;
+    this.bollaCreata = true;
   }
+
 
   chooseService(product) {
     switch (product) {

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { Input } from '@angular/core';
+import { Bolla } from 'src/app/pcObjects/ddt/bolla/bolla';
 
 
 @Component({
@@ -10,9 +12,12 @@ import html2canvas from 'html2canvas';
 })
 export class BollaComponent implements OnInit {
 
+  @Input() bolla: Bolla; 
+
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.bolla);
   }
 
   htmlToPdf() {
