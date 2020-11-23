@@ -46,6 +46,8 @@ import { DirErreTechComponent } from './WorkStation/office/first-floor/dir-erre-
 import { HistoricWelcomeComponent } from './Historic/historic-welcome/historic-welcome.component';
 import { HistoricDeleteListComponent } from './Historic/historic-delete/historic-delete-list/historic-delete-list.component';
 import { HistoricMovementsListComponent } from './Historic/historic-movements/historic-movements-list/historic-movements-list.component';
+import { BollaComponent } from './DDT/bolla/bolla.component';
+import { FormBollaComponent } from './DDT/form-bolla/form-bolla.component';
 
 
 
@@ -94,7 +96,9 @@ const routes: Routes = [
   {path:"UfficioPro", component: UffProComponent, canActivate : [AuthGaurdService]},
   {path:"HistoryWelcome", component: HistoricWelcomeComponent, canActivate : [AuthGaurdService]},
   {path:"HistoricDelete", component: HistoricDeleteListComponent, canActivate : [AuthGaurdService]},
-  {path:"HistoricMovements", component: HistoricMovementsListComponent, canActivate : [AuthGaurdService]}
+  {path:"HistoricMovements", component: HistoricMovementsListComponent, canActivate : [AuthGaurdService]},
+  {path:"ProvaPdf", component: BollaComponent},
+  {path:"FormBolla", component: FormBollaComponent},
 ] ;
 
 @NgModule({

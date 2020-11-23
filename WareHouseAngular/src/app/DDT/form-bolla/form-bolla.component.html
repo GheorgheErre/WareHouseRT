@@ -1,0 +1,143 @@
+<div class="row">
+    <div class="col">
+      <div class="container">
+      
+  
+          <div class="row">
+            <div class="col">
+              <h3>Destinatario</h3>
+              <label for="name"><i class="fa fa-user"></i> Full Name</label>
+              <input [(ngModel)]="recipient.name" type="text" name="name">
+              <label for="pIVA"><i class="fa fa-envelope"></i> P.IVA/CF</label>
+              <input [(ngModel)]="recipient.pIva" type="text"  name="pIVA" >
+              <h3>Address</h3>
+              <label for="via"><i class="fa fa-address-card-o"></i> Via</label>
+              <input [(ngModel)]="address.via" type="text"  name="via" placeholder="542 W. 15th Street">
+              <label for="comune"><i class="fa fa-institution"></i> Comune</label>
+              <input [(ngModel)]="address.comune" type="text" name="comune" placeholder="Torino">
+  
+              <div class="row">
+                <div class="col-50">
+                  <label for="provincia">Provincia</label>
+                  <input [(ngModel)]="address.provincia" type="text"  name="provincia" placeholder="TO">
+                </div>
+                <div class="col-50">
+                  <label for="cap">Cap</label>
+                  <input [(ngModel)]="address.cap" type="text"  name="cap" placeholder="10001">
+                </div>
+              </div>
+            </div>
+  
+            <div class="col">
+              <label for="cname">Causale</label>
+              <input [(ngModel)]="cause" type="text" name="causale" >
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="nColli">Numero Di Colli</label>
+                  <input [(ngModel)]="merchandise.nColli" type="number"  name="nColli" >
+                </div>
+                <div class="col-25">
+                  <label for="peso">Peso</label>
+                  <input [(ngModel)]="merchandise.weight" type="text" name="peso">
+                </div>
+                <div class="col-25">
+                  <label for="transport">Trasporto</label>
+                  <input [(ngModel)]="merchandise.transport" type="text"  name="transport">
+                </div>
+              </div>
+              
+              <label for="annotazioni">Annotazioni</label>
+              <input [(ngModel)]="annotazioni" type="text" name="annotazioni">
+  
+
+            </div>
+
+            <div class="col">
+              <h3>Aggiungi articolo</h3>
+              <div ngbDropdown class="d-inline-block">
+                <button class="btn" id="warehouse-dropdown" ngbDropdownToggle>Add
+                    article from warehouse</button>
+                <div ngbDropdownMenu aria-labelledby="warehouse-dropdown" id="warehouse-dropdown-body">
+                    <button id="btn-body" ngbDropdownItem (click)="showList('Laptop')" data-toggle="modal"
+                        data-target="#addArticleFromWarehouseModal">Laptop</button>
+                    <button id="btn-body" ngbDropdownItem (click)="showList('Desktop')" data-toggle="modal"
+                        data-target="#addArticleFromWarehouseModal">Desktop</button>
+                    <button id="btn-body" ngbDropdownItem (click)="showList('Monitor')" data-toggle="modal"
+                        data-target="#addArticleFromWarehouseModal">Monitor</button>
+                    <button id="btn-body" ngbDropdownItem (click)="showList('Keyboard')" data-toggle="modal"
+                        data-target="#addArticleFromWarehouseModal">Keyboard</button>
+                    <button id="btn-body" ngbDropdownItem (click)="showList('Cable')" data-toggle="modal"
+                        data-target="#addArticleFromWarehouseModal">Cable</button>
+                    <button id="btn-body" ngbDropdownItem (click)="showList('GraphicTablet')"
+                        data-toggle="modal" data-target="#addArticleFromWarehouseModal">Graphic
+                        Tablet</button>
+                    <button id="btn-body" ngbDropdownItem (click)="showList('Cellphone')"
+                        data-toggle="modal" data-target="#addArticleFromWarehouseModal">Cellphone</button>
+                    <button id="btn-body" ngbDropdownItem (click)="showList('Mouse')" data-toggle="modal"
+                        data-target="#addArticleFromWarehouseModal">Mouse</button>
+                    <button id="btn-body" ngbDropdownItem (click)="showList('Token')" data-toggle="modal"
+                        data-target="#addArticleFromWarehouseModal">Token</button>
+                    <button id="btn-body" ngbDropdownItem (click)="showList('DockingStation')"
+                        data-toggle="modal" data-target="#addArticleFromWarehouseModal">Docking
+                        Station</button>
+                </div>
+            </div>
+
+            <div *ngIf="goods?.length">
+              <ul>
+                <li *ngFor="let product of goods">{{product.identifier}} {{product.brand}}  {{product.model}}</li>
+              </ul>
+            </div>
+
+            </div>
+          </div>
+          <input (click)="creaBolla()" value="Crea bolla di trasporto" class="btn">
+      </div>
+    </div>
+  </div>
+
+
+  <!--Modal tabella articoli da magazzino -->
+<div class="modal fade" id="addArticleFromWarehouseModal" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" id="modalArticle">
+
+      <!-- Modal content-->
+      <div class="modal-content" id="modal">
+
+          <div class="modal-header" id="modal-header">
+              <h3 class="modal-title">List {{productType}}:</h3>
+          </div>
+          <div class="modal-body" id="modal-body">
+              <div class="col">
+                  <div *ngIf="showProductList?.length; else emptyList">
+                      <table id="myTable" class="table table-striped">
+                          <thead>
+                              <tr>
+                                  <th *ngFor="let item of entity | keyvalue" scope="row">{{item.key}}</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let product of showProductList">
+                                  <td *ngFor="let item of product | keyvalue">{{item.value}}</td>
+                                  <td><button (click)="addProductToBolla(product)">add</button></td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <ng-template #emptyList>
+                      <div id="emptyShowListMessage">No product present for the {{articleType}} category in the
+                          Warehouse.
+                      </div>
+                  </ng-template>
+              </div>
+
+
+          </div>
+          <div class="modal-footer"><button data-dismiss="modal"> Chiudi </button></div>
+      </div>
+  </div>
+</div>
+  
+  
+  
