@@ -13,6 +13,8 @@ import { Bolla } from 'src/app/pcObjects/ddt/bolla/bolla';
 export class BollaComponent implements OnInit {
 
   @Input() bolla: Bolla; 
+  dateNow : Date = new Date();
+  formatDate : String = 'dd/MM/yyyy';
 
   constructor() { }
 

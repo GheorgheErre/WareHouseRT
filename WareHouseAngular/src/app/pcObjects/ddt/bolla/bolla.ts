@@ -12,7 +12,6 @@ export class Bolla {
     merchandise : Merchandise;
     annotazioni : String;
     goods: Product[];
-    //goods : Good[];
     
     constructor() {
 
