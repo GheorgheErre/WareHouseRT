@@ -1,5 +1,5 @@
 import { trigger, transition, style, animate } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cable } from 'src/app/pcObjects/cable/cable';
 import { Cellphone } from 'src/app/pcObjects/cellphone/cellphone';
@@ -28,36 +28,16 @@ import { MonitorService } from 'src/app/service/service-monitor/monitor-service.
 import { MouseService } from 'src/app/service/service-mouse/mouse-service.service';
 import { TokenService } from 'src/app/service/service-token/token.service';
 import { ServiceService } from 'src/app/service/service.service';
+import { BollaComponent } from '../bolla/bolla.component';
 
 @Component({
   selector: 'app-form-bolla',
   templateUrl: './form-bolla.component.html',
   styleUrls: ['./form-bolla.component.scss'],
-  animations: [
-    trigger(
-      'openBolla',
-      [
-        transition(
-          ':enter',
-          [
-            style({ height: 0, opacity: 0 }),
-            animate('0.5s ease-out',
-              style({ height: 0, opacity: 1 }))
-          ]
-        ),
-        transition(
-          ':leave',
-          [
-            style({ height: 0, opacity: 1 }),
-            animate('0.5s ease-in',
-              style({ height: 0, opacity: 0 }))
-          ]
-        )
-      ]
-    )
-  ]
 })
 export class FormBollaComponent implements OnInit {
+
+  @ViewChild(BollaComponent) bollaComponent: BollaComponent;
 
   bolla: Bolla = new Bolla();
   recipient: Recipient = new Recipient();
@@ -70,7 +50,6 @@ export class FormBollaComponent implements OnInit {
   service: ServiceService;
   showProductList: Product[];
   productType: String;
-  bollaCreata: boolean = false;
   note: String;
   filtered: String;
   selectedProduct;
@@ -90,6 +69,7 @@ export class FormBollaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.riempiBolla();
   }
 
 
@@ -130,7 +110,7 @@ export class FormBollaComponent implements OnInit {
     this.aggiornaLocationProdotti();
     this.incrementaDDT();
     this.riempiBolla();
-    this.bollaCreata = true;
+    this.bollaComponent.htmlToPdf();
   }
 
   // aggiorno la location dei prodotti inseriti in bolla attribuendogli la location del cliente
