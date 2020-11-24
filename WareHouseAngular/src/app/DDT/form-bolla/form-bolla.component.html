@@ -1,7 +1,7 @@
 <main>
     <div class="container-fluid h-100">
         <div class="row h-100">
-            <div class="col mt-3">
+            <div class="col mt-5">
                 <form>
                     <h2 class="mb-3">Destinatario</h2>
                     <div class="form-row">
@@ -20,7 +20,7 @@
                     </div>
                     <h2 class="mb-3 mt-3">Indirizzo</h2>
                     <div class="form-row">
-                        <div class="col-6">
+                        <div class="col-5">
                             <div class="form-group">
                                 <label for="via">Via:</label>
                                 <input [(ngModel)]="address.via" type="text" name="via" class="form-control  input--form">
@@ -38,7 +38,7 @@
                                 <input [(ngModel)]="address.provincia" type="text" name="provincia" class="form-control input--form">
                             </div>
                         </div>
-                        <div class="col-1">
+                        <div class="col-2">
                             <div class="form-group">
                                 <label for="cap">Cap:</label>
                                 <input [(ngModel)]="address.cap" type="text" name="cap" class="form-control input--form">
@@ -83,7 +83,7 @@
                     <div *ngIf="goods?.length">
                         <ul>
                             <li *ngFor="let product of goods">{{product.identifier}} {{product.brand}} {{product.model}}
-                                <button type="button" class=" btn btn-cancella-articolo mb-2 ml-3 float-right" (click)="removeProduct(product)">Remove</button>
+                                <button type="button" class=" btn btn-cancella-articolo mb-3 ml-5" (click)="removeProduct(product)">Remove</button>
                             </li>
                         </ul>
                     </div>
