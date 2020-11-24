@@ -65,7 +65,8 @@ export class FormBollaComponent implements OnInit {
   address: Address = new Address();
   cause: String;
   annotazioni: String;
-  goods: Product[] = [];
+  goods: any = [];
+
   service: ServiceService;
   showProductList: Product[];
   productType: String;
@@ -91,6 +92,7 @@ export class FormBollaComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   showList(product) {
     this.productType = product;
     this.chooseService(product);
@@ -106,14 +108,8 @@ export class FormBollaComponent implements OnInit {
     })
   }
 
-
+  // aggiungo il prodotto selezionato ad una lista di prodotti ancora modificabile prima di creare la bolla
   addProductToBolla(product) {
-    /* product.location = "Presso" + " " + this.recipient.name;
-     product = this.addType(product);
-     this.service.saveOrUpdate(product, this.note).subscribe(result => {
-       console.log("ARTICLE CARICATO CON SUCCESSO");
-     });*/
-
     if (this.goods.filter((p) => p.identifier == product.identifier).length > 0) {
       alert("Prodotto già aggiunto");
     }
@@ -123,10 +119,35 @@ export class FormBollaComponent implements OnInit {
     }
   }
 
+  // do la possibilità di rimuovere un prodotto aggiunto alla lista provvisoria di prodotti da inserire nella bolla
   removeProduct(product) {
     this.goods = this.goods.filter((p) => p.identifier != product.identifier);
   }
 
+
+// creazione finale della bolla di trasporto: questo metodo richiama altri metodi di creazione
+  creaBolla() {
+    this.aggiornaLocationProdotti();
+    this.incrementaDDT();
+    this.riempiBolla();
+    this.bollaCreata = true;
+  }
+
+  // aggiorno la location dei prodotti inseriti in bolla attribuendogli la location del cliente
+  aggiornaLocationProdotti() {
+    for(let i=0; i<this.goods.length; i++){
+      let tmp = this.goods[i];
+      tmp = this.removeType(tmp);
+      this.chooseService(tmp.articleType);
+      tmp.location = "Presso" + " " + this.recipient.name;
+      tmp = this.addType(tmp);
+      this.service.saveOrUpdate(tmp, this.note).subscribe(result => {
+        console.log("ARTICLE CARICATO CON SUCCESSO");
+      });
+    }
+  }
+
+  // incremento il numero di bolla dell' anno in corso, salvando su database
   incrementaDDT() {
     this.ddtService.incrementaDDT().subscribe(result => {
       console.log("DDT INCREMENTATO CON SUCCESSO");
@@ -135,23 +156,21 @@ export class FormBollaComponent implements OnInit {
     })
   }
 
-
-  creaBolla() {
-    this.incrementaDDT();
-
+  // riempio l'oggetto bolla con i vari sottoOggetti con cui esso è creato
+  riempiBolla() {
     this.recipient.address = this.address;
     this.bolla.recipient = this.recipient;
     this.bolla.merchandise = this.merchandise;
     this.bolla.goods = this.goods;
-    this.bollaCreata = true;
   }
 
+  // setto il product per mostrargli i dettagli
   setDetailsProductInModal(product) {
     this.selectedProduct = this.removeType(product);
     delete this.selectedProduct.id;
   }
 
-
+  // scelgo il servizio 
   chooseService(product) {
     switch (product) {
       case "Laptop":
