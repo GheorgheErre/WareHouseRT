@@ -84,7 +84,8 @@
         <div class="col-50">
           <div *ngIf="goods?.length">
             <ul>
-              <li *ngFor="let product of goods">{{product.identifier}} {{product.brand}} {{product.model}}</li>
+              <li *ngFor="let product of goods">{{product.identifier}} {{product.brand}} {{product.model}} <button type="button" class="btn-danger"
+                    (click)="removeProduct(product)">Remove</button></li>
             </ul>
           </div>
 
@@ -93,6 +94,10 @@
       <input (click)="creaBolla()" value="Crea bolla di trasporto" class="btn">
     </div>
   </div>
+</div>
+
+<div *ngIf="bollaCreata" [@openBolla]>
+  <app-bolla [bolla]="bolla"> </app-bolla>
 </div>
 
 
@@ -108,35 +113,93 @@
       </div>
       <div class="modal-body" id="modal-body">
         <div class="col">
-          <div *ngIf="showProductList?.length; else emptyList">
-            <table id="myTable" class="table table-striped">
-              <thead>
-                <tr>
-                  <th *ngFor="let item of entity | keyvalue" scope="row">{{item.key}}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let product of showProductList">
-                  <td *ngFor="let item of product | keyvalue">{{item.value}}</td>
-                  <td><button (click)="addProductToBolla(product)">add</button></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <ng-template #emptyList>
-            <div id="emptyShowListMessage">No product present for the {{articleType}} category in the
-              Warehouse.
+          <div class="row">
+
+            <div class="col">
+              <select [(ngModel)]="filtered" class="custom-select" name="filter">
+                <option selected disabled>Filter by:</option>
+                <option value="identifier">Identifier</option>
+                <option value="users">Users</option>
+                <option value="brand">Brand</option>
+                <option value="model">Model</option>
+                <option value="serialNumber">Serial Number</option>
+                <option value="location">Location</option>
+                <option value="userNumber">User Number</option>
+              </select>
             </div>
-          </ng-template>
+
+            <div class="col">
+              <input class="form-control" type="text" id="myInput" (keyup)="searchFunction()"
+                placeholder="Search by filter...">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div *ngIf="showProductList?.length; else emptyList">
+                <table id="myTable" class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Indentifier</th>
+                      <th>Users</th>
+                      <th>Brand</th>
+                      <th>Model</th>
+                      <th>Serial Number</th>
+                      <th>Location</th>
+                      <th>User Number</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let product of showProductList">
+                      <td class="identifier">{{product.identifier}}</td>
+                      <td class="users">{{product.users}}</td>
+                      <td class="brand">{{product.brand}}</td>
+                      <td class="model">{{product.model}}</td>
+                      <td class="serialNumber">{{product.serialNumber}}</td>
+                      <td class="location">{{product.location}}</td>
+                      <td class="userNumber">{{product.userNumber}}</td>
+                      <td><button (click)="setDetailsProductInModal(product)" data-toggle="modal"
+                          data-target="#productDetailsModal">DETAILS</button> </td>
+                      <td><button (click)="addProductToBolla(product)">ADD</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <ng-template #emptyList>
+                <div id="emptyShowListMessage">No product present for the {{productType}} category in the
+                  Warehouse.
+                </div>
+              </ng-template>
+            </div>
+          </div>
         </div>
-
-
       </div>
       <div class="modal-footer"><button data-dismiss="modal"> Chiudi </button></div>
     </div>
   </div>
 </div>
 
-<div *ngIf="bollaCreata"  [@openBolla]>
-  <app-bolla [bolla]="bolla"> </app-bolla>
+
+
+<!--Modal details article -->
+<div class="modal fade" id="productDetailsModal" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+
+    <!-- Modal content-->
+    <div class="modal-content" id="modal">
+
+      <div class="modal-header" id="modal-header">
+        <h3 class="modal-title">PRODUCT DETAILS:</h3>
+      </div>
+      <table id="myTable" class="table table-striped">
+        <thead>
+        <tbody>
+          <tr *ngFor="let item of selectedProduct | keyvalue">
+            <td>{{item.key}}</td>
+            <td>{{item.value}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

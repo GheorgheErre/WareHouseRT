@@ -1,11 +1,21 @@
 import { trigger, transition, style, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Cable } from 'src/app/pcObjects/cable/cable';
+import { Cellphone } from 'src/app/pcObjects/cellphone/cellphone';
 import { Address } from 'src/app/pcObjects/ddt/address/address';
 import { Bolla } from 'src/app/pcObjects/ddt/bolla/bolla';
 import { Merchandise } from 'src/app/pcObjects/ddt/merchandise/merchandise';
 import { Recipient } from 'src/app/pcObjects/ddt/recipient/recipient';
+import { Desktop } from 'src/app/pcObjects/desktop/desktop';
+import { DockingStation } from 'src/app/pcObjects/dockingStation/docking-station';
+import { GraphicTablet } from 'src/app/pcObjects/graficTablet/grafic-tablet';
+import { Keyboard } from 'src/app/pcObjects/keyBoard/key-board';
+import { Laptop } from 'src/app/pcObjects/laptop/laptop';
+import { Monitor } from 'src/app/pcObjects/monitor/monitor';
+import { Mouse } from 'src/app/pcObjects/mouse/mouse';
 import { Product } from 'src/app/pcObjects/product/product';
+import { Token } from 'src/app/pcObjects/token/token';
 import { CableService } from 'src/app/service/service-cable/cable.service';
 import { CellphoneService } from 'src/app/service/service-cellphone/cellphone-service.service';
 import { DdtService } from 'src/app/service/service-ddt/ddt.service';
@@ -25,22 +35,22 @@ import { ServiceService } from 'src/app/service/service.service';
   styleUrls: ['./form-bolla.component.scss'],
   animations: [
     trigger(
-      'openBolla', 
+      'openBolla',
       [
         transition(
-          ':enter', 
+          ':enter',
           [
             style({ height: 0, opacity: 0 }),
-            animate('0.5s ease-out', 
-                    style({ height: 0, opacity: 1 }))
+            animate('0.5s ease-out',
+              style({ height: 0, opacity: 1 }))
           ]
         ),
         transition(
-          ':leave', 
+          ':leave',
           [
             style({ height: 0, opacity: 1 }),
-            animate('0.5s ease-in', 
-                    style({ height: 0, opacity: 0 }))
+            animate('0.5s ease-in',
+              style({ height: 0, opacity: 0 }))
           ]
         )
       ]
@@ -59,8 +69,10 @@ export class FormBollaComponent implements OnInit {
   service: ServiceService;
   showProductList: Product[];
   productType: String;
-  bollaCreata : boolean = false;
+  bollaCreata: boolean = false;
   note: String;
+  filtered: String;
+  selectedProduct;
 
   constructor(private router: Router,
     private monitorService: MonitorService,
@@ -85,23 +97,37 @@ export class FormBollaComponent implements OnInit {
     this.findAllProduct();
   }
 
+  // per le tabelle contenenti i prodotti da selezionare fitro solamente quelli che non sono già presso clienti
   findAllProduct(): void {
     this.service.findAll().subscribe(list => {
-      this.showProductList = list;
+      if (list.length != 0) {
+        this.showProductList = list.filter((product) => (!product.location.includes("Presso")));
+      }
     })
   }
 
 
   addProductToBolla(product) {
-    product.location = "Presso" + " " + this.recipient.name;
-    this.service.saveOrUpdate(product, this.note).subscribe(result => {
-      console.log("ARTICLE CARICATO CON SUCCESSO");
-    }); 
-    this.goods.push(product);
-    this.merchandise.nColli++;
+    /* product.location = "Presso" + " " + this.recipient.name;
+     product = this.addType(product);
+     this.service.saveOrUpdate(product, this.note).subscribe(result => {
+       console.log("ARTICLE CARICATO CON SUCCESSO");
+     });*/
+
+    if (this.goods.filter((p) => p.identifier == product.identifier).length > 0) {
+      alert("Prodotto già aggiunto");
+    }
+    else {
+      this.goods.push(product);
+      this.merchandise.nColli++;
+    }
   }
 
-  incrementaDDT(){
+  removeProduct(product) {
+    this.goods = this.goods.filter((p) => p.identifier != product.identifier);
+  }
+
+  incrementaDDT() {
     this.ddtService.incrementaDDT().subscribe(result => {
       console.log("DDT INCREMENTATO CON SUCCESSO");
       this.bolla.numeroDDT = result.numero;
@@ -118,6 +144,11 @@ export class FormBollaComponent implements OnInit {
     this.bolla.merchandise = this.merchandise;
     this.bolla.goods = this.goods;
     this.bollaCreata = true;
+  }
+
+  setDetailsProductInModal(product) {
+    this.selectedProduct = this.removeType(product);
+    delete this.selectedProduct.id;
   }
 
 
@@ -151,9 +182,39 @@ export class FormBollaComponent implements OnInit {
         this.service = this.graphicTabletService;
         break;
       case "DockingStation":
-
         this.service = this.dockingStationService;
         break;
+    }
+  }
+
+  removeType(json) {
+    let workstationJSONString = JSON.stringify(json);
+    workstationJSONString = workstationJSONString.split("@type").join("articleType");
+    return JSON.parse(workstationJSONString);
+  }
+
+  addType(json) {
+    let workstationJSONString = JSON.stringify(json);
+    workstationJSONString = workstationJSONString.split("articleType").join("@type");
+    return JSON.parse(workstationJSONString);
+  }
+
+  searchFunction() {
+    let input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 1; i < tr.length; i++) {
+      td = tr[i].getElementsByClassName(this.filtered)[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
     }
   }
 

@@ -87,7 +87,6 @@ export class UserWorkstationComponent implements OnInit {
       }
       else{
         this.workstation = this.removeType(data);
-        // this.workstation = data;
       }
     
     })
