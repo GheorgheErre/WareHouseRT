@@ -1,84 +1,62 @@
-.row {
-    display: -ms-flexbox; /* IE10 */
-    display: flex;
-    -ms-flex-wrap: wrap; /* IE10 */
-    flex-wrap: wrap;
-    margin: 0 -16px;
-  }
-  
-  .col-25 {
-    -ms-flex: 25%; /* IE10 */
-    flex: 25%;
-  }
-  
-  .col-50 {
-    -ms-flex: 50%; /* IE10 */
-    flex: 50%;
-  }
-  
-  .col-75 {
-    -ms-flex: 75%; /* IE10 */
-    flex: 75%;
-  }
-  
-  .col-25,
-  .col-50,
-  .col-75 {
-    padding: 0 16px;
-  }
-  
-  .container {
-    background-color: #f2f2f2;
-    //padding: 5px 20px 15px 20px;
-    border: 1px solid lightgrey;
-    border-radius: 3px;
-  }
+@font-face {
+    font-family: Oswald;
+    src: url("../../../assets/fonts/Poppins-Regular.ttf");
+}
 
-  h4 {
-    text-align: center;
-  }
-  
-  input[type=text] {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-  
-  label {
-    margin-bottom: 10px;
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+main {
+    height: 100%;
+}
+
+form {
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.input--form {
+    border: 1px solid white;
+    background-color: white;
+    outline: none;
+    box-shadow: none;
+}
+
+.btn-crea--bolla,
+.btn-cancella-articolo {
+    color: black;
+    text-decoration: none;
+    letter-spacing: 5px;
+    outline: none;
+    box-shadow: none;
+}
+
+.btn-crea--bolla:after {
+    content: '';
     display: block;
-  }
-  
-  .icon-container {
-    margin-bottom: 20px;
-    padding: 7px 0;
-    font-size: 24px;
-  }
-  
-  .btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    width: 100%;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 17px;
-  }
-  
-  .btn:hover {
-    background-color: #45a049;
-  }
-  
-  span.price {
-    float: right;
-    color: grey;
-  }
+    width: 10px;
+    height: 2px;
+    background: #004fff;
+    transition: width 0.5s;
+}
 
-  #warehouse-dropdown {
+.btn-cancella-articolo:after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 2px;
+    background: #d63031;
+    transition: width 0.5s;
+}
+
+.btn-crea--bolla:hover::after,
+.btn-cancella-articolo:hover::after {
+    width: 100%;
+}
+
+#warehouse-dropdown {
     background: white;
     color: black;
     border: 1px solid white;
@@ -100,28 +78,27 @@
     }
 }
 
+
 /* Modal */
+
 #formModal {
-  background-color: transparent;
-  color: white;
-  border: none;
+    background-color: transparent;
+    color: white;
+    border: none;
 }
 
 #formModal-body {
-  background-color: black;
-  border: none;
-  border: 1px solid white;
-  border-radius: 10px;
+    background-color: black;
+    border: none;
+    border: 1px solid white;
+    border-radius: 10px;
 }
 
-#modalArticle{
-  width: 90%;
-max-width: 1200px;
+#modalArticle {
+    width: 90%;
+    max-width: 1200px;
 }
 
 #modal {
-  overflow-x: auto;
+    overflow-x: auto;
 }
-  
-
-  

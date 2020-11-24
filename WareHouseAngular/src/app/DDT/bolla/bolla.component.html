@@ -1,98 +1,95 @@
 <!-- <h1>{{ name }}</h1> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.1.1/jspdf.umd.min.js"></script>
-<button class="btn-pdf" (click)="htmlToPdf()">Download PDF</button>
-
 
 <div class="container" id="pdfSink">
-
-  <div class="row pt-5">
-    <div class="col">
-      <img id="imgLogo" src="../../../assets/img/erretechnologygroup.png">
-    </div>
-    <div id="sideHeader" class="col">
-      <p class="font-weight-bold m-0">ERRE TECHNOLOGY GROUP SRL</p>
-      <p class="m-0">CORSO VITTORIO EMANUELE II 74 - 10121 - TORINO (TO)</p>
-      <p class="m-0">P.iva 11037020010 - C.F. 11037020010</p>
-      <p class="mt-4 font-weight-bold">DOCUMENTO DI TRASPORTO nr. {{bolla.numeroDDT}} / {{bolla.anno}} del {{dateNow | date: formatDate}} </p>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col">
-      <h6 class="mb-0">DESTINATARIO</h6>
-      <p class="font-weight-bold m-0">{{bolla.recipient.name}}</p>
-      <p class="font-weight-bold m-0">{{bolla.recipient.address.via}}</p>
-      <p class="font-weight-bold m-0">{{bolla.recipient.address.cap}} {{bolla.recipient.address.comune}} {{bolla.recipient.address.provincia}}</p>
-      <p class="font-weight-bold mt-2">P.IVA/CF {{bolla.recipient.pIva}}</p>
-    </div>
-    <div class="col">
-      <h6 class="mb-0">CAUSALE DEL TRASPORTO</h6>
-      <p class="font-weight-bold m-0 mb-2">{{bolla.cause}}</p>
-      <div class="row">
+    <div class="row mt-3">
         <div class="col">
-          <h6 class="mb-0">NUMERO COLLI</h6>
-          <p class="font-weight-bold m-0 mb-2">{{bolla.merchandise.nColli}}</p>
+            <img id="imgLogo" src="../../../assets/img/erretechnologygroup.png">
+        </div>
+        <div id="sideHeader" class="col">
+            <p class="font-weight-bold m-0">ERRE TECHNOLOGY GROUP SRL</p>
+            <p class="m-0">CORSO VITTORIO EMANUELE II 74 - 10121 - TORINO (TO)</p>
+            <p class="m-0">P.iva 11037020010 - C.F. 11037020010</p>
+            <p class="mt-4 font-weight-bold">DOCUMENTO DI TRASPORTO nr. {{bolla.numeroDDT}} / {{bolla.anno}} del {{dateNow | date: formatDate}} </p>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <h6 class="mb-0">DESTINATARIO</h6>
+            <p class="font-weight-bold m-0">{{bolla.recipient.name}}</p>
+            <p class="font-weight-bold m-0">{{bolla.recipient.address.via}}</p>
+            <p class="font-weight-bold m-0">{{bolla.recipient.address.cap}} {{bolla.recipient.address.comune}} {{bolla.recipient.address.provincia}}</p>
+            <p class="font-weight-bold mt-2">P.IVA/CF {{bolla.recipient.pIva}}</p>
         </div>
         <div class="col">
-          <h6 class="mb-0">PESO</h6>
-          <p class="font-weight-bold m-0 mb-2">{{bolla.merchandise.weight}}</p>
+            <h6 class="mb-0">CAUSALE DEL TRASPORTO</h6>
+            <p class="font-weight-bold m-0 mb-2">{{bolla.cause}}</p>
+            <div class="row">
+                <div class="col">
+                    <h6 class="mb-0">NUMERO COLLI</h6>
+                    <p class="font-weight-bold m-0 mb-2">{{bolla.merchandise.nColli}}</p>
+                </div>
+                <div class="col">
+                    <h6 class="mb-0">PESO</h6>
+                    <p class="font-weight-bold m-0 mb-2">{{bolla.merchandise.weight}}</p>
+                </div>
+                <div class="col">
+                    <h6 class="mb-0">TRASPORTO</h6>
+                    <p class="font-weight-bold m-0 mb-2">{{bolla.merchandise.transport}}</p>
+                </div>
+            </div>
+            <h6 class="mb-0">ANNOTAZIONI</h6>
+            <p class="font-weight-bold mt-0 mb-3">{{bolla.annotazioni}}</p>
+
         </div>
+    </div>
+
+    <div class="row">
+        <div id="tableProduct" class="col">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">DESCRIZIONE</th>
+                        <th class="text-right" scope="col">QUANTITA'</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let product of bolla.goods">
+
+                        <td>{{product.brand}} {{product.model}} {{product.serialNumber}}</td>
+                        <td class=" text-right">1</td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <hr>
+    <div class="row">
         <div class="col">
-          <h6 class="mb-0">TRASPORTO</h6>
-          <p class="font-weight-bold m-0 mb-2">{{bolla.merchandise.transport}}</p>
+            <h6> DATA E FIRMA MITTENTE</h6>
         </div>
-      </div>
-      <h6 class="mb-0">ANNOTAZIONI</h6>
-      <p class="font-weight-bold mt-0 mb-3">{{bolla.annotazioni}}</p>
+        <div class="col  text-center">
+            <h6> DATA E FIRMA CORRIERE</h6>
+        </div>
+        <div class="col  text-right">
+            <h6> DATA E FIRMA DESTINATARIO</h6>
+        </div>
 
     </div>
-  </div>
-  
-  <div class="row">
-    <div id="tableProduct" class="col">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th  scope="col">DESCRIZIONE</th>
-            <th class="text-right" scope="col">QUANTITA'</th>
-          </tr>
-        </thead>
-        <tbody>
-
-          <tr *ngFor="let product of bolla.goods">
-
-            <td>{{product.brand}} {{product.model}} {{product.serialNumber}}</td>
-            <td class=" text-right">1</td>
-
-          </tr>
-         
-        </tbody>
-      </table>
+    <hr>
+    <div class="row mb-5">
+        <div class="col">
+            DOCUMENTO DI TRASPORTO nr. {{bolla.numeroDDT}}/{{bolla.anno}} del {{dateNow | date: formatDate}}
+        </div>
+        <div id="sideFooter" class="col text-right">
+            <p class="font-weight-bold m-0">ERRE TECHNOLOGY GROUP SRL</p>
+            <p class="m-0">www.erretechnology.com - erre@erretechnology.com</p>
+            <p class="m-0">tel: 01119742900 - fax: 01119837800</p>
+        </div>
     </div>
-
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col">
-      <h6> DATA E FIRMA MITTENTE</h6>
-    </div>
-    <div class="col  text-center">
-      <h6> DATA E FIRMA CORRIERE</h6>
-    </div>
-    <div class="col  text-right">
-      <h6> DATA E FIRMA DESTINATARIO</h6>
-    </div>
-
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col">
-      DOCUMENTO DI TRASPORTO nr. {{bolla.numeroDDT}}/{{bolla.anno}} del {{dateNow | date: formatDate}}
-    </div>
-    <div id="sideFooter" class="col text-right">
-      <p class="font-weight-bold m-0">ERRE TECHNOLOGY GROUP SRL</p>
-      <p class="m-0">www.erretechnology.com - erre@erretechnology.com</p>
-      <p class="m-0">tel: 01119742900 - fax: 01119837800</p>
-    </div>
-  </div>
 </div>
