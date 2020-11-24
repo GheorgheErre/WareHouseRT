@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faPlus, faPen, faEraser } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faPen, faEraser, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { Article } from 'src/app/pcObjects/article/article';
 import { Product } from 'src/app/pcObjects/product/product';
 import { WorkStationService } from 'src/app/service/service-workStation/work-station.service';
@@ -11,6 +11,8 @@ import { ServiceService } from 'src/app/service/service.service';
 
 export abstract class ProductList {
 
+  faEye= faEye;
+  faEyeSlash=faEyeSlash;
   faEraser = faEraser;
   faPen = faPen;
   faPlus = faPlus;
@@ -49,16 +51,16 @@ export abstract class ProductList {
 
   setProductToDelete(product) {
     this.productToDelete = product;
-    if(this.belongsWorkstation()){
+    if (this.belongsWorkstation()) {
       this.deleteMessage = "This article is linked to a workstation. Delete the selected Article?"
     }
-    else{
+    else {
       this.deleteMessage = "Delete the selected Article?"
     }
   }
 
   deleteProduct(product: Product) {
-    if(this.belongsWorkstation()){
+    if (this.belongsWorkstation()) {
       this.findWorkstation(product);
     }
     this.service.delete(product, this.note).subscribe(result => {
@@ -84,6 +86,16 @@ export abstract class ProductList {
     window.location.reload();
   }
 
+  showAllList() {
+    if (this.isChecked) {
+      this.isChecked = false;
+      this.setList();
+    }
+    else {
+      this.isChecked = true;
+      this.setList();
+    }
+  }
   setList() {
     if (this.isChecked) {
       this.showList = this.listProduct;

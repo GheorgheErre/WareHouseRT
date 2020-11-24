@@ -30,9 +30,9 @@
                         <input class="form-control" type="text" id="myInput" (keyup)="searchFunction()"
                             placeholder="Search by filter...">
                         <div class="custom-control custom-switch d-flex align-items-end ml-2">
-                            <input type="checkbox" class="custom-control-input" id="location" name="location"
-                                [(ngModel)]="isChecked" (change)="setList()">
-                            <label for="location" class="custom-control-label" id="label-all">All</label>
+                            <button class="btn mr-2" id="btn-add" (click)="showAllList()">
+                                <fa-icon [icon]="faEye"></fa-icon>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                                 <td class="ram">{{laptop.ram}}</td>
                                 <td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(laptop)"
                                         data-toggle="modal" data-target="#saveOrUpdateModal">
-                                        <fa-icon [icon]="faPen"></fa-icon>
+                                        <fa-icon [icon]="faEdit"></fa-icon>
                                     </button></td>
                                 <td><button (click)="setProductToDelete(laptop)" class="btn btn-danger" id="btn-delete"
                                         data-toggle="modal" data-target="#deleteArticleModal">
@@ -95,7 +95,13 @@
                         <button class="btn mr-2" id="btn-add" data-toggle="modal" (click)="onAddArticleButton()"
                             data-target="#saveOrUpdateModal">
                             <fa-icon [icon]="faPlus"></fa-icon>
-                        </button> to add a new laptop.</div>
+                        </button> to add a new laptop, or press toggle button "All" to the side, to show a list of
+                        laptop with other
+                        location <button class="btn mr-2" id="btn-add" (click)="showAllList()">
+                            <fa-icon [icon]="faEyeSlash"></fa-icon>
+                        </button>
+                    </div>
+
                 </div>
 
             </div>
