@@ -26,4 +26,7 @@ export class WelcomeMenuComponent implements OnInit {
   openHistoric(){
     this.router.navigate(["/HistoryWelcome"])
   }
+  openDdt(){
+    this.router.navigate(["/FormBolla"])
+  }
 }

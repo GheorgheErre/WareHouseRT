@@ -1,96 +1,81 @@
-<header>
-    <div class="container h-100">
-        <div class="row h-50 align-items-end">
-            <div class="col mt-5">
-                <div id="warehouse">
-                    <div class="row">
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col mt-5 ">
+                <div class="warehouse">
+                    <div class="row d-flex flex-column">
                         <div class="col">
-                            <div class="row h-100 d-flex flex-column">
-                                <div class="col">
-                                    <h2>Warehouse</h2>
-                                    <h3>Visualize and manage all articles stored in Erre Technology Warehouse.</h3>
-                                    <hr>
-                                </div>
-                                <div class="col">
-                                    <button (click)="openWarehouse()" class="btn" id="btn-enter">Enter</button>
-                                </div>
-                            </div>
+                            <h2>Warehouse</h2>
                         </div>
                         <div class="col">
-                            <div id="img">
-                                <img id="img-warehouse" src="../../../assets/img/welcome_menu_warehouse.jpg" alt="">
-                            </div>
+                            <span>Visualize and manage all articles stored in <span style="color: #004fff;">Erre Technology Warehouse</span>.</span>
+                        </div>
+                        <div class="col mt-3">
+                            <img class="img--warehouse" src="../../../assets/img/welcome_menu_warehouse.jpg" alt="">
+                        </div>
+                        <div class="col mt-4">
+                            <button (click)="openWarehouse()" class="btn btn-enter--warehouse">Enter</button>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="col mt-5">
+                <div class="workstation">
+                    <div class="row d-flex flex-column">
+                        <div class="col">
+                            <h2>Workstation</h2>
+                        </div>
+                        <div class="col">
+                            <span>Visualize all <span style="color: #004fff;">workstations</span> in the office and modify them.</span>
+                        </div>
+                        <div class="col mt-3">
+                            <img class="img--workstation" src="../../../assets/img/laptop2.jpg" alt="">
+                        </div>
+                        <div class="col mt-4">
+                            <button (click)="openWorkstation()" class="btn btn-enter--workstation">Enter</button>
+                        </div>
 
-                </div>
-            </div>
-        </div>
-        <div class="row h-50 align-items-center" >
-            <div class="col mt-5">
-                <div id="workstation">
-                    <div class="row">
-                        <div class="col">
-                            <div class="row h-100 d-flex flex-column">
-                                <div class="col">
-                                    <h2>Workstation</h2>
-                                    <h3>Visualize all workstations in the office and modify them.</h3>
-                                    <hr>
-                                </div>
-                                <div class="col">
-                                    <button (click)="openWorkstation()" class="btn" id="btn-enter">Enter  </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div id="img">
-                                <img id="img-workstation" src="../../../assets/img/welcome_menu_workstation.jpg" alt="">
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row h-50 align-items-center" >
+        <div class="row">
             <div class="col mt-5 mb-5">
-                <div id="workstation">
-                    <div class="row">
+                <div class="historic">
+                    <div class="row d-flex flex-column">
                         <div class="col">
-                            <div class="row h-100 d-flex flex-column">
-                                <div class="col">
-                                    <h2>Historic</h2>
-                                    <h3>Visualize all the movements of the company.</h3>
-                                    <hr>
-                                </div>
-                                <div class="col">
-                                    <button (click)="openHistoric()" class="btn" id="btn-enter">Enter  </button>
-                                </div>
-                            </div>
+                            <h2>Historic</h2>
                         </div>
                         <div class="col">
-                            <div id="img">
-                                <img id="img-historic" src="../../../assets/img/welcome_menu_historic.jpg" alt="">
-                            </div>
+                            <span>Visualize all the <span style="color: #004fff;">movements</span> of the company.</span>
+                        </div>
+                        <div class="col mt-3">
+                            <img class="img--historic" src="../../../assets/img/historic.jpg" alt="">
+                        </div>
+                        <div class="col mt-4">
+                            <button (click)="openHistoric()" class="btn btn-enter--historic">Enter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mt-5 mb-5">
+                <div class="ddt">
+                    <div class="row d-flex flex-column">
+                        <div class="col">
+                            <h2>DDT</h2>
+                        </div>
+                        <div class="col">
+                            <span>Create a new <span style="color: #004fff;">DDT</span> for the transfer of components.</span>
+                        </div>
+                        <div class="col mt-3">
+                            <img class="img--ddt" src="../../../assets/img/ddt.jpg" alt="">
+                        </div>
+                        <div class="col mt-4">
+                            <button (click)="openDdt()" class="btn btn-enter--ddt">Enter</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-       
     </div>
-</header>
-
-<!--<div class="col">
-    <div class="card">
-        <img class="card-image-top" src="../../assets/img/user.jpg">
-        <div class="card-body">
-            <h4 class="card-title">· Users</h4>
-            <p class="card-text">Visualize users and all their personal information.</p>
-
-        </div>
-        <div class="card-footer text-center">
-            <button class="btn">Users</button>
-        </div>
-    </div>
-</div>
--->
+</main>

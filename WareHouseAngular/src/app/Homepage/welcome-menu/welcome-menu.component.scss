@@ -7,87 +7,73 @@
     font-family: "Oswald", sans-serif;
 }
 
-header {
-   
-    background-image: url("img/ufficio-blured.jpg");
+main {
+    background-image: url("../welcome/img/ufficio-blured.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
 }
 
-main {
-    height: 100%;
-    background-image: url("img/ufficio-blured.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-
 h2 {
     letter-spacing: 5px;
 }
 
-h3 {
-    color: #004fff;
+span {
     letter-spacing: 3px;
+    font-size: 17px;
 }
 
-#card {
-    border: none;
-}
-
-#btn-enter {
-    border-bottom: 1px solid #004fff;
-    border-left: 1px solid #004fff;
+.btn-enter--warehouse,
+.btn-enter--workstation,
+.btn-enter--historic,
+.btn-enter--ddt {
     color: black;
-    border-radius: 20px;
-    width: 120px;
-    transition: 0.6s;
-    position: absolute;
-    bottom: 0;
-    letter-spacing: 3px;
+    text-decoration: none;
+    letter-spacing: 5px;
+    outline: none;
+    box-shadow: none;
 }
 
-#btn-enter:hover {
-    border: 1px solid #004fff;
-    background-color: #004fff;
-    -webkit-transition: background-color 1000ms linear;
-    -ms-transition: background-color 1000ms linear;
-    transition: background-color 1000ms linear;
-    color: white;
-    border-radius: 20px;
-    transition: 0.9s;
+.btn-enter--warehouse:after,
+.btn-enter--workstation:after,
+.btn-enter--historic:after,
+.btn-enter--ddt:after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 2px;
+    background: #004fff;
+    transition: width 0.5s;
 }
 
-#warehouse,
-#workstation,
-#historic {
-    background-color: white;
-    border: 1px solid white;
-    border-radius: 20px;
-    padding: 20px;
+.btn-enter--warehouse:hover::after,
+.btn-enter--workstation:hover::after,
+.btn-enter--historic:hover::after,
+.btn-enter--ddt:hover::after {
+    width: 100%;
 }
 
-#img-warehouse {
-    height: 300px;
-    width: 550px;
-    padding: 5px;
+.warehouse,
+.workstation,
+.historic,
+.ddt {
+    background-color: whitesmoke;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    padding: 15px;
+    width: 80%;
 }
 
-#img-workstation {
-    height: 300px;
-    width: 550px;
-    padding: 5px;
+.img--warehouse,
+.img--historic {
+    height: 250px;
+    margin: 0 auto;
 }
 
-#img-historic {
-    height: 300px;
-    width: 550px;
-    padding: 5px;
-}
-
-#img {
-    background-color: lightgrey;
-    border: 1px solid lightgrey;
+.img--workstation,
+.img--ddt {
+    height: 250px;
+    width: 100%;
+    margin: 0 auto;
 }
