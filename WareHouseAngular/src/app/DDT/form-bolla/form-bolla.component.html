@@ -3,6 +3,7 @@
         <div class="row h-100">
             <div class="col mt-5">
                 <form>
+                    <button (click)="creaBolla()" class="btn btn-crea--bolla mt-3 float-right">Scarica bolla di trasporto</button>
                     <h2 class="mb-3">Destinatario</h2>
                     <div class="form-row">
                         <div class="col">
@@ -80,14 +81,14 @@
                             Station</button>
                         </div>
                     </div>
-                    <div *ngIf="goods?.length">
+                    <div *ngIf="bolla.goods?.length">
                         <ul>
-                            <li *ngFor="let product of goods">{{product.identifier}} {{product.brand}} {{product.model}}
+                            <li *ngFor="let product of bolla.goods">{{product.identifier}} {{product.brand}} {{product.model}}
                                 <button type="button" class=" btn btn-cancella-articolo mb-3 ml-5" (click)="removeProduct(product)">Remove</button>
                             </li>
                         </ul>
                     </div>
-                    <button (click)="creaBolla()" class="btn btn-crea--bolla mt-3 float-right">Scarica bolla di trasporto</button>
+                   
                 </form>
             </div>
             <div class="col">

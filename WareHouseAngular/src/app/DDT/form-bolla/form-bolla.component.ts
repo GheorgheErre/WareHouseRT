@@ -95,6 +95,7 @@ export class FormBollaComponent implements OnInit {
     }
     else {
       this.goods.push(product);
+      this.bolla.goods.push(product);
       this.merchandise.nColli++;
     }
   }
@@ -102,20 +103,20 @@ export class FormBollaComponent implements OnInit {
   // do la possibilità di rimuovere un prodotto aggiunto alla lista provvisoria di prodotti da inserire nella bolla
   removeProduct(product) {
     this.goods = this.goods.filter((p) => p.identifier != product.identifier);
+    this.bolla.goods = this.bolla.goods.filter((p) => p.identifier != product.identifier);
   }
 
 
-// creazione finale della bolla di trasporto: questo metodo richiama altri metodi di creazione
+  // creazione finale della bolla di trasporto: questo metodo richiama altri metodi di creazione
   creaBolla() {
     this.aggiornaLocationProdotti();
-    this.incrementaDDT();
-    this.riempiBolla();
-    this.bollaComponent.htmlToPdf();
+    this.incrementaDDTeStampa();
+    this.scaricaBolla();
   }
 
   // aggiorno la location dei prodotti inseriti in bolla attribuendogli la location del cliente
   aggiornaLocationProdotti() {
-    for(let i=0; i<this.goods.length; i++){
+    for (let i = 0; i < this.goods.length; i++) {
       let tmp = this.goods[i];
       tmp = this.removeType(tmp);
       this.chooseService(tmp.articleType);
@@ -128,7 +129,7 @@ export class FormBollaComponent implements OnInit {
   }
 
   // incremento il numero di bolla dell' anno in corso, salvando su database
-  incrementaDDT() {
+  incrementaDDTeStampa() {
     this.ddtService.incrementaDDT().subscribe(result => {
       console.log("DDT INCREMENTATO CON SUCCESSO");
       this.bolla.numeroDDT = result.numero;
@@ -136,12 +137,22 @@ export class FormBollaComponent implements OnInit {
     })
   }
 
-  // riempio l'oggetto bolla con i vari sottoOggetti con cui esso è creato
+  // riempio l'oggetto bolla con i vari sottoOggetti con cui esso è creato (per avere il riempimento live)
   riempiBolla() {
     this.recipient.address = this.address;
     this.bolla.recipient = this.recipient;
     this.bolla.merchandise = this.merchandise;
     this.bolla.goods = this.goods;
+
+    //uso il servizio del server per prendere il numero di ddt da utilizzare
+    this.ddtService.getNumeroDDT().subscribe(result => {
+      this.bolla.numeroDDT = result.numero;
+      this.bolla.anno = result.anno;
+    })
+  }
+
+  scaricaBolla() {
+    this.bollaComponent.htmlToPdf();
   }
 
   // setto il product per mostrargli i dettagli

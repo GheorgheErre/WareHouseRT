@@ -1,7 +1,7 @@
 export class Merchandise {
 
     nColli : number;
-    weight : number;
+    weight : String;
     transport: String;
 
     constructor(){

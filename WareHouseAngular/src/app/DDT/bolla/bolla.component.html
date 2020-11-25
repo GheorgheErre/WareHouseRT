@@ -2,11 +2,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.1.1/jspdf.umd.min.js"></script>
 
 <div class="container" id="pdfSink">
-    <div class="row mt-5">
-        <div class="col">
-            <img id="imgLogo" src="../../../assets/img/erretechnologygroup.png">
+    <div class="row pt-4">
+        <div class="col-3">
+            <img class="mt-4" id="imgLogo" src="../../../assets/img/erretechnologygroup.png">
         </div>
-        <div id="sideHeader" class="col">
+        <div id="sideHeader" class="col-9 mt-2">
             <p class="font-weight-bold m-0">ERRE TECHNOLOGY GROUP SRL</p>
             <p class="m-0">CORSO VITTORIO EMANUELE II 74 - 10121 - TORINO (TO)</p>
             <p class="m-0">P.iva 11037020010 - C.F. 11037020010</p>
@@ -17,14 +17,14 @@
     <div class="row">
         <div class="col">
             <h6 class="mb-0">DESTINATARIO</h6>
-            <p class="font-weight-bold m-0">{{bolla.recipient.name}}</p>
-            <p class="font-weight-bold m-0">{{bolla.recipient.address.via}}</p>
+            <p class="font-weight-bold m-0">{{bolla.recipient.name | uppercase}}</p>
+            <p class="font-weight-bold m-0">{{bolla.recipient.address.via | uppercase}}</p>
             <p class="font-weight-bold m-0">{{bolla.recipient.address.cap}} {{bolla.recipient.address.comune}} {{bolla.recipient.address.provincia}}</p>
-            <p class="font-weight-bold mt-2">P.IVA/CF {{bolla.recipient.pIva}}</p>
+            <p class="font-weight-bold mt-2">P.IVA/CF {{bolla.recipient.pIva | uppercase}}</p>
         </div>
         <div class="col">
             <h6 class="mb-0">CAUSALE DEL TRASPORTO</h6>
-            <p class="font-weight-bold m-0 mb-2">{{bolla.cause}}</p>
+            <p class="font-weight-bold m-0 mb-2">{{bolla.cause | uppercase}}</p>
             <div class="row">
                 <div class="col">
                     <h6 class="mb-0">NUMERO COLLI</h6>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="col">
                     <h6 class="mb-0">TRASPORTO</h6>
-                    <p class="font-weight-bold m-0 mb-2">{{bolla.merchandise.transport}}</p>
+                    <p class="font-weight-bold m-0 mb-2">{{bolla.merchandise.transport | uppercase}}</p>
                 </div>
             </div>
             <h6 class="mb-0">ANNOTAZIONI</h6>
@@ -58,7 +58,7 @@
 
                     <tr *ngFor="let product of bolla.goods">
 
-                        <td>{{product.brand}} {{product.model}} {{product.serialNumber}}</td>
+                        <td>{{product.brand | uppercase}} {{product.model | uppercase}} {{product.serialNumber | uppercase}}</td>
                         <td class=" text-right">1</td>
 
                     </tr>
@@ -83,10 +83,10 @@
     </div>
     <hr>
     <div class="row mb-5">
-        <div class="col">
+        <div class="col-7">
             DOCUMENTO DI TRASPORTO nr. {{bolla.numeroDDT}}/{{bolla.anno}} del {{dateNow | date: formatDate}}
         </div>
-        <div id="sideFooter" class="col text-right">
+        <div id="sideFooter" class="col-5 text-right">
             <p class="font-weight-bold m-0">ERRE TECHNOLOGY GROUP SRL</p>
             <p class="m-0">www.erretechnology.com - erre@erretechnology.com</p>
             <p class="m-0">tel: 01119742900 - fax: 01119837800</p>
