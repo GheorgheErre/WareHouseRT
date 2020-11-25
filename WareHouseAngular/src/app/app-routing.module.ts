@@ -25,7 +25,6 @@ import { SoftwareListComponent } from './Warehouse/show-list-article/software-li
 import { SsdListComponent } from './Warehouse/show-list-article/ssd-list/ssd-list.component';
 import { TokenListComponent } from './Warehouse/show-list-article/token-list/token-list.component';
 import { WarehouseHomeComponent } from './Warehouse/warehouse-home/warehouse-home.component';
-import { ListProductComponent } from './Warehouse/show-list-article/list-product/list-product.component';
 import { LoginComponent } from './Homepage/login/login.component';
 import { DashboardComponent } from './Warehouse/dashboard/dashboard.component';
 import { WorkstationWelcomeComponent } from './WorkStation/workstation-welcome/workstation-welcome.component';
@@ -78,7 +77,6 @@ const routes: Routes = [
   {path:"ssdlist", component: SsdListComponent, canActivate : [AuthGaurdService]},
   {path:"tokenlist", component: TokenListComponent, canActivate : [AuthGaurdService]},
   {path:"articleCount", component: ArticleCardComponent, canActivate : [AuthGaurdService]},
-  {path:"productList", component: ListProductComponent},
   {path:"Login", component: LoginComponent},
   {path:"Ufficio1GroundFloor", component: Uff1GroundFloorComponent, canActivate : [AuthGaurdService]},
   {path:"Workstation", component: UserWorkstationComponent, canActivate : [AuthGaurdService]},

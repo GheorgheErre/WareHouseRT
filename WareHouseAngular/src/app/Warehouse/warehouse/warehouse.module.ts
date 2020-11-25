@@ -50,7 +50,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { WarehouseHomeComponent } from '../warehouse-home/warehouse-home.component';
-import { ListProductComponent } from '../show-list-article/list-product/list-product.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { FormLaptopComponent } from 'src/app/form-objects/form-laptop/form-laptop.component';
 import { FormCableComponent } from 'src/app/form-objects/form-cable/form-cable.component';
@@ -114,7 +113,6 @@ import { FormKeyboardComponent } from 'src/app/form-objects/form-keyboard/form-k
     TokenCountComponent,
     ArticleCardComponent,
     WarehouseHomeComponent,
-    ListProductComponent,
     DashboardComponent,
     FormLaptopComponent,
     FormCableComponent,

@@ -26,15 +26,15 @@
                         <input class="form-control" type="text" id="myInput" (keyup)="searchFunction()"
                             placeholder="Search by filter...">
                         <div class="custom-control custom-switch d-flex align-items-end ml-2">
-                            <input type="checkbox" class="custom-control-input" id="location" name="location"
-                                [(ngModel)]="isChecked" (change)="setList()">
-                            <label for="location" class="custom-control-label" id="label-all">All</label>
+                            <button class="btn mr-2" id="btn-add" (click)="showAllList()">
+                                <fa-icon [icon]="faEye"></fa-icon>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col">
-                <div  class="table-responsive">
+                <div class="table-responsive">
                     <table id="myTable" class="table table-striped">
                         <thead>
                             <tr>
@@ -86,7 +86,11 @@
                         <button class="btn mr-2" id="btn-add" data-toggle="modal" (click)="onAddArticleButton()"
                             data-target="#saveOrUpdateModal">
                             <fa-icon [icon]="faPlus"></fa-icon>
-                        </button> to add a new Cable.</div>
+                        </button> to add a new Cable, or press the Eye button to the side, to show a list of
+                        laptop with other location <button class="btn mr-2" id="btn-add" (click)="showAllList()">
+                            <fa-icon [icon]="faEyeSlash"></fa-icon>
+                        </button>
+                    </div>
                 </div>
 
             </div>
@@ -125,8 +129,9 @@
                     </div>
 
                     <div class="form-group float-right">
-                        <button  class="btn mr-2 float-left btn btn-danger">Delete</button>
-                        <button type="button" class="btn float-left btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button class="btn mr-2 float-left btn btn-danger">Delete</button>
+                        <button type="button" class="btn float-left btn btn-secondary"
+                            data-dismiss="modal">Close</button>
                     </div>
                 </form>
             </div>
