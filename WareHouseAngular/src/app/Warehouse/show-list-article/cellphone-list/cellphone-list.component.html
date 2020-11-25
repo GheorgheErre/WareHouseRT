@@ -72,8 +72,8 @@
 								</button></td>
                                 <td><button  (click)="setProductToDelete(cellphone)" class="btn btn-danger" id="btn-delete"
                                     data-toggle="modal" data-target="#deleteArticleModal">
-                                        <fa-icon [icon]="faEraser"></fa-icon>
-                                    </button></td>
+                                    <fa-icon *ngIf="isChecked" [icon]="faEyeSlash"></fa-icon>
+                                    <fa-icon *ngIf="!isChecked" [icon]="faEye"></fa-icon>                                    </button></td>
                             </tr>
                         </tbody>
                     </table>

@@ -29,8 +29,8 @@
 							placeholder="Search by filter...">
 						<div class="custom-control custom-switch d-flex align-items-end ml-2">
 							<button class="btn mr-2" id="btn-add" (click)="showAllList()">
-                                <fa-icon [icon]="faEye"></fa-icon>
-                            </button>
+								<fa-icon *ngIf="isChecked" [icon]="faEyeSlash"></fa-icon>
+								<fa-icon *ngIf="!isChecked" [icon]="faEye"></fa-icon>                            </button>
 						</div>
 					</div>
 				</div>

@@ -27,7 +27,8 @@
                             placeholder="Search by filter...">
                         <div class="custom-control custom-switch d-flex align-items-end ml-2">
                             <button class="btn mr-2" id="btn-add" (click)="showAllList()">
-                                <fa-icon [icon]="faEye"></fa-icon>
+                                <fa-icon *ngIf="isChecked" [icon]="faEyeSlash"></fa-icon>
+                            <fa-icon *ngIf="!isChecked" [icon]="faEye"></fa-icon>
                             </button>
                         </div>
                     </div>
@@ -87,8 +88,8 @@
                             data-target="#saveOrUpdateModal">
                             <fa-icon [icon]="faPlus"></fa-icon>
                         </button> to add a new Cable, or press the Eye button to the side, to show a list of
-                        laptop with other location <button class="btn mr-2" id="btn-add" (click)="showAllList()">
-                            <fa-icon [icon]="faEyeSlash"></fa-icon>
+                        Cable with other location <button class="btn mr-2" id="btn-add" (click)="showAllList()">
+                            <fa-icon  [icon]="faEyeSlash"></fa-icon>
                         </button>
                     </div>
                 </div>
