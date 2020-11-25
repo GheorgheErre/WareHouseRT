@@ -6,7 +6,7 @@
                     <a class="navbar-brand" href="WelcomeMenu"> <img class="navbar-img" src="../../assets/img/Logo Erre.png"></a>
                 </div>
                 <div class="col align-self-center text-left">
-                    <a class="btn navbar-btn mr-1 ml-2" href="WelcomeMenu">HOME</a>
+                    <a class="btn navbar-btn mr-1 ml-2" href="HistoryWelcome">HISTORIC HOME</a>
                     <a class="btn navbar-btn mr-1 ml-2" href="WorkstationWelcome">WORKSTATION</a>
                     <a class="btn navbar-btn mr-1 ml-2" href="WarehouseHomeList">WAREHOUSE</a>
                     <a class="btn navbar-btn mr-1 ml-2" href="FormBolla">DDT</a>
@@ -17,30 +17,20 @@
     </nav>
 </header>
 <main class="main">
-    <div *ngIf="historicList?.length; else emptyList" class="container justify-content-center">
-        <div class="row h-100 justify-content-center">
-            <div class="col align-self-center text-center">
-                <h1 id="title">Movement History</h1>
-            </div>
-        </div>
-
-        <div class="col mt-5">
-            <div class="row h-100 align-items-end">
-
-                <div class="col-6 mb-2 d-flex flex-row">
-                    <select [(ngModel)]="filtered" class="custom-select" name="filter">
+    <div *ngIf="historicList?.length; else emptyList" class="container">
+        <div class="row d-flex flex-row">
+            <div class="col-6 mb-2 mt-5">
+                <select [(ngModel)]="filtered" class="custom-select" name="filter">
                         <option selected disabled>Filter by:</option>
                         <option value="identifier">Identifier</option>
                         <option value="movementType">Movement Type</option>
                     </select>
-                </div>
-                <div class="col-6 mb-2 pl-0 d-flex flex-row">
-                    <input class="form-control" type="text" id="myInput" (keyup)="searchFunction()" placeholder="Search by filter...">
-                </div>
+            </div>
+            <div class="col-6 mb-2 mt-5">
+                <input class="form-control" type="text" id="myInput" (keyup)="searchFunction()" placeholder="Search by filter...">
             </div>
         </div>
-
-        <div class="row h-100">
+        <div class="row">
             <div class="col">
                 <table id="myTable" class="table table-striped">
                     <thead>
@@ -69,16 +59,11 @@
         </div>
     </div>
     <ng-template #emptyList>
-        <div class="container h-100 justify-content-center">
-            <div class="row h-50 ">
-                <div id="emptyListMessage" class="col mt-5">Movement History</div>
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div id="emptyListMessage" class="col align-self-center">No movement registered in history.</div>
             </div>
-            <div class="row h-50 ">
-                <div id="emptyListMessage" class="col ">No movement registered in history.</div>
-            </div>
-
         </div>
-
     </ng-template>
 </main>
 
