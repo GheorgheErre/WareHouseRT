@@ -7,23 +7,105 @@
     font-family: "Poppins", sans-serif;
 }
 
-html,
-body {
-    height: 100%;
+.main {
+    height: 90%;
+    background-image: url("img/ufficio-blured.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
-header {
-    height: 100%;
+.navbar-img {
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-main {
-    height: 100%;
+.navbar-home {
+    background-color: white;
+}
+
+.navbar-btn,
+.btn-floor,
+.btn-office {
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+    letter-spacing: 2px;
+    outline: none;
+    box-shadow: none;
+}
+
+.navbar-btn::after,
+.btn-office::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 2px;
+    background: #004fff;
+    transition: width 0.5s;
+}
+
+.btn-floor::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 2px;
+    background: #00b894;
+    transition: width 0.5s;
+}
+
+.navbar-btn:hover::after,
+.btn-floor:hover::after,
+.btn-office:hover::after {
+    width: 100%;
+}
+
+.navbar-btn--logout {
+    text-align: center;
+    position: relative;
+    color: black;
+    letter-spacing: 2px;
+}
+
+.navbar-btn--logout:before,
+.navbar-btn--logout:after {
+    position: absolute;
+    content: "";
+    transition: all .25s;
+}
+
+.navbar-btn--logout:before {
+    border-bottom: 2px solid #004fff;
+    border-left: 2px solid #004fff;
+    width: 20%;
+    height: 5%;
+    left: -1px;
+    bottom: -1px;
+}
+
+.navbar-btn--logout:after {
+    border-top: 2px solid #004fff;
+    border-right: 2px solid #004fff;
+    width: 20%;
+    height: 5%;
+    top: -1px;
+    right: -1px;
+}
+
+.navbar-btn--logout:hover:before {
+    width: 53%;
+    height: 70%;
+}
+
+.navbar-btn--logout:hover:after {
+    width: 53%;
+    height: 70%;
 }
 
 h2 {
     letter-spacing: 5px;
-    background-color: #74b9ff;
-    color: white;
+    color: black;
     border-radius: 5px;
     padding: 10px;
 }
@@ -40,40 +122,9 @@ span {
     height: 700px;
 }
 
-#logo {
-    height: 70px;
+.first--floor,
+.ground--floor {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
 }
-
-.btn-home,
-.btn-floor {
-    box-shadow: 1px 1px 2px black;
-    letter-spacing: 3px;
-}
-
-.btn-home:hover,
-.btn-floor:hover {
-    background-color: whitesmoke;
-}
-
-.btn-office {
-    box-shadow: 1px 1px 2px #0984e3;
-    letter-spacing: 3px;
-    color: black;
-}
-
-
-/*
-#btn-back,
-#btn-switch_floor {
-    border: 1px solid black;
-    border-radius: 50%;
-    transition: 0.5s;
-    color: black;
-}
-
-#btn-back:hover,
-#btn-switch_floor:hover {
-    background-color: black;
-    color: white;
-    transition: 0.5s;
-}*/

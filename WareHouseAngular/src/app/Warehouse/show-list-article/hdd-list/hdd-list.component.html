@@ -1,16 +1,33 @@
-<header>
-	<div class="container">
-		<div *ngIf="showList?.length; else emptyList" class="row h-100 d-flex flex-column flex-wrap">
-			<div class="col mt-5">
-				<div class="row h-100 align-items-end">
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-home">
+        <div class="container-fluid d-flex flex-row">
+            <div class="row w-100">
+                <div class="col-1">
+                    <a class="navbar-brand" href="WelcomeMenu"> <img class="navbar-img" src="../../assets/img/Logo Erre.png"></a>
+                </div>
+                <div class="col align-self-center text-left">
+                    <a class="btn navbar-btn mr-1 ml-2" href="WarehouseHomeList">WAREHOUSE HOME</a>
+                    <a class="btn navbar-btn mr-1 ml-2" href="WorkstationWelcome">WORKSTATION</a>
+                    <a class="btn navbar-btn mr-1 ml-2" href="HistoryWelcome">HISTORIC</a>
+                    <a class="btn navbar-btn mr-1 ml-2" href="FormBolla">DDT</a>
+                </div>
+                <div class="col align-self-center"><a href="#" class="btn float-right navbar-btn--logout">EXIT</a></div>
+            </div>
+        </div>
+    </nav>
+</header>
+<main class="main">
+    <div class="container">
+        <div *ngIf="showList?.length; else emptyList" class="row h-100 d-flex flex-column flex-wrap">
+            <div class="col mt-5">
+                <div class="row h-100 align-items-end">
 
-					<div class="col-6 mb-2 d-flex flex-row">
+                    <div class="col-6 mb-2 d-flex flex-row">
 
-						<button class="btn mr-2" id="btn-add" (click)="onAddArticleButton()" data-toggle="modal"
-							data-target="#saveOrUpdateModal">
+                        <button class="btn mr-2" id="btn-add" (click)="onAddArticleButton()" data-toggle="modal" data-target="#saveOrUpdateModal">
 							<fa-icon [icon]="faPlus"></fa-icon>
 						</button>
-						<select [(ngModel)]="filtered" class="custom-select" name="filter">
+                        <select [(ngModel)]="filtered" class="custom-select" name="filter">
 							<option selected disabled>Filter by:</option>
 							<option value="identifier">Identifier</option>
                             <option value="users">Users</option>
@@ -21,89 +38,83 @@
 							<option value="userNumber">User Number</option>
 							<option value="capacity">Capacity</option>
 						</select>
-					</div>
-					<div class="col-6 mb-2 d-flex flex-row">
-						<input class="form-control" type="text" id="myInput" (keyup)="searchFunction()"
-							placeholder="Search by filter...">
-						<div class="custom-control custom-switch d-flex align-items-end ml-2">
-							<button class="btn mr-2" id="btn-add" (click)="showAllList()">
+                    </div>
+                    <div class="col-6 mb-2 d-flex flex-row">
+                        <input class="form-control" type="text" id="myInput" (keyup)="searchFunction()" placeholder="Search by filter...">
+                        <div class="custom-control custom-switch d-flex align-items-end ml-2">
+                            <button class="btn mr-2" id="btn-add" (click)="showAllList()">
 								<fa-icon *ngIf="isChecked" [icon]="faEyeSlash"></fa-icon>
 								<fa-icon *ngIf="!isChecked" [icon]="faEye"></fa-icon>                            </button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="table-responsive">
-					<table id="myTable" class="table table-striped">
-						<thead>
-							<tr>
-								<th scope="row">Identifier</th>
-								<th scope="row">Users</th>
-								<th scope="row">Brand</th>
-								<th scope="row">Model</th>
-								<th scope="row">Serial Number</th>
-								<th scope="row">Location</th>
-								<th scope="row">User Number</th>
-								<th scope="row">Capacity</th>
-								<th scope="row">Modify</th>
-								<th scope="row">Delete</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr *ngFor="let hdd of showList">
-								<td class="identifier">{{hdd.identifier}}</td>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="table-responsive">
+                    <table id="myTable" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="row">Identifier</th>
+                                <th scope="row">Users</th>
+                                <th scope="row">Brand</th>
+                                <th scope="row">Model</th>
+                                <th scope="row">Serial Number</th>
+                                <th scope="row">Location</th>
+                                <th scope="row">User Number</th>
+                                <th scope="row">Capacity</th>
+                                <th scope="row">Modify</th>
+                                <th scope="row">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let hdd of showList">
+                                <td class="identifier">{{hdd.identifier}}</td>
                                 <td class="users">{{hdd.users}}</td>
                                 <td class="brand">{{hdd.brand}}</td>
                                 <td class="model">{{hdd.model}}</td>
                                 <td class="serialNumber">{{hdd.serialNumber}}</td>
                                 <td class="location">{{hdd.location}}</td>
                                 <td class="userNumber">{{hdd.userNumber}}</td>
-								<td class="capacity">{{hdd.capacity}}</td>
-								<td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(hdd)"
-									data-toggle="modal" data-target="#saveOrUpdateModal">
+                                <td class="capacity">{{hdd.capacity}}</td>
+                                <td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(hdd)" data-toggle="modal" data-target="#saveOrUpdateModal">
 									<fa-icon [icon]="faPen"></fa-icon>
 								</button></td>
-								<td><button  (click)="setProductToDelete(hdd)" class="btn btn-danger" id="btn-delete"
-									data-toggle="modal" data-target="#deleteArticleModal">
+                                <td><button (click)="setProductToDelete(hdd)" class="btn btn-danger" id="btn-delete" data-toggle="modal" data-target="#deleteArticleModal">
 										<fa-icon [icon]="faEraser"></fa-icon>
 									</button></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-		<ng-template #emptyList>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <ng-template #emptyList>
             <div class="container h-100 justify-content-center">
                 <div class="row h-100">
                     <div id="emptyListMessage" class="col mt-5">
                         No HDD present in the warehouse, press
-                        <button class="btn mr-2" id="btn-add" data-toggle="modal" (click)="onAddArticleButton()"
-                            data-target="#saveOrUpdateModal">
+                        <button class="btn mr-2" id="btn-add" data-toggle="modal" (click)="onAddArticleButton()" data-target="#saveOrUpdateModal">
                             <fa-icon [icon]="faPlus"></fa-icon>
-                        </button> to add a new HDD, or press the Eye button to the side, to show a list of
-                        HDD with other
-                        location <button class="btn mr-2" id="btn-add" (click)="showAllList()">
+                        </button> to add a new HDD, or press the Eye button to the side, to show a list of HDD with other location <button class="btn mr-2" id="btn-add" (click)="showAllList()">
                             <fa-icon [icon]="faEyeSlash"></fa-icon>
                         </button></div>
                 </div>
 
             </div>
         </ng-template>
-	</div>
-</header>
+    </div>
+</main>
 
 <!-- Modal -->
 <div class="modal fade" id="saveOrUpdateModal" role="dialog">
-	<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered">
 
-		<div class="modal-content" id="modal">
-			<div class="modal-body" id="modal-body">
-				<app-form-hdd (hddToEmit)="saveOrUpdate($event)"></app-form-hdd>
-			</div>
-		</div>
-	</div>
+        <div class="modal-content" id="modal">
+            <div class="modal-body" id="modal-body">
+                <app-form-hdd (hddToEmit)="saveOrUpdate($event)"></app-form-hdd>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!--Modal eliminazione -->
@@ -124,7 +135,7 @@
                     </div>
 
                     <div class="form-group float-right">
-                        <button  class="btn mr-2 float-left btn btn-danger">Delete</button>
+                        <button class="btn mr-2 float-left btn btn-danger">Delete</button>
                         <button type="button" class="btn float-left btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </form>

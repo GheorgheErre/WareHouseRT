@@ -58,8 +58,9 @@ span {
 .workstation,
 .historic,
 .ddt {
-    background-color: whitesmoke;
-    border: 1px solid whitesmoke;
+    background-color: white;
+    border: 1px solid white;
+    box-shadow: 2px 2px 2px whitesmoke;
     border-radius: 5px;
     padding: 15px;
     width: 80%;

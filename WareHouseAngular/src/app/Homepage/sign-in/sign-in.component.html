@@ -8,32 +8,27 @@
         </div>
         <div class="row">
             <div class="col">
-                <span>Hello, already a <span id="user-span">user</span>?</span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col mb-3">
-                <span>Enter <span id="now-span">now</span> in your account!</span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col mb-2">
-                <input type="text" placeholder="Username | E-mail:" name="username" [(ngModel)]="user.username" autocomplete="off" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col mb-2">
-                <input type="password" placeholder="Password:" name="password" [(ngModel)]="user.password" />
+                <span>Hello,</span>
             </div>
         </div>
         <div class="row">
             <div class="col mb-4">
-                <a href="SignUp" (click)="openSignUp()">Are you new here? sign up now! </a>
+                <span>Enter now in your account!</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <input type="text" placeholder="Username | E-mail:" name="username" [(ngModel)]="user.username" autocomplete="off" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-4">
+                <input type="password" placeholder="Password:" name="password" [(ngModel)]="user.password" />
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <button type="submit" class="btn">Sign in</button>
+                <button type="submit" class="btn btn-signin">Sign in</button>
             </div>
         </div>
     </div>

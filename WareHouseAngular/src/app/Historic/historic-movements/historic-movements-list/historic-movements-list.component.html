@@ -1,4 +1,22 @@
-<header>
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-home">
+        <div class="container-fluid d-flex flex-row">
+            <div class="row w-100">
+                <div class="col-1">
+                    <a class="navbar-brand" href="WelcomeMenu"> <img class="navbar-img" src="../../assets/img/Logo Erre.png"></a>
+                </div>
+                <div class="col align-self-center text-left">
+                    <a class="btn navbar-btn mr-1 ml-2" href="WelcomeMenu">HOME</a>
+                    <a class="btn navbar-btn mr-1 ml-2" href="WorkstationWelcome">WORKSTATION</a>
+                    <a class="btn navbar-btn mr-1 ml-2" href="WarehouseHomeList">WAREHOUSE</a>
+                    <a class="btn navbar-btn mr-1 ml-2" href="FormBolla">DDT</a>
+                </div>
+                <div class="col align-self-center"><a href="#" class="btn float-right navbar-btn--logout">EXIT</a></div>
+            </div>
+        </div>
+    </nav>
+</header>
+<main class="main">
     <div *ngIf="historicList?.length; else emptyList" class="container justify-content-center">
         <div class="row h-100 justify-content-center">
             <div class="col align-self-center text-center">
@@ -17,8 +35,7 @@
                     </select>
                 </div>
                 <div class="col-6 mb-2 pl-0 d-flex flex-row">
-                    <input class="form-control" type="text" id="myInput" (keyup)="searchFunction()"
-                        placeholder="Search by filter...">
+                    <input class="form-control" type="text" id="myInput" (keyup)="searchFunction()" placeholder="Search by filter...">
                 </div>
             </div>
         </div>
@@ -38,12 +55,10 @@
                         <tr *ngFor="let historic of historicList">
                             <td>{{historic.date}}</td>
                             <td class="movementType">{{historic.action}}</td>
-                            <td (click)="setDetailsProductInModal(historic.product)" data-toggle="modal"
-                                data-target="#productDetailsModal" style="cursor:pointer" class="identifier">
+                            <td (click)="setDetailsProductInModal(historic.product)" data-toggle="modal" data-target="#productDetailsModal" style="cursor:pointer" class="identifier">
                                 {{historic.product.identifier}}
                                 <span class="tooltiptext">Product Details</span></td>
-                            <td><button (click)="setNoteInModal(historic.note)" class="btn btn-primary" id="btn-note"
-                                    data-toggle="modal" data-target="#noteModal">
+                            <td><button (click)="setNoteInModal(historic.note)" class="btn btn-primary" id="btn-note" data-toggle="modal" data-target="#noteModal">
                                     <fa-icon [icon]="faPen"></fa-icon>
                                 </button></td>
                         </tr>
@@ -56,20 +71,19 @@
     <ng-template #emptyList>
         <div class="container h-100 justify-content-center">
             <div class="row h-50 ">
-                <div id="emptyListMessage" class="col mt-5">Movement History</div> 
-             </div>
-            <div class="row h-50 ">
-               <div id="emptyListMessage" class="col ">No movement registered in history.</div> 
+                <div id="emptyListMessage" class="col mt-5">Movement History</div>
             </div>
-            
+            <div class="row h-50 ">
+                <div id="emptyListMessage" class="col ">No movement registered in history.</div>
+            </div>
+
         </div>
 
     </ng-template>
-</header>
+</main>
 
 <!--MODAL FOR NOTE-->
-<div class="modal fade" id="noteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="noteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -105,12 +119,12 @@
             </div>
             <table id="myTable" class="table table-striped">
                 <thead>
-                <tbody>
-                    <tr *ngFor="let item of selectedProduct | keyvalue">
-                        <td>{{item.key}}</td>
-                        <td>{{item.value}}</td>
-                    </tr>
-                </tbody>
+                    <tbody>
+                        <tr *ngFor="let item of selectedProduct | keyvalue">
+                            <td>{{item.key}}</td>
+                            <td>{{item.value}}</td>
+                        </tr>
+                    </tbody>
             </table>
         </div>
     </div>

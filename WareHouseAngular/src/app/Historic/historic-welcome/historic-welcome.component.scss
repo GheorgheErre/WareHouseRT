@@ -1,26 +1,121 @@
 @font-face {
     font-family: Oswald;
-    src: url("../../../assets/fonts/Oswald-Regular.ttf");
+    src: url("../../../assets/fonts/Poppins-Light.ttf");
 }
-@mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65, 0, 0.076, 1)) {
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+@mixin transition($property: all,
+$duration: 0.45s,
+$ease: cubic-bezier(0.65, 0, 0.076, 1)) {
     transition: $property $duration $ease;
 }
-body,
-html {
+
+.header {
+    background-image: url("img/warehousehome-blured.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.main {
     height: 100%;
+    background-image: url("img/warehousehome-blured.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
-* {
-    font-family: "Oswald", sans-serif;
+
+.navbar-img {
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+.navbar-home {
+    background-color: white;
+}
+
+.navbar-btn {
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+    letter-spacing: 2px;
+    outline: none;
+    box-shadow: none;
+}
+
+.navbar-btn::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 2px;
+    background: #004fff;
+    transition: width 0.5s;
+}
+
+.navbar-btn:hover::after {
+    width: 100%;
+}
+
+.navbar-btn--logout {
+    text-align: center;
+    position: relative;
+    color: black;
+    letter-spacing: 2px;
+}
+
+.navbar-btn--logout:before,
+.navbar-btn--logout:after {
+    position: absolute;
+    content: "";
+    transition: all .25s;
+}
+
+.navbar-btn--logout:before {
+    border-bottom: 2px solid #004fff;
+    border-left: 2px solid #004fff;
+    width: 20%;
+    height: 5%;
+    left: -1px;
+    bottom: -1px;
+}
+
+.navbar-btn--logout:after {
+    border-top: 2px solid #004fff;
+    border-right: 2px solid #004fff;
+    width: 20%;
+    height: 5%;
+    top: -1px;
+    right: -1px;
+}
+
+.navbar-btn--logout:hover:before {
+    width: 53%;
+    height: 70%;
+}
+
+.navbar-btn--logout:hover:after {
+    width: 53%;
+    height: 70%;
+}
+
 h2 {
     letter-spacing: 5px;
 }
+
 h4 {
     letter-spacing: 3px;
 }
+
 #card {
     border: none;
 }
+
 .dot {
     display: flex;
     justify-content: center;
@@ -31,7 +126,8 @@ h4 {
     border-radius: 50%;
     color: white;
 }
-a {
+
+.learn-more {
     position: relative;
     display: inline-block;
     cursor: pointer;
@@ -47,7 +143,12 @@ a {
         width: 12rem;
         height: 3rem;
         .circle {
-            @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
+            @include transition(all,
+            0.45s,
+            cubic-bezier(0.65,
+            0,
+            0.076,
+            1));
             position: relative;
             display: block;
             margin: 0;
@@ -57,14 +158,24 @@ a {
             border-radius: 20px;
             border: 1px solid black;
             .icon {
-                @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
+                @include transition(all,
+                0.45s,
+                cubic-bezier(0.65,
+                0,
+                0.076,
+                1));
                 position: absolute;
                 top: 0;
                 bottom: 0;
                 margin: auto;
                 background: white;
                 &.arrow {
-                    @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
+                    @include transition(all,
+                    0.45s,
+                    cubic-bezier(0.65,
+                    0,
+                    0.076,
+                    1));
                     left: 0.625rem;
                     width: 1.125rem;
                     height: 0.125rem;
@@ -84,7 +195,12 @@ a {
             }
         }
         .button-text {
-            @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
+            @include transition(all,
+            0.45s,
+            cubic-bezier(0.65,
+            0,
+            0.076,
+            1));
             position: absolute;
             top: 0;
             left: 0;
@@ -113,15 +229,4 @@ a {
             color: white;
         }
     }
-}
-
-
-
-header {
-    background-image: url("img/warehousehome-blured.jpg");
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
 }

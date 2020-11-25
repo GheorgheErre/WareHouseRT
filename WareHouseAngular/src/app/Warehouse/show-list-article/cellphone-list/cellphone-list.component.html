@@ -1,6 +1,24 @@
-<header>
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-home">
+        <div class="container-fluid d-flex flex-row">
+            <div class="row w-100">
+                <div class="col-1">
+                    <a class="navbar-brand" href="WelcomeMenu"> <img class="navbar-img" src="../../assets/img/Logo Erre.png"></a>
+                </div>
+                <div class="col align-self-center text-left">
+                    <a class="btn navbar-btn mr-1 ml-2" href="WarehouseHomeList">WAREHOUSE HOME</a>
+                    <a class="btn navbar-btn mr-1 ml-2" href="WorkstationWelcome">WORKSTATION</a>
+                    <a class="btn navbar-btn mr-1 ml-2" href="HistoryWelcome">HISTORIC</a>
+                    <a class="btn navbar-btn mr-1 ml-2" href="FormBolla">DDT</a>
+                </div>
+                <div class="col align-self-center"><a href="#" class="btn float-right navbar-btn--logout">EXIT</a></div>
+            </div>
+        </div>
+    </nav>
+</header>
+<main class="main">
     <div class="container">
-        <div *ngIf="showList?.length; else emptyList"  class="row h-100 d-flex flex-column flex-wrap">
+        <div *ngIf="showList?.length; else emptyList" class="row h-100 d-flex flex-column flex-wrap">
             <div class="col mt-5">
                 <div class="row h-100 align-items-end">
 
@@ -70,8 +88,7 @@
                                 <td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(cellphone)" data-toggle="modal" data-target="#saveOrUpdateModal">
 									<fa-icon [icon]="faPen"></fa-icon>
 								</button></td>
-                                <td><button  (click)="setProductToDelete(cellphone)" class="btn btn-danger" id="btn-delete"
-                                    data-toggle="modal" data-target="#deleteArticleModal">
+                                <td><button (click)="setProductToDelete(cellphone)" class="btn btn-danger" id="btn-delete" data-toggle="modal" data-target="#deleteArticleModal">
                                     <fa-icon *ngIf="isChecked" [icon]="faEyeSlash"></fa-icon>
                                     <fa-icon *ngIf="!isChecked" [icon]="faEye"></fa-icon>                                    </button></td>
                             </tr>
@@ -85,12 +102,9 @@
                 <div class="row h-100">
                     <div id="emptyListMessage" class="col mt-5">
                         No Cellphone present in the warehouse, press
-                        <button class="btn mr-2" id="btn-add" data-toggle="modal" (click)="onAddArticleButton()"
-                            data-target="#saveOrUpdateModal">
+                        <button class="btn mr-2" id="btn-add" data-toggle="modal" (click)="onAddArticleButton()" data-target="#saveOrUpdateModal">
                             <fa-icon [icon]="faPlus"></fa-icon>
-                        </button> to add a new Cellphone, or press the Eye button to the side, to show a list of
-                        Cellphone with other
-                        location <button class="btn mr-2" id="btn-add" (click)="showAllList()">
+                        </button> to add a new Cellphone, or press the Eye button to the side, to show a list of Cellphone with other location <button class="btn mr-2" id="btn-add" (click)="showAllList()">
                             <fa-icon [icon]="faEyeSlash"></fa-icon>
                         </button></div>
                 </div>
@@ -98,7 +112,7 @@
             </div>
         </ng-template>
     </div>
-</header>
+</main>
 
 <!-- Modal -->
 <div class="modal fade" id="saveOrUpdateModal" role="dialog">
@@ -131,7 +145,7 @@
                     </div>
 
                     <div class="form-group float-right">
-                        <button  class="btn mr-2 float-left btn btn-danger">Delete</button>
+                        <button class="btn mr-2 float-left btn btn-danger">Delete</button>
                         <button type="button" class="btn float-left btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </form>
