@@ -18,6 +18,14 @@ public class ContatoreDDTController {
 	private ContatoreDDTService service;
 	
 	
+	@GetMapping("/getNumeroDDT")
+	public ContatoreDDT getNumeroDDT() {
+		
+		return service.getNumeroDDT();
+	
+	}
+	
+	
 	@GetMapping("/incrementaNumeroDDT")
 	public ContatoreDDT incrementaDDT() {
 		

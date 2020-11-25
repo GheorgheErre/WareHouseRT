@@ -19,10 +19,11 @@ public class ContatoreDDTService {
 	@Autowired
 	private SequenceGeneratorService sequenceService;
 	
+	private int annoAttuale = LocalDate.now().getYear();
+	
 	
 	public ContatoreDDT saveOrUpdate() {
-		int annoAttuale = LocalDate.now().getYear();
-		
+		 
 		Optional<ContatoreDDT> c = repo.findByAnno(annoAttuale);
 		
 		if (c.isPresent()) {
@@ -50,6 +51,16 @@ public class ContatoreDDTService {
 		
 		ContatoreDDT c = repo.save(entity);		
 		return c;
+		
+	}
+	
+	public ContatoreDDT getNumeroDDT() {
+		Optional<ContatoreDDT> c = repo.findByAnno(annoAttuale);
+		
+		if (c.isPresent()) {
+			return c.get();
+		} else
+			return save();
 	}
 
 }
