@@ -30,6 +30,7 @@ export class DesktopListComponent extends ProductList implements OnInit {
 
   onAddArticleButton() {
     this.entity = new Desktop();
+    this.formDesktop.setDesktop(this.entity);
   }
 
 

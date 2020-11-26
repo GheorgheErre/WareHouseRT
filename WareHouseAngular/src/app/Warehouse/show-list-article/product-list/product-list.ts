@@ -56,6 +56,9 @@ export abstract class ProductList {
       this.findAllProduct();
     });
 
+
+    btn.disabled = false;
+
   }
 
 

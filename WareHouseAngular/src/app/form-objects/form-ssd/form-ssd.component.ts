@@ -18,6 +18,7 @@ export class FormSsdComponent implements OnInit {
   }
   setSsd(entity): void {
     this.ssdTemp = JSON.parse(JSON.stringify(entity));
+     this.noteTemp = new String;
   }
   sendSsdToParent() {
     this.ssdToEmit.emit({product:this.ssdTemp, note:this.noteTemp});

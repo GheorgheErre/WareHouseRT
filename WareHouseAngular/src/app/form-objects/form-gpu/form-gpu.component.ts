@@ -19,6 +19,7 @@ export class FormGpuComponent implements OnInit {
 
   setGpu(entity): void {
     this.gpuTemp = JSON.parse(JSON.stringify(entity));
+    this.noteTemp = new String;
   }
 
   sendGpuToParent() {

@@ -19,6 +19,7 @@ export class FormCpuComponent implements OnInit {
   }
   setCpu(entity): void {
     this.cpuTemp = JSON.parse(JSON.stringify(entity));
+    this.noteTemp = new String;
   }
 
   sendCpuToParent() {

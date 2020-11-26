@@ -30,5 +30,6 @@ export class CellphoneListComponent extends ProductList implements OnInit {
 
   onAddArticleButton() {
     this.entity = new Cellphone();
+    this.formCellphone.setCellphone(this.entity);
   }
 }

@@ -17,7 +17,7 @@ export class MouseListComponent extends ProductList implements OnInit {
   constructor(private mouseService: MouseService, protected workstationService: WorkStationService) {
     super(mouseService, workstationService);
     this.entity = new Mouse()
-   }
+  }
 
   ngOnInit(): void {
     this.findAllProduct();
@@ -30,6 +30,8 @@ export class MouseListComponent extends ProductList implements OnInit {
 
   onAddArticleButton() {
     this.entity = new Mouse();
+    this.formMouse.setMouse(this.entity);
+
   }
 }
 

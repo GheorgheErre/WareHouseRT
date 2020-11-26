@@ -19,6 +19,7 @@ export class FormGraphicTabletComponent implements OnInit {
 
   setGraphicTablet(entity): void {
     this.graphicTabletTemp = JSON.parse(JSON.stringify(entity));
+    this.noteTemp = new String;
   }
 
   sendGraphicTabletToParent() {

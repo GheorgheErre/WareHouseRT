@@ -18,6 +18,7 @@ export class FormRamComponent implements OnInit {
   }
   setRam(entity): void {
     this.ramTemp = JSON.parse(JSON.stringify(entity));
+    this.noteTemp = new String;
   }
   sendRamToParent() {
     this.ramToEmit.emit({product:this.ramTemp, note:this.noteTemp});

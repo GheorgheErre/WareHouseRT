@@ -29,6 +29,7 @@ export class MonitorListComponent extends ProductList implements OnInit {
   }
 
   onAddArticleButton() {
-    this.entity = new Monitor();
+    this.entity = new Monitor();  
+    this.formMonitor.setMonitor(this.entity);
   }
 }

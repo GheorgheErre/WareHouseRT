@@ -29,5 +29,7 @@ export class GpuListComponent extends ProductList implements OnInit {
 
   onAddArticleButton() {
     this.entity = new Gpu();
+    this.formGpu.setGpu(this.entity);
+
   }
 }

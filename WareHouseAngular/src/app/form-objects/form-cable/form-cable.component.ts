@@ -19,6 +19,7 @@ export class FormCableComponent implements OnInit {
 
   setCable(entity): void {
     this.cableTemp = JSON.parse(JSON.stringify(entity));
+    this.noteTemp = new String;
   }
 
   sendCableToParent() {

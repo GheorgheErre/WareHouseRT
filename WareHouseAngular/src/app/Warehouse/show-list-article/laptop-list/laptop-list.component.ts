@@ -30,6 +30,7 @@ export class LaptopListComponent extends ProductList implements OnInit {
 
   onAddArticleButton() {
     this.entity = new Laptop();
+    this.formLaptop.setLaptop(this.entity);
   }
 
 

@@ -20,6 +20,7 @@ export class FormTokenComponent implements OnInit {
 
   setToken(entity): void {
     this.tokenTemp = JSON.parse(JSON.stringify(entity));
+    this.noteTemp = new String;
   }
   sendTokenToParent() {
     this.tokenToEmit.emit({product:this.tokenTemp, note:this.noteTemp});

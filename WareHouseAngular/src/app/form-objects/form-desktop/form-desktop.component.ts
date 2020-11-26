@@ -20,6 +20,7 @@ export class FormDesktopComponent implements OnInit {
 
   setDesktop(entity): void {
     this.desktopTemp = JSON.parse(JSON.stringify(entity));
+    this.noteTemp = new String;
   }
 
   sendDesktopToParent() {

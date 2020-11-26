@@ -31,5 +31,6 @@ export class OperativeSystemListComponent extends ProductList implements OnInit 
 
   onAddArticleButton() {
     this.entity = new OperativeSystem();
+    this.formOperativeSystem.setOperativeSystem(this.entity);
   }
 }

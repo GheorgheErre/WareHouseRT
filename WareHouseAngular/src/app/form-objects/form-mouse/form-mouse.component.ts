@@ -18,6 +18,7 @@ export class FormMouseComponent implements OnInit {
   }
   setMouse(entity): void {
     this.mouseTemp = JSON.parse(JSON.stringify(entity));
+    this.noteTemp = new String;
   }
   sendMouseToParent() {
     this.mouseToEmit.emit({product:this.mouseTemp, note:this.noteTemp});

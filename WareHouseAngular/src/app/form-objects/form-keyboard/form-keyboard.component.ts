@@ -20,6 +20,7 @@ export class FormKeyboardComponent implements OnInit {
 
   setKeyboard(entity): void {
     this.keyboardTemp = JSON.parse(JSON.stringify(entity));
+    this.noteTemp = new String;
   }
 
   sendKeyboardToParent() {

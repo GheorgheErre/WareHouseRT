@@ -31,6 +31,7 @@ export class CableListComponent extends ProductList implements OnInit {
 
   onAddArticleButton() {
     this.entity = new Cable();
+    this.formCable.setCable(this.entity);
   }
 
 

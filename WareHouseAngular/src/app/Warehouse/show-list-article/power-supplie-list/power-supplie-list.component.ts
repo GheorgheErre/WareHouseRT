@@ -30,5 +30,6 @@ export class PowerSupplieListComponent extends ProductList implements OnInit {
 
   onAddArticleButton() {
     this.entity = new Powersupplie();
+    this.formPowerSupplieComponent.setPowerSupplie(this.entity);
   }
 }

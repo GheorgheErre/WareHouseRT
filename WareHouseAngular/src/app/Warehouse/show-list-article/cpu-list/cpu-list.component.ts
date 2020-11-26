@@ -31,6 +31,7 @@ export class CpuListComponent extends ProductList implements OnInit {
 
   onAddArticleButton() {
     this.entity = new Cpu();
+    this.formCpu.setCpu(this.entity);    
   }
 
  

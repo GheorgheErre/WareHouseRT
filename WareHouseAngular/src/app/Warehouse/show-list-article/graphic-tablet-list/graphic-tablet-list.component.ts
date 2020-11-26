@@ -28,7 +28,9 @@ export class GraphicTabletListComponent extends ProductList implements OnInit {
   }
 
   onAddArticleButton() {
-    this.entity = new GraphicTablet();
+    this.entity = new GraphicTablet();   
+     this.formGraphicTablet.setGraphicTablet(this.entity);
+
 
   }
 }

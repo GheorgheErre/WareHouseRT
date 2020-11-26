@@ -19,6 +19,7 @@ export class FormCellphoneComponent implements OnInit {
 
   setCellphone(entity): void {
     this.cellphoneTemp = JSON.parse(JSON.stringify(entity));
+    this.noteTemp = new String;
   }
 
   sendCellphoneToParent() {

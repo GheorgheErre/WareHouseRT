@@ -19,6 +19,7 @@ export class FormPowerSupplieComponent implements OnInit {
 
   setPowerSupplie(entity): void {
     this.powerSupplieTemp = JSON.parse(JSON.stringify(entity));
+    this.noteTemp = new String;
   }
   sendPowersupplieToParent() {
     this.powerSupplieToEmit.emit({product:this.powerSupplieTemp, note:this.noteTemp});

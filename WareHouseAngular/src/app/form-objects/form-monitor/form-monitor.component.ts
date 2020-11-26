@@ -19,6 +19,7 @@ export class FormMonitorComponent implements OnInit {
 
   setMonitor(entity): void {
     this.monitorTemp = JSON.parse(JSON.stringify(entity));
+    this.noteTemp = new String;
   }
   sendMonitorToParent() {
     this.monitorToEmit.emit({product:this.monitorTemp, note:this.noteTemp});

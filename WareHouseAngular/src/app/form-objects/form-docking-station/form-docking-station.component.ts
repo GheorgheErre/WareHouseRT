@@ -19,6 +19,7 @@ export class FormDockingStationComponent implements OnInit {
 
   setDockingStation(entity): void {
     this.dockingStationTemp = JSON.parse(JSON.stringify(entity));
+    this.noteTemp = new String;
   }
 
   sendDockingStationToParent() {

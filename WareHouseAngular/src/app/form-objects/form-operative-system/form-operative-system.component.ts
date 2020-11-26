@@ -19,6 +19,7 @@ export class FormOperativeSystemComponent implements OnInit {
 
   setOperativeSystem(entity): void {
     this.operativeSystemTemp = JSON.parse(JSON.stringify(entity));
+    this.noteTemp = new String;
   }
   sendOperativeSystemToParent() {
     this.operativeSystemToEmit.emit({product:this.operativeSystemTemp, note:this.noteTemp});

@@ -31,6 +31,8 @@ export class DockingStationListComponent extends ProductList implements OnInit {
 
   onAddArticleButton() {
     this.entity = new DockingStation();
+    this.formDockingStation.setDockingStation(this.entity);
+
   }
 
 }

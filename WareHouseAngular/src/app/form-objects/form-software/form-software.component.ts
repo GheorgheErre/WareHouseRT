@@ -18,6 +18,7 @@ export class FormSoftwareComponent implements OnInit {
   }
   setSoftware(entity): void {
     this.softwareTemp = JSON.parse(JSON.stringify(entity));
+    this.noteTemp = new String;
   }
   sendSoftwareToParent() {
     this.softwareToEmit.emit({product:this.softwareTemp, note:this.noteTemp});

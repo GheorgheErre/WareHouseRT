@@ -21,6 +21,7 @@ export class FormLaptopComponent implements OnInit {
 
   setLaptop(entity): void {
     this.laptopTemp = JSON.parse(JSON.stringify(entity));
+    this.noteTemp = new String;
   }
 
   sendLaptopToParent() {

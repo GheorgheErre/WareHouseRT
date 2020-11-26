@@ -19,6 +19,7 @@ export class FormHddComponent implements OnInit {
 
   setHdd(entity): void {
     this.hddTemp = JSON.parse(JSON.stringify(entity));
+    this.noteTemp = new String;
   }
 
   sendHddToParent() {
