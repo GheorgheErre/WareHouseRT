@@ -5,7 +5,7 @@
         <div class="form-group mb-2">
             <input [(ngModel)]="gpuTemp.users" name="users" class="form-control" placeholder="Users:">
         </div>
-        <div class="form-group mb-2" >
+        <div class="form-group mb-2">
             <input [(ngModel)]="gpuTemp.brand" name="brand" class="form-control" placeholder="Brand:" #brand="ngModel">
             <div *ngIf="brand.invalid &&(brand.dirty || brand.touched)" class="alert alert-danger mt-2" role="alert">
                 <div *ngIf="brand.errors.required">
@@ -13,40 +13,36 @@
                 </div>
             </div>
         </div>
-        <div class="form-control mb-2" >
+        <div class="form-control mb-2">
             <input [(ngModel)]="gpuTemp.model" name="model" class="form-control" placeholder="Model:">
         </div>
         <div class="form-control mb-2">
-            <input required [(ngModel)]="gpuTemp.serialNumber" name="serialNumber" class="form-control"
-                placeholder="Serial number:" #serialNumber="ngModel">
-            <div *ngIf="serialNumber.invalid &&(serialNumber.dirty || serialNumber.touched)"
-                class="alert alert-danger  mt-2" role="alert">
+            <input required [(ngModel)]="gpuTemp.serialNumber" name="serialNumber" class="form-control" placeholder="Serial number:" #serialNumber="ngModel">
+            <div *ngIf="serialNumber.invalid &&(serialNumber.dirty || serialNumber.touched)" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="serialNumber.errors.required">
                     Serial Number is required.
                 </div>
             </div>
         </div>
-        <div class="form-group mb-2 " >
+        <div class="form-group mb-2 ">
             <input [(ngModel)]="gpuTemp.userNumber" name="userNumber" class="form-control" placeholder="User number:">
         </div>
-        <div class="form-group mb-2" >
+        <div class="form-group mb-2">
             <input [(ngModel)]="gpuTemp.memory" name="memory" class="form-control" placeholder="Memory:">
         </div>
 
         <div class="form-group mb-2">
             <input [(ngModel)]="gpuTemp.baseClock" name="baseClock" class="form-control" placeholder="Base Clock:">
         </div>
-        <div class="form-group mb-2" >
-            <input [(ngModel)]="gpuTemp.maxBoostClock" name="maxBoostClock" class="form-control"
-                placeholder="Max Boost Clock:">
+        <div class="form-group mb-2">
+            <input [(ngModel)]="gpuTemp.maxBoostClock" name="maxBoostClock" class="form-control" placeholder="Max Boost Clock:">
         </div>
-        <div class="form-group mb-4" >
-            <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control"
-                placeholder="Add note:"></textarea>
+        <div class="form-group mb-4">
+            <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control" placeholder="Add note:"></textarea>
         </div>
         <div class="float-right">
-            <button [disabled]="form.invalid" class="btn mr-2 float-left">Save/Update GPU</button>
-            <button class="btn float-left" data-dismiss="modal">Close</button>
+            <button [disabled]="form.invalid" class="btn mr-2 btn-add">Save/Update GPU</button>
+            <button class="btn btn-close" data-dismiss="modal">Close</button>
         </div>
     </form>
 </div>

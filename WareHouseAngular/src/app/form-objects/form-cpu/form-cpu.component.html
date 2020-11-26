@@ -6,8 +6,7 @@
             <input [(ngModel)]="cpuTemp.users" name="users" class="form-control" placeholder="Users:">
         </div>
         <div class="form-group mb-2 ">
-            <input required [(ngModel)]="cpuTemp.brand" name="brand" class="form-control" placeholder="Brand:"
-                #brand="ngModel">
+            <input required [(ngModel)]="cpuTemp.brand" name="brand" class="form-control" placeholder="Brand:" #brand="ngModel">
             <div *ngIf="brand.invalid &&(brand.dirty || brand.touched)" class="alert alert-danger mt-2" role="alert">
                 <div *ngIf="brand.errors.required">
                     Brand is required.
@@ -18,10 +17,8 @@
             <input [(ngModel)]="cpuTemp.model" name="model" class="form-control" placeholder="Model:">
         </div>
         <div class="form-group mb-2 ">
-            <input required [(ngModel)]="cpuTemp.serialNumber" name="serialNumber" class="form-control"
-                placeholder="Serial number:" #serialNumber="ngModel">
-            <div *ngIf="serialNumber.invalid &&(serialNumber.dirty || serialNumber.touched)"
-                class="alert alert-danger  mt-2" role="alert">
+            <input required [(ngModel)]="cpuTemp.serialNumber" name="serialNumber" class="form-control" placeholder="Serial number:" #serialNumber="ngModel">
+            <div *ngIf="serialNumber.invalid &&(serialNumber.dirty || serialNumber.touched)" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="serialNumber.errors.required">
                     Serial Number is required.
                 </div>
@@ -31,8 +28,7 @@
             <input [(ngModel)]="cpuTemp.userNumber" name="userNumber" class="form-control" placeholder="User number:">
         </div>
         <div class="form-group mb-4 ">
-            <input pattern="((\d+\.?\d*)|(\.\d+))" [(ngModel)]="cpuTemp.core" name="core" class="form-control"
-                placeholder="Core:" #core="ngModel">
+            <input pattern="((\d+\.?\d*)|(\.\d+))" [(ngModel)]="cpuTemp.core" name="core" class="form-control" placeholder="Core:" #core="ngModel">
             <div *ngIf="core.invalid &&(core.dirty || core.touched)" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="core.errors.pattern">
                     Only Number are allowed.
@@ -40,8 +36,7 @@
             </div>
         </div>
         <div class="form-group mb-4 ">
-            <input pattern="((\d+\.?\d*)|(\.\d+))" [(ngModel)]="cpuTemp.threads" name="threads" class="form-control"
-                placeholder="Threads:" #threads="ngModel">
+            <input pattern="((\d+\.?\d*)|(\.\d+))" [(ngModel)]="cpuTemp.threads" name="threads" class="form-control" placeholder="Threads:" #threads="ngModel">
             <div *ngIf="threads.invalid &&(threads.dirty || threads.touched)" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="threads.errors.pattern">
                     Only Number are allowed.
@@ -52,16 +47,14 @@
             <input [(ngModel)]="cpuTemp.baseClock" name="baseClock" class="form-control" placeholder="Base Clock:">
         </div>
         <div class="form-group mb-2 ">
-            <input [(ngModel)]="cpuTemp.maxBoostClock" name="maxBoostClock" class="form-control"
-                placeholder="Max Boost Clock:">
+            <input [(ngModel)]="cpuTemp.maxBoostClock" name="maxBoostClock" class="form-control" placeholder="Max Boost Clock:">
         </div>
         <div class="form-group mb-4 ">
-            <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control"
-                placeholder="Add note:"></textarea>
+            <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control" placeholder="Add note:"></textarea>
         </div>
         <div class="float-right">
-            <button [disabled]="form.invalid" class="btn mr-2 float-left">Save/Update CPU</button>
-            <button class="btn float-left" data-dismiss="modal">Close</button>
+            <button [disabled]="form.invalid" class="btn mr-2 btn-add">Save/Update CPU</button>
+            <button class="btn btn-close" data-dismiss="modal">Close</button>
         </div>
     </form>
 </div>

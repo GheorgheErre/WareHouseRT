@@ -6,8 +6,7 @@
             <input [(ngModel)]="ssdTemp.users" name="users" class="form-control" placeholder="Users:">
         </div>
         <div class="form-group mb-2">
-            <input required [(ngModel)]="ssdTemp.brand" name="brand" class="form-control" placeholder="Brand:"
-                #brand="ngModel">
+            <input required [(ngModel)]="ssdTemp.brand" name="brand" class="form-control" placeholder="Brand:" #brand="ngModel">
             <div *ngIf="brand.invalid &&(brand.dirty || brand.touched)" class="alert alert-danger mt-2" role="alert">
                 <div *ngIf="brand.errors.required">
                     Brand is required.
@@ -18,10 +17,8 @@
             <input [(ngModel)]="ssdTemp.model" name="model" class="form-control" placeholder="Model:">
         </div>
         <div class="form-group mb-2">
-            <input required [(ngModel)]="ssdTemp.serialNumber" name="serialNumber" class="form-control"
-                placeholder="Serial number:" #serialNumber="ngModel">
-            <div *ngIf="serialNumber.invalid &&(serialNumber.dirty || serialNumber.touched)"
-                class="alert alert-danger  mt-2" role="alert">
+            <input required [(ngModel)]="ssdTemp.serialNumber" name="serialNumber" class="form-control" placeholder="Serial number:" #serialNumber="ngModel">
+            <div *ngIf="serialNumber.invalid &&(serialNumber.dirty || serialNumber.touched)" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="serialNumber.errors.required">
                     Serial Number is required.
                 </div>
@@ -34,8 +31,8 @@
             <input [(ngModel)]="ssdTemp.capacity" name="capacity" class="form-control" placeholder="Capacity:">
         </div>
         <div class="float-right">
-            <button [disabled]="form.invalid" class="btn mr-2 float-left">Save/Update SSD</button>
-            <button class="btn float-left" data-dismiss="modal">Close</button>
+            <button [disabled]="form.invalid" class="btn mr-2 btn-add">Save/Update SSD</button>
+            <button class="btn btn-close" data-dismiss="modal">Close</button>
         </div>
     </form>
 </div>

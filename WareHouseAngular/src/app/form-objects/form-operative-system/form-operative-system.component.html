@@ -1,14 +1,12 @@
 <div>
     <h3>ADD OPERATIVE SYSTEM</h3>
-    <form autocomplete="off" (ngSubmit)="sendOperativeSystemToParent()" id="formOperativeSystem" class="form-group"
-        #form="ngForm">
+    <form autocomplete="off" (ngSubmit)="sendOperativeSystemToParent()" id="formOperativeSystem" class="form-group" #form="ngForm">
 
         <div class="form-group mb-2">
             <input [(ngModel)]="operativeSystemTemp.users" name="users" class="form-control" placeholder="Users:">
         </div>
         <div class="form-group mb-2">
-            <input required [(ngModel)]="operativeSystemTemp.brand" name="brand" class="form-control" placeholder="Brand:"
-                #brand="ngModel">
+            <input required [(ngModel)]="operativeSystemTemp.brand" name="brand" class="form-control" placeholder="Brand:" #brand="ngModel">
             <div *ngIf="brand.invalid &&(brand.dirty || brand.touched)" class="alert alert-danger mt-2" role="alert">
                 <div *ngIf="brand.errors.required">
                     Brand is required.
@@ -19,30 +17,25 @@
             <input [(ngModel)]="operativeSystemTemp.model" name="model" class="form-control" placeholder="Model:">
         </div>
         <div class="form-group mb-2">
-            <input required [(ngModel)]="operativeSystemTemp.serialNumber" name="serialNumber" class="form-control"
-                placeholder="Serial number:" #serialNumber="ngModel">
-                <div *ngIf="serialNumber.invalid &&(serialNumber.dirty || serialNumber.touched)" class="alert alert-danger  mt-2"
-                    role="alert">
-                    <div *ngIf="serialNumber.errors.required">
-                        Serial Number is required.
-                    </div>
+            <input required [(ngModel)]="operativeSystemTemp.serialNumber" name="serialNumber" class="form-control" placeholder="Serial number:" #serialNumber="ngModel">
+            <div *ngIf="serialNumber.invalid &&(serialNumber.dirty || serialNumber.touched)" class="alert alert-danger  mt-2" role="alert">
+                <div *ngIf="serialNumber.errors.required">
+                    Serial Number is required.
                 </div>
-             </div>
-        <div class="form-group mb-2">
-            <input [(ngModel)]="operativeSystemTemp.userNumber" name="userNumber" class="form-control"
-                placeholder="User number:">
+            </div>
         </div>
         <div class="form-group mb-2">
-            <input [(ngModel)]="operativeSystemTemp.productKey" name="productKey" class="form-control"
-                placeholder="Product Key:">
+            <input [(ngModel)]="operativeSystemTemp.userNumber" name="userNumber" class="form-control" placeholder="User number:">
+        </div>
+        <div class="form-group mb-2">
+            <input [(ngModel)]="operativeSystemTemp.productKey" name="productKey" class="form-control" placeholder="Product Key:">
         </div>
         <div class="form-group mb-4">
-            <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control"
-                placeholder="Add note:"></textarea>
+            <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control" placeholder="Add note:"></textarea>
         </div>
         <div class="float-right">
-            <button  [disabled]="form.invalid" class="btn mr-2 float-left">Save/Update operativeSystem</button>
-            <button class="btn float-left" data-dismiss="modal">Close</button>
+            <button [disabled]="form.invalid" class="btn mr-2 btn-add">Save/Update operativeSystem</button>
+            <button class="btn btn-close" data-dismiss="modal">Close</button>
         </div>
     </form>
 </div>

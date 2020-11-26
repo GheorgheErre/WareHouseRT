@@ -1,91 +1,81 @@
 <div>
-	<h3>ADD LAPTOP</h3>
-	<form autocomplete="off" (ngSubmit)="sendLaptopToParent()" class="form-group" #form="ngForm">
+    <h3>ADD LAPTOP</h3>
+    <form autocomplete="off" (ngSubmit)="sendLaptopToParent()" class="form-group" #form="ngForm">
 
-		<div class="form-group mb-2 laptopGroup">
-			<input [(ngModel)]="laptopTemp.users" name="users" class="form-control" placeholder="Users:">
+        <div class="form-group mb-2 laptopGroup">
+            <input [(ngModel)]="laptopTemp.users" name="users" class="form-control" placeholder="Users:">
 
-		</div>
-		<div class="form-group mb-2 laptopGroup">
-			<input required [(ngModel)]="laptopTemp.brand" name="brand" class="form-control" placeholder="Brand:"
-				#brand="ngModel">
-			<div *ngIf="brand.invalid &&(brand.dirty || brand.touched)" class="alert alert-danger mt-2" role="alert">
-				<div *ngIf="brand.errors.required">
-					Brand is required.
-				</div>
-			</div>
-		</div>
-		<div class="form-group mb-2 laptopGroup">
-			<input  [(ngModel)]="laptopTemp.model" name="model" class="form-control" placeholder="Model:">
+        </div>
+        <div class="form-group mb-2 laptopGroup">
+            <input required [(ngModel)]="laptopTemp.brand" name="brand" class="form-control" placeholder="Brand:" #brand="ngModel">
+            <div *ngIf="brand.invalid &&(brand.dirty || brand.touched)" class="alert alert-danger mt-2" role="alert">
+                <div *ngIf="brand.errors.required">
+                    Brand is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group mb-2 laptopGroup">
+            <input [(ngModel)]="laptopTemp.model" name="model" class="form-control" placeholder="Model:">
 
-		</div>
-		<div class="form-group mb-2 laptopGroup">
-			<input required [(ngModel)]="laptopTemp.serialNumber" name="serialNumber" class="form-control"
-				placeholder="Serial number:" #serialNumber="ngModel">
-			<div *ngIf="serialNumber.invalid &&(serialNumber.dirty || serialNumber.touched)" class="alert alert-danger  mt-2"
-				role="alert">
-				<div *ngIf="serialNumber.errors.required">
-					Serial Number is required.
-				</div>
-			</div>
-		</div>
-		<div class="form-group mb-2 laptopGroup">
-			<input [(ngModel)]="laptopTemp.userNumber" name="userNumber" class="form-control"
-				placeholder="User number:">
-		</div>
-		<div class="form-group mb-2 laptopGroup">
-			<input pattern="((\d+\.?\d*)|(\.\d+))" [(ngModel)]="laptopTemp.cpu" name="cpu" class="form-control"
-				placeholder="CPU:" #cpu="ngModel">
-			<div *ngIf="cpu.invalid &&(cpu.dirty || cpu.touched)" class="alert alert-danger  mt-2" role="alert">
-				<div *ngIf="cpu.errors.pattern">
-					Only Number are allowed.
-				</div>
-			</div>
-		</div>
-		<div class="form-group mb-2 laptopGroup">
-			<input pattern="^[0-9]*$" [(ngModel)]="laptopTemp.gpu" name="gpu" class="form-control" placeholder="GPU"
-				#gpu="ngModel">
-			<div *ngIf="gpu.invalid &&(gpu.dirty || gpu.touched)" class="alert alert-danger  mt-2" role="alert">
-				<div *ngIf="gpu.errors.pattern">
-					Only integer Number are allowed.
-				</div>
-			</div>
-		</div>
-		<div class="form-group mb-2 laptopGroup">
-			<input pattern="^[0-9]*$" [(ngModel)]="laptopTemp.hdd" name="hdd" class="form-control" placeholder="HDD:"
-				#hdd="ngModel">
-			<div *ngIf="hdd.invalid &&(hdd.dirty || hdd.touched)" class="alert alert-danger  mt-2" role="alert">
-				<div *ngIf="hdd.errors.pattern">
-					Only integer Number are allowed.
-				</div>
-			</div>
-		</div>
-		<div class="form-group mb-2 laptopGroup">
-			<input pattern="^[0-9]*$" [(ngModel)]="laptopTemp.ssd" name="ssd" class="form-control" placeholder="SSD:"
-				#ssd="ngModel">
-			<div *ngIf="ssd.invalid &&(ssd.dirty || ssd.touched)" class="alert alert-danger  mt-2" role="alert">
-				<div *ngIf="ssd.errors.pattern">
-					Only integer Number are allowed.
-				</div>
-			</div>
-		</div>
-		<div class="form-group mb-2 laptopGroup">
-			<input pattern="^[0-9]*$" [(ngModel)]="laptopTemp.ram" name="ram" class="form-control" placeholder="RAM:"
-				#ram="ngModel">
-			<div *ngIf="ram.invalid &&(ram.dirty || ram.touched)" class="alert alert-danger  mt-2" role="alert">
-				<div *ngIf="ram.errors.pattern">
-					Only integer Number are allowed.
-				</div>
-			</div>
-		</div>
-		<div class="form-group mb-4 laptopGroup">
-			<textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control"
-				placeholder="Add note:"></textarea>
+        </div>
+        <div class="form-group mb-2 laptopGroup">
+            <input required [(ngModel)]="laptopTemp.serialNumber" name="serialNumber" class="form-control" placeholder="Serial number:" #serialNumber="ngModel">
+            <div *ngIf="serialNumber.invalid &&(serialNumber.dirty || serialNumber.touched)" class="alert alert-danger  mt-2" role="alert">
+                <div *ngIf="serialNumber.errors.required">
+                    Serial Number is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group mb-2 laptopGroup">
+            <input [(ngModel)]="laptopTemp.userNumber" name="userNumber" class="form-control" placeholder="User number:">
+        </div>
+        <div class="form-group mb-2 laptopGroup">
+            <input pattern="((\d+\.?\d*)|(\.\d+))" [(ngModel)]="laptopTemp.cpu" name="cpu" class="form-control" placeholder="CPU:" #cpu="ngModel">
+            <div *ngIf="cpu.invalid &&(cpu.dirty || cpu.touched)" class="alert alert-danger  mt-2" role="alert">
+                <div *ngIf="cpu.errors.pattern">
+                    Only Number are allowed.
+                </div>
+            </div>
+        </div>
+        <div class="form-group mb-2 laptopGroup">
+            <input pattern="^[0-9]*$" [(ngModel)]="laptopTemp.gpu" name="gpu" class="form-control" placeholder="GPU" #gpu="ngModel">
+            <div *ngIf="gpu.invalid &&(gpu.dirty || gpu.touched)" class="alert alert-danger  mt-2" role="alert">
+                <div *ngIf="gpu.errors.pattern">
+                    Only integer Number are allowed.
+                </div>
+            </div>
+        </div>
+        <div class="form-group mb-2 laptopGroup">
+            <input pattern="^[0-9]*$" [(ngModel)]="laptopTemp.hdd" name="hdd" class="form-control" placeholder="HDD:" #hdd="ngModel">
+            <div *ngIf="hdd.invalid &&(hdd.dirty || hdd.touched)" class="alert alert-danger  mt-2" role="alert">
+                <div *ngIf="hdd.errors.pattern">
+                    Only integer Number are allowed.
+                </div>
+            </div>
+        </div>
+        <div class="form-group mb-2 laptopGroup">
+            <input pattern="^[0-9]*$" [(ngModel)]="laptopTemp.ssd" name="ssd" class="form-control" placeholder="SSD:" #ssd="ngModel">
+            <div *ngIf="ssd.invalid &&(ssd.dirty || ssd.touched)" class="alert alert-danger  mt-2" role="alert">
+                <div *ngIf="ssd.errors.pattern">
+                    Only integer Number are allowed.
+                </div>
+            </div>
+        </div>
+        <div class="form-group mb-2 laptopGroup">
+            <input pattern="^[0-9]*$" [(ngModel)]="laptopTemp.ram" name="ram" class="form-control" placeholder="RAM:" #ram="ngModel">
+            <div *ngIf="ram.invalid &&(ram.dirty || ram.touched)" class="alert alert-danger  mt-2" role="alert">
+                <div *ngIf="ram.errors.pattern">
+                    Only integer Number are allowed.
+                </div>
+            </div>
+        </div>
+        <div class="form-group mb-4 laptopGroup">
+            <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control" placeholder="Add note:"></textarea>
 
-		</div>
-		<div class="float-right">
-			<button id="btnSave" [disabled]="form.invalid" class="btn mr-2 float-left">Add Laptop</button>
-			<button class="btn float-left" data-dismiss="modal">Close</button>
-		</div>
-	</form>
+        </div>
+        <div class="float-right">
+            <button id="btnSave" [disabled]="form.invalid" class="btn mr-2 btn-add">Add Laptop</button>
+            <button class="btn btn-close" data-dismiss="modal">Close</button>
+        </div>
+    </form>
 </div>

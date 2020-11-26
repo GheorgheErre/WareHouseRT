@@ -1,66 +1,49 @@
-<header>
-    <nav>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-                    <div class="navbar">
-                        <div class="row">
-                            <div class="col">
-                                <h3>Office: {{office}} </h3>
-                            </div>
-                            <div class="col">
-                                <h3>Number: {{numero}}
-                                </h3>
-                            </div>
-                            <div class="col">
-                                <h3>User: {{workstation.userName}} {{workstation.userNumber}}</h3>
-                            </div>
-                            <div class="col">
-                                <button class="userButton" data-toggle="modal"
-                                    data-target="#assignWorkstationMoadal">ASSIGN WORKSTATION</button>
-                            </div>
-                            <div class="col">
-                                <button (click)="disassignWorkstation()" class="userButton">DISASSIGN
-                                    WORKSTATION</button>
-                            </div>
-                        </div>
-                    </div>
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-home fixed-top">
+        <div class="container-fluid d-flex flex-row">
+            <div class="row w-100">
+                <div class="col-1">
+                    <a class="navbar-brand" href="WelcomeMenu"> <img class="navbar-img" src="../../assets/img/Logo Erre.png"></a>
                 </div>
+                <div class="col-10 align-self-center">
+                    <a class="btn navbar-btn" href="WelcomeMenu">HOME</a>
+                    <a class="btn navbar-btn" href="WorkstationWelcome">WORKSTATION HOME</a>
+                    <a class="btn navbar-btn" href="WarehouseHomeList">WAREHOUSE</a>
+                    <a class="btn navbar-btn" href="HistoryWelcome">HISTORIC</a>
+                    <a class="btn navbar-btn" href="FormBolla">DDT</a>
+                    <button class="btn navbar-btn--assign" data-toggle="modal" data-target="#assignWorkstationMoadal">ASSIGN WORKSTATION</button>
+                    <button (click)="disassignWorkstation()" class="btn navbar-btn--disassign">DISASSIGN WORKSTATION</button>
+                    <button class="btn navbar-span mr-2" disabled>OFFICE: {{office}} </button>
+                    <button class="btn navbar-span mr-2" disabled>NUMBER: {{numero}} </button>
+                    <button class="btn navbar-span" disabled>USER: {{workstation.userName}} {{workstation.userNumber}}</button>
+
+                </div>
+                <div class="col-1 align-self-center"><a href="#" class="btn float-right navbar-btn--logout">EXIT</a></div>
             </div>
         </div>
     </nav>
-
-    <div class="container-fluid">
+</header>
+<main class="main">
+    <div class="container">
         <div class="row d-flex flex-column">
-            <div class="col">
-
+            <div class="col mt-3">
                 <div class="row">
                     <div class="col">
                         <div ngbDropdown class="d-inline-block">
                             <button class="btn" id="warehouse-dropdown" ngbDropdownToggle>Add
                                 article from warehouse</button>
                             <div ngbDropdownMenu aria-labelledby="warehouse-dropdown" id="warehouse-dropdown-body">
-                                <button id="btn-body" ngbDropdownItem (click)="showList('Laptop')" data-toggle="modal"
-                                    data-target="#addArticleFromWarehouseModal">Laptop</button>
-                                <button id="btn-body" ngbDropdownItem (click)="showList('Desktop')" data-toggle="modal"
-                                    data-target="#addArticleFromWarehouseModal">Desktop</button>
-                                <button id="btn-body" ngbDropdownItem (click)="showList('Monitor')" data-toggle="modal"
-                                    data-target="#addArticleFromWarehouseModal">Monitor</button>
-                                <button id="btn-body" ngbDropdownItem (click)="showList('Keyboard')" data-toggle="modal"
-                                    data-target="#addArticleFromWarehouseModal">Keyboard</button>
-                                <button id="btn-body" ngbDropdownItem (click)="showList('Cable')" data-toggle="modal"
-                                    data-target="#addArticleFromWarehouseModal">Cable</button>
-                                <button id="btn-body" ngbDropdownItem (click)="showList('GraphicTablet')"
-                                    data-toggle="modal" data-target="#addArticleFromWarehouseModal">Graphic
+                                <button id="btn-body" ngbDropdownItem (click)="showList('Laptop')" data-toggle="modal" data-target="#addArticleFromWarehouseModal">Laptop</button>
+                                <button id="btn-body" ngbDropdownItem (click)="showList('Desktop')" data-toggle="modal" data-target="#addArticleFromWarehouseModal">Desktop</button>
+                                <button id="btn-body" ngbDropdownItem (click)="showList('Monitor')" data-toggle="modal" data-target="#addArticleFromWarehouseModal">Monitor</button>
+                                <button id="btn-body" ngbDropdownItem (click)="showList('Keyboard')" data-toggle="modal" data-target="#addArticleFromWarehouseModal">Keyboard</button>
+                                <button id="btn-body" ngbDropdownItem (click)="showList('Cable')" data-toggle="modal" data-target="#addArticleFromWarehouseModal">Cable</button>
+                                <button id="btn-body" ngbDropdownItem (click)="showList('GraphicTablet')" data-toggle="modal" data-target="#addArticleFromWarehouseModal">Graphic
                                     Tablet</button>
-                                <button id="btn-body" ngbDropdownItem (click)="showList('Cellphone')"
-                                    data-toggle="modal" data-target="#addArticleFromWarehouseModal">Cellphone</button>
-                                <button id="btn-body" ngbDropdownItem (click)="showList('Mouse')" data-toggle="modal"
-                                    data-target="#addArticleFromWarehouseModal">Mouse</button>
-                                <button id="btn-body" ngbDropdownItem (click)="showList('Token')" data-toggle="modal"
-                                    data-target="#addArticleFromWarehouseModal">Token</button>
-                                <button id="btn-body" ngbDropdownItem (click)="showList('DockingStation')"
-                                    data-toggle="modal" data-target="#addArticleFromWarehouseModal">Docking
+                                <button id="btn-body" ngbDropdownItem (click)="showList('Cellphone')" data-toggle="modal" data-target="#addArticleFromWarehouseModal">Cellphone</button>
+                                <button id="btn-body" ngbDropdownItem (click)="showList('Mouse')" data-toggle="modal" data-target="#addArticleFromWarehouseModal">Mouse</button>
+                                <button id="btn-body" ngbDropdownItem (click)="showList('Token')" data-toggle="modal" data-target="#addArticleFromWarehouseModal">Token</button>
+                                <button id="btn-body" ngbDropdownItem (click)="showList('DockingStation')" data-toggle="modal" data-target="#addArticleFromWarehouseModal">Docking
                                     Station</button>
                             </div>
                         </div>
@@ -69,27 +52,17 @@
                             <button class="btn" id="outside-dropdown" ngbDropdownToggle>Add
                                 article from outside</button>
                             <div id="outside-dropdown-body" ngbDropdownMenu aria-labelledby="outside-dropdown">
-                                <button id="btn-body" (click)="prepareForm('Laptop')" ngbDropdownItem
-                                    data-toggle="modal" data-target="#addArticleFromOutsideModal">Laptop</button>
-                                <button id="btn-body" (click)="prepareForm('Desktop')" ngbDropdownItem
-                                    data-toggle="modal" data-target="#addArticleFromOutsideModal">Desktop</button>
-                                <button id="btn-body" (click)="prepareForm('Monitor')" ngbDropdownItem
-                                    data-toggle="modal" data-target="#addArticleFromOutsideModal">Monitor</button>
-                                <button id="btn-body" (click)="prepareForm('Keyboard')" ngbDropdownItem
-                                    data-toggle="modal" data-target="#addArticleFromOutsideModal">Keyboard</button>
-                                <button id="btn-body" (click)="prepareForm('Cable')" ngbDropdownItem data-toggle="modal"
-                                    data-target="#addArticleFromOutsideModal">Cable</button>
-                                <button id="btn-body" (click)="prepareForm('GraphicTablet')" ngbDropdownItem
-                                    data-toggle="modal" data-target="#addArticleFromOutsideModal">Graphic
+                                <button id="btn-body" (click)="prepareForm('Laptop')" ngbDropdownItem data-toggle="modal" data-target="#addArticleFromOutsideModal">Laptop</button>
+                                <button id="btn-body" (click)="prepareForm('Desktop')" ngbDropdownItem data-toggle="modal" data-target="#addArticleFromOutsideModal">Desktop</button>
+                                <button id="btn-body" (click)="prepareForm('Monitor')" ngbDropdownItem data-toggle="modal" data-target="#addArticleFromOutsideModal">Monitor</button>
+                                <button id="btn-body" (click)="prepareForm('Keyboard')" ngbDropdownItem data-toggle="modal" data-target="#addArticleFromOutsideModal">Keyboard</button>
+                                <button id="btn-body" (click)="prepareForm('Cable')" ngbDropdownItem data-toggle="modal" data-target="#addArticleFromOutsideModal">Cable</button>
+                                <button id="btn-body" (click)="prepareForm('GraphicTablet')" ngbDropdownItem data-toggle="modal" data-target="#addArticleFromOutsideModal">Graphic
                                     Tablet</button>
-                                <button id="btn-body" (click)="prepareForm('Cellphone')" ngbDropdownItem
-                                    data-toggle="modal" data-target="#addArticleFromOutsideModal">Cellphone</button>
-                                <button id="btn-body" (click)="prepareForm('Mouse')" ngbDropdownItem data-toggle="modal"
-                                    data-target="#addArticleFromOutsideModal">Mouse</button>
-                                <button id="btn-body" (click)="prepareForm('Token')" ngbDropdownItem data-toggle="modal"
-                                    data-target="#addArticleFromOutsideModal">Token</button>
-                                <button id="btn-body" (click)="prepareForm('DockingStation')" ngbDropdownItem
-                                    data-toggle="modal" data-target="#addArticleFromOutsideModal">Docking
+                                <button id="btn-body" (click)="prepareForm('Cellphone')" ngbDropdownItem data-toggle="modal" data-target="#addArticleFromOutsideModal">Cellphone</button>
+                                <button id="btn-body" (click)="prepareForm('Mouse')" ngbDropdownItem data-toggle="modal" data-target="#addArticleFromOutsideModal">Mouse</button>
+                                <button id="btn-body" (click)="prepareForm('Token')" ngbDropdownItem data-toggle="modal" data-target="#addArticleFromOutsideModal">Token</button>
+                                <button id="btn-body" (click)="prepareForm('DockingStation')" ngbDropdownItem data-toggle="modal" data-target="#addArticleFromOutsideModal">Docking
                                     Station</button>
                             </div>
                         </div>
@@ -97,10 +70,10 @@
                 </div>
             </div>
 
-            <div *ngIf="workstation.articles?.length; else emptyShowList" class="col mt-1">
+            <div *ngIf="workstation.articles?.length; else emptyShowList" class="col mt-3">
                 <div class="table-responsive">
-                    <table id="tabella-workstation" class="table">
-                        <thead id="thead">
+                    <table class="table-workstation">
+                        <thead class="table-workstation--head">
                             <tr>
                                 <th scope="row">Type</th>
                                 <th scope="row">Identifier</th>
@@ -108,9 +81,10 @@
                                 <th scope="row">Brand</th>
                                 <th scope="row">Model</th>
                                 <th scope="row">Serial Number</th>
+                                <th scope="row"></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="table-workstation--body">
                             <tr *ngFor="let article of workstation.articles">
                                 <td>{{article.articleType}}</td>
                                 <td>{{article.identifier}}</td>
@@ -118,29 +92,32 @@
                                 <td>{{article.brand}}</td>
                                 <td>{{article.model}}</td>
                                 <td>{{article.serialNumber}}</td>
-                                <td><button (click)="articleDetails(article)" class="btn btn-success" id="btn-details"
-                                        data-toggle="modal" data-target="#articleDetailsModal">
+                                <td><button (click)="articleDetails(article)" class="btn btn-details mr-2 mt-1" data-toggle="modal" data-target="#articleDetailsModal">
                                         Details
-                                    </button></td>
-                                <td><button (click)="setArticleToMove(article)" class="btn btn-primary" id="btn-move" data-toggle="modal" data-target="#moveToWarehouseModal">
+                                    </button>
+                                    <button (click)="setArticleToMove(article)" class="btn btn-move mr-2 mt-1" data-toggle="modal" data-target="#moveToWarehouseModal">
                                         Move to Warehouse
-                                    </button></td>
-                                <td><button (click)="setArticleTodelete(article)" class="btn btn-danger" id="btn-delete"
-                                        data-toggle="modal" data-target="#deleteArticleModal">
-                                        <fa-icon [icon]="faEraser"></fa-icon>
-                                    </button></td>
+                                    </button>
+                                    <button (click)="setArticleTodelete(article)" class="btn btn-delete mt-1" data-toggle="modal" data-target="#deleteArticleModal">
+                                        Delete
+                                    </button>
+                                </td>
                             </tr>
                         </tbody>
+                        <tfoot class="table-workstation-footer">
+                            <tr>
+                                <td colspan="10"></td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
             </div>
             <ng-template #emptyShowList>
-                <div id="emptyListMessage">No articles present in this workstation, press "Add article" to add articles
-                    to this workstation</div>
+                <div id="emptyListMessage">No articles present in this workstation, press "Add article" to add articles to this workstation</div>
             </ng-template>
         </div>
     </div>
-</header>
+</main>
 
 <!--Modal inserimento user  -->
 <div class="modal fade" id="assignWorkstationMoadal" tabindex="-1" role="dialog">
@@ -174,42 +151,36 @@
 
 <!--Modal eliminazione -->
 <div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Delete Article</h5>
+                <span class="modal-title">Delete the selected Article?</span>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <form (ngSubmit)="deleteArticle(articleToDelete)" id="formLaptopDelete">
-                    Delete the selected Article?
-                    <div class="mb-4">
-                        <textarea [(ngModel)]="note" name="note" id="note" class="form-control" placeholder="Add note:"></textarea>
-                    </div>
-                    <div class="form-group float-right">
-                        <button class="btn mr-2 float-left btn btn-danger">Delete</button>
-                        <button type="button" class="btn float-left btn btn-secondary"
-                            data-dismiss="modal">Close</button>
-                    </div>
-                </form>
-            </div>
+            <form (ngSubmit)="deleteArticle(articleToDelete)" id="formLaptopDelete">
+                <div class="modal-body">
+                    <textarea [(ngModel)]="note" name="note" id="note" class="form-control" placeholder="Add note:"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-modal--close">Delete</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
 <!--Modal tabella articoli da magazzino -->
 <div class="modal fade" id="addArticleFromWarehouseModal" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" id="modalArticle">
+    <div class="modal-dialog modal-dialog-centered modal--dialog" id="modalArticle">
+        <div class="modal-content modal--content">
 
-        <!-- Modal content-->
-        <div class="modal-content" id="modal">
-
-            <div class="modal-header" id="modal-header">
-                <h3 class="modal-title">List {{articleType}}:</h3>
+            <div class="modal-header modal--header">
+                <span class="modal-title">List of {{articleType}}:</span>
             </div>
-            <div class="modal-body" id="modal-body">
+
+            <div class="modal-body modal--body">
                 <div class="col">
                     <div *ngIf="showWarehouseList?.length; else emptyList">
                         <table id="myTable" class="table table-striped">
@@ -221,21 +192,18 @@
                             <tbody>
                                 <tr *ngFor="let article of showWarehouseList">
                                     <td *ngFor="let item of article | keyvalue">{{item.value}}</td>
-                                    <td><button (click)="addArticleFromWarehouse(article)">add</button></td>
+                                    <td><button (click)="addArticleFromWarehouse(article)" class="btn btn-modal--move">add</button></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <ng-template #emptyList>
-                        <div id="emptyShowListMessage">No article present for the {{articleType}} category in the
-                            Warehouse.
+                        <div id="emptyShowListMessage">No article present for the {{articleType}} category in the Warehouse.
                         </div>
                     </ng-template>
                 </div>
-
-
             </div>
-            <div class="modal-footer"><button data-dismiss="modal"> Chiudi </button></div>
+            <div class="modal-footer modal--footer"><button data-dismiss="modal" class="btn btn-modal--close">Chiudi</button></div>
         </div>
     </div>
 </div>
@@ -244,22 +212,26 @@
 <!--Modal details article -->
 <div class="modal fade" id="articleDetailsModal" role="dialog">
     <div class="modal-dialog modal-dialog-centered">
-
-        <!-- Modal content-->
         <div class="modal-content" id="modal">
 
             <div class="modal-header" id="modal-header">
-                <h3 class="modal-title">DETAILS:</h3>
+                <span class="modal-title">Details:</span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true" class="btn-close-modal">&times;</span>
+				</button>
             </div>
-            <table id="myTable" class="table table-striped">
-                <thead>
-                <tbody>
-                    <tr *ngFor="let item of entity | keyvalue">
-                        <td>{{item.key}}</td>
-                        <td>{{item.value}}</td>
-                    </tr>
-                </tbody>
-            </table>
+
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tbody>
+                            <tr *ngFor="let item of entity | keyvalue">
+                                <td>{{item.key}}</td>
+                                <td>{{item.value}}</td>
+                            </tr>
+                        </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
@@ -267,27 +239,20 @@
 <!--Modal move to warehouse confirmation -->
 <div class="modal fade" id="moveToWarehouseModal" role="dialog">
     <div class="modal-dialog modal-dialog-centered">
-
-        <!-- Modal content-->
-        <div class="modal-content" id="modal">
+        <div class="modal-content">
 
             <div class="modal-header" id="modal-header">
-                <h3 class="modal-title">Move article:</h3>
+                <span>Move the selected Article to warehouse?</span>
             </div>
-            <div class="modal-body">
-                <form (ngSubmit)="moveToWarehouse()" id="formLaptopDelete">
-                    Move the selected Article to warehouse?
-                    <div class="mb-4">
-                        <textarea [(ngModel)]="note" name="note" id="note" class="form-control" placeholder="Add note:"></textarea>
-                    </div>
-                    <div class="form-group float-right">
-                        <button class="btn mr-2 float-left btn btn-danger">Move</button>
-                        <button type="button" class="btn float-left btn btn-secondary"
-                            data-dismiss="modal">Close</button>
-                    </div>
-                </form>
-            </div>
-
+            <form (ngSubmit)="moveToWarehouse()" id="formLaptopDelete">
+                <div class="modal-body">
+                    <textarea [(ngModel)]="note" name="note" id="note" class="form-control" placeholder="Add notes:"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-modal--move">Move</button>
+                    <button type="button" class="btn btn-modal--close" data-dismiss="modal">Close</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

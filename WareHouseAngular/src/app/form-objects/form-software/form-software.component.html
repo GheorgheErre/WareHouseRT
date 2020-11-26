@@ -1,6 +1,6 @@
 <div>
     <h3>ADD SOFTWARE</h3>
-    <form autocomplete="off" (ngSubmit)="sendSoftwareToParent()"  class="form-group" #form="ngForm">
+    <form autocomplete="off" (ngSubmit)="sendSoftwareToParent()" class="form-group" #form="ngForm">
 
         <div class="form-group mb-2 softwareGroup">
             <input [(ngModel)]="softwareTemp.users" name="users" class="form-control" placeholder="Users:">
@@ -13,34 +13,29 @@
                 </div>
             </div>
         </div>
-        <div class="form-group mb-2 softwareGroup" >
+        <div class="form-group mb-2 softwareGroup">
             <input [(ngModel)]="softwareTemp.model" name="model" class="form-control" placeholder="Model:">
         </div>
-        <div class="form-group mb-2 softwareGroup" >
-            <input required [(ngModel)]="softwareTemp.serialNumber" name="serialNumber" class="form-control"
-                placeholder="Serial number:" #serialNumber="ngModel">
-            <div *ngIf="serialNumber.invalid &&(serialNumber.dirty || serialNumber.touched)"
-                class="alert alert-danger  mt-2" role="alert">
+        <div class="form-group mb-2 softwareGroup">
+            <input required [(ngModel)]="softwareTemp.serialNumber" name="serialNumber" class="form-control" placeholder="Serial number:" #serialNumber="ngModel">
+            <div *ngIf="serialNumber.invalid &&(serialNumber.dirty || serialNumber.touched)" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="serialNumber.errors.required">
                     Serial Number is required.
                 </div>
             </div>>
         </div>
         <div class="form-control mb-2 softwareGroup">
-            <input [(ngModel)]="softwareTemp.userNumber" name="userNumber" class="form-control"
-                placeholder="User number:">
+            <input [(ngModel)]="softwareTemp.userNumber" name="userNumber" class="form-control" placeholder="User number:">
         </div>
         <div class="form-control mb-2 softwareGroup">
-            <input [(ngModel)]="softwareTemp.productKey" name="productKey" class="form-control"
-                placeholder="Product Key:">
+            <input [(ngModel)]="softwareTemp.productKey" name="productKey" class="form-control" placeholder="Product Key:">
         </div>
         <div class="form-control mb-4 softwareGroup">
-            <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control"
-                placeholder="Add note:"></textarea>
+            <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control" placeholder="Add note:"></textarea>
         </div>
         <div class="float-right">
-            <button [disabled]="form.invalid" class="btn mr-2 float-left">Save/Update software</button>
-            <button class="btn float-left" data-dismiss="modal">Close</button>
+            <button [disabled]="form.invalid" class="btn mr-2 btn-add">Save/Update software</button>
+            <button class="btn btn-close" data-dismiss="modal">Close</button>
         </div>
     </form>
 </div>

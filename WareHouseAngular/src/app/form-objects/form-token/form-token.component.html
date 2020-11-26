@@ -6,8 +6,7 @@
             <input [(ngModel)]="tokenTemp.users" name="users" class="form-control" placeholder="Users:">
         </div>
         <div class="form-group mb-2">
-            <input required [(ngModel)]="tokenTemp.brand" name="brand" class="form-control" placeholder="Brand:"
-                #brand="ngModel">
+            <input required [(ngModel)]="tokenTemp.brand" name="brand" class="form-control" placeholder="Brand:" #brand="ngModel">
             <div *ngIf="brand.invalid &&(brand.dirty || brand.touched)" class="alert alert-danger mt-2" role="alert">
                 <div *ngIf="brand.errors.required">
                     Brand is required.
@@ -17,22 +16,20 @@
         <div class="form-group mb-2">
             <input [(ngModel)]="tokenTemp.model" name="model" class="form-control" placeholder="Model:">
         </div>
-        <div class="form-group mb-2" >
-            <input [(ngModel)]="tokenTemp.serialNumber" name="serialNumber" class="form-control"
-                placeholder="Serial number:" #serialNumber="ngModel">
-            <div *ngIf="serialNumber.invalid &&(serialNumber.dirty || serialNumber.touched)"
-                class="alert alert-danger  mt-2" role="alert">
+        <div class="form-group mb-2">
+            <input [(ngModel)]="tokenTemp.serialNumber" name="serialNumber" class="form-control" placeholder="Serial number:" #serialNumber="ngModel">
+            <div *ngIf="serialNumber.invalid &&(serialNumber.dirty || serialNumber.touched)" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="serialNumber.errors.required">
                     Serial Number is required.
                 </div>
             </div>
         </div>
-        <div class="form-group mb-2" id="tokenGroup">
+        <div class="form-group mb-4" id="tokenGroup">
             <input [(ngModel)]="tokenTemp.userNumber" name="userNumber" class="form-control" placeholder="User number:">
         </div>
         <div class="float-right">
-            <button [disabled]="form.invalid" class="btn mr-2 float-left">Save/Update token</button>
-            <button class="btn float-left" data-dismiss="modal">Close</button>
+            <button [disabled]="form.invalid" class="btn mr-2 btn-add">Save/Update token</button>
+            <button class="btn btn-close" data-dismiss="modal">Close</button>
         </div>
     </form>
 </div>
