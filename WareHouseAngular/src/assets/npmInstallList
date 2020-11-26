@@ -5,3 +5,5 @@ npm install @fortawesome/fontawesome-svg-core
 npm install @fortawesome/free-solid-svg-icons
 npm i --save @fortawesome/free-brands-svg-icons
 npm install popper.js --save
+npm install html2canvas
+npm install jspdf@1.5.3
