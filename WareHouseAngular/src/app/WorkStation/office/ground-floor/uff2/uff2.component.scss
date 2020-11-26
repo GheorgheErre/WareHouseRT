@@ -2,24 +2,20 @@
     font-family: Poppins;
     src: url("../../../../../assets/fonts/Poppins-Light.ttf");
 }
+
 * {
     font-family: "Poppins", sans-serif;
 }
-html,
-body,
-header {
-    height: 100%;
-}
-#container {
-     
+
+.main {
+    height: 90%;
+    background-color: whitesmoke;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    background-attachment: fixed;
 }
 
-img[usemap] {
-    border: none;
-    height: auto;
-    max-width: 100%;
-    width: auto;
+span {
+    font-size: 20px;
 }

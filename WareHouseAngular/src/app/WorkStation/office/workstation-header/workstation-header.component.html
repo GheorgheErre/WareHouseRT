@@ -1,22 +1,18 @@
-<nav>
-    <div class="container-fluid ">
-        <div class="row ">
-            <div class="col">
-                <div class="navbar">
-                    <div class="row w-100 align-items-center">
-                        <div class="col-auto align-self-start">
-                            <a href="/WorkstationWelcome" class="btn" placement="right" ngbTooltip="Building">
-                                <fa-icon [icon]="faArrowLeft"></fa-icon>
-                            </a>
-                        </div>
-                        <div class="col mt-5 align-self-center text-center">
-                            <span>{{title}}</span>
-                            <p>Click on a workstation to see its details.</p>
-                        </div>
-
-                    </div>
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-home">
+        <div class="container-fluid d-flex flex-row">
+            <div class="row w-100">
+                <div class="col-1">
+                    <a class="navbar-brand" href="WelcomeMenu"> <img class="navbar-img" src="../../assets/img/Logo Erre.png"></a>
                 </div>
+                <div class="col align-self-center text-left">
+                    <a class="btn navbar-btn mr-1 ml-2" href="WorkstationWelcome">WORKSTATION HOME</a>
+                    <a class="btn navbar-btn mr-1 ml-2" href="WarehouseHomeList">WAREHOUSE</a>
+                    <a class="btn navbar-btn mr-1 ml-2" href="HistoryWelcome">HISTORIC</a>
+                    <a class="btn navbar-btn mr-1 ml-2" href="FormBolla">DDT</a>
+                </div>
+                <div class="col align-self-center"><a href="#" class="btn float-right navbar-btn--logout">EXIT</a></div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</header>

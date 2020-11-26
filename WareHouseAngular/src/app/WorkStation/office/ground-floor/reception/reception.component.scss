@@ -7,15 +7,15 @@
     font-family: "Poppins", sans-serif;
 }
 
-html,
-body,
-header {
-    height: 100%;
+.main {
+    height: 90%;
+    background-color: whitesmoke;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
-#imgMap {
-    size: 100%;
-    border: 2px solid black;
-    border-radius: 4px;
-    padding: 0px;
+span {
+    font-size: 20px;
 }
