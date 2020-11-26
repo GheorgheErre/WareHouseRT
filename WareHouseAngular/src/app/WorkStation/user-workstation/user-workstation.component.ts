@@ -144,6 +144,7 @@ export class UserWorkstationComponent implements OnInit {
     });
 
     this.workstation.articles.push(this.entity);
+    this.showList(this.articleType);
     this.updateWorkstation();
   }
 
@@ -187,6 +188,7 @@ export class UserWorkstationComponent implements OnInit {
     this.service.moveToWareHouse(this.entity, this.note).subscribe(result => {
       console.log("ARTICLE SPOSTATO IN WAREHOUSE CON SUCCESSO")
     });
+    document.getElementById('moveToWarehouseModal').click();
 
     this.workstation.articles = this.workstation.articles.filter((a) => a.identifier != this.entity.identifier);
     this.updateWorkstation();
@@ -198,9 +200,10 @@ export class UserWorkstationComponent implements OnInit {
   updateWorkstation() {
     this.workstation = this.addType(this.workstation);
     this.workstationService.saveOrUpdate(this.workstation).subscribe(result => {
-      console.log("ARTICLE CARICATO CON SUCCESSO")//,
-        this.reloadPage();
+      console.log("ARTICLE CARICATO CON SUCCESSO")
     });
+
+    this.findAllProduct();
   }
 
   chooseService(article) {
@@ -260,7 +263,4 @@ export class UserWorkstationComponent implements OnInit {
     return JSON.parse(workstationJSONString);
   }
 
-  reloadPage() {
-    window.location.reload();
-  }
 }
