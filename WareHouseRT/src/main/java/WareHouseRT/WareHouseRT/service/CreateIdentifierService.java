@@ -12,7 +12,7 @@ public class CreateIdentifierService {
 	
 	//create identifier for article
 	public String createIdentifier(String initial) {
-		String pattern = "MM/dd/yyyy";
+		String pattern = "ddMMyyyyHHmmss";
 		DateFormat df = new SimpleDateFormat(pattern);
 		
 		Date today = Calendar.getInstance().getTime(); 
