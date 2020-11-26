@@ -5,11 +5,13 @@ import { Product } from 'src/app/pcObjects/product/product';
 import { WorkStationService } from 'src/app/service/service-workStation/work-station.service';
 import { ServiceService } from 'src/app/service/service.service';
 
+
 @Component({
   template: ''
 })
 
 export abstract class ProductList {
+
 
   faEye= faEye;
   faEyeSlash=faEyeSlash;
@@ -40,14 +42,23 @@ export abstract class ProductList {
   }
 
   saveOrUpdate(product) {
+    let btn = <HTMLInputElement> document.getElementById("btnSave"); 
+    btn.disabled = true;
+
     this.entity = product.product;
     this.note = product.note;
     this.entity.location = "magazzino";
+
+    document.getElementById('saveOrUpdateModal').click();
+        
     this.service.saveOrUpdate(this.entity, this.note).subscribe(result => {
-      console.log("ARTICLE CARICATO CON SUCCESSO"),
-        this.reloadPage();
+      console.log("ARTICLE CARICATO CON SUCCESSO");
+      this.findAllProduct();
     });
+
   }
+
+
 
   setProductToDelete(product) {
     this.productToDelete = product;
@@ -63,9 +74,10 @@ export abstract class ProductList {
     if (this.belongsWorkstation()) {
       this.findWorkstation(product);
     }
+    document.getElementById('deleteArticleModal').click();
     this.service.delete(product, this.note).subscribe(result => {
       console.log("ARTICLE ELIMINATO CON SUCCESSO"),
-        this.reloadPage();
+      this.findAllProduct();
     });
   }
 
@@ -76,15 +88,12 @@ export abstract class ProductList {
     this.workstationService.findByOfficeAndNumero(office, numero).subscribe(data => {
       data.articles = data.articles.filter((a) => a.identifier != product.identifier);
       this.workstationService.saveOrUpdate(data).subscribe(result => {
-        console.log("ARTICLE ELIMINATO CON SUCCESSO")
+       
       });
     })
   }
 
-  reloadPage() {
-    this.findAllProduct();
-    window.location.reload();
-  }
+  
 
   showAllList() {
     if (this.isChecked) {
