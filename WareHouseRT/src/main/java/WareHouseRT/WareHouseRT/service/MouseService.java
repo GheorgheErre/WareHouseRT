@@ -63,7 +63,7 @@ public class MouseService {
 	}
 
 	public List<Mouse> findAll() {
-		return repo.findAll();
+		return repo.findByOrderByIdDesc();
 	}
 
 	public long count() {

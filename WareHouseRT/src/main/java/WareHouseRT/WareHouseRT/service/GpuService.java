@@ -61,7 +61,7 @@ public class GpuService {
 	}
 
 	public List<GPU> findAll() {
-		return repo.findAll();
+		return repo.findByOrderByIdDesc();
 	}
 	
 	public long count() {

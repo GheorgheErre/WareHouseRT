@@ -63,7 +63,7 @@ public class SsdService {
 
 	public List<SSD> findAll() {
 	
-		return repo.findAll();
+		return repo.findByOrderByIdDesc();
 	}
 
 	public long count() {

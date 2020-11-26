@@ -65,7 +65,7 @@ public class CellphoneService {
 	}
 
 	public List<Cellphone> findAll() {
-		return repo.findAll();
+		return repo.findByOrderByIdDesc();
 	}
 
 	public long count() {

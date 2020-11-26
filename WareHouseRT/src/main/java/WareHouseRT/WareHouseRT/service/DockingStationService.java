@@ -66,7 +66,7 @@ public class DockingStationService {
 	}
 
 	public List<DockingStation> findAll() {
-		return repo.findAll();
+		return repo.findByOrderByIdDesc();
 	}
 	
 	public long count() {

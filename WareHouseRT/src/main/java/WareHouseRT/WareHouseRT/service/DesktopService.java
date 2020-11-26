@@ -61,7 +61,7 @@ public class DesktopService {
 	}
 
 	public List<Desktop> findAll() {
-		return repo.findAll();
+		return repo.findByOrderByIdDesc();
 	}
 
 	public long count() {

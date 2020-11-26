@@ -62,7 +62,7 @@ public class SoftwareService {
 	}
 
 	public List<Software> findAll() {
-		return repo.findAll();
+		return repo.findByOrderByIdDesc();
 	}
 	
 	public long count() {

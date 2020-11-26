@@ -65,7 +65,7 @@ public class KeyboardService {
 	}
 
 	public List<Keyboard> findAll() {
-		return repo.findAll();
+		return repo.findByOrderByIdDesc();
 	}
 
 	public long count() {

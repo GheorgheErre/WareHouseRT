@@ -64,7 +64,7 @@ public class MonitorService {
 	}
 
 	public List<Monitor> findAll() {
-		return repo.findAll();
+		return repo.findByOrderByIdDesc();
 	}
 
 	public long count() {

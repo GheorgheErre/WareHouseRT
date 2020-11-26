@@ -63,7 +63,7 @@ public class TokenService {
 
 	public List<Token> findAll() {
 		
-		return repo.findAll();
+		return repo.findByOrderByIdDesc();
 	}
 	
 	public long count() {

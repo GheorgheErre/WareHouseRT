@@ -23,7 +23,6 @@ public class CableService {
 
 	@Autowired
 	private HistoricMovementsService movementsService;
-	
 
 	public Cable saveOrUpdate(Cable entity, String note) {
 		if (repo.findById(entity.getId()).isPresent()) {
@@ -39,20 +38,20 @@ public class CableService {
 		cable.setIdentifier(createIdentifier.createIdentifier("CBL"));
 		Cable c = repo.save(cable);
 		movementsService.save(c, note, tipoAzione);
-		
+
 		return c;
 
 	}
-	
+
 	public Cable update(Cable newCable, String note) {
 		String tipoAzione = "Modifica Prodotto";
-		
+
 		Cable c = repo.save(newCable);
 		movementsService.save(c, note, tipoAzione);
-		
+
 		return c;
 	}
-	
+
 	public void changeLocation(Cable c) {
 		repo.save(c);
 	}
@@ -61,19 +60,18 @@ public class CableService {
 		repo.delete(entity);
 	}
 
-
 	public Optional<Cable> findByID(long id) {
 		return repo.findById(id);
 	}
 
 	public List<Cable> findAll() {
-		return repo.findAll();
+		return repo.findByOrderByIdDesc();
+
 	}
 
 	public long count() {
 
 		return repo.count();
 	}
-	
 
 }

@@ -62,7 +62,7 @@ public class PowerSupplieService {
 
 	public List<PowerSupplie> findAll() {
 		
-		return repo.findAll();
+		return repo.findByOrderByIdDesc();
 	}
 	
 	public long count() {

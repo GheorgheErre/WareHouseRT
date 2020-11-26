@@ -63,7 +63,7 @@ public class LaptopService {
 
 	public List<Laptop> findAll() {
 		
-		return repo.findAll();
+		return repo.findByOrderByIdDesc();
 	}
 	
 	public long count() {

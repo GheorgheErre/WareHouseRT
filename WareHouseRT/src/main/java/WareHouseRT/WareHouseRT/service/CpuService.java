@@ -65,7 +65,7 @@ public class CpuService {
 	}
 
 	public List<CPU> findAll() {
-		return repo.findAll();
+		return repo.findByOrderByIdDesc();
 
 	}
 

@@ -65,7 +65,7 @@ public class HDDService{
 
 	public List<HDD> findAll() {
 		
-		return repo.findAll();
+		return repo.findByOrderByIdDesc();
 	}
 	
 	public long count() {

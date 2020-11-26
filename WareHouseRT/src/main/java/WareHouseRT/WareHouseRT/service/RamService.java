@@ -63,7 +63,7 @@ public class RamService {
 
 	public List<RAM> findAll() {
 		
-		return repo.findAll();
+		return repo.findByOrderByIdDesc();
 	}
 	
 	public long count() {

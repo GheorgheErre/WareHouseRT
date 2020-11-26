@@ -63,7 +63,7 @@ public class GraphicTabletService {
 	}
 
 	public List<GraphicTablet> findAll() {
-		return repo.findAll();
+		return repo.findByOrderByIdDesc();
 	}
 	
 	public long count() {
