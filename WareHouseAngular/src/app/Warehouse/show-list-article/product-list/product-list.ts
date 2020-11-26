@@ -65,6 +65,7 @@ export abstract class ProductList {
 
   setProductToDelete(product) {
     this.productToDelete = product;
+    this.note = new String;
     if (this.belongsWorkstation()) {
       this.deleteMessage = "This article is linked to a workstation. Delete the selected Article?"
     }
@@ -82,6 +83,7 @@ export abstract class ProductList {
       console.log("ARTICLE ELIMINATO CON SUCCESSO"),
       this.findAllProduct();
     });
+    this.note = new String;
   }
 
   findWorkstation(product: Product) {
