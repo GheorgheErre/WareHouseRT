@@ -82,6 +82,8 @@
                                 <th scope="row">Model</th>
                                 <th scope="row">Serial Number</th>
                                 <th scope="row"></th>
+                                <th scope="row"></th>
+                                <th scope="row"></th>
                             </tr>
                         </thead>
                         <tbody class="table-workstation--body">
@@ -94,11 +96,12 @@
                                 <td>{{article.serialNumber}}</td>
                                 <td><button (click)="articleDetails(article)" class="btn btn-details mr-2 mt-1" data-toggle="modal" data-target="#articleDetailsModal">
                                         Details
-                                    </button>
-                                    <button (click)="setArticleToMove(article)" class="btn btn-move mr-2 mt-1" data-toggle="modal" data-target="#moveToWarehouseModal">
+                                    </button></td>
+
+                                <td><button (click)="setArticleToMove(article)" class="btn btn-move mr-2 mt-1" data-toggle="modal" data-target="#moveToWarehouseModal">
                                         Move to Warehouse
-                                    </button>
-                                    <button (click)="setArticleTodelete(article)" class="btn btn-delete mt-1" data-toggle="modal" data-target="#deleteArticleModal">
+                                    </button></td>
+                                <td><button (click)="setArticleTodelete(article)" class="btn btn-delete mt-1" data-toggle="modal" data-target="#deleteArticleModal">
                                         Delete
                                     </button>
                                 </td>

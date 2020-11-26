@@ -1,5 +1,5 @@
 <header class="header">
-    <nav class="navbar navbar-expand-lg navbar-home">
+    <nav class="navbar navbar-expand-lg navbar-home fixed-top">
         <div class="container-fluid d-flex flex-row">
             <div class="row w-100">
                 <div class="col-1">
@@ -17,14 +17,14 @@
     </nav>
 </header>
 <main class="main">
-    <div class="container">
+    <div class="container-fluid">
         <div *ngIf="showList?.length; else emptyList" class="row h-100 d-flex flex-column flex-wrap">
             <div class="col mt-5">
                 <div class="row h-100 align-items-end">
 
                     <div class="col-6 mb-2 d-flex flex-row">
 
-                        <button class="btn mr-2" id="btn-add" data-toggle="modal" (click)="onAddArticleButton()" data-target="#saveOrUpdateModal">
+                        <button class="btn mr-2 btn-add" data-toggle="modal" (click)="onAddArticleButton()" data-target="#saveOrUpdateModal">
                             <fa-icon [icon]="faPlus"></fa-icon>
                         </button>
                         <select [(ngModel)]="filtered" class="custom-select" name="filter">
@@ -44,11 +44,12 @@
                         </select>
                     </div>
                     <div class="col-6 mb-2 d-flex flex-row">
-                        <input class="form-control" type="text" id="myInput" (keyup)="searchFunction()" placeholder="Search by filter...">
+                        <input class="form-control input-up--table" type="text" (keyup)="searchFunction()" placeholder="Search by filter...">
                         <div class="custom-control custom-switch d-flex align-items-end ml-2">
-                            <button class="btn mr-2" id="btn-add" (click)="showAllList()">
+                            <button class="btn mr-2 btn-eye" (click)="showAllList()">
                                 <fa-icon *ngIf="isChecked" [icon]="faEyeSlash"></fa-icon>
-                                <fa-icon *ngIf="!isChecked" [icon]="faEye"></fa-icon>                            </button>
+                                <fa-icon *ngIf="!isChecked" [icon]="faEye"></fa-icon>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -70,8 +71,8 @@
                                 <th scope="row">HDD</th>
                                 <th scope="row">SSD</th>
                                 <th scope="row">RAM</th>
-                                <th scope="row">Modify</th>
-                                <th scope="row">Delete</th>
+                                <th scope="row"></th>
+                                <th scope="row"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -88,11 +89,11 @@
                                 <td class="hdd">{{laptop.hdd}}</td>
                                 <td class="ssd">{{laptop.ssd}}</td>
                                 <td class="ram">{{laptop.ram}}</td>
-                                <td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(laptop)" data-toggle="modal" data-target="#saveOrUpdateModal">
-                                        <fa-icon [icon]="faPen"></fa-icon>
+                                <td><button class="btn btn-table--modify" (click)="onUpdateButton(laptop)" data-toggle="modal" data-target="#saveOrUpdateModal">
+                                        Modify
                                     </button></td>
-                                <td><button (click)="setProductToDelete(laptop)" class="btn btn-danger" id="btn-delete" data-toggle="modal" data-target="#deleteArticleModal">
-                                        <fa-icon [icon]="faEraser"></fa-icon>
+                                <td><button (click)="setProductToDelete(laptop)" class="btn btn-table--delete" data-toggle="modal" data-target="#deleteArticleModal">
+                                        Delete
                                     </button></td>
                             </tr>
                         </tbody>
@@ -102,13 +103,14 @@
             </div>
         </div>
         <ng-template #emptyList>
-            <div class="container h-100 justify-content-center">
-                <div class="row h-100">
-                    <div id="emptyListMessage" class="col mt-5">
-                        No laptop present in the warehouse, press
-                        <button class="btn mr-2" id="btn-add" data-toggle="modal" (click)="onAddArticleButton()" data-target="#saveOrUpdateModal">
+            <div class="container">
+                <div class="row">
+                    <div id="emptyListMessage" class="col mt-5 mb-5">
+                        <span class="span-empty--list">No laptop present in the warehouse, press </span>
+                        <button class="btn btn-add" data-toggle="modal" (click)="onAddArticleButton()" data-target="#saveOrUpdateModal">
                             <fa-icon [icon]="faPlus"></fa-icon>
-                        </button> to add a new laptop, or press the Eye button to the side, to show a list of laptop with other location <button class="btn mr-2" id="btn-add" (click)="showAllList()">
+                        </button>
+                        <span class="span-empty--list"> to add a new laptop, or press the Eye button to the side, to show a list of laptop with other location </span> <button class="btn mr-2 btn-eye" (click)="showAllList()">
                             <fa-icon [icon]="faEyeSlash"></fa-icon>
                         </button>
                     </div>
@@ -121,7 +123,7 @@
 </main>
 
 <!--Modal-->
-<div  class="modal" id="saveOrUpdateModal" role="dialog">
+<div class="modal" id="saveOrUpdateModal" role="dialog">
     <div class="modal-dialog modal-dialog-centered">
         <!-- Modal content-->
         <div class="modal-content" id="modal">
