@@ -47,6 +47,7 @@ import { HistoricDeleteListComponent } from './Historic/historic-delete/historic
 import { HistoricMovementsListComponent } from './Historic/historic-movements/historic-movements-list/historic-movements-list.component';
 import { BollaComponent } from './DDT/bolla/bolla.component';
 import { FormBollaComponent } from './DDT/form-bolla/form-bolla.component';
+import { LogoutComponent } from './Homepage/logout/logout.component';
 
 
 
@@ -95,8 +96,9 @@ const routes: Routes = [
   {path:"HistoryWelcome", component: HistoricWelcomeComponent, canActivate : [AuthGaurdService]},
   {path:"HistoricDelete", component: HistoricDeleteListComponent, canActivate : [AuthGaurdService]},
   {path:"HistoricMovements", component: HistoricMovementsListComponent, canActivate : [AuthGaurdService]},
-  {path:"ProvaPdf", component: BollaComponent},
-  {path:"FormBolla", component: FormBollaComponent},
+  {path:"ProvaPdf", component: BollaComponent, canActivate : [AuthGaurdService]},
+  {path:"FormBolla", component: FormBollaComponent, canActivate : [AuthGaurdService]},
+  {path:"Logout", component: LogoutComponent}
 ] ;
 
 @NgModule({

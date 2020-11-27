@@ -31,6 +31,7 @@ import { Uff1GroundFloorComponent } from '../office/ground-floor/uff1-ground-flo
 import { WorkstationHeaderComponent } from '../office/workstation-header/workstation-header.component';
 import { MapComponent } from '../map/map.component';
 import { WarehouseModule } from 'src/app/Warehouse/warehouse/warehouse.module';
+import { HomepageModule } from 'src/app/Homepage/homepage/homepage.module';
 
 
 
@@ -70,7 +71,8 @@ import { WarehouseModule } from 'src/app/Warehouse/warehouse/warehouse.module';
     FormsModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    WarehouseModule
+    WarehouseModule,
+    HomepageModule,
   ],
   providers:[]
 })

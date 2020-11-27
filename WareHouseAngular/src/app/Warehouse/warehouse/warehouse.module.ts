@@ -69,6 +69,7 @@ import { FormSoftwareComponent } from 'src/app/form-objects/form-software/form-s
 import { FormSsdComponent } from 'src/app/form-objects/form-ssd/form-ssd.component';
 import { FormTokenComponent } from 'src/app/form-objects/form-token/form-token.component';
 import { FormKeyboardComponent } from 'src/app/form-objects/form-keyboard/form-keyboard.component';
+import { HomepageModule } from 'src/app/Homepage/homepage/homepage.module';
 
 
 
@@ -147,7 +148,7 @@ import { FormKeyboardComponent } from 'src/app/form-objects/form-keyboard/form-k
     HttpClientModule,
     FormsModule,
     FontAwesomeModule,
-    
+    HomepageModule
   ],
 
   exports: [FormLaptopComponent,
