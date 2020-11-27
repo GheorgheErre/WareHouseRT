@@ -71,6 +71,9 @@
                                 <th scope="row">HDD</th>
                                 <th scope="row">SSD</th>
                                 <th scope="row">RAM</th>
+                                <th scope="row"></th>
+                                <th scope="row"></th>
+                                <th scope="row"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -118,7 +121,7 @@
 						</button> to add a new Desktop <span *ngIf="listProduct?.length">, or press <button class="btn mr-2 btn-eye"
                             (click)="showAllList()">
                             <fa-icon [icon]="faEye"></fa-icon>
-                        </button> to show a list of Desktop with other location </span>
+                        </button> to show a list of Desktop with other locations </span>
                     </div>
                 </div>
             </div>
@@ -150,7 +153,7 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
             </div>
-            <form (ngSubmit)="deleteProduct(productToDelete)" id="formLaptopDelete">
+            <form (ngSubmit)="deleteProduct(productToDelete)">
                 <div class="modal-body">
                     <textarea [(ngModel)]="note" name="note" id="note" class="form-control" placeholder="Insert a note..."></textarea>
                 </div>

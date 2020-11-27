@@ -152,7 +152,8 @@
 }
 
 .btn-table--modify,
-.btn-table--delete {
+.btn-table--delete,
+.btn-modal--delete {
     position: relative;
     border: none;
     background-color: transparent;
@@ -164,7 +165,9 @@
 .btn-table--modify:after,
 .btn-table--modify:before,
 .btn-table--delete:after,
-.btn-table--delete:before {
+.btn-table--delete:before,
+.btn-modal--delete:after,
+.btn-modal--delete:before {
     content: '';
     display: block;
     position: absolute;
@@ -199,7 +202,8 @@
     height: 100%;
 }
 
-.btn-table--delete:after {
+.btn-table--delete:after,
+.btn-modal--delete:after {
     bottom: 0;
     right: 0;
     border-top-color: transparent;
@@ -208,7 +212,8 @@
     border-right-color: #d63031;
 }
 
-.btn-table--delete:before {
+.btn-table--delete:before,
+.btn-modal--delete:before {
     top: 0;
     left: 0;
     border-bottom-color: transparent;
@@ -218,7 +223,9 @@
 }
 
 .btn-table--delete:hover::after,
-.btn-table--delete:hover::before {
+.btn-table--delete:hover::before,
+.btn-modal--delete:hover::after,
+.btn-modal--delete:hover::before {
     width: 100%;
     height: 100%;
 }

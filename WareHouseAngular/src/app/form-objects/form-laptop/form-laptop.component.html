@@ -1,5 +1,5 @@
 <div>
-    <h3>ADD LAPTOP</h3>
+    <h3>ADD / UPDATE LAPTOP</h3>
     <form autocomplete="off" (ngSubmit)="sendLaptopToParent()" class="form-group" #form="ngForm">
 
         <div class="form-group mb-2 laptopGroup">
@@ -30,7 +30,7 @@
             <input [(ngModel)]="laptopTemp.userNumber" name="userNumber" class="form-control" placeholder="User number:">
         </div>
         <div class="form-group mb-2 laptopGroup">
-            <input pattern="((\d+\.?\d*)|(\.\d+))" [(ngModel)]="laptopTemp.cpu" name="cpu" class="form-control" placeholder="CPU:" #cpu="ngModel">
+            <input pattern="((\d+\.?\d*)|(\.\d+))" [(ngModel)]="laptopTemp.cpu" name="cpu" class="form-control" placeholder="CPU (GHz) :" #cpu="ngModel">
             <div *ngIf="cpu.invalid &&(cpu.dirty || cpu.touched)" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="cpu.errors.pattern">
                     Only Number are allowed.
@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="form-group mb-2 laptopGroup">
-            <input pattern="^[0-9]*$" [(ngModel)]="laptopTemp.gpu" name="gpu" class="form-control" placeholder="GPU" #gpu="ngModel">
+            <input pattern="^[0-9]*$" [(ngModel)]="laptopTemp.gpu" name="gpu" class="form-control" placeholder="GPU (GB) :" #gpu="ngModel">
             <div *ngIf="gpu.invalid &&(gpu.dirty || gpu.touched)" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="gpu.errors.pattern">
                     Only integer Number are allowed.
@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="form-group mb-2 laptopGroup">
-            <input pattern="^[0-9]*$" [(ngModel)]="laptopTemp.hdd" name="hdd" class="form-control" placeholder="HDD:" #hdd="ngModel">
+            <input pattern="^[0-9]*$" [(ngModel)]="laptopTemp.hdd" name="hdd" class="form-control" placeholder="HDD (GB) :" #hdd="ngModel">
             <div *ngIf="hdd.invalid &&(hdd.dirty || hdd.touched)" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="hdd.errors.pattern">
                     Only integer Number are allowed.
@@ -54,7 +54,7 @@
             </div>
         </div>
         <div class="form-group mb-2 laptopGroup">
-            <input pattern="^[0-9]*$" [(ngModel)]="laptopTemp.ssd" name="ssd" class="form-control" placeholder="SSD:" #ssd="ngModel">
+            <input pattern="^[0-9]*$" [(ngModel)]="laptopTemp.ssd" name="ssd" class="form-control" placeholder="SSD (GB) :" #ssd="ngModel">
             <div *ngIf="ssd.invalid &&(ssd.dirty || ssd.touched)" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="ssd.errors.pattern">
                     Only integer Number are allowed.
@@ -62,7 +62,7 @@
             </div>
         </div>
         <div class="form-group mb-2 laptopGroup">
-            <input pattern="^[0-9]*$" [(ngModel)]="laptopTemp.ram" name="ram" class="form-control" placeholder="RAM:" #ram="ngModel">
+            <input pattern="^[0-9]*$" [(ngModel)]="laptopTemp.ram" name="ram" class="form-control" placeholder="RAM (GB) :" #ram="ngModel">
             <div *ngIf="ram.invalid &&(ram.dirty || ram.touched)" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="ram.errors.pattern">
                     Only integer Number are allowed.
@@ -74,7 +74,7 @@
 
         </div>
         <div class="float-right">
-            <button id="btnSave" [disabled]="form.invalid" class="btn mr-2 btn-add">Add Laptop</button>
+            <button id="btnSave" [disabled]="form.invalid" class="btn mr-2 btn-add">Add / Update Laptop</button>
             <button class="btn btn-close" data-dismiss="modal">Close</button>
         </div>
     </form>

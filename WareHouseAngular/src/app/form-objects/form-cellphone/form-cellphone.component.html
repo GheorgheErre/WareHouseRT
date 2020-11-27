@@ -1,5 +1,5 @@
 <div>
-    <h3>ADD CELLPHONE</h3>
+    <h3>ADD / UPDATE CELLPHONE</h3>
     <form autocomplete="off" (ngSubmit)="sendCellphoneToParent()" class="form-group" id="formCellphone" #form="ngForm">
 
         <div class="form-group mb-2 cellphoneGroup">
@@ -28,7 +28,7 @@
             <input [(ngModel)]="cellphoneTemp.userNumber" name="userNumber" class="form-control" placeholder="User number:">
         </div>
         <div class="form-group mb-2 cellphoneGroup">
-            <input [(ngModel)]="cellphoneTemp.imeiCode" name="imeiCode" class="form-control" placeholder="IMieiCode:">
+            <input [(ngModel)]="cellphoneTemp.imeiCode" name="imeiCode" class="form-control" placeholder="IMEI Code:">
         </div>
         <div class="form-group mb-2 cellphoneGroup">
             <input [(ngModel)]="cellphoneTemp.operator" name="operator" class="form-control" placeholder="Operator:">
@@ -43,7 +43,7 @@
             <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control" placeholder="Add note:"></textarea>
         </div>
         <div class="float-right">
-            <button [disabled]="form.invalid" class="btn mr-2 btn-add">Save/Update cellphone</button>
+            <button [disabled]="form.invalid" class="btn mr-2 btn-add" id="btnSave">Add / Update cellphone</button>
             <button class="btn btn-close" data-dismiss="modal">Close</button>
         </div>
     </form>

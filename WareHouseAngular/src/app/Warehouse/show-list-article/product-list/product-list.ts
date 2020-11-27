@@ -47,8 +47,12 @@ export abstract class ProductList {
 
     this.entity = product.product;
     this.note = product.note;
-    this.entity.location = "magazzino";
 
+    //controllo se si fa salvataggio o aggiornamento di un nuovo oggetto
+    if (this.entity.identifier == undefined){
+      this.entity.location = "magazzino";
+    }
+    
     document.getElementById('saveOrUpdateModal').click();
         
     this.service.saveOrUpdate(this.entity, this.note).subscribe(result => {

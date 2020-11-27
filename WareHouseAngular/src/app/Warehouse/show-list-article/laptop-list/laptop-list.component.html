@@ -44,7 +44,7 @@
                         </select>
                     </div>
                     <div class="col-6 mb-2 d-flex flex-row">
-                        <input class="form-control input-up--table" type="text" (keyup)="searchFunction()" placeholder="Search by filter...">
+                        <input class="form-control input-up--table" id="myInput" type="text" (keyup)="searchFunction()" placeholder="Search by filter...">
                         <div class="custom-control custom-switch d-flex align-items-end ml-2">
                             <button class="btn mr-2 btn-eye" (click)="showAllList()">
                                 <fa-icon *ngIf="isChecked" [icon]="faEyeSlash"></fa-icon>
@@ -91,10 +91,18 @@
                                 <td class="ram">{{laptop.ram}}</td>
                                 <td><button class="btn btn-table--modify" (click)="onUpdateButton(laptop)" data-toggle="modal" data-target="#saveOrUpdateModal">
                                         Modify
-                                    </button></td>
-                                <td><button (click)="setProductToDelete(laptop)" class="btn btn-table--delete" data-toggle="modal" data-target="#deleteArticleModal">
+                                    </button>
+                                </td>
+                                <td>
+                                    <button *ngIf="laptop.location.includes(Presso)" class="btn btn-table--move" (click)="setProductToMove(laptop)" data-toggle="modal" data-target="#moveToWarehouseModal">
+                                            Move to warehouse
+                                    </button>
+                                </td>
+                                <td>
+                                    <button (click)="setProductToDelete(laptop)" class="btn btn-table--delete" data-toggle="modal" data-target="#deleteArticleModal">
                                         Delete
-                                    </button></td>
+                                    </button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -106,17 +114,15 @@
             <div class="container">
                 <div class="row">
                     <div id="emptyListMessage" class="col mt-5 mb-5">
-                        <span class="span-empty--list">No laptop present in the warehouse, press </span>
-                        <button class="btn btn-add" data-toggle="modal" (click)="onAddArticleButton()" data-target="#saveOrUpdateModal">
-                            <fa-icon [icon]="faPlus"></fa-icon>
-                        </button>
-                        <span class="span-empty--list"> to add a new laptop, or press the Eye button to the side, to show a list of laptop with other location </span> <button class="btn mr-2 btn-eye" (click)="showAllList()">
-                            <fa-icon [icon]="faEyeSlash"></fa-icon>
-                        </button>
+                        <span>No Laptop present in the warehouse, press </span>
+                        <button class="btn mr-2 btn-add" data-toggle="modal" (click)="onAddArticleButton()" data-target="#saveOrUpdateModal">
+							<fa-icon [icon]="faPlus"></fa-icon>
+						</button> to add a new Laptop <span *ngIf="listProduct?.length">, or press <button class="btn mr-2 btn-eye"
+                            (click)="showAllList()">
+                            <fa-icon [icon]="faEye"></fa-icon>
+                        </button> to show a list of Laptop with other location </span>
                     </div>
-
                 </div>
-
             </div>
         </ng-template>
     </div>
@@ -136,27 +142,23 @@
 
 <!--Modal eliminazione -->
 <div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Delete Product</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form (ngSubmit)="deleteProduct(productToDelete)" id="formLaptopDelete">
-                    {{deleteMessage}} Insert a note here.
-                    <div>
-                        <textarea [(ngModel)]="note" name="note" id="note" class="form-control"></textarea>
-                    </div>
 
-                    <div class="form-group float-right">
-                        <button class="btn mr-2 float-left btn btn-danger">Delete</button>
-                        <button type="button" class="btn float-left btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </form>
+            <div class="modal-header">
+                <span class="modal-title">{{deleteMessage}}</span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
             </div>
+            <form (ngSubmit)="deleteProduct(productToDelete)" id="formLaptopDelete">
+                <div class="modal-body">
+                    <textarea [(ngModel)]="note" name="note" id="note" class="form-control" placeholder="Insert a note..."></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-modal--delete">Delete</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
