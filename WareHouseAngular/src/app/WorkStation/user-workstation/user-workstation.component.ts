@@ -96,6 +96,7 @@ export class UserWorkstationComponent implements OnInit {
     this.workstation.userNumber = this.userNumber;
     this.workstation.userName = this.userName;
     this.updateWorkstation();
+    document.getElementById('assignWorkstationMoadal').click();
   }
 
   disassignWorkstation() {
@@ -202,8 +203,10 @@ export class UserWorkstationComponent implements OnInit {
     this.workstationService.saveOrUpdate(this.workstation).subscribe(result => {
       console.log("ARTICLE CARICATO CON SUCCESSO")
     });
-
-    this.findAllProduct();
+    if(this.service !== undefined){
+      this.findAllProduct();
+    }
+    
   }
 
   chooseService(article) {
