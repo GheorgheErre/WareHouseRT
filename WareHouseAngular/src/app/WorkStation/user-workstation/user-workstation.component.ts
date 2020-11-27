@@ -215,7 +215,7 @@ export class UserWorkstationComponent implements OnInit {
         this.entity = this.laptop;
         this.service = this.laptopService;
         break;
-      case "Dektop":
+      case "Desktop":
         this.entity = this.desktop;;
         this.service = this.desktopService;
         break;

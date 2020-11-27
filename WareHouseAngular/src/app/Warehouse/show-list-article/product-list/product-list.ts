@@ -21,7 +21,6 @@ export abstract class ProductList {
   listProduct: any;
   wareHouseListProduct: Product[];
   showList: Product[];
-  notInWarehouseList: Product[];
   entity: Product;
   note: String;
   filtered: String;
@@ -147,5 +146,18 @@ export abstract class ProductList {
     }
   }
 
+  moveToWarehouse() {
+    this.entity.location = "magazzino";
+
+    this.service.moveToWareHouse(this.entity, this.note).subscribe(result => {
+      console.log("ARTICLE SPOSTATO IN WAREHOUSE CON SUCCESSO")
+    });
+    document.getElementById('moveToWarehouseModal').click();
+    this.wareHouseListProduct.push(this.entity);
+  }
+
+  setProductToMove(product){
+    this.entity = product;
+  }
 
 }
