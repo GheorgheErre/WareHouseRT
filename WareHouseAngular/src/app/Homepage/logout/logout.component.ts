@@ -18,7 +18,7 @@ export class LogoutComponent implements OnInit {
 
   logout(){
     this.authenticationService.logout();
-    this.router.navigate(["/"]);
+    //this.router.navigate(["/"]);
   }
 
 }

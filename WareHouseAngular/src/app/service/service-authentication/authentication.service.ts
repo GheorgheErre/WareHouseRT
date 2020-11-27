@@ -33,6 +33,7 @@ export class AuthenticationService {
 
   logout() {
     sessionStorage.removeItem(USER_KEY);
+    sessionStorage.removeItem(TOKEN_KEY);
     this.username = null;
     this.password = null;
   }

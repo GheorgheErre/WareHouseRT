@@ -16,6 +16,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { HistoricWelcomeComponent } from '../historic-welcome/historic-welcome.component';
 import { HistoricDeleteListComponent } from '../historic-delete/historic-delete-list/historic-delete-list.component';
 import { HistoricMovementsListComponent } from '../historic-movements/historic-movements-list/historic-movements-list.component';
+import { HomepageModule } from 'src/app/Homepage/homepage/homepage.module';
 
 
 
@@ -39,7 +40,8 @@ import { HistoricMovementsListComponent } from '../historic-movements/historic-m
     MatListModule,
     HttpClientModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HomepageModule,
   ]
 })
 export class HistoricModule { }

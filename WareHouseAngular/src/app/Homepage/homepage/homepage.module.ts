@@ -26,8 +26,9 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     WelcomeComponent,
     SignInComponent,
     SignUpComponent,
-    LogoutComponent,
     WelcomeMenuComponent,
+    LogoutComponent,
+    LoginComponent
 ],
   imports: [
     CommonModule,
@@ -43,6 +44,11 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     HttpClientModule,
     FormsModule,
     FontAwesomeModule,
-  ]
+  ],
+
+  exports: [LogoutComponent
+  ],
+    
+  providers:[]
 })
 export class HomepageModule { }
