@@ -33,7 +33,7 @@ export class BollaComponent implements OnInit {
       const contentDataURL = canvas.toDataURL('image/jpeg', 1);
       let pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF
       var position = 0;  
-      pdf.addImage(contentDataURL, 'JPEG', 0, position, imgWidth, imgHeight)  
+      pdf.addImage(contentDataURL, 'JPEG', 0, position, imgWidth, pageHeight);  
       pdf.save('MYPdf.pdf'); // Generated PDF   
     });   
     
