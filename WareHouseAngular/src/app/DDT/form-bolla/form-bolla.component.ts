@@ -142,7 +142,7 @@ export class FormBollaComponent implements OnInit {
     this.recipient.address = this.address;
     this.bolla.recipient = this.recipient;
     this.bolla.merchandise = this.merchandise;
-    this.bolla.goods = this.goods;
+    this.bolla.goods = [];
 
     //uso il servizio del server per prendere il numero di ddt da utilizzare
     this.ddtService.getNumeroDDT().subscribe(result => {
@@ -167,7 +167,7 @@ export class FormBollaComponent implements OnInit {
       case "Laptop":
         this.service = this.laptopService;
         break;
-      case "Dektop":
+      case "Desktop":
         this.service = this.desktopService;
         break;
       case "Monitor":
