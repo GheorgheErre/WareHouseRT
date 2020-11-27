@@ -46,7 +46,8 @@
                         <input class="form-control" type="text" id="myInput" (keyup)="searchFunction()" placeholder="Search by filter...">
                         <div class="custom-control custom-switch d-flex align-items-end ml-2">
                             <button class="btn mr-2" id="btn-add" (click)="showAllList()">
-                                <fa-icon [icon]="faEye"></fa-icon>
+                                <fa-icon *ngIf="isChecked" [icon]="faEyeSlash"></fa-icon>
+                                <fa-icon *ngIf="!isChecked" [icon]="faEye"></fa-icon>       
                             </button>
                         </div>
                     </div>
@@ -89,8 +90,7 @@
 									<fa-icon [icon]="faPen"></fa-icon>
 								</button></td>
                                 <td><button (click)="setProductToDelete(cellphone)" class="btn btn-danger" id="btn-delete" data-toggle="modal" data-target="#deleteArticleModal">
-                                    <fa-icon *ngIf="isChecked" [icon]="faEyeSlash"></fa-icon>
-                                    <fa-icon *ngIf="!isChecked" [icon]="faEye"></fa-icon>                                    </button></td>
+                                    <fa-icon [icon]="faEraser"></fa-icon>                        </button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -104,9 +104,9 @@
                         No Cellphone present in the warehouse, press
                         <button class="btn mr-2" id="btn-add" data-toggle="modal" (click)="onAddArticleButton()" data-target="#saveOrUpdateModal">
                             <fa-icon [icon]="faPlus"></fa-icon>
-                        </button> to add a new Cellphone, or press the Eye button to the side, to show a list of Cellphone with other location <button class="btn mr-2" id="btn-add" (click)="showAllList()">
-                            <fa-icon [icon]="faEyeSlash"></fa-icon>
-                        </button></div>
+                        </button> to add a new Cellphone<span *ngIf="listProduct?.length">, or press <button class="btn mr-2" id="btn-add" (click)="showAllList()">
+                            <fa-icon [icon]="faEye"></fa-icon>
+                        </button> to show a list of Cellphone with other location </span></div>
                 </div>
 
             </div>

@@ -21,6 +21,7 @@ export abstract class ProductList {
   listProduct: any;
   wareHouseListProduct: Product[];
   showList: Product[];
+  notInWarehouseList: Product[];
   entity: Product;
   note: String;
   filtered: String;
