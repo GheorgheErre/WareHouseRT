@@ -18,13 +18,14 @@
 </header>
 <main class="main">
     <div class="container">
+        <!-- container-fluid-->
         <div *ngIf="showList?.length; else emptyList" class="row h-100 d-flex flex-column flex-wrap">
             <div class="col mt-5">
                 <div class="row h-100 align-items-end">
 
                     <div class="col-6 mb-2 d-flex flex-row">
 
-                        <button class="btn mr-2" id="btn-add" (click)="onAddArticleButton()" data-toggle="modal" data-target="#saveOrUpdateModal">
+                        <button class="btn mr-2" id="btn-add" (click)="onAddArticleButton()" data-toggle="modal" data-target="#saveOrUpdateModal"> <!--cancella id e mettilo nella classe uguale com'è-->
 							<fa-icon [icon]="faPlus"></fa-icon>
 						</button>
                         <select [(ngModel)]="filtered" class="custom-select" name="filter">
@@ -44,8 +45,9 @@
                     </div>
                     <div class="col-6 mb-2 d-flex flex-row">
                         <input class="form-control" type="text" id="myInput" (keyup)="searchFunction()" placeholder="Search by filter...">
+                        <!-- mettere nella classe input-up--table-->
                         <div class="custom-control custom-switch d-flex align-items-end ml-2">
-                            <button class="btn mr-2" id="btn-add" (click)="showAllList()">
+                            <button class="btn mr-2" id="btn-add" (click)="showAllList()"> <!--cancellare id e nella classe mettere 'btn-eye'-->
                                 <fa-icon *ngIf="isChecked" [icon]="faEyeSlash"></fa-icon>
                                 <fa-icon *ngIf="!isChecked" [icon]="faEye"></fa-icon>                            </button>
                         </div>
@@ -85,6 +87,7 @@
                                 <td class="threads">{{cpu.threads}}</td>
                                 <td class="baseClock">{{cpu.baseClock}}</td>
                                 <td class="maxBoostClock">{{cpu.maxBoostClock}}</td>
+                                <!--Prendere da desktop i tre bottoni così come sono e modificare in ognuno il nome del componente dove c'è laptop-->
                                 <td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(cpu)" data-toggle="modal" data-target="#saveOrUpdateModal">
 									<fa-icon [icon]="faPen"></fa-icon>
 								</button></td>
@@ -98,6 +101,7 @@
             </div>
         </div>
         <ng-template #emptyList>
+            <!-- prendere da desktop tutto quanto da qui in giù e modificare nelle scritte il nome giusto del componente-->
             <div class="container h-100 justify-content-center">
                 <div class="row h-100">
                     <div id="emptyListMessage" class="col mt-5">
@@ -117,6 +121,7 @@
 <!-- Modal -->
 <div class="modal fade" id="saveOrUpdateModal" role="dialog">
     <div class="modal-dialog modal-dialog-centered">
+        <!--mettere dialog centered dove non c'è-->
 
         <div class="modal-content" id="modal">
             <div class="modal-body" id="modal-body">
@@ -129,26 +134,36 @@
 <!--Modal eliminazione -->
 <div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
+        <!--aggiungere dialog centered-->
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Delete Product</h5>
+                <!--al posto di h5 mettere span e al posto della scritta mettere la funzione che c'è nel body "deleteMessage"-->
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <form (ngSubmit)="deleteProduct(productToDelete)" id="formLaptopDelete">
+                    <!-- mettere il form sopra il modal body-->
                     {{deleteMessage}} Insert a note here.
+                    <!--cancellare questa riga-->
                     <div>
+                        <!--cancellare questa apertura div e la chiusura-->
                         <textarea [(ngModel)]="note" name="note" id="note" class="form-control"></textarea>
+                        <!--aggiungere il placeholder che c'è in desktop-->
                     </div>
 
                     <div class="form-group float-right">
+                        <!--cancellare questo div e la sua chiusura-->
                         <button class="btn mr-2 float-left btn btn-danger">Delete</button>
                         <button type="button" class="btn float-left btn btn-secondary" data-dismiss="modal">Close</button>
+                        <!--cancellare questo bottone-->
                     </div>
+                    <!--Creare la classe modal-footer e metterci dentro il bottone rimasto sopra (miraccomando che il tag form chiuda dopo la chiusura del div del modal footer-->
                 </form>
             </div>
         </div>
     </div>
 </div>
+<!--Prendere il modal move to warehouse che c'è in destop e incollarlo-->
