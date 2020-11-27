@@ -7,17 +7,9 @@
     font-family: "Poppins", sans-serif;
 }
 
-.header {
-    background-image: url("../../../../assets/img/desk-alternativa-blured.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-}
-
 .main {
-    height: 100%;
-    background-image: url("../../../../assets/img/desk-alternativa-blured.jpg");
+    margin-top: 100px;
+    background-color: whitesmoke;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -99,32 +91,33 @@
 }
 
 
-/* Parte sopra la tabella*/
+/* bottone che viene visualizzato sia quando è vuota la lista sia quando è piena*/
 
-#btn-add {
+.btn-add,
+.btn-eye {
     background-color: transparent;
-    border: 1px solid white;
+    border: 1px solid black;
     border-radius: 50%;
-    color: white;
+    color: black;
     transition: 0.5s;
     box-shadow: none !important;
     outline: 0;
 }
 
-#btn-add:hover {
+.btn-add:hover,
+.btn-eye:hover {
     background-color: white;
     border: 1px solid white;
     color: black;
     transition: 0.5s;
 }
 
-#btn-modify,
-#btn-delete {
-    border-radius: 10px;
-}
 
-select {
+/*=================================================================================*/
+
+.custom-select {
     border-radius: 20px 20px 0 0;
+    border: 1px solid black;
     background-color: white;
     color: black;
     box-shadow: none !important;
@@ -132,15 +125,9 @@ select {
     transition: 0.5s;
 }
 
-select:hover {
-    background-color: white;
-    transition: 0.5s;
-    color: black;
-}
-
-#myInput {
+.input-up--table {
     border: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid black;
     border-radius: 0px;
     background-color: transparent;
     transition: 0.5s;
@@ -148,20 +135,129 @@ select:hover {
     outline: 0;
 }
 
-#myInput:focus {
-    color: white;
+.input-up--table:focus {
+    color: black;
     background: transparent;
-    border: 1px solid white;
+    border: 1px solid black;
     border-radius: 20px;
     transition: 0.5s;
 }
 
 ::placeholder {
-    color: white;
+    color: black;
 }
 
-#label-all {
-    color: white;
+.btn-table--modify,
+.btn-table--delete,
+.btn-modal--delete,
+.btn-table--move,
+.btn-modal--move {
+    position: relative;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+}
+
+.btn-table--modify:after,
+.btn-table--modify:before,
+.btn-table--delete:after,
+.btn-table--delete:before,
+.btn-modal--delete:after,
+.btn-modal--delete:before,
+.btn-table--move:after,
+.btn-table--move:before,
+.btn-modal--move:after,
+.btn-modal--move:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 20%;
+    height: 30%;
+    border: 2px solid;
+    transition: all 0.6s ease;
+    border-radius: 2px;
+}
+
+.btn-table--move:after {
+    bottom: 0;
+    right: 0;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: #fdcb6e;
+    border-right-color: #fdcb6e;
+}
+
+.btn-table--move:before {
+    top: 0;
+    left: 0;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    border-top-color: #fdcb6e;
+    border-left-color: #fdcb6e;
+}
+
+.btn-table--move:hover::after,
+.btn-table--move:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.btn-table--modify:after,
+.btn-modal--move:after {
+    bottom: 0;
+    right: 0;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: #00b894;
+    border-right-color: #00b894;
+}
+
+.btn-table--modify:before,
+.btn-modal--move:before {
+    top: 0;
+    left: 0;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    border-top-color: #00b894;
+    border-left-color: #00b894;
+}
+
+.btn-table--modify:hover::after,
+.btn-table--modify:hover::before,
+.btn-modal--move:hover::before,
+.btn-modal--move:hover::after {
+    width: 100%;
+    height: 100%;
+}
+
+.btn-table--delete:after,
+.btn-modal--delete:after {
+    bottom: 0;
+    right: 0;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: #d63031;
+    border-right-color: #d63031;
+}
+
+.btn-table--delete:before,
+.btn-modal--delete:before {
+    top: 0;
+    left: 0;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    border-top-color: #d63031;
+    border-left-color: #d63031;
+}
+
+.btn-table--delete:hover::after,
+.btn-table--delete:hover::before,
+.btn-modal--delete:hover::after,
+.btn-modal--delete:hover::before {
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -182,83 +278,11 @@ th {
     border: none;
 }
 
-
-/* Modal */
-
-#modal {
-    background-color: transparent;
-    color: white;
-    border: none;
-}
-
-#modal-header {
-    border: none;
-    padding: 0px;
-}
-
-#modal-body {
-    background-color: black;
-    border: none;
-    border: 1px solid white;
-    border-radius: 10px;
-}
-
-#modal-footer {
-    border: none;
-}
-
 h3 {
     letter-spacing: 5px;
     font-size: 20px;
 }
 
-#mouseGroup {
-    border: none;
-    background-color: transparent;
-    color: white;
-}
-
-input {
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid white;
-    border-radius: 0px;
-    color: white;
-}
-
-input:focus {
-    border: none;
-    border: 1px solid white;
-    transition: 0.5s;
-    border-radius: 20px;
-    background-color: transparent;
-    color: white;
-    box-shadow: none !important;
-    outline: 0;
-}
-
-span {
-    color: white;
-}
-
-button {
-    border: 1px solid white;
-    border-radius: 20px;
-    color: white;
-    transition: 0.5s;
-}
-
-button:hover {
-    background-color: white;
-    color: black;
-    border: 1px solid white;
-    transition: 0.5s;
-}
-
 #emptyListMessage {
-    text-align: center;
-    color: white;
     font-size: 20px;
-    margin-top: 20px;
-    float: center;
 }

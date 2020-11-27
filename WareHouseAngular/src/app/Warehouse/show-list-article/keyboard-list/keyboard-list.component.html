@@ -1,9 +1,10 @@
 <header class="header">
-    <nav class="navbar navbar-expand-lg navbar-home">
+    <nav class="navbar navbar-expand-lg navbar-home fixed-top">
         <div class="container-fluid d-flex flex-row">
             <div class="row w-100">
                 <div class="col-1">
-                    <a class="navbar-brand" href="WelcomeMenu"> <img class="navbar-img" src="../../assets/img/Logo Erre.png"></a>
+                    <a class="navbar-brand" href="WelcomeMenu"> <img class="navbar-img"
+                            src="../../assets/img/Logo Erre.png"></a>
                 </div>
                 <div class="col align-self-center text-left">
                     <a class="btn navbar-btn mr-1 ml-2" href="WarehouseHomeList">WAREHOUSE HOME</a>
@@ -17,33 +18,36 @@
     </nav>
 </header>
 <main class="main">
-    <div class="container">
+    <div class="container container-fluid">
         <div *ngIf="showList?.length; else emptyList" class="row h-100 d-flex flex-column flex-wrap">
             <div class="col mt-5">
                 <div class="row h-100 align-items-end">
 
                     <div class="col-6 mb-2 d-flex flex-row">
 
-                        <button class="btn mr-2" id="btn-add" (click)="onAddArticleButton()" data-toggle="modal" data-target="#saveOrUpdateModal">
-							<fa-icon [icon]="faPlus"></fa-icon>
-						</button>
+                        <button class="btn mr-2 btn-add" (click)="onAddArticleButton()" data-toggle="modal"
+                            data-target="#saveOrUpdateModal">
+                            <fa-icon [icon]="faPlus"></fa-icon>
+                        </button>
                         <select [(ngModel)]="filtered" class="custom-select" name="filter">
-							<option selected disabled>Filter by:</option>
-							<option value="identifier">Identifier</option>
+                            <option selected disabled>Filter by:</option>
+                            <option value="identifier">Identifier</option>
                             <option value="users">Users</option>
                             <option value="brand">Brand</option>
                             <option value="model">Model</option>
                             <option value="serialNumber">Serial Number</option>
                             <option value="location">Location</option>
                             <option value="userNumber">User Number</option>
-						</select>
+                        </select>
                     </div>
                     <div class="col-6 mb-2 d-flex flex-row">
-                        <input class="form-control" type="text" id="myInput" (keyup)="searchFunction()" placeholder="Search by filter...">
+                        <input class="form-control input-up--table" type="text" id="myInput" (keyup)="searchFunction()"
+                            placeholder="Search by filter...">
                         <div class="custom-control custom-switch d-flex align-items-end ml-2">
-                            <button class="btn mr-2" id="btn-add" (click)="showAllList()">
-								<fa-icon *ngIf="isChecked" [icon]="faEyeSlash"></fa-icon>
-								<fa-icon *ngIf="!isChecked" [icon]="faEye"></fa-icon>                            </button>
+                            <button class="btn mr-2 btn-eye" (click)="showAllList()">
+                                <fa-icon *ngIf="isChecked" [icon]="faEyeSlash"></fa-icon>
+                                <fa-icon *ngIf="!isChecked" [icon]="faEye"></fa-icon>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -60,8 +64,9 @@
                                 <th scope="row">Serial Number</th>
                                 <th scope="row">Location</th>
                                 <th scope="row">User Number</th>
-                                <th scope="row">Modify</th>
-                                <th scope="row">Delete</th>
+                                <th scope="row"></th>
+                                <th scope="row"></th>
+                                <th scope="row"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -73,12 +78,24 @@
                                 <td class="serialNumber">{{keyboard.serialNumber}}</td>
                                 <td class="location">{{keyboard.location}}</td>
                                 <td class="userNumber">{{keyboard.userNumber}}</td>
-                                <td><button class="btn btn-success" id="btn-modify" (click)="onUpdateButton(keyboard)" data-toggle="modal" data-backdrop="static" data-target="#saveOrUpdateModal">
-									<fa-icon [icon]="faPen"></fa-icon>
-								</button></td>
-                                <td><button (click)="setProductToDelete(keyboard)" class="btn btn-danger" id="btn-delete" data-toggle="modal" data-target="#deleteArticleModal">
-									<fa-icon [icon]="faEraser"></fa-icon>
-								</button></td>
+                                <td>
+                                    <button class="btn btn-table--modify" (click)="onUpdateButton(keyboard)"
+                                        data-toggle="modal" data-target="#saveOrUpdateModal">
+                                        Modify
+                                    </button>
+                                </td>
+                                <td>
+                                    <button *ngIf="keyboard.location.includes(Presso)" class="btn btn-table--move"
+                                        (click)="setProductToMove(keyboard)" data-toggle="modal"
+                                        data-target="#moveToWarehouseModal">
+                                        Move to warehouse
+                                    </button>
+                                </td>
+                                <td><button (click)="setProductToDelete(keyboard)" class="btn btn-table--delete"
+                                        data-toggle="modal" data-target="#deleteArticleModal">
+                                        Delete
+                                    </button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -86,16 +103,19 @@
             </div>
         </div>
         <ng-template #emptyList>
-            <div class="container h-100 justify-content-center">
-                <div class="row h-100">
-                    <div id="emptyListMessage" class="col mt-5">
-                        No Keyboard present in the warehouse, press
-                        <button class="btn mr-2" id="btn-add" data-toggle="modal" (click)="onAddArticleButton()" data-target="#saveOrUpdateModal">
+            <div class="container">
+                <div class="row">
+                    <div id="emptyListMessage" class="col mt-5 mb-5">
+                        <span>No Keyboard present in the warehouse, press </span>
+                        <button class="btn mr-2 btn-add" data-toggle="modal" (click)="onAddArticleButton()"
+                            data-target="#saveOrUpdateModal">
                             <fa-icon [icon]="faPlus"></fa-icon>
-                        </button> to add a new Keyboard, or press <button class="btn mr-2" id="btn-add" (click)="showAllList()"><fa-icon [icon]="faEyeSlash"></fa-icon></button>, to show a list of Keyboard with other location    
-                        </div>
+                        </button> to add a new Keyboard <span *ngIf="listProduct?.length">, or press <button
+                                class="btn mr-2 btn-eye" (click)="showAllList()">
+                                <fa-icon [icon]="faEye"></fa-icon>
+                            </button> to show a list of Keyboard with other locations </span>
+                    </div>
                 </div>
-
             </div>
         </ng-template>
     </div>
@@ -116,27 +136,47 @@
 
 <!--Modal eliminazione -->
 <div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Delete Product</h5>
+                <span class="modal-title">{{deleteMessage}}</span>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <form (ngSubmit)="deleteProduct(productToDelete)" id="formLaptopDelete">
-                    {{deleteMessage}} Insert a note here.
-                    <div>
-                        <textarea [(ngModel)]="note" name="note" id="note" class="form-control"></textarea>
-                    </div>
+            <form (ngSubmit)="deleteProduct(productToDelete)" id="formLaptopDelete">
+                <div class="modal-body">
 
-                    <div class="form-group float-right">
-                        <button class="btn mr-2 float-left btn btn-danger">Delete</button>
-                        <button type="button" class="btn float-left btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </form>
+                    <textarea [(ngModel)]="note" name="note" id="note" class="form-control" placeholder="Insert a note..."></textarea>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-modal--delete">Delete</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Modal move to warehouse confirmation -->
+<div class="modal fade" id="moveToWarehouseModal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header" id="modal-header">
+                <span>Move the selected Article to warehouse?</span>
             </div>
+            <form (ngSubmit)="moveToWarehouse()">
+                <div class="modal-body">
+                    <textarea [(ngModel)]="note" name="note" id="note" class="form-control"
+                        placeholder="Add notes:"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-modal--move">Move</button>
+                    <button type="button" class="btn btn-modal--close" data-dismiss="modal">Close</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
