@@ -48,49 +48,6 @@
     width: 100%;
 }
 
-.navbar-btn--logout {
-    text-align: center;
-    position: relative;
-    color: black;
-    letter-spacing: 2px;
-}
-
-.navbar-btn--logout:before,
-.navbar-btn--logout:after {
-    position: absolute;
-    content: "";
-    transition: all .25s;
-}
-
-.navbar-btn--logout:before {
-    border-bottom: 2px solid #004fff;
-    border-left: 2px solid #004fff;
-    width: 20%;
-    height: 5%;
-    left: -1px;
-    bottom: -1px;
-}
-
-.navbar-btn--logout:after {
-    border-top: 2px solid #004fff;
-    border-right: 2px solid #004fff;
-    width: 20%;
-    height: 5%;
-    top: -1px;
-    right: -1px;
-}
-
-.navbar-btn--logout:hover:before {
-    width: 53%;
-    height: 70%;
-}
-
-.navbar-btn--logout:hover:after {
-    width: 53%;
-    height: 70%;
-}
-
-
 /* bottone che viene visualizzato sia quando è vuota la lista sia quando è piena*/
 
 .btn-add,
