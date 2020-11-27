@@ -1,5 +1,5 @@
 <div>
-    <h3>ADD TOKEN</h3>
+    <h3>ADD / UPDATE TOKEN</h3>
     <form autocomplete="off" (ngSubmit)="sendTokenToParent()" id="formToken" class="form-group" #form="ngForm">
 
         <div class="form-group mb-2">
@@ -28,7 +28,7 @@
             <input [(ngModel)]="tokenTemp.userNumber" name="userNumber" class="form-control" placeholder="User number:">
         </div>
         <div class="float-right">
-            <button [disabled]="form.invalid" class="btn mr-2 btn-add">Save/Update token</button>
+            <button [disabled]="form.invalid" class="btn mr-2 btn-add" id="btnSave">Add / Update token</button>
             <button class="btn btn-close" data-dismiss="modal">Close</button>
         </div>
     </form>

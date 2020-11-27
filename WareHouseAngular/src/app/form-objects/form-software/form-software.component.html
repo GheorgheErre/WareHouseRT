@@ -1,5 +1,5 @@
 <div>
-    <h3>ADD SOFTWARE</h3>
+    <h3>ADD / UPDATE SOFTWARE</h3>
     <form autocomplete="off" (ngSubmit)="sendSoftwareToParent()" class="form-group" #form="ngForm">
 
         <div class="form-group mb-2 softwareGroup">
@@ -24,17 +24,17 @@
                 </div>
             </div>>
         </div>
-        <div class="form-control mb-2 softwareGroup">
+        <div class="form-group mb-2 softwareGroup">
             <input [(ngModel)]="softwareTemp.userNumber" name="userNumber" class="form-control" placeholder="User number:">
         </div>
-        <div class="form-control mb-2 softwareGroup">
+        <div class="form-group mb-2 softwareGroup">
             <input [(ngModel)]="softwareTemp.productKey" name="productKey" class="form-control" placeholder="Product Key:">
         </div>
-        <div class="form-control mb-4 softwareGroup">
+        <div class="form-group mb-4 softwareGroup">
             <textarea [(ngModel)]="noteTemp" name="note" id="note" class="form-control" placeholder="Add note:"></textarea>
         </div>
         <div class="float-right">
-            <button [disabled]="form.invalid" class="btn mr-2 btn-add">Save/Update software</button>
+            <button [disabled]="form.invalid" class="btn mr-2 btn-add" id="btnSave">Add / Update software</button>
             <button class="btn btn-close" data-dismiss="modal">Close</button>
         </div>
     </form>

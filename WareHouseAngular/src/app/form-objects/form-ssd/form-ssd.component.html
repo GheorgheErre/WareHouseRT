@@ -1,5 +1,5 @@
 <div>
-    <h3>ADD SSD</h3>
+    <h3>ADD / UPDATE SSD</h3>
     <form autocomplete="off" (ngSubmit)="sendSsdToParent()" id="formSsd" class="form-group" #form="ngForm">
 
         <div class="form-group mb-2">
@@ -31,7 +31,7 @@
             <input [(ngModel)]="ssdTemp.capacity" name="capacity" class="form-control" placeholder="Capacity:">
         </div>
         <div class="float-right">
-            <button [disabled]="form.invalid" class="btn mr-2 btn-add">Save/Update SSD</button>
+            <button [disabled]="form.invalid" class="btn mr-2 btn-add" id="btnSave">Add / Update SSD</button>
             <button class="btn btn-close" data-dismiss="modal">Close</button>
         </div>
     </form>
