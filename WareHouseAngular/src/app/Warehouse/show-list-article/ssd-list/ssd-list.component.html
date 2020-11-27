@@ -25,8 +25,7 @@
 
                     <div class="col-6 mb-2 d-flex flex-row">
 
-
-                        <button class="btn mr-2 btn-addid=" btn-add" (click)="onAddArticleButton()" data-toggle="modal"
+                        <button class="btn mr-2 btn-add" (click)="onAddArticleButton()" data-toggle="modal"
                             data-target="#saveOrUpdateModal">
                             <fa-icon [icon]="faPlus"></fa-icon>
                         </button>
@@ -147,21 +146,21 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">{{deleteMessage}}</h5>
+                <span class="modal-title">{{deleteMessage}}</span>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form (ngSubmit)="deleteProduct(productToDelete)" id="formLaptopDelete"></form>
-            <div class="modal-body">
+            <form (ngSubmit)="deleteProduct(productToDelete)" id="formLaptopDelete">
+                <div class="modal-body">
 
-                <textarea [(ngModel)]="note" name="note" id="note" class="form-control"
-                    placeholder="Insert a note..."></textarea>
-                <button class="btn mr-2 float-left btn btn-danger">Delete</button>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-modal--delete">Delete</button>
-            </div>
+                    <textarea [(ngModel)]="note" name="note" id="note" class="form-control"
+                        placeholder="Insert a note..."></textarea>
+                    <button class="btn mr-2 float-left btn btn-danger">Delete</button>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-modal--delete">Delete</button>
+                </div>
 
             </form>
 
