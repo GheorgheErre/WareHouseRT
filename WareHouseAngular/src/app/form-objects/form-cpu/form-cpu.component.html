@@ -7,7 +7,7 @@
         </div>
         <div class="form-group mb-2 ">
             <input required [(ngModel)]="cpuTemp.brand" name="brand" class="form-control" placeholder="Brand:" #brand="ngModel">
-            <div *ngIf="brand.invalid &&(brand.dirty || brand.touched)" class="alert alert-danger mt-2" role="alert">
+            <div *ngIf="brand.invalid" class="alert alert-danger mt-2" role="alert">
                 <div *ngIf="brand.errors.required">
                     Brand is required.
                 </div>
@@ -18,7 +18,7 @@
         </div>
         <div class="form-group mb-2 ">
             <input required [(ngModel)]="cpuTemp.serialNumber" name="serialNumber" class="form-control" placeholder="Serial number:" #serialNumber="ngModel">
-            <div *ngIf="serialNumber.invalid &&(serialNumber.dirty || serialNumber.touched)" class="alert alert-danger  mt-2" role="alert">
+            <div *ngIf="serialNumber.invalid" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="serialNumber.errors.required">
                     Serial Number is required.
                 </div>
@@ -29,7 +29,7 @@
         </div>
         <div class="form-group mb-4 ">
             <input pattern="((\d+\.?\d*)|(\.\d+))" [(ngModel)]="cpuTemp.core" name="core" class="form-control" placeholder="Core:" #core="ngModel">
-            <div *ngIf="core.invalid &&(core.dirty || core.touched)" class="alert alert-danger  mt-2" role="alert">
+            <div *ngIf="core.invalid" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="core.errors.pattern">
                     Only Number are allowed.
                 </div>
@@ -37,7 +37,7 @@
         </div>
         <div class="form-group mb-4 ">
             <input pattern="((\d+\.?\d*)|(\.\d+))" [(ngModel)]="cpuTemp.threads" name="threads" class="form-control" placeholder="Threads:" #threads="ngModel">
-            <div *ngIf="threads.invalid &&(threads.dirty || threads.touched)" class="alert alert-danger  mt-2" role="alert">
+            <div *ngIf="threads.invalid" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="threads.errors.pattern">
                     Only Number are allowed.
                 </div>

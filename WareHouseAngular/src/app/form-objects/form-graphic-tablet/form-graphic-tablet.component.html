@@ -6,7 +6,7 @@
         </div>
         <div class="form-group mb-2">
             <input required [(ngModel)]="graphicTabletTemp.brand" name="brand" class="form-control" placeholder="Brand:" #brand="ngModel">
-            <div *ngIf="brand.invalid &&(brand.dirty || brand.touched)" class="alert alert-danger mt-2" role="alert">
+            <div *ngIf="brand.invalid" class="alert alert-danger mt-2" role="alert">
                 <div *ngIf="brand.errors.required">
                     Brand is required.
                 </div>
@@ -17,7 +17,7 @@
         </div>
         <div class="form-group mb-2">
             <input required [(ngModel)]="graphicTabletTemp.serialNumber" name="serialNumber" class="form-control" placeholder="Serial number:" #serialNumber="ngModel">
-            <div *ngIf="serialNumber.invalid &&(serialNumber.dirty || serialNumber.touched)" class="alert alert-danger  mt-2" role="alert">
+            <div *ngIf="serialNumber.invalid" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="serialNumber.errors.required">
                     Serial Number is required.
                 </div>
@@ -28,7 +28,7 @@
         </div>
         <div class="form-group mb-2">
             <input pattern="((\d+\.?\d*)|(\.\d+))" [(ngModel)]="graphicTabletTemp.height" name="height" class="form-control" placeholder="Heigth:" #height="ngModel">
-            <div *ngIf="height.invalid &&(height.dirty || height.touched)" class="alert alert-danger  mt-2" role="alert">
+            <div *ngIf="height.invalid" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="height.errors.pattern">
                     Only Number are allowed.
                 </div>
@@ -36,7 +36,7 @@
         </div>
         <div class="form-group mb-2">
             <input pattern="^[0-9]*$" [(ngModel)]="graphicTabletTemp.width" name="width" class="form-control" placeholder="Width:" #width="ngModel">
-            <div *ngIf="width.invalid &&(width.dirty || width.touched)" class="alert alert-danger  mt-2" role="alert">
+            <div *ngIf="width.invalid" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="width.errors.pattern">
                     Only integer Number are allowed.
                 </div>
@@ -44,7 +44,7 @@
         </div>
         <div class="form-group mb-2">
             <input pattern="^[0-9]*$" [(ngModel)]="graphicTabletTemp.length" name="length" class="form-control" placeholder="Length:" #length="ngModel">
-            <div *ngIf="length.invalid &&(length.dirty || length.touched)" class="alert alert-danger  mt-2" role="alert">
+            <div *ngIf="length.invalid" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="length.errors.pattern">
                     Only integer Number are allowed.
                 </div>

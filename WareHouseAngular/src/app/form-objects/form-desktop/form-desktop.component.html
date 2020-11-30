@@ -7,7 +7,7 @@
         </div>
         <div class="form-group mb-2">
             <input required [(ngModel)]="desktopTemp.brand" name="brand" class="form-control" placeholder="Brand:" #brand="ngModel">
-            <div *ngIf="brand.invalid &&(brand.dirty || brand.touched)" class="alert alert-danger mt-2" role="alert">
+            <div *ngIf="brand.invalid" class="alert alert-danger mt-2" role="alert">
                 <div *ngIf="brand.errors.required">
                     Brand is required.
                 </div>
@@ -18,7 +18,7 @@
         </div>
         <div class="form-group mb-2">
             <input required [(ngModel)]="desktopTemp.serialNumber" name="serialNumber" class="form-control" placeholder="Serial number:" #serialNumber="ngModel">
-            <div *ngIf="serialNumber.invalid &&(serialNumber.dirty || serialNumber.touched)" class="alert alert-danger  mt-2" role="alert">
+            <div *ngIf="serialNumber.invalid" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="serialNumber.errors.required">
                     Serial Number is required.
                 </div>
@@ -29,7 +29,7 @@
         </div>
         <div class="form-group mb-2">
             <input pattern="((\d+\.?\d*)|(\.\d+))" [(ngModel)]="desktopTemp.cpu" name="cpu" class="form-control" placeholder="CPU (GHz) :" #cpu="ngModel">
-            <div *ngIf="cpu.invalid &&(cpu.dirty || cpu.touched)" class="alert alert-danger  mt-2" role="alert">
+            <div *ngIf="cpu.invalid" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="cpu.errors.pattern">
                     Only Number are allowed.
                 </div>
@@ -37,7 +37,7 @@
         </div>
         <div class="form-group mb-2">
             <input pattern="^[0-9]*$" [(ngModel)]="desktopTemp.gpu" name="gpu" class="form-control" placeholder="GPU (GB) :" #gpu="ngModel">
-            <div *ngIf="gpu.invalid &&(gpu.dirty || gpu.touched)" class="alert alert-danger  mt-2" role="alert">
+            <div *ngIf="gpu.invalid" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="gpu.errors.pattern">
                     Only integer Number are allowed.
                 </div>
@@ -45,7 +45,7 @@
         </div>
         <div class="form-group mb-2">
             <input pattern="^[0-9]*$" [(ngModel)]="desktopTemp.hdd" name="hdd" class="form-control" placeholder="HDD (GB) :" #hdd="ngModel">
-            <div *ngIf="hdd.invalid &&(hdd.dirty || hdd.touched)" class="alert alert-danger  mt-2" role="alert">
+            <div *ngIf="hdd.invalid" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="hdd.errors.pattern">
                     Only integer Number are allowed.
                 </div>
@@ -53,7 +53,7 @@
         </div>
         <div class="form-group mb-2">
             <input pattern="^[0-9]*$" [(ngModel)]="desktopTemp.ssd" name="ssd" class="form-control" placeholder="SSD (GB) :" #ssd="ngModel">
-            <div *ngIf="ssd.invalid &&(ssd.dirty || ssd.touched)" class="alert alert-danger  mt-2" role="alert">
+            <div *ngIf="ssd.invalid" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="ssd.errors.pattern">
                     Only integer Number are allowed.
                 </div>
@@ -61,7 +61,7 @@
         </div>
         <div class="form-group mb-2">
             <input pattern="^[0-9]*$" [(ngModel)]="desktopTemp.ram" name="ram" class="form-control" placeholder="RAM (GB) :" #ram="ngModel">
-            <div *ngIf="ram.invalid &&(ram.dirty || ram.touched)" class="alert alert-danger  mt-2" role="alert">
+            <div *ngIf="ram.invalid" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="ram.errors.pattern">
                     Only integer Number are allowed.
                 </div>

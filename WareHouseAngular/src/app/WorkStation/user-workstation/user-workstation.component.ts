@@ -176,6 +176,7 @@ export class UserWorkstationComponent implements OnInit {
     this.service.delete(this.entity, this.note).subscribe(result => {
       console.log("ARTICLE ELIMINATO CON SUCCESSO")
     });
+    document.getElementById('deleteArticleModal').click();
     this.workstation.articles = this.workstation.articles.filter((a) => a.identifier != article.identifier);
     this.updateWorkstation();
   }
