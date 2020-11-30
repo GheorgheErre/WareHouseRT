@@ -16,6 +16,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { WarehouseModule } from 'src/app/Warehouse/warehouse/warehouse.module';
 import { BollaComponent } from '../bolla/bolla.component';
 import { FormBollaComponent } from '../form-bolla/form-bolla.component';
+import { HomepageModule } from 'src/app/Homepage/homepage/homepage.module';
 
 
 
@@ -40,7 +41,8 @@ import { FormBollaComponent } from '../form-bolla/form-bolla.component';
     FormsModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    WarehouseModule
+    WarehouseModule,
+    HomepageModule
   ]
 })
 export class DdtModule { }
