@@ -6,7 +6,7 @@ export class Powersupplie extends Component{
 
 	 public toJSON(): Powersupplie {
         return Object.assign({}, {
-            "@type": 'Powersupplie'
+            "@type": 'PowerSupplie'
           }, this);
       }
 

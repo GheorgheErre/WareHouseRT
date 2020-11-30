@@ -1,5 +1,5 @@
 <header class="header">
-    <nav class="navbar navbar-expand-lg navbar-home">
+    <nav class="navbar navbar-expand-lg navbar-home fixed-top">
         <div class="container-fluid d-flex flex-row">
             <div class="row w-100">
                 <div class="col-1">
@@ -25,7 +25,7 @@
 
                     <div class="col-6 mb-2 d-flex flex-row">
 
-                        <button class="btn mr-2" id="btn-add" (click)="onAddArticleButton()" data-toggle="modal"
+                        <button class="btn mr-2 btn-add" (click)="onAddArticleButton()" data-toggle="modal"
                             data-target="#saveOrUpdateModal">
                             <fa-icon [icon]="faPlus"></fa-icon>
                         </button>
@@ -64,18 +64,20 @@
                                 <th scope="row">Serial Number</th>
                                 <th scope="row">Location</th>
                                 <th scope="row">User Number</th>
-                                <th scope="row">Modify</th>
-                                <th scope="row">Delete</th>
+                                <th scope="row"></th>
+                                <th scope="row"></th>
+                                <th scope="row"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let token of showList">
-                                <td>{{token.identifier}}</td>
-                                <td>{{token.users}}</td>
-                                <td>{{token.brand}}</td>
-                                <td>{{token.model}}</td>
-                                <td>{{token.serialNumber}}</td>
-                                <td>{{token.location}}</td>
+                                <td class="identifier">{{token.identifier}}</td>
+                                <td class="users">{{token.users}}</td>
+                                <td class="brand">{{token.brand}}</td>
+                                <td class="model">{{token.model}}</td>
+                                <td class="serialNumber">{{token.serialNumber}}</td>
+                                <td class="location">{{token.location}}</td>
+                                <td class="userNumber">{{token.userNumber}}</td>
                                 <td>
                                     <button class="btn btn-table--modify" (click)="onUpdateButton(token)"
                                         data-toggle="modal" data-target="#saveOrUpdateModal">
@@ -84,7 +86,7 @@
                                 </td>
                                 <td>
                                     <button *ngIf="token.location.includes(Presso)" class="btn btn-table--move"
-                                        (click)="setProductToMove(desktop)" data-toggle="modal"
+                                        (click)="setProductToMove(token)" data-toggle="modal"
                                         data-target="#moveToWarehouseModal">
                                         Move to warehouse
                                     </button>
@@ -100,19 +102,18 @@
             </div>
         </div>
         <ng-template #emptyList>
-            <div class="container h-100 justify-content-center">
-                <div class="row h-100">
-                    <div id="emptyListMessage" class="col mt-5">
-                        No Token present in the warehouse, press
-                        <button class="btn mr-2" id="btn-add" data-toggle="modal" (click)="onAddArticleButton()"
-                            data-target="#saveOrUpdateModal">
-                            <fa-icon [icon]="faPlus"></fa-icon>
-                        </button> to add a new Token, or press the Eye button to the side, to show a list of Token with
-                        other location <button class="btn mr-2" id="btn-add" (click)="showAllList()">
-                            <fa-icon [icon]="faEyeSlash"></fa-icon>
-                        </button></div>
+            <div class="container">
+                <div class="row">
+                    <div id="emptyListMessage" class="col mt-5 mb-5">
+                        <span>No Token present in the warehouse, press </span>
+                        <button class="btn mr-2 btn-add" data-toggle="modal" (click)="onAddArticleButton()" data-target="#saveOrUpdateModal">
+							<fa-icon [icon]="faPlus"></fa-icon>
+						</button> to add a new Token <span *ngIf="listProduct?.length">, or press <button class="btn mr-2 btn-eye"
+                            (click)="showAllList()">
+                            <fa-icon [icon]="faEye"></fa-icon>
+                        </button> to show a list of Token with other locations </span>
+                    </div>
                 </div>
-
             </div>
         </ng-template>
     </div>
@@ -132,7 +133,7 @@
 
 <!--Modal eliminazione -->
 <div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <span class="modal-title">{{deleteMessage}}</span>
@@ -140,12 +141,33 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form (ngSubmit)="deleteProduct(productToDelete)" id="formLaptopDelete">
+            <form (ngSubmit)="deleteProduct(productToDelete)">
                 <div class="modal-body">
                     <textarea [(ngModel)]="note" name="note" id="note" class="form-control" placeholder="Insert a note..."></textarea>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-modal--delete">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Modal move to warehouse confirmation -->
+<div class="modal fade" id="moveToWarehouseModal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header" id="modal-header">
+                <span>Move the selected Article to warehouse?</span>
+            </div>
+            <form (ngSubmit)="moveToWarehouse()">
+                <div class="modal-body">
+                    <textarea [(ngModel)]="note" name="note" id="note" class="form-control" placeholder="Add notes:"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-modal--move">Move</button>
+                    <button type="button" class="btn btn-modal--close" data-dismiss="modal">Close</button>
                 </div>
             </form>
         </div>

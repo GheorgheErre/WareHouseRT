@@ -1,5 +1,5 @@
 <header class="header">
-    <nav class="navbar navbar-expand-lg navbar-home">
+    <nav class="navbar navbar-expand-lg navbar-home fixed-top">
         <div class="container-fluid d-flex flex-row">
             <div class="row w-100">
                 <div class="col-1">
@@ -24,7 +24,7 @@
 
                     <div class="col-6 mb-2 d-flex flex-row">
 
-                        <button class="btn mr-2" id="btn-add" (click)="onAddArticleButton()" data-toggle="modal" data-target="#saveOrUpdateModal">
+                        <button class="btn mr-2 btn-add" (click)="onAddArticleButton()" data-toggle="modal" data-target="#saveOrUpdateModal">
 							<fa-icon [icon]="faPlus"></fa-icon>
 						</button>
                         <select [(ngModel)]="filtered" class="custom-select" name="filter">
@@ -43,7 +43,7 @@
                     <div class="col-6 mb-2 d-flex flex-row">
                         <input class="form-control input-up--table" type="text" id="myInput" (keyup)="searchFunction()" placeholder="Search by filter...">
                         <div class="custom-control custom-switch d-flex align-items-end ml-2">
-                            <button class="btn mr-2" id="btn-add" (click)="showAllList()">
+                            <button class="btn mr-2 btn-eye" (click)="showAllList()">
 								<fa-icon *ngIf="isChecked" [icon]="faEyeSlash"></fa-icon>
 								<fa-icon *ngIf="!isChecked" [icon]="faEye"></fa-icon>                            </button>
                         </div>
@@ -64,8 +64,9 @@
                                 <th scope="row">User Number</th>
                                 <th scope="row">Watts</th>
                                 <th scope="row">Energy Rating</th>
-                                <th scope="row">Modify</th>
-                                <th scope="row">Delete</th>
+                                <th scope="row"></th>
+                                <th scope="row"></th>
+                                <th scope="row"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -104,13 +105,13 @@
             <div class="container">
                 <div class="row">
                     <div id="emptyListMessage" class="col mt-5 mb-5">
-                        <span>No powerSupplie present in the warehouse, press </span>
+                        <span>No Power Supplie present in the warehouse, press </span>
                         <button class="btn mr-2 btn-add" data-toggle="modal" (click)="onAddArticleButton()" data-target="#saveOrUpdateModal">
 							<fa-icon [icon]="faPlus"></fa-icon>
-						</button> to add a new powerSupplie <span *ngIf="listProduct?.length">, or press <button class="btn mr-2 btn-eye"
+						</button> to add a new Power Supplie <span *ngIf="listProduct?.length">, or press <button class="btn mr-2 btn-eye"
                             (click)="showAllList()">
                             <fa-icon [icon]="faEye"></fa-icon>
-                        </button> to show a list of powerSupplie with other location </span>
+                        </button> to show a list of Power Supplie with other location </span>
                     </div>
                 </div>
             </div>
@@ -122,8 +123,8 @@
 <div class="modal fade" id="saveOrUpdateModal" role="dialog">
     <div class="modal-dialog modal-dialog-centered">
 
-        <div class="modal-content" id="modal">
-            <div class="modal-body" id="modal-body">
+        <div class="modal-content">
+            <div class="modal-body">
                 <app-form-power-supplie (powerSupplieToEmit)="saveOrUpdate($event)"></app-form-power-supplie>
             </div>
         </div>
@@ -134,13 +135,15 @@
 <div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
+
             <div class="modal-header">
-                <span class="modal-title"> {{deleteMessage}} </span>
+                <span class="modal-title">{{deleteMessage}}</span>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
             </div>
-            <form (ngSubmit)="deleteProduct(productToDelete)" id="formLaptopDelete">
+
+            <form (ngSubmit)="deleteProduct(productToDelete)">
                 <div class="modal-body">
                     <textarea [(ngModel)]="note" name="note" id="note" class="form-control" placeholder="Insert a note..."></textarea>
                 </div>

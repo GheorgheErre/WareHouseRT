@@ -1,5 +1,5 @@
 <header class="header">
-    <nav class="navbar navbar-expand-lg navbar-home">
+    <nav class="navbar navbar-expand-lg navbar-home fixed-top">
         <div class="container-fluid d-flex flex-row">
             <div class="row w-100">
                 <div class="col-1">
@@ -12,7 +12,9 @@
                     <a class="btn navbar-btn mr-1 ml-2" href="HistoryWelcome">HISTORIC</a>
                     <a class="btn navbar-btn mr-1 ml-2" href="FormBolla">DDT</a>
                 </div>
-                <div class="col align-self-center"><logout></logout></div>
+                <div class="col align-self-center">
+                    <logout></logout>
+                </div>
             </div>
         </div>
     </nav>
@@ -66,8 +68,9 @@
                                 <th scope="row">Location</th>
                                 <th scope="row">User Number</th>
                                 <th scope="row">Capacity</th>
-                                <th scope="row">Modify</th>
-                                <th scope="row">Delete</th>
+                                <th scope="row"></th>
+                                <th scope="row"></th>
+                                <th scope="row"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -81,19 +84,19 @@
                                 <td class="userNumber">{{ssd.userNumber}}</td>
                                 <td class="capacity">{{ssd.capacity}}</td>
                                 <td>
-                                    <button class="btn btn-table--modify" (click)="onUpdateButton(desktop)"
+                                    <button class="btn btn-table--modify" (click)="onUpdateButton(ssd)"
                                         data-toggle="modal" data-target="#saveOrUpdateModal">
                                         Modify
                                     </button>
                                 </td>
                                 <td>
-                                    <button *ngIf="desktop.location.includes(Presso)" class="btn btn-table--move"
-                                        (click)="setProductToMove(desktop)" data-toggle="modal"
+                                    <button *ngIf="ssd.location.includes(Presso)" class="btn btn-table--move"
+                                        (click)="setProductToMove(ssd)" data-toggle="modal"
                                         data-target="#moveToWarehouseModal">
                                         Move to warehouse
                                     </button>
                                 </td>
-                                <td><button (click)="setProductToDelete(desktop)" class="btn btn-table--delete"
+                                <td><button (click)="setProductToDelete(ssd)" class="btn btn-table--delete"
                                         data-toggle="modal" data-target="#deleteArticleModal">
                                         Delete
                                     </button>
@@ -126,12 +129,7 @@
 
 <div class="modal fade" id="saveOrUpdateModal" role="dialog">
     <div class="modal-dialog modal-dialog-centered">
-
         <div class="modal-content" id="modal">
-
-            <div class="modal-header" id="modal-header">
-                <h3 class="modal-title">Add a new article:</h3>
-            </div>
 
             <div class="modal-body" id="modal-body">
                 <app-form-ssd (ssdToEmit)="saveOrUpdate($event)"></app-form-ssd>
@@ -145,23 +143,22 @@
 <div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
+
             <div class="modal-header">
                 <span class="modal-title">{{deleteMessage}}</span>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form (ngSubmit)="deleteProduct(productToDelete)" id="formLaptopDelete">
-                <div class="modal-body">
 
+            <form (ngSubmit)="deleteProduct(productToDelete)">
+                <div class="modal-body">
                     <textarea [(ngModel)]="note" name="note" id="note" class="form-control"
                         placeholder="Insert a note..."></textarea>
-                    <button class="btn mr-2 float-left btn btn-danger">Delete</button>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-modal--delete">Delete</button>
                 </div>
-
             </form>
 
         </div>

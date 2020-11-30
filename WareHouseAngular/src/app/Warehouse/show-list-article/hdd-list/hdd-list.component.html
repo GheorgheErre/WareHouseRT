@@ -18,11 +18,10 @@
     </nav>
 </header>
 <main class="main">
-    <div class="container container-fluid">
+    <div class="container-fluid">
         <div *ngIf="showList?.length; else emptyList" class="row h-100 d-flex flex-column flex-wrap">
             <div class="col mt-5">
                 <div class="row h-100 align-items-end">
-
                     <div class="col-6 mb-2 d-flex flex-row">
 
                         <button class="btn mr-2 btn-add" (click)="onAddArticleButton()" data-toggle="modal"
@@ -127,9 +126,9 @@
 <!-- Modal -->
 <div class="modal fade" id="saveOrUpdateModal" role="dialog">
     <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
 
-        <div class="modal-content" id="modal">
-            <div class="modal-body" id="modal-body">
+            <div class="modal-body">
                 <app-form-hdd (hddToEmit)="saveOrUpdate($event)"></app-form-hdd>
             </div>
         </div>
@@ -140,13 +139,15 @@
 <div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
+
             <div class="modal-header">
                 <span class="modal-title">{{deleteMessage}} </span>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form (ngSubmit)="deleteProduct(productToDelete)" id="formLaptopDelete">
+
+            <form (ngSubmit)="deleteProduct(productToDelete)">
                 <div class="modal-body">
                     <textarea [(ngModel)]="note" name="note" id="note" class="form-control"
                         placeholder="Insert a note..."></textarea>

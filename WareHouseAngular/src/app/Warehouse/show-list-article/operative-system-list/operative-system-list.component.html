@@ -85,7 +85,7 @@
                                     </button>
                                 </td>
                                 <td>
-                                    <button *ngIf="keyboard.location.includes(Presso)" class="btn btn-table--move"
+                                    <button *ngIf="operativeSystem.location.includes(Presso)" class="btn btn-table--move"
                                         (click)="setProductToMove(operativeSystem)" data-toggle="modal"
                                         data-target="#moveToWarehouseModal">
                                         Move to warehouse
@@ -124,8 +124,8 @@
 
 <div class="modal fade" id="saveOrUpdateModal" role="dialog">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" id="modal">
-            <div class="modal-body" id="modal-body">
+        <div class="modal-content">
+            <div class="modal-body">
                 <app-form-operative-system (operativeSystemToEmit)="saveOrUpdate($event)"></app-form-operative-system>
             </div>
         </div>

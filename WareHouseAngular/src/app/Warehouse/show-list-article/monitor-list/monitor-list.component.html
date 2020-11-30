@@ -18,7 +18,7 @@
     </nav>
 </header>
 <main class="main">
-    <div class="container container-fluid">
+    <div class="container-fluid">
         <div *ngIf="showList?.length; else emptyList" class="row h-100 d-flex flex-column flex-wrap">
             <div class="col mt-5">
                 <div class="row h-100 align-items-end">
@@ -47,7 +47,7 @@
                         <input class="form-control input-up--table" type="text" id="myInput" (keyup)="searchFunction()"
                             placeholder="Search by filter...">
                         <div class="custom-control custom-switch d-flex align-items-end ml-2">
-                            <button class="btn mr-2" id="btn-add" (click)="showAllList()">
+                            <button class="btn mr-2 btn-eye" (click)="showAllList()">
                                 <fa-icon *ngIf="isChecked" [icon]="faEyeSlash"></fa-icon>
                                 <fa-icon *ngIf="!isChecked" [icon]="faEye"></fa-icon>
                             </button>
@@ -134,10 +134,9 @@
 <!-- Modal -->
 <div class="modal fade" id="saveOrUpdateModal" role="dialog">
     <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
 
-
-        <div class="modal-content" id="modal">
-            <div class="modal-body" id="modal-body">
+            <div class="modal-body">
                 <app-form-monitor (monitorToEmit)="saveOrUpdate($event)"></app-form-monitor>
             </div>
         </div>
@@ -154,18 +153,14 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form (ngSubmit)="deleteProduct(productToDelete)" id="formLaptopDelete">
+            <form (ngSubmit)="deleteProduct(productToDelete)">
                 <div class="modal-body">
-
                     <textarea [(ngModel)]="note" name="note" id="note" class="form-control"
                         placeholder="Insert a note..."></textarea>
-
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-modal--delete">Delete</button>
                 </div>
-
-
             </form>
         </div>
     </div>

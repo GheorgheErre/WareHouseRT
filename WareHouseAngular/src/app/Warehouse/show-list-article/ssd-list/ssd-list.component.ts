@@ -30,5 +30,6 @@ export class SsdListComponent extends ProductList implements OnInit {
 
   onAddArticleButton() {
     this.entity = new Ssd();
+    this.formSsdComponent.setSsd(this.entity);
   }
 }

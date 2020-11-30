@@ -1,5 +1,5 @@
 <header class="header">
-    <nav class="navbar navbar-expand-lg navbar-home">
+    <nav class="navbar navbar-expand-lg navbar-home fixed-top">
         <div class="container-fluid d-flex flex-row">
             <div class="row w-100">
                 <div class="col-1">
@@ -22,10 +22,9 @@
         <div *ngIf="showList?.length; else emptyList" class="row h-100 d-flex flex-column flex-wrap">
             <div class="col mt-5">
                 <div class="row h-100 align-items-end">
-
                     <div class="col-6 mb-2 d-flex flex-row">
 
-                        <button class="btn mr-2" id="btn-add" (click)="onAddArticleButton()" data-toggle="modal"
+                        <button class="btn mr-2 btn-add" (click)="onAddArticleButton()" data-toggle="modal"
                             data-target="#saveOrUpdateModal">
                             <fa-icon [icon]="faPlus"></fa-icon>
                         </button>
@@ -45,7 +44,7 @@
                         <input class="form-control input-up--table" type="text" id="myInput" (keyup)="searchFunction()"
                             placeholder="Search by filter...">
                         <div class="custom-control custom-switch d-flex align-items-end ml-2">
-                            <button class="btn mr-2" id="btn-add" (click)="showAllList()">
+                            <button class="btn mr-2 btn-eye" (click)="showAllList()">
                                 <fa-icon *ngIf="isChecked" [icon]="faEyeSlash"></fa-icon>
                                 <fa-icon *ngIf="!isChecked" [icon]="faEye"></fa-icon>
                             </button>
@@ -66,8 +65,9 @@
                                 <th scope="row">Location</th>
                                 <th scope="row">User Number</th>
                                 <th scope="row">Product Key</th>
-                                <th scope="row">Modify</th>
-                                <th scope="row">Delete</th>
+                                <th scope="row"></th>
+                                <th scope="row"></th>
+                                <th scope="row"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -88,7 +88,7 @@
                                     </button>
                                 </td>
                                 <td>
-                                    <button *ngIf="desktop.location.includes(Presso)" class="btn btn-table--move"
+                                    <button *ngIf="software.location.includes(Presso)" class="btn btn-table--move"
                                         (click)="setProductToMove(software)" data-toggle="modal"
                                         data-target="#moveToWarehouseModal">
                                         Move to warehouse
@@ -127,8 +127,8 @@
 
 <div class="modal fade" id="saveOrUpdateModal" role="dialog">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" id="modal">
-            <div class="modal-body" id="modal-body">
+        <div class="modal-content">
+            <div class="modal-body">
                 <app-form-software (softwareToEmit)="saveOrUpdate($event)"></app-form-software>
             </div>
         </div>
@@ -145,7 +145,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form (ngSubmit)="deleteProduct(productToDelete)" id="formLaptopDelete">
+            <form (ngSubmit)="deleteProduct(productToDelete)">
                 <div class="modal-body">
                     <textarea [(ngModel)]="note" name="note" id="note" class="form-control" placeholder="Insert a note..."></textarea>
                 </div>
