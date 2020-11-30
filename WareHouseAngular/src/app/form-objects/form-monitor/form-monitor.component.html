@@ -7,7 +7,7 @@
         </div>
         <div class="form-group mb-2">
             <input required [(ngModel)]="monitorTemp.brand" name="brand" class="form-control" placeholder="Brand:" #brand="ngModel">
-            <div *ngIf="brand.invalid &&(brand.dirty || brand.touched)" class="alert alert-danger mt-2" role="alert">
+            <div *ngIf="brand.invalid" class="alert alert-danger mt-2" role="alert">
                 <div *ngIf="brand.errors.required">
                     Brand is required.
                 </div>
@@ -18,7 +18,7 @@
         </div>
         <div class="form-group mb-2">
             <input required [(ngModel)]="monitorTemp.serialNumber" name="serialNumber" class="form-control" placeholder="Serial number:" #serialNumber="ngModel">
-            <div *ngIf="serialNumber.invalid &&(serialNumber.dirty || serialNumber.touched)" class="alert alert-danger  mt-2" role="alert">
+            <div *ngIf="serialNumber.invalid" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="serialNumber.errors.required">
                     Serial Number is required.
                 </div>
@@ -29,7 +29,7 @@
         </div>
         <div class="form-group mb-2">
             <input pattern="^[0-9]*$" [(ngModel)]="monitorTemp.inches" name="inches" class="form-control" placeholder="Inches:" #inches="ngModel">
-            <div *ngIf="inches.invalid &&(inches.dirty || inches.touched)" class="alert alert-danger  mt-2" role="alert">
+            <div *ngIf="inches.invalid" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="inches.errors.pattern">
                     Only integer Number are allowed.
                 </div>
@@ -37,7 +37,7 @@
         </div>
         <div class="form-group mb-2">
             <input [(ngModel)]="monitorTemp.frequence" name="frequence" class="form-control" placeholder="Frequence:" #frequence="ngModel">
-            <div *ngIf="frequence.invalid &&(frequence.dirty || frequence.touched)" class="alert alert-danger  mt-2" role="alert">
+            <div *ngIf="frequence.invalid" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="frequence.errors.pattern">
                     Only integer Number are allowed.
                 </div>
@@ -45,7 +45,7 @@
         </div>
         <div class="form-group mb-2">
             <input [(ngModel)]="monitorTemp.resolution" name="resolution" class="form-control" placeholder="Resolution:" #resolution="ngModel">
-            <div *ngIf="resolution.invalid &&(resolution.dirty || resolution.touched)" class="alert alert-danger  mt-2" role="alert">
+            <div *ngIf="resolution.invalid" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="resolution.errors.pattern">
                     Only integer Number are allowed.
                 </div>

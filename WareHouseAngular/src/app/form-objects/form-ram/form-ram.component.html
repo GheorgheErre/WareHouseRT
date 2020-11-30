@@ -7,7 +7,7 @@
         </div>
         <div class="form-group mb-2">
             <input required [(ngModel)]="ramTemp.brand" name="brand" class="form-control" placeholder="Brand:" #brand="ngModel">
-            <div *ngIf="brand.invalid &&(brand.dirty || brand.touched)" class="alert alert-danger mt-2" role="alert">
+            <div *ngIf="brand.invalid" class="alert alert-danger mt-2" role="alert">
                 <div *ngIf="brand.errors.required">
                     Brand is required.
                 </div>
@@ -19,7 +19,7 @@
         </div>
         <div class="form-group mb-2">
             <input required [(ngModel)]="ramTemp.serialNumber" name="serialNumber" class="form-control" placeholder="Serial number:" #serialNumber="ngModel">
-            <div *ngIf="serialNumber.invalid &&(serialNumber.dirty || serialNumber.touched)" class="alert alert-danger  mt-2" role="alert">
+            <div *ngIf="serialNumber.invalid" class="alert alert-danger  mt-2" role="alert">
                 <div *ngIf="serialNumber.errors.required">
                     Serial Number is required.
                 </div>
