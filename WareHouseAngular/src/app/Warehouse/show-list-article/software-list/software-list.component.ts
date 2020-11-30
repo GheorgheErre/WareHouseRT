@@ -32,5 +32,6 @@ export class SoftwareListComponent extends ProductList implements OnInit {
 
   onAddArticleButton() {
     this.entity = new Software();
+    this.formSoftwareComponent.setSoftware(this.entity);
   }
 }

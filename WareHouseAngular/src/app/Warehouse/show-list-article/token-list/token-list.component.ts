@@ -31,5 +31,7 @@ export class TokenListComponent extends ProductList implements OnInit {
 
   onAddArticleButton() {
     this.entity = new Token();
+    this.formTokenComponent.setToken(this.entity);
+
   }
 }

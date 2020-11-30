@@ -30,5 +30,6 @@ export class HddListComponent extends ProductList implements OnInit {
 
   onAddArticleButton() {
     this.entity = new Hdd();
+    this.formHdd.setHdd(this.entity);
   }
 }

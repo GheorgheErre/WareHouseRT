@@ -30,5 +30,6 @@ export class RamListComponent extends ProductList implements OnInit {
 
   onAddArticleButton() {
     this.entity = new Ram();
+    this.formRamComponent.setRam(this.entity);
   }
 }

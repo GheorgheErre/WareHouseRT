@@ -30,5 +30,6 @@ export class KeyboardListComponent extends ProductList implements OnInit {
 
   onAddArticleButton() {
     this.entity = new Keyboard();
+    this.formKeyboard.setKeyboard(this.entity);
   }
 }
