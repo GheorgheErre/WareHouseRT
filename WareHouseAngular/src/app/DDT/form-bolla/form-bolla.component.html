@@ -1,15 +1,16 @@
 <header class="header">
-    <nav class="navbar navbar-expand-lg navbar-home fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-home">
         <div class="container-fluid d-flex flex-row">
             <div class="row w-100">
                 <div class="col-1">
                     <a class="navbar-brand" href="WelcomeMenu"> <img class="navbar-img" src="../../assets/img/Logo Erre.png"></a>
                 </div>
-                <div class="col align-self-center text-left">
+                <div class="col-auto align-self-center text-left">
                     <a class="btn navbar-btn mr-1 ml-2" href="WelcomeMenu">HOME</a>
                     <a class="btn navbar-btn mr-1 ml-2" href="WorkstationWelcome">WORKSTATION</a>
                     <a class="btn navbar-btn mr-1 ml-2" href="WarehouseHomeList">WAREHOUSE</a>
                     <a class="btn navbar-btn mr-1 ml-2" href="HistoryWelcome">HISTORIC</a>
+                    <button (click)="creaBolla()" class="btn btn-crea--bolla">Scarica bolla di trasporto</button>
                 </div>
                 <div class="col align-self-center"> <logout></logout></div>
             </div>
@@ -21,7 +22,6 @@
         <div class="row h-100">
             <div class="col mt-5">
                 <form>
-                    <button (click)="creaBolla()" class="btn btn-crea--bolla mt-3 float-right">Scarica bolla di trasporto</button>
                     <h2 class="mb-3">Destinatario</h2>
                     <div class="form-row">
                         <div class="col">
@@ -45,15 +45,15 @@
                                 <input [(ngModel)]="address.via" type="text" name="via" class="form-control  input--form">
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-3">
                             <div class="form-group">
                                 <label for="comune">Comune:</label>
                                 <input [(ngModel)]="address.comune" type="text" name="comune" class="form-control input--form">
                             </div>
                         </div>
-                        <div class="col-1">
+                        <div class="col-2">
                             <div class="form-group">
-                                <label for="provincia">Provincia:</label>
+                                <label for="provincia">Provincia: </label>
                                 <input [(ngModel)]="address.provincia" type="text" name="provincia" class="form-control input--form">
                             </div>
                         </div>
@@ -175,8 +175,8 @@
                                             <td class="serialNumber">{{product.serialNumber}}</td>
                                             <td class="location">{{product.location}}</td>
                                             <td class="userNumber">{{product.userNumber}}</td>
-                                            <td><button (click)="setDetailsProductInModal(product)" data-toggle="modal" data-target="#productDetailsModal">DETAILS</button> </td>
-                                            <td><button (click)="addProductToBolla(product)">ADD</button></td>
+                                            <td><button class="btn" (click)="setDetailsProductInModal(product)" data-toggle="modal" data-target="#productDetailsModal">DETAILS</button> </td>
+                                            <td><button class="btn" (click)="addProductToBolla(product)">ADD</button></td>
                                         </tr>
                                     </tbody>
                                 </table>

@@ -1,19 +1,14 @@
 @font-face {
-    font-family: Oswald;
-    src: url("../../../assets/fonts/Poppins-Regular.ttf");
+    font-family: Poppins;
+    src: url("../../../assets/fonts/Poppins-Light.ttf");
 }
 
 * {
     font-family: "Poppins", sans-serif;
 }
 
-main {
-    margin-top: 100px;
-    background-color: whitesmoke;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
+.header{
+    height: 10%;
 }
 
 .navbar-img {
