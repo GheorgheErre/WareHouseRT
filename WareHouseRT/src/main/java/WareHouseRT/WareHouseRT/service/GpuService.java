@@ -33,7 +33,7 @@ public class GpuService {
 	public GPU save(GPU gpu, String note) {
 		String tipoAzione = "Aggiunta Prodotto";
 		gpu.setId(sequenceService.getNextSequence(GPU.SEQUENCE_NAME));
-		createIdentifier.createIdentifier("GPU");
+		gpu.setIdentifier(createIdentifier.createIdentifier("GPU"));
 		GPU g = repo.save(gpu);
 		movementsService.save(g, note, tipoAzione);
 		
