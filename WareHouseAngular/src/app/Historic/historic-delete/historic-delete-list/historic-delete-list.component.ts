@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faPlus, faPen, faEraser } from '@fortawesome/free-solid-svg-icons';
+import { Product } from 'src/app/pcObjects/product/product';
 import { HistoricDeleteService } from 'src/app/service/historic-delete-service/historic-delete.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class HistoricDeleteListComponent implements OnInit {
   faPlus = faPlus;
 
   historicList: any;
-  selectedNote; String;
+  selectedNote: String;
   selectedProduct;
   filtered: String;
 
