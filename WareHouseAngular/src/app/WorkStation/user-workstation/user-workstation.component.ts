@@ -152,17 +152,24 @@ export class UserWorkstationComponent implements OnInit {
 
   // add a new article from outside
   addArticleFromOutside(article, articleType) {
+
+    let btn = <HTMLInputElement> document.getElementById("btnSave");
+    btn.disabled = true;
+
     this.chooseService(articleType);
     this.entity = article.product;
     this.note = article.note;
     this.entity.location = "workstation" + " " +  this.workstation.office + " " + this.workstation.numero;
     this.entity = this.addType(this.entity);
 
+    document.getElementById('addArticleFromOutsideModal').click();
+
     this.service.saveOrUpdate(this.entity, this.note).subscribe(result => {
       console.log("ARTICLE CARICATO CON SUCCESSO");
       this.workstation.articles.push(result);
       this.updateWorkstation();
     }); 
+    btn.disabled = false;
   }
 
   prepareForm(articleType) {
