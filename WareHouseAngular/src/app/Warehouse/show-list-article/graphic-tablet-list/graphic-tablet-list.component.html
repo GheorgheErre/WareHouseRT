@@ -84,16 +84,16 @@
                                 <td class="width">{{graphicTablet.width}}</td>
                                 <td class="length">{{graphicTablet.length}}</td>
                                 <td>
-                                    <button class="btn btn-table--modify" (click)="onUpdateButton(graphic-tablet)" data-toggle="modal" data-target="#saveOrUpdateModal">
+                                    <button class="btn btn-table--modify" (click)="onUpdateButton(graphicTablet)" data-toggle="modal" data-target="#saveOrUpdateModal">
                                      Modify
                                     </button>
                                 </td>
                                 <td>
-                                    <button *ngIf="graphic-tablet.location.includes(Presso)" class="btn btn-table--move" (click)="setProductToMove(graphic-tablet)" data-toggle="modal" data-target="#moveToWarehouseModal">
+                                    <button *ngIf="graphicTablet.location.includes(Presso)" class="btn btn-table--move" (click)="setProductToMove(graphic-tablet)" data-toggle="modal" data-target="#moveToWarehouseModal">
                                         Move to warehouse
                                        </button>
                                 </td>
-                                <td><button (click)="setProductToDelete(graphic-tablet)" class="btn btn-table--delete" data-toggle="modal" data-target="#deleteArticleModal">
+                                <td><button (click)="setProductToDelete(graphicTablet)" class="btn btn-table--delete" data-toggle="modal" data-target="#deleteArticleModal">
 										Delete
                                     </button>
                                 </td>
