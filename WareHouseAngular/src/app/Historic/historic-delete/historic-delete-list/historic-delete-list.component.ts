@@ -28,6 +28,7 @@ export class HistoricDeleteListComponent implements OnInit {
 
   findAllProduct(): void {
     this.historicDeleteService.findAll().subscribe(list => {
+      list.reverse();
       this.historicList = list;
     })
   }

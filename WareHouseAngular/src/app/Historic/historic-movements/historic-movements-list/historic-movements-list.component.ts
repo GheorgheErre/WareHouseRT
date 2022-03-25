@@ -27,6 +27,7 @@ export class HistoricMovementsListComponent implements OnInit {
 
   findAllProduct(): void {
     this.historicMovementsService.findAll().subscribe(list => {
+      list.reverse();
       this.historicList = list;
     })
   }
